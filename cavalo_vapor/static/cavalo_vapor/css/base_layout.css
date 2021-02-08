@@ -3,6 +3,12 @@
     padding: 0px;
 }
 
+a{
+    text-decoration: none;
+    color: blue;
+    /* Alterar isso */
+}
+
 ul{
     list-style: none;
     display: inline;
@@ -22,4 +28,19 @@ ul li a{
     background-color: darkslategray;
     height: 100px;
     width: 100%;
+    display: flex;
+    justify-content: space-between;
+} 
+
+#esquerda{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    /* border: blueviolet solid 3px; */
+}
+
+#direita{
+    display: flex;
+    align-items: center;
+    /* border: red solid 3px; */
 }

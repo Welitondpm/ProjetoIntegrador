@@ -1,0 +1,26 @@
+{% extends "cavalo_vapor/base_layout.html" %}
+{% block style %}
+  <link rel="stylesheet" href="cavalo_vapor/css/login.css">
+{% endblock %}
+{% block script %}{% endblock %}
+{% block title %} Cavalo-Vapor Fretes | Login {% endblock %}
+{% block conteudo %}
+
+  <center>
+    <h1>Login</h1>
+    <br>
+    <form action="###">
+      <input type="text" name="login_email" id="input_login_email" placeholder="Digite seu Login ou Email!" required>
+      <br><br>
+      <input type="password" name="password" id="input_password" placeholder="Digite seu senha!" required>
+      <button disabled="disabled"><img src="###" alt="Toggle mostrar/esconder senha"></button>
+      <br>
+      <span><a href="###">Esqueceu a senha?</a></span>
+      <br>
+      <button type="submit">Logar</button>
+    </form>
+    <br><br>
+    <span>Não tem cadastro ainda? <a href="cadastro">clique aqui!</a></span>
+  </center>
+
+{% endblock %}
