@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  {% load static %}
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{% static 'cavalo_vapor/css/base_layout.css' %}">
+  {% block style %}{% endblock%}
+  <title>{% block title %}Cavalo-Vapor Fretes{% endblock %}</title>
+</head>
+<body>
+  <nav class="navbar">
+    <div class="esquerda">
+      <img src="{% static 'cavalo_vapor/img/logo.png' %}" alt="Logo" width="100px" height="50px">
+      <h1>Cavalo-Vapor Fretes</h1>
+    </div>
+    <div class="direita">
+      <ul>
+        <li><a href="index">Home</a></li>
+        <li><a href="dashboard">Dashboard</a></li>
+        <li><a href="chat">Chat</a></li>
+        <li><a href="fretes">Fretes</a></li>
+        <li><a href="perfil">Perfil</a></li>
+        <li><a href="registro">Registro</a></li>
+        <li><a href="login">Login</a></li>
+        <li><a href="suporte">Suporte</a></li>
+        <li><a href="logout">Logout</a></li>
+      </ul>
+    </div>
+  </nav>
+  {% block conteudo %}{% endblock %}
+  {% block scripts %}{% endblock %}
+</body>
+</html>

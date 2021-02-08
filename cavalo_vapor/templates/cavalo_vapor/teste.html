@@ -1,18 +1,15 @@
 {% extends "cavalo_vapor/base_layout.html" %}
-{% block style %}
-  <link rel="stylesheet" href="cavalo_vapor/css/index.css">
-{% endblock %}
-{% block script %}
-  <script src="cavalo_vapor/js/index.js"></script>
-{% endblock %}
 {% block title %} Comissão {% endblock %}
 {% block conteudo %}
-  
   <main>
     <input type="text" placeholder="Nome" required >
     <button onclick="location.href='teste'">On click funciona? Se sim vai para /teste</button>
 
     <button onclick="teste()">Testando o javascript</button>
   </main>
-
 {% endblock %}
+
+  <!-- <link rel="stylesheet" type="text/css" href=" {% static 'cavalo_vapor/index.css' %}">
+    <main>
+    funciona! Mas deve configurar o urls.py e views.py
+  </main> -->

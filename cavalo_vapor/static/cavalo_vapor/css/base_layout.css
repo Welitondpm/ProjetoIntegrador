@@ -1,0 +1,25 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+ul{
+    list-style: none;
+    display: inline;
+}
+
+ul li{
+    display: inline;
+    margin-right: 10px;
+}
+
+ul li a{
+    text-decoration: none;
+    color: orangered;
+}
+
+.navbar{
+    background-color: darkslategray;
+    height: 100px;
+    width: 100%;
+}
