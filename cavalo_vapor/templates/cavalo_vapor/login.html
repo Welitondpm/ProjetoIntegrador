@@ -1,6 +1,7 @@
 {% extends "cavalo_vapor/base_layout.html" %}
 {% block style %}
-  <link rel="stylesheet" href="cavalo_vapor/css/login.css">
+  {% load static %}
+  <link rel="stylesheet" type="text/css" href="{% static 'cavalo_vapor/css/login.css' %}">
 {% endblock %}
 {% block script %}{% endblock %}
 {% block title %} Cavalo-Vapor Fretes | Login {% endblock %}
@@ -15,7 +16,7 @@
       <input type="password" name="password" id="input_password" placeholder="Digite seu senha!" required>
       <button disabled="disabled"><img src="###" alt="Toggle mostrar/esconder senha"></button>
       <br>
-      <span><a href="###">Esqueceu a senha?</a></span>
+      <span><a href="">Esqueceu a senha?</a></span>
       <br>
       <button type="submit">Logar</button>
     </form>

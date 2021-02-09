@@ -1,7 +1,23 @@
 {% extends "cavalo_vapor/base_layout.html" %}
 {% block style %}
-  <link rel="stylesheet" href="cavalo_vapor/css/suporte.css">
+  {% load static %}
+  <link rel="stylesheet" type="text/css" href="{% static 'cavalo_vapor/css/suporte.css' %}">
 {% endblock %}
 {% block script %}{% endblock %}
 {% block title %} Cavalo-Vapor Fretes | Suporte {% endblock %}
-{% block conteudo %}{% endblock %}
+{% block conteudo %}
+
+<div>
+  Páginas de suporte:
+</div>
+<div> <!-- style="display: flex; flex-direction: column;" -->
+  <select name="Assunto" id="assunto_suporte">Assunto
+    <option value="csc">Crítica/Sugestão/Comentário</option>
+    <option value="bug">Relatar um bug</option>
+    <option value="fin">Falar com o setor financeiro</option>
+    <option value="dig">Outro</option>
+  </select>
+  <input type="text" name="assunto_digitavel" id="assunto_digitavel" placeholder="Qual?" />
+  <input type="text" name="mensagem" id="mensagem" placeholder="Mensagem" />
+</div>
+{% endblock %}

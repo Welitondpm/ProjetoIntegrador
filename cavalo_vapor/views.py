@@ -7,23 +7,29 @@ from django.template import loader
 def index(request):
     return render(request, 'cavalo_vapor/index.html')
 
-def dashboard(request):
-    return render(request, 'cavalo_vapor/dashboard.html')
+def cadastro(request):
+    return render(request, 'cavalo_vapor/cadastro.html')
+
+def chat_individual(request, id_sala):
+    return render(request, 'cavalo_vapor/chat_individual.html')
 
 def chat(request):
     return render(request, 'cavalo_vapor/chat.html')
 
+def frete_individual(request, id_frete):
+    return render(request, 'cavalo_vapor/frete_individual.html')
+
 def fretes(request):
     return render(request, 'cavalo_vapor/fretes.html')
-
-def perfils(request):
-    return render(request, 'cavalo_vapor/perfils.html')
 
 def login(request):
     return render(request, 'cavalo_vapor/login.html')
 
-def cadastro(request):
-    return render(request, 'cavalo_vapor/cadastro.html')
+def perfil_individual(request, id_perfil):
+    return render(request, 'cavalo_vapor/perfil_individual.html')
+
+def perfis(request):
+    return render(request, 'cavalo_vapor/perfis.html')
 
 def suporte(request):
     return render(request, 'cavalo_vapor/suporte.html')

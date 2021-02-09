@@ -1,0 +1,24 @@
+.abas{
+    width: 100%;
+    height: 30px;
+    padding: 3px;
+    border: blueviolet solid 2px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.abas div{
+    border-radius: 5px;
+    width: 30%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(37, 95, 255, 0.7);
+}
+
+.abas div:hover{
+    background-color: rgba(37, 95, 255, 1);
+}

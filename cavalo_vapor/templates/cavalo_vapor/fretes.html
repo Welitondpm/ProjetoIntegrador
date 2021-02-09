@@ -1,7 +1,26 @@
 {% extends "cavalo_vapor/base_layout.html" %}
 {% block style %}
-  <link rel="stylesheet" href="cavalo_vapor/css/fretes.css">
+  {% load static %}
+  <link rel="stylesheet" type="text/css" href="{% static 'cavalo_vapor/css/fretes.css' %}">
 {% endblock %}
 {% block script %}{% endblock %}
 {% block title %} Cavalo-Vapor Fretes | Fretes {% endblock %}
-{% block conteudo %}{% endblock %}
+{% block conteudo %}
+
+<div class="abas">
+  <div class="aba1">
+    <h4>Procurar fretes</h4>
+  </div>
+  <div class="aba2">
+    <h4>Seus fretes</h4>
+  </div>
+</div>
+
+<div class="procurar_fretes">
+  <h5>Procurar Fretes</h5>
+  <div class="superior">
+    <input type="text" name="" id="">
+  </div>
+</div>
+
+{% endblock %}

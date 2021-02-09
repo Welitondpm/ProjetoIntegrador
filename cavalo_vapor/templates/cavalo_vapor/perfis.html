@@ -1,0 +1,50 @@
+{% extends "cavalo_vapor/base_layout.html" %}
+{% block style %}
+  {% load static %}
+  <link rel="stylesheet" type="text/css" href="{% static 'cavalo_vapor/css/perfis.css' %}">
+{% endblock %}
+{% block script %}{% endblock %}
+{% block title %} Cavalo-Vapor Fretes | Perfis {% endblock %}
+{% block conteudo %}
+  <input type="text" name="pesquisa" id="pesquisa_perfis" placeholder="Buscar perfis" />
+  <button>🔎</button>
+  <div>Filtros
+    <select name="estado" id="estado_filtro">
+      <option value="">Estado</option>
+      <option value="AC">Acre</option>
+      <option value="AM">Amapá</option>
+    </select>
+    <select name="cidade" id="cidade_filtro">
+      <option value="">Cidade</option>
+      <option value="araquari">Araquari</option>
+      <option value="joinville">Joinville</option>
+    </select>
+    <input type="checkbox" name="pessoa_fisica_filtro" id="pessoa_fisica_filtro">Pessoa Física
+    <input type="checkbox" name="pessoa_juridica_filtro" id="pessoa_juridica_filtro">Pessoa Jurídica
+    <input type="checkbox" name="presta_frete_filtro" id="presta_frete_filtro">Caminhoneiro ou transportadora?
+    <select name="tipo_de_carreta_filtro" id="tipo_de_carreta_filtro">
+      <option value="">Tipo de Carreta</option>
+      <option value="gran">Graneleiro</option>
+      <option value="cont">Container</option>
+    </select>
+  </div>
+  <div>Ordenar por
+    <select name="ordenar_por" id="ordenar_por">
+      <option value="alfa">Ordem Alfabética</option>
+      <option value="rating">Rating</option>
+      <option value="func">Quantidade de funcionários</option>
+      <option value="fili">Quantidade de filiais</option>
+    </select>
+  </div>
+  <ul>
+    <li>Perfil 1
+      <button>Ver Mais</button>
+    </li>
+    <li>Perfil 2
+      <button>Ver Mais</button>
+    </li>
+    <li>Perfil 3
+      <button>Ver Mais</button>
+    </li>
+  </ul>
+{% endblock %}

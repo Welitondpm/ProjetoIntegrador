@@ -1,6 +1,7 @@
 {% extends "cavalo_vapor/base_layout.html" %}
 {% block style %}
-  <!-- <link rel="stylesheet" href="cavalo_vapor/css/index.css"> -->
+  {% load static %}
+  <link rel="stylesheet" type="text/css" href="{% static 'cavalo_vapor/css/index.css' %}">
 {% endblock %}
 {% block script %}
   <script src="cavalo_vapor/js/index.js"></script>
@@ -10,7 +11,7 @@
   <center>
     <br><br>
     <p>
-      Iniciado Finalmente no dia 7 de fevereiro de 2021, por três alunos cursando
+      Iniciado finalmente no dia 7 de fevereiro de 2021, por três alunos cursando
       o segundo ano ensino médio técnico no Institudo Federal Catarinense Campus Araquari.
     </p>
     <br>

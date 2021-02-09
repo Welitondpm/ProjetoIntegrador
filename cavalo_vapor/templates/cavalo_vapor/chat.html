@@ -1,7 +1,56 @@
 {% extends "cavalo_vapor/base_layout.html" %}
 {% block style %}
-  <link rel="stylesheet" href="cavalo_vapor/css/chat.css">
+  {% load static %}
+  <link rel="stylesheet" type="text/css" href="{% static 'cavalo_vapor/css/chat.css' %}">
 {% endblock %}
 {% block script %}{% endblock %}
 {% block title %} Cavalo-Vapor Fretes | Chat {% endblock %}
-{% block conteudo %}{% endblock %}
+{% block conteudo %}
+
+<div>
+  Procurar salas
+  <input type="text" name="pesquisa" id="pesquisa_chats" placeholder="Buscar chats" />
+  <button>🔎</button>
+  <div>Filtros
+    <input type="checkbox" name="convite" id="convite">Incluir salas por convite
+  </div>
+  <div>Ordenar por
+    <select name="ordenar_por" id="ordenar_por">
+      <option value="quant">Quantidade de participantes</option>
+      <option value="alfa">Ordem Alfabética</option>
+      <option value="data">Data de criação</option>
+    </select>
+  </div>
+  <ul>
+    <li>
+      chat1
+    </li>
+  </ul>
+</div>
+<div>
+  Chats que participo
+  <input type="text" name="pesquisa" id="pesquisa_chats" placeholder="Buscar chats" />
+  <button>🔎</button>
+  <div>Ordenar por
+    <select name="ordenar_por" id="ordenar_por">
+      <option value="quant">Quantidade de participantes</option>
+      <option value="alfa">Ordem Alfabética</option>
+      <option value="data">Data de criação</option>
+    </select>
+  </div>
+  <ul>
+    <li>
+      chat2
+      <button>☰</button>
+    </li>
+  </ul>
+</div>
+<div>
+  Duvidas frequantes
+  <ul>
+    <li>
+      chat3
+      <button>☰</button>
+    </li>
+  </ul>
+</div>{% endblock %}

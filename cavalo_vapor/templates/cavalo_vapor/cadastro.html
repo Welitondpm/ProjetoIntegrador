@@ -1,7 +1,66 @@
 {% extends "cavalo_vapor/base_layout.html" %}
 {% block style %}
-  <link rel="stylesheet" href="cavalo_vapor/css/cadastro.css">
+  {% load static %}
+  <link rel="stylesheet" type="text/css" href="{% static 'cavalo_vapor/css/cadastro.css' %}">
 {% endblock %}
 {% block script %}{% endblock %}
 {% block title %} Cavalo-Vapor Fretes | Cadastro {% endblock %}
-{% block conteudo %}{% endblock %}
+{% block conteudo %}
+
+<center>
+  <div>
+    <div>
+    <span>Usuário</span>
+      <input type="text" placeholder="Insira um usuário" required>
+    </div>
+    
+    <div>
+      <span>Senha</span>
+      <input type="text" placeholder="Insira sua senha" required> 
+    </div>
+
+    <div>
+      <span>Nome</span>
+      <input type="text" placeholder="Insira seu nome" required>
+    </div>
+   
+    <div>
+      <span>Email</span>
+    <input type="text" placeholder="Insira seu endereço eletrônico" required>
+    </div>
+
+    <!-- coloquei somente cpf para exemplificar, posteriormente adicionamos a separação entre pf e pj -->
+    <div>
+      <span>CPF/CNPJ</span>
+      <input type="text" placeholder="Insira seu CPF/CNPJ" required>
+    </div>
+   
+    <div>
+      <span>Estado</span>
+      <input type="text" placeholder="Insira seu estado" required>
+    </div>
+   
+    <div>
+      <span>Município</span>
+      <input type="text" placeholder="Insira seu município" required>
+    </div>
+  
+    <div>
+      <span>Bairro</span>
+      <input type="text" placeholder="Insira seu bairro" required>
+    </div>
+    
+    <div>
+      <span>Rua</span>
+      <input type="text" placeholder="Insira sua rua" required>
+    </div>
+  
+    <div>
+      <span>Número</span>
+      <input type="text" placeholder="Insira o número da localidade" required>  
+    </div>
+  </div>
+  
+</center>
+
+{% endblock %}
