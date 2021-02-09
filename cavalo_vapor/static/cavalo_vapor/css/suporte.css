@@ -1,0 +1,70 @@
+*{
+  box-sizing: border-box;
+}
+
+form label{
+  display: block;
+}
+
+.mtb10{
+  margin: 10px 0;
+}
+
+.mt20{
+  margin-top: 20px;
+}
+
+.conteudo{
+  margin: 10px 30px;
+}
+
+.info{
+  margin: 20px 0px;
+  text-align: center;
+}
+
+.formulario input,select,textarea{
+  border-radius: 0.5rem;
+  font-size: 1.05rem;
+  margin-top: 0.2rem;
+  margin-bottom: 1rem;
+  border: 1px solid #ced4da;
+  padding: 0.7rem 0.75rem;
+}
+
+.formulario input:focus,select:focus,textarea:focus{
+  outline-color: chartreuse;
+}
+
+.formulario button{
+  transition: 0.3s;
+  padding: 0.5rem 1.5rem;
+  border-radius: 0.5rem;
+  font-size: 1.05rem;
+  border: solid lightgray 1px;
+  background-color: rgba(0, 31, 188, 0.9);
+  color: lightgrey;
+  margin-bottom: 20px;
+}
+
+.formulario button:hover{
+  background-color: rgba(5, 40, 183, 0.835);
+}
+
+#mensagem{
+  width: 70%;
+}
+
+.lista {
+  display: flex;
+  flex-direction: column;
+  margin: 10px;
+}
+
+.itens p{
+  margin: 10px 0;
+}
+
+.invisivel{
+  display: none;
+}

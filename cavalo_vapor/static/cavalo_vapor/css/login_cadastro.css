@@ -1,0 +1,74 @@
+/* Estilo Igual Para Ambos */
+
+*{
+    box-sizing: border-box;
+}
+
+.conteudo{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.formulario{
+    width: 30%;
+    font-size: 1.1rem;
+}
+
+.formulario input,select{
+    width: 100%;
+    border-radius: 0.5rem;
+    font-size: 1.05rem;
+    margin-top: 0.2rem;
+    margin-bottom: 1rem;
+    border: 1px solid #ced4da;
+    padding: 0.7rem 0.75rem;
+    background-color: #FFF;
+}
+
+.formulario input:focus,select:focus{
+    outline-color: chartreuse;
+}
+
+.formulario label{
+    margin: 0rem 0.5rem;
+}
+
+.formulario div{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.formulario button{
+    transition: 0.3s;
+    padding: 0.5rem 1.5rem;
+    border-radius: 0.5rem;
+    font-size: 1.05rem;
+    border: solid lightgray 1px;
+    background-color: rgba(0, 31, 188, 0.9);
+    margin: 0.5rem;
+    color: lightgrey;
+}
+
+.formulario button:hover{
+    background-color: rgba(5, 40, 183, 0.835);
+}
+
+.conteudo span{
+    margin: 1rem 0.5rem;
+    font-size: 1.2rem;
+}
+
+/* Estilos epecífico Cadastro */
+
+
+
+/* Estilos epecífico Login */
+
+.formulario .esqueceu_senha{
+    width: 100%;
+    margin-top: -0.5rem;
+    display: flex;
+    justify-content: flex-end;
+}

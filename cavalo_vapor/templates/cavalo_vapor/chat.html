@@ -1,7 +1,7 @@
 {% extends "cavalo_vapor/base_layout.html" %}
 {% block style %}
-  {% load static %}
-  <link rel="stylesheet" type="text/css" href="{% static 'cavalo_vapor/css/chat.css' %}">
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'cavalo_vapor/css/chat.css' %}">
 {% endblock %}
 {% block script %}{% endblock %}
 {% block title %} Cavalo-Vapor Fretes | Chat {% endblock %}
@@ -29,7 +29,7 @@
 </div>
 <div>
   Chats que participo
-  <input type="text" name="pesquisa" id="pesquisa_chats" placeholder="Buscar chats" />
+  <input type="text" name="pesquisa_que_participo" id="pesquisa_chats_que_participo" placeholder="Buscar chats" />
   <button>🔎</button>
   <div>Ordenar por
     <select name="ordenar_por" id="ordenar_por">
@@ -40,17 +40,32 @@
   </div>
   <ul>
     <li>
-      chat2
+      chat2 (cargo)
       <button>☰</button>
+      <div>(isso aparece quando clica-se no botão)
+        <div>Sair</div>
+        <div>Favoritar</div>
+        <div>Detalhes</div>
+      </div>
     </li>
   </ul>
 </div>
 <div>
   Duvidas frequantes
+  <input type="text" name="pesquisa_suporte" id="pesquisa_chats_suporte" placeholder="Buscar perguntas" />
+  <button>🔎</button>
+  <div>Filtros
+    <input type="checkbox" name="convite" id="convite">Incluir salas por convite
+  </div>
+  <div>Ordenar por
+    <select name="ordenar_por" id="ordenar_por">
+      <option value="quant">Quantidade de votos</option>
+      <option value="alfa">Ordem Alfabética</option>
+    </select>
+  </div>
   <ul>
     <li>
       chat3
-      <button>☰</button>
     </li>
   </ul>
 </div>{% endblock %}

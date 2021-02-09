@@ -1,8 +1,24 @@
 {% extends "cavalo_vapor/base_layout.html" %}
 {% block style %}
-  {% load static %}
-  <link rel="stylesheet" type="text/css" href="{% static 'cavalo_vapor/css/chat_individual.css' %}">
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'cavalo_vapor/css/chat_individual.css' %}">
 {% endblock %}
 {% block script %}{% endblock %}
 {% block title %} Cavalo-Vapor Fretes | Chat {% endblock %}
-{% block conteudo %}{% endblock %}
+{% block conteudo %}
+<div>Integrantes
+  <ul>
+    <li>
+      Integrante 1 (copiar perfil da página perfis)
+    </li>
+  </ul>
+</div>
+<div>Notificar Membros
+  <input type="text" placeholder="Notificar membros">(somente admin)
+</div>
+<div>
+  <ol>
+    <li>(postador)post(data e hora)</li>
+  </ol>
+</div>
+{% endblock %}

@@ -1,27 +1,38 @@
 {% extends "cavalo_vapor/base_layout.html" %}
 {% block style %}
-  {% load static %}
-  <link rel="stylesheet" type="text/css" href="{% static 'cavalo_vapor/css/login.css' %}">
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'cavalo_vapor/css/login_cadastro.css' %}">
 {% endblock %}
 {% block script %}{% endblock %}
 {% block title %} Cavalo-Vapor Fretes | Login {% endblock %}
 {% block conteudo %}
 
-  <center>
+<div class="conteudo">
+  <span>
     <h1>Login</h1>
-    <br>
-    <form action="###">
-      <input type="text" name="login_email" id="input_login_email" placeholder="Digite seu Login ou Email!" required>
-      <br><br>
-      <input type="password" name="password" id="input_password" placeholder="Digite seu senha!" required>
-      <button disabled="disabled"><img src="###" alt="Toggle mostrar/esconder senha"></button>
-      <br>
-      <span><a href="">Esqueceu a senha?</a></span>
-      <br>
-      <button type="submit">Logar</button>
+  </span>
+  <div class="formulario">
+    <form method="POST" action="">
+      <label for="login">Usuário: </label>
+      <input type="text" name="login" id="login" placeholder="Digite seu login" required>
+
+      <label for="senha">Senha: </label>
+      <input type="password" name="senha" id="senha" placeholder="Digite sua senha" required>
+
+      <!-- <button disabled="disabled"><img src="###" alt="Toggle mostrar/esconder senha"></button> -->
+
+      <div class="esqueceu_senha">
+        <a href="">Esqueceu a senha?</a>
+      </div>
+
+      <div>
+        <button type="submit">Logar</button>
+      </div>
     </form>
-    <br><br>
-    <span>Não tem cadastro ainda? <a href="cadastro">clique aqui!</a></span>
-  </center>
+  </div>
+  <span>
+    Não tem cadastro ainda? <a href="cadastro">Clique aqui!</a>
+  </span>
+</div>
 
 {% endblock %}
