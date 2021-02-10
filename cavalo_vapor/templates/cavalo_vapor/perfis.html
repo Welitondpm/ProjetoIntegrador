@@ -6,9 +6,13 @@
 {% block script %}{% endblock %}
 {% block title %} Cavalo-Vapor Fretes | Perfis {% endblock %}
 {% block conteudo %}
-<input type="text" name="pesquisa" id="pesquisa_perfis" placeholder="Buscar perfis" />
-<button>🔎</button>
-<div>Filtros
+<div class="procurar">
+  <input type="text" name="pesquisa" id="pesquisa_perfis" placeholder="Buscar perfis" />
+  <button>🔎</button>
+</div>
+
+<section class='filtrar'>
+  <span>Filtrar por:</span>
   <select name="estado" id="estado_filtro">
     <option value="">Estado</option>
     <option value="AC">Acre</option>
@@ -19,36 +23,206 @@
     <option value="araquari">Araquari</option>
     <option value="joinville">Joinville</option>
   </select>
-  <input type="checkbox" name="pessoa_fisica_filtro" id="pessoa_fisica_filtro">Pessoa Física
-  <input type="checkbox" name="pessoa_juridica_filtro" id="pessoa_juridica_filtro">Pessoa Jurídica
+
   <select name="tipo_de_perfil" id="tipo_de_perfil_filtro">
     <option value="qualquer">Qualquer usuário</option>
     <option value="prestador">Usuários que realizam fretes</option>
     <option value="empregador">Usuários que contratam fretes</option>
   </select>
   <select name="tipo_de_carreta_filtro" id="tipo_de_carreta_filtro">
-    <option value="">Tipo de Carreta</option>
+    <option value="algo">Tipo de Carreta</option>
     <option value="gran">Graneleiro</option>
     <option value="cont">Container</option>
   </select>
-</div>
-<div>Ordenar por
-  <select name="ordenar_por" id="ordenar_por">
-    <option value="alfa">Ordem Alfabética</option>
-    <option value="rating">Rating</option>
-    <option value="func">Quantidade de funcionários</option>
-    <option value="fili">Quantidade de filiais</option>
-  </select>
-</div>
-<ul>
-  <li>Perfil 1
-    <button>Ver Mais</button>
-  </li>
-  <li>Perfil 2
-    <button>Ver Mais</button>
-  </li>
-  <li>Perfil 3
-    <button>Ver Mais</button>
-  </li>
-</ul>
+
+  <div class="pessoas">
+    <input type="checkbox" name="pessoa_fisica_filtro" id="pessoa_fisica_filtro">
+    <span>
+      Pessoa Física
+    </span>
+    <input type="checkbox" name="pessoa_juridica_filtro" id="pessoa_juridica_filtro">
+    <span>
+      Pessoa Jurídica
+    </span>
+  </div>
+
+</section>
+
+<main>
+  <ul class="perfis">
+    <li>
+      <!-- <img src="{% static 'cavalo_vapor/img/logo.png' %}" width="100px" height="100px" alt=""> inserção da logo -->
+      <h4>
+        {{nome}}
+      </h4>
+      <!-- dados virão dessa forma? -->
+      <span class="resumo">
+        uma descrição dizendo alguma coisa em resumo do perfil <br>
+        fel9.renan02@gmail.com <br>
+        <span class='mais'>
+          (47)99172-4227 <br>
+          Santa-Catarina <br>
+          São Francisco do Sul
+        </span>
+      </span>
+      <div>
+        <svg focusable="false" width="16" height="16" viewBox="0 0 24 24" class=" NMm5M">
+          <path d="M12 16.41l-6.71-6.7 1.42-1.42 5.29 5.3 5.29-5.3 1.42 1.42z"></path>
+        </svg>
+      </div>
+    </li>
+    <li>
+      <h4>
+        Perfil 2
+      </h4>
+
+      <span class="resumo">
+        uma descrição dizendo alguma coisa em resumo do perfil <br>
+        fel9.renan02@gmail.com <br>
+        <span class='mais'>
+          (47)99172-4227 <br>
+          Santa-Catarina <br>
+          São Francisco do Sul
+        </span>
+      </span>
+
+      <div>
+        <svg class="svg" focusable="false" width="16" height="16" viewBox="0 0 24 24" class=" NMm5M">
+          <path d="M12 16.41l-6.71-6.7 1.42-1.42 5.29 5.3 5.29-5.3 1.42 1.42z"></path>
+        </svg>
+      </div>
+    </li>
+    <li>
+      <h4>
+        Perfil 3
+      </h4>
+
+      <span class="resumo">
+        uma descrição dizendo alguma coisa em resumo do perfil <br>
+        renan.fas02@gmail.com <br>
+        <span class='mais'>
+          (xx)yxxxx-xxxx <br>
+          Paraná <br>
+          Curitiba
+        </span>
+      </span>
+      <svg focusable="false" width="16" height="16" viewBox="0 0 24 24" class=" NMm5M">
+        <path d="M12 16.41l-6.71-6.7 1.42-1.42 5.29 5.3 5.29-5.3 1.42 1.42z"></path>
+      </svg>
+      </div>
+    </li>
+    <li>
+      <h4>
+        Perfil 3
+      </h4>
+
+      <span class="resumo">
+        uma descrição dizendo alguma coisa em resumo do perfil <br>
+        renan.fas02@gmail.com <br>
+        <span class='mais'>
+          (xx)yxxxx-xxxx <br>
+          Paraná <br>
+          Curitiba
+        </span>
+      </span>
+      <svg focusable="false" width="16" height="16" viewBox="0 0 24 24" class=" NMm5M">
+        <path d="M12 16.41l-6.71-6.7 1.42-1.42 5.29 5.3 5.29-5.3 1.42 1.42z"></path>
+      </svg>
+      </div>
+    </li>
+    <li>
+      <!-- <img src="{% static 'cavalo_vapor/img/logo.png' %}" width="100px" height="100px" alt=""> inserção da logo -->
+      <h4>
+        {{nome}}
+      </h4>
+      <!-- dados virão dessa forma? -->
+      <span class="resumo">
+        uma descrição dizendo alguma coisa em resumo do perfil <br>
+        fel9.renan02@gmail.com <br>
+        <span class='mais'>
+          (47)99172-4227 <br>
+          Santa-Catarina <br>
+          São Francisco do Sul
+        </span>
+      </span>
+      <div>
+        <svg focusable="false" width="16" height="16" viewBox="0 0 24 24" class=" NMm5M">
+          <path d="M12 16.41l-6.71-6.7 1.42-1.42 5.29 5.3 5.29-5.3 1.42 1.42z"></path>
+        </svg>
+      </div>
+    </li>
+    <li>
+      <h4>
+        Perfil 2
+      </h4>
+
+      <span class="resumo">
+        uma descrição dizendo alguma coisa em resumo do perfil <br>
+        fel9.renan02@gmail.com <br>
+        <span class='mais'>
+          (47)99172-4227 <br>
+          Santa-Catarina <br>
+          São Francisco do Sul
+        </span>
+      </span>
+
+      <div>
+        <svg class="svg" focusable="false" width="16" height="16" viewBox="0 0 24 24" class=" NMm5M">
+          <path d="M12 16.41l-6.71-6.7 1.42-1.42 5.29 5.3 5.29-5.3 1.42 1.42z"></path>
+        </svg>
+      </div>
+    </li>
+    <li>
+      <h4>
+        Perfil 3
+      </h4>
+
+      <span class="resumo">
+        uma descrição dizendo alguma coisa em resumo do perfil <br>
+        renan.fas02@gmail.com <br>
+        <span class='mais'>
+          (xx)yxxxx-xxxx <br>
+          Paraná <br>
+          Curitiba
+        </span>
+      </span>
+      <svg focusable="false" width="16" height="16" viewBox="0 0 24 24" class=" NMm5M">
+        <path d="M12 16.41l-6.71-6.7 1.42-1.42 5.29 5.3 5.29-5.3 1.42 1.42z"></path>
+      </svg>
+      </div>
+    </li>
+    <li>
+      <h4>
+        Perfil 3
+      </h4>
+
+      <span class="resumo">
+        uma descrição dizendo alguma coisa em resumo do perfil <br>
+        renan.fas02@gmail.com <br>
+        <span class='mais'>
+          (xx)yxxxx-xxxx <br>
+          Paraná <br>
+          Curitiba
+        </span>
+      </span>
+      <svg focusable="false" width="16" height="16" viewBox="0 0 24 24" class=" NMm5M">
+        <path d="M12 16.41l-6.71-6.7 1.42-1.42 5.29 5.3 5.29-5.3 1.42 1.42z"></path>
+      </svg>
+      </div>
+    </li>
+  </ul>
+</main>
+
+
+
+
+
+
+
+
+
+
+
+
+
 {% endblock %}

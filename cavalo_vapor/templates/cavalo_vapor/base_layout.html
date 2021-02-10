@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
   {% load static %}
   <meta charset="UTF-8">
@@ -8,7 +9,9 @@
   <link rel="stylesheet" href="{% static 'cavalo_vapor/css/base_layout.css' %}">
   {% block style %}{% endblock%}
   <title>{% block title %}Cavalo-Vapor Fretes{% endblock %}</title>
+  <link rel="icon" type="image/x-icon" href="{% static 'cavalo_vapor/img/cavalo_vapor.ico' %}">
 </head>
+
 <body>
   <nav class="navbar">
     <div id="esquerda">
@@ -17,18 +20,18 @@
     </div>
     <div id="direita">
       <ul>
-        {% block menu %}  
-          <li><a href="index">Home</a></li>
-          <li><a href="chat">Chat</a></li>
-          <!-- <li><a href="chat_individual">Chat</a></li> -->
-          <li><a href="fretes">Fretes</a></li>
-          <!-- <li><a href="frete_individual">Fretes</a></li> -->
-          <li><a href="perfis">Perfis</a></li>
-          <li><a href="suporte">Suporte</a></li>
-          <li><a href="cadastro">Cadastro</a></li>
-          <li><a href="login">Login</a></li>
-          <li><a href="">Logout</a></li>
-          <!-- <li><a href="perfil_individual">Seu Perfil</a></li> -->
+        {% block menu %}
+        <li><a href="../">Home</a></li>
+        <li><a href="chat">Chat</a></li>
+        <!-- <li><a href="chat_individual">Chat</a></li> -->
+        <li><a href="fretes">Fretes</a></li>
+        <!-- <li><a href="frete_individual">Fretes</a></li> -->
+        <li><a href="perfis">Perfis</a></li>
+        <li><a href="suporte">Suporte</a></li>
+        <li><a href="cadastro">Cadastro</a></li>
+        <li><a href="login">Login</a></li>
+        <li><a href="">Logout</a></li>
+        <!-- <li><a href="perfil_individual">Seu Perfil</a></li> -->
         {% endblock %}
       </ul>
     </div>
@@ -36,4 +39,5 @@
   {% block conteudo %}{% endblock %}
   {% block scripts %}{% endblock %}
 </body>
+
 </html>

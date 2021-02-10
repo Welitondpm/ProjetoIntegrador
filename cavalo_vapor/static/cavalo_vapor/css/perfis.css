@@ -1,0 +1,60 @@
+input,select{
+  border-radius: 0.5rem;
+  margin: 0.5rem 0;
+  border: 1px solid #ced4da;
+  padding: 0.3rem;
+  background-color: #FFF;
+}
+
+svg{
+  transition: .17s;
+  border-radius: 50%;
+}
+
+svg:hover{
+  background-color: rgb(218, 218, 218); 
+}
+
+.procurar{
+  text-align: right;
+  margin: 10px 20px;
+}
+
+.filtrar{
+  text-align: right;
+  margin: 0;
+}
+
+.filtrar span{
+  font-size: 14px;
+}
+
+.pessoas{
+  display: flex;
+  text-align: right;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.pessoas input{
+  margin: 5px 10px;
+}
+
+.perfis{
+  display: grid;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin-top: 35px;
+  grid-gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(10rem, 15rem));
+}
+
+.perfis li{
+  display: block;
+  margin: 0;
+}
+
+.perfis span{
+  display: block;
+}
