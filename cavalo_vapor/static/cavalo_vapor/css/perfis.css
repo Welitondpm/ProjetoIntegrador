@@ -17,12 +17,13 @@ svg:hover{
 
 .procurar{
   text-align: right;
-  margin: 10px 20px;
+  margin: 0 20px;
 }
 
 .filtrar{
   text-align: right;
   margin: 0;
+  margin-right: 20px;
 }
 
 .filtrar span{
