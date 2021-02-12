@@ -6,66 +6,79 @@
 {% block script %}{% endblock %}
 {% block title %} Cavalo-Vapor Fretes | Chat {% endblock %}
 {% block conteudo %}
-
-<div>
-  Procurar salas
-  <input type="text" name="pesquisa" id="pesquisa_chats" placeholder="Buscar chats" />
-  <button>🔎</button>
-  <div>Filtros
-    <input type="checkbox" name="convite" id="convite">Incluir salas por convite
-  </div>
-  <div>Ordenar por
-    <select name="ordenar_por" id="ordenar_por">
-      <option value="quant">Quantidade de participantes</option>
-      <option value="alfa">Ordem Alfabética</option>
-      <option value="data">Data de criação</option>
-    </select>
-  </div>
-  <ul>
-    <li>
-      chat1
-    </li>
-  </ul>
-</div>
-<div>
-  Chats que participo
-  <input type="text" name="pesquisa_que_participo" id="pesquisa_chats_que_participo" placeholder="Buscar chats" />
-  <button>🔎</button>
-  <div>Ordenar por
-    <select name="ordenar_por" id="ordenar_por">
-      <option value="quant">Quantidade de participantes</option>
-      <option value="alfa">Ordem Alfabética</option>
-      <option value="data">Data de criação</option>
-    </select>
-  </div>
-  <ul>
-    <li>
-      chat2 (cargo)
-      <button>☰...</button>
-      <div>(isso aparece quando clica-se no botão)
-        <div>Sair</div>
-        <div>Favoritar</div>
-        <div>Detalhes</div>
+<main>
+  <div class="coluna">
+    <h2>Procurar salas</h2>
+    <div class="procurar">
+      <input type="text" name="pesquisa" id="pesquisa_chats1" placeholder="Buscar Chats" />
+      <button>🔎</button>
+    </div>
+    <section class='filtrar'>
+      <span>Filtrar por:</span>
+      <input type="checkbox" name="convite" id="convite">Incluir salas por convite
+    </section>
+    <section class='filtrar'>
+      <span>Ordenar por:</span>
+      <select name="ordenar_por" id="ordenar_por">
+        <option value="quant">Quantidade de participantes</option>
+        <option value="alfa">Ordem Alfabética</option>
+        <option value="data">Data de criação</option>
+      </select>
+    </section>
+    <div class="ol">
+      <div class="li">
+        chat1
       </div>
-    </li>
-  </ul>
-</div>
-<div>
-  Duvidas frequantes
-  <input type="text" name="pesquisa_suporte" id="pesquisa_chats_suporte" placeholder="Buscar perguntas" />
-  <button>🔎</button>
-  <div>Filtros
-    <input type="checkbox" name="convite" id="convite">Incluir salas por convite
+    </div>
   </div>
-  <div>Ordenar por
-    <select name="ordenar_por" id="ordenar_por">
-      <option value="quant">Quantidade de votos</option>
-      <option value="alfa">Ordem Alfabética</option>
-    </select>
+  <div class="coluna">
+    <h2>Chats que participo</h2>
+    <div class="procurar">
+      <input type="text" name="pesquisa" id="pesquisa_chats2" placeholder="Buscar Chats" />
+      <button>🔎</button>
+    </div>
+    <section class='filtrar'>
+      <span>Ordenar por:</span>
+      <select name="ordenar_por" id="ordenar_por">
+        <option value="quant">Quantidade de participantes</option>
+        <option value="alfa">Ordem Alfabética</option>
+        <option value="data">Data de criação</option>
+      </select>
+    </section>
+    <div class="ol">
+      <div class="li">
+        chat2 (cargo)
+        <button>☰...</button>
+        <div>(isso aparece quando clica-se no botão)
+          <div>Sair</div>
+          <div>Favoritar</div>
+          <div>Detalhes</div>
+        </div>
+      </div>
+    </div>
   </div>
-  <ul>
-    <li>
-      chat3
-    </li>
-  </ul>
-</div>{% endblock %}
+  <div class="coluna">
+    <h2>Duvidas frequantes</h2>
+    <div class="procurar">
+      <input type="text" name="pesquisa" id="pesquisa_chats3" placeholder="Buscar Chats" />
+      <button>🔎</button>
+    </div>
+    <section class='filtrar'>
+      <span>Filtrar por:</span>
+      <input type="checkbox" name="convite" id="convite">Incluir salas por convite
+    </section>
+    <section class='filtrar'>
+      <span>Ordenar por:</span>
+      <select name="ordenar_por" id="ordenar_por">
+        <option value="quant">Quantidade de votos</option>
+        <option value="alfa">Ordem Alfabética</option>
+      </select>
+    </section>
+    <div class="ol">
+      <div class="li">
+        chat3
+      </div>
+    </div>
+  </div>
+</main>
+{% endblock %}

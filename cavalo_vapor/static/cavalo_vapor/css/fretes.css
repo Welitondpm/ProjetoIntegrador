@@ -31,7 +31,7 @@
     grid-template-columns: repeat(2, 50%);
     margin: 10px 20px;
 }
-.procurar{
+.fretes{
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(9rem, 2fr));
     grid-gap: 1rem;
