@@ -1,19 +1,5 @@
 main{
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    padding: 10px;
 }
-
-.coluna{
-    width: 30vw;
-    margin: 1.6vw;
-}
-
-/* .coluna .ol{
-    padding: 3vh;
-}
-
-.coluna .ol .li{
-    margin: 2vh;
-    background: linear-gradient(white, lightgray);
-    border: 2px lightblue solid;
-    border-radius: 2vh;
-} */

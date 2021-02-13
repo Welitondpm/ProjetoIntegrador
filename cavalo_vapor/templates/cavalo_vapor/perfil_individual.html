@@ -1,22 +1,22 @@
 {% extends "cavalo_vapor/base_layout.html" %}
 {% block style %}
-  {% load static %}
-  <link rel="stylesheet" type="text/css" href="{% static 'cavalo_vapor/css/perfil_individual.css' %}">
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'cavalo_vapor/css/perfil_individual.css' %}">
 {% endblock %}
 {% block script %}{% endblock %}
 {% block title %} Cavalo-Vapor Fretes | Perfil {% endblock %}
 {% block menu %}
-  <li><a href="../index">Home</a></li>
-  <li><a href="../chat">Chat</a></li>
-  <!-- <li><a href="chat_individual">Chat</a></li> -->
-  <li><a href="../fretes">Fretes</a></li>
-  <!-- <li><a href="frete_individual">Fretes</a></li> -->
-  <li><a href="../perfis">Perfis</a></li>
-  <li><a href="../suporte">Suporte</a></li>
-  <li><a href="../cadastro">Cadastro</a></li>
-  <li><a href="../login">Login</a></li>
-  <li><a href="">Logout</a></li>
-  <!-- <li><a href="perfil_individual">Seu Perfil</a></li> -->
+<li><a href="../">Home</a></li>
+<li><a href="../chat">Chat</a></li>
+<!-- <li><a href="chat_individual">Chat</a></li> -->
+<li><a href="../fretes">Fretes</a></li>
+<!-- <li><a href="frete_individual">Fretes</a></li> -->
+<li><a href="../perfis">Perfis</a></li>
+<li><a href="../suporte">Suporte</a></li>
+<li><a href="../cadastro">Cadastro</a></li>
+<li><a href="../login">Login</a></li>
+<li><a href="">Logout</a></li>
+<!-- <li><a href="perfil_individual">Seu Perfil</a></li> -->
 {% endblock %}
 {% block conteudo %}
 <center>
@@ -30,22 +30,22 @@
       <span>Descrição</span>
       <input type="text" placeholder="Insira uma descrição">
     </div>
-    
+
     <div>
       <span>Ano de fundação</span>
       <input type="date" placeholder="Data da fundação da empresa">
     </div>
-    
+
     <div>
       <span>Data de nascimento</span>
       <input type="date" placeholder="Sua data de nascimento">
     </div>
-    
+
     <div>
       <span>Sexo</span>
       <input type="text" placeholder="masculino ou feminino">
     </div>
-    
+
     <div>
       <span>Telefone</span>
       <input type="text" placeholder="Insira seu telefone">
