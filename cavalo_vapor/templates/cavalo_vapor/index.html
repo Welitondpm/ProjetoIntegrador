@@ -1,45 +1,51 @@
 {% extends "cavalo_vapor/base_layout.html" %}
 {% block style %}
-  {% load static %}
-  <link rel="stylesheet" type="text/css" href="{% static 'cavalo_vapor/css/index.css' %}">
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'cavalo_vapor/css/index.css' %}">
 {% endblock %}
 {% block script %}
-  <script src="cavalo_vapor/js/index.js"></script>
+<script src="cavalo_vapor/js/index.js"></script>
 {% endblock %}
 {% block title %} Cavalo-Vapor Fretes | Home {% endblock %}
 {% block conteudo %}
-  <center>
-    <br><br>
-    <p>
-      Iniciado finalmente no dia 7 de fevereiro de 2021, por três alunos cursando
-      o segundo ano ensino médio técnico no Institudo Federal Catarinense Campus Araquari.
-    </p>
-    <br>
-    <p>Este projeto pode ser encontrar em: 
-      <a href="https://github.com/Welitondpm/ProjetoIntegrador" target="_blank">Github</a>
-    </p>
-    <br>
-    <p>
-      Site em desenvolvimento por:
-      <ul style="display: flex; flex-direction: column;">
-        <li>
-          Gustavo Vieira Ferreira: 
-          <a href="https://github.com/gusferreira1203" target="_blank">Github</a>
-        </li>
-        <li>
-          Renan Andrade da Silva: 
-          <a href="https://github.com/Fel9" target="_blank">Github</a>
-        </li>
-        <li>
-          Weliton Dal Pizzol Maria: 
-          <a href="https://github.com/Welitondpm" target="_blank">Github</a>
-        </li>
-      </ul>
-    </p>
-  </center>
-  
+<center>
+  <br><br>
+  <p>
+    Iniciado finalmente no dia 7 de fevereiro de 2021, por três alunos cursando
+    o segundo ano ensino médio técnico no Institudo Federal Catarinense Campus Araquari.
+  </p>
 
-  <!-- <main>
+  {% comment %} for para pegar todos os usuários {% endcomment %}
+  {% for usuarios in objetos %}
+  <p>{{ usuarios.id }} {{ usuarios.login }}</p>
+  {% endfor %}
+
+  <br>
+  <p>Este projeto pode ser encontrar em:
+    <a href="https://github.com/Welitondpm/ProjetoIntegrador" target="_blank">Github</a>
+  </p>
+  <br>
+  <p>
+    Site em desenvolvimento por:
+  <ul style="display: flex; flex-direction: column;">
+    <li>
+      Gustavo Vieira Ferreira:
+      <a href="https://github.com/gusferreira1203" target="_blank">Github</a>
+    </li>
+    <li>
+      Renan Andrade da Silva:
+      <a href="https://github.com/Fel9" target="_blank">Github</a>
+    </li>
+    <li>
+      Weliton Dal Pizzol Maria:
+      <a href="https://github.com/Welitondpm" target="_blank">Github</a>
+    </li>
+  </ul>
+  </p>
+</center>
+
+
+<!-- <main>
     <input type="text" placeholder="Nome" required >
     <button onclick="location.href='teste'">On click funciona? Se sim vai para /teste</button>
 

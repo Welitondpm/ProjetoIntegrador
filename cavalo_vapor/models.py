@@ -34,6 +34,9 @@ class Usuario(models.Model):
     login = models.CharField(max_length=150, unique=True)
     admin = models.BooleanField(max_length=1, default=False)
 
+    # def get_absolute_url(self):
+    #     return f"/pasta/"{self.id}
+
 
 # class Suporte(models.Model):
 #     motivo_contato = models.CharField(max_length=40)

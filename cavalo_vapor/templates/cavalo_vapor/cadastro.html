@@ -12,8 +12,9 @@
     <h1>Cadastrar</h1>
   </span>
   <div class="formulario">
-    <form method="POST" action="">
-      <label for="login">Login: </label>
+    <form method="POST" action="./"> {% csrf_token %}
+      {{ formulario.as_p }}
+      <!-- <label for="login">Login: </label>
       <input type="text" name="login" id="login" placeholder="Digite seu login." required>
 
       <label for="senha">Senha: </label>
@@ -56,10 +57,10 @@
       <input type="number" name="numero" id="numero" placeholder="Digite o número da localidade" required>
 
       <label for="complemento">Complemento: </label>
-      <input type="text" name="complemento" id="complemento" placeholder="Ex: Casa 2" required>
+      <input type="text" name="complemento" id="complemento" placeholder="Ex: Casa 2" required> -->
 
       <div>
-        <button type="submit">Cadastrar</button>
+        <button type="submit" value="salvar">Cadastrar</button>
       </div>
     </form>
   </div>
