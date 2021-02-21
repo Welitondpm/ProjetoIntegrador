@@ -1,6 +1,6 @@
 from django import forms
-from django.forms import ModelForm
-from .models import Usuario
+from django.forms import ModelForm, fields, widgets
+from .models import *
 
 
 class CadastroForm(forms.ModelForm):
@@ -12,19 +12,15 @@ class CadastroForm(forms.ModelForm):
     senha = forms.CharField(
         label="Senha:",
         max_length=200,
-        widget=forms.TextInput(attrs={"placeholder": "Digite sua senha"}),
+        widget=forms.PasswordInput(attrs={"placeholder": "Digite sua senha"}),
     )
     # senha_confirm = forms.CharField(label="Confirme sua senha:", max_length=200, widget=forms.Input(attrs={"placeholder": "Confirme sua senha"})))
-    nome = forms.CharField(
-        label="Nome próprio:",
-        max_length=200,
-        widget=forms.TextInput(attrs={"placeholder": "Digite seu nome"}),
-    )
-    email = forms.EmailField(
-        label="E-mail:",
-        max_length=200,
-        widget=forms.EmailInput(attrs={"placeholder": "Ex: exemplo@exemplo.com"}),
-    )
+    # nome = forms.CharField(
+    #     label="Nome próprio:",
+    #     max_length=200,
+    #     widget=forms.TextInput(attrs={"placeholder": "Digite seu nome"}),
+    # )
+
     # cpf_cnpj = forms.CharField(label="CPF ou CNPJ:", max_length=200, widget=forms.Input(attrs={"placeholder": "Ex: 123.456.789-10 / 12.345.678/1234-56"})))
     # optestado = (
     #     ("", "Selecione o seu estado"),
@@ -45,9 +41,33 @@ class CadastroForm(forms.ModelForm):
 
     class Meta:
         model = Usuario
-        fields = ["login", "senha", "nome", "email"]
+        fields = ["login", "senha"]
 
 
-class LoginForm(forms.Form):
-    login = forms.CharField(label="Login:", max_length=200)
-    senha = forms.CharField(label="Senha:", max_length=200)
+class EmailForm(forms.ModelForm):
+    email = forms.EmailField(
+        label="E-mail:",
+        max_length=200,
+        widget=forms.EmailInput(attrs={"placeholder": "Ex: exemplo@exemplo.com"}),
+    )
+
+    class Meta:
+        model = Email
+        fields = ["email", "usuario"]
+
+
+class LoginForm(forms.ModelForm):
+    login = forms.CharField(
+        label="Login:",
+        max_length=200,
+        widget=forms.TextInput(attrs={"placeholder": "Digite seu login"}),
+    )
+    senha = forms.CharField(
+        label="Senha:",
+        max_length=200,
+        widget=forms.PasswordInput(attrs={"placeholder": "Digite sua senha"}),
+    )
+
+    class Meta:
+        model = Usuario
+        fields = ["login", "senha"]

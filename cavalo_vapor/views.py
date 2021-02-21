@@ -1,28 +1,61 @@
 from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse, Http404
-from django.template import loader
-from .form import CadastroForm
+from .form import *
 from .models import *
+from .login import loginVerify
 
 # Create your views here.
 
 
 def index(request):
     listaObj = Usuario.objects.all()
-    contexto = {"objetos": listaObj}
+    listaObj2 = Email.objects.all()
+    contexto = {"objetos": listaObj, "objetos2": listaObj2}
     return render(request, "cavalo_vapor/index.html", contexto)
 
 
 def cadastro(request):
-    form = CadastroForm()
+    userform = CadastroForm()
     if request.method == "POST":
-        form = CadastroForm(request.POST)
-        if form.is_valid():
-            Usuario.objects.create(**form.cleaned_data)
+        userform = CadastroForm(request.POST)
+        if userform.is_valid():
+            Usuario.objects.create(**userform.cleaned_data)
+            print(request.POST)
         else:
-            print(form.errors)
-    contexto = {"formulario": form}
+            # print(userform.errors)
+            print(userform.errors)
+    contexto = {"user": userform}
     return render(request, "cavalo_vapor/cadastro.html", contexto)
+
+
+#
+# def cadastro(request):
+#     emailform = EmailForm()
+#     if request.method == "POST":
+#         emailform = EmailForm(request.POST)
+#         if emailform.is_valid():
+#             Email.objects.create(**emailform.cleaned_data)
+#             print(request.POST)
+#         else:
+#             # print(userform.errors)
+#             print(emailform.errors)
+#     contexto = {"user": emailform}
+#     return render(request, "cavalo_vapor/cadastro.html", contexto)
+
+
+# def cadastro(request):
+#     userform = CadastroForm()
+#     emailform = EmailForm()
+#     if request.method == "POST":
+#         userform = CadastroForm(request.POST)
+#         emailform = EmailForm(request.POST)
+#         if userform.is_valid():
+#             Usuario.objects.create(**userform.cleaned_data)
+#         else:
+#             print(userform.errors)
+#             print(emailform.errors)
+#     contexto = {"user": userform, "email": emailform}
+#     return render(request, "cavalo_vapor/cadastro.html", contexto)
 
 
 # def cadastro(request):
@@ -49,7 +82,13 @@ def fretes(request):
 
 
 def login(request):
-    return render(request, "cavalo_vapor/login.html")
+    loginform = LoginForm()
+    if request.method == "POST":
+        perfil = request.POST["login"]
+        password = request.POST["senha"]
+        loginVerify(perfil, password)
+    contexto = {"loginform": loginform}
+    return render(request, "cavalo_vapor/login.html", contexto)
 
 
 def perfil_individual(request, id_perfil):
