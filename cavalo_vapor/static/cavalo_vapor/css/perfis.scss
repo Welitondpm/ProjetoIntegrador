@@ -1,0 +1,29 @@
+.pessoas{
+  display: flex;
+  text-align: right;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.pessoas input{
+  margin: 5px 10px;
+}
+
+.perfis{
+  display: grid;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin-top: 35px;
+  grid-gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(10rem, 15rem));
+}
+
+.perfis li{
+  display: block;
+  margin: 0;
+}
+
+.perfis span{
+  display: block;
+}

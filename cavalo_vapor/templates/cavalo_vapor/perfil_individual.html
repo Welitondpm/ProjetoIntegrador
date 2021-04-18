@@ -20,6 +20,16 @@
 {% endblock %}
 {% block conteudo %}
 <center>
+
+  <section>
+    {% comment %} <img src="{{user.perfil.imagem.url}}" id="perfil_img" alt="" width="100px" height="100px" srcset="" />
+    {% endcomment %}
+    <div>
+      <h3>{{user.username}}</h3>
+      <p>{{user.email}}</p>
+    </div>
+  </section>
+
   <main>
     <div>
       <span>Logo</span>

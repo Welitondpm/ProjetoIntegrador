@@ -1,21 +1,24 @@
-.colunas{
+.colunas {
+  display: -ms-grid;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  -ms-grid-columns: (1fr)[3];
+      grid-template-columns: repeat(3, 1fr);
 }
 
-.aba{
+.aba {
   margin-top: 20px;
   padding: 0 10px;
 }
 
-.aba textarea{
+.aba textarea {
   display: block;
 }
 
-.aba h2{
+.aba h2 {
   margin-bottom: 20px;
 }
 
-.email{
+.email {
   margin-bottom: 5px;
 }
+/*# sourceMappingURL=chat_individual.css.map */

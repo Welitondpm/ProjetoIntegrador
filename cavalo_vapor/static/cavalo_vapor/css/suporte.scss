@@ -1,30 +1,29 @@
-* {
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+*{
+  box-sizing: border-box;
 }
 
-form label {
+form label{
   display: block;
 }
 
-.mtb10 {
+.mtb10{
   margin: 10px 0;
 }
 
-.mt20 {
+.mt20{
   margin-top: 20px;
 }
 
-.conteudo {
+.conteudo{
   margin: 10px 30px;
 }
 
-.info {
+.info{
   margin: 20px 0px;
   text-align: center;
 }
 
-.formulario input, select, textarea {
+.formulario input,select,textarea{
   border-radius: 0.5rem;
   font-size: 1.05rem;
   margin-top: 0.2rem;
@@ -33,12 +32,11 @@ form label {
   padding: 0.7rem 0.75rem;
 }
 
-.formulario input:focus, select:focus, textarea:focus {
+.formulario input:focus,select:focus,textarea:focus{
   outline-color: chartreuse;
 }
 
-.formulario button {
-  -webkit-transition: 0.3s;
+.formulario button{
   transition: 0.3s;
   padding: 0.5rem 1.5rem;
   border-radius: 0.5rem;
@@ -49,30 +47,24 @@ form label {
   margin-bottom: 20px;
 }
 
-.formulario button:hover {
+.formulario button:hover{
   background-color: rgba(5, 40, 183, 0.835);
 }
 
-#mensagem {
+#mensagem{
   width: 70%;
 }
 
 .lista {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  flex-direction: column;
   margin: 10px;
 }
 
-.itens p {
+.itens p{
   margin: 10px 0;
 }
 
-.invisivel {
+.invisivel{
   display: none;
 }
-/*# sourceMappingURL=suporte.css.map */

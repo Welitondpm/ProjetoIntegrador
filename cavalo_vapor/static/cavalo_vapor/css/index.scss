@@ -1,33 +1,29 @@
-* {
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+*{
+  box-sizing: border-box;
 }
 
-.menu {
-  display: -webkit-box;
-  display: -ms-flexbox;
+.menu{
   display: flex;
   list-style: none;
   background-color: gray;
 }
 
-ul li a {
+ul li a{
   text-decoration: none;
   color: darkblue;
 }
 
-ul li a:hover {
+ul li a:hover{
   text-decoration: none;
   color: dodgerblue;
 }
 
-p a {
+p a{
   text-decoration: none;
   color: darkblue;
 }
 
-p a:hover {
+p a:hover{
   text-decoration: none;
   color: dodgerblue;
 }
-/*# sourceMappingURL=index.css.map */

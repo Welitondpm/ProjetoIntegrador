@@ -1,5 +1,8 @@
-main{
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    padding: 10px;
+main {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[3];
+      grid-template-columns: repeat(3, 1fr);
+  padding: 10px;
 }
+/*# sourceMappingURL=chat.css.map */

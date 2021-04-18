@@ -1,4 +1,6 @@
 from django.db import models
+from django.contrib.auth.models import User
+from django.db.models.deletion import CASCADE
 
 # Create your models here.
 
@@ -31,16 +33,23 @@ class Usuario(models.Model):
     modo_preferencia = models.CharField(max_length=1, default=0)
     nome = models.CharField(max_length=200)
     senha = models.CharField(max_length=64)
-    login = models.CharField(max_length=150, unique=True)
+    usuario = models.OneToOneField(User, on_delete=CASCADE)
+    login = models.CharField(max_length=200)
     admin = models.BooleanField(max_length=1, default=False)
+    imagem = models.ImageField(default="default.jpeg", upload_to="img_perfil")
 
     def __str__(self):
-        return "{}".format(self.login)
+        return f"{self.usuario.username} Perfil"
 
-    # def mandaPK(pk):
-    #     return pk
+    def save(self, *args, **kwargs):
+        super(Perfil, self).save(*args, **kwargs)
 
+        img = Image.open(self.imagem.path)
 
+        if img.height > 300 or img.width > 300:
+            output_size = (300, 300)
+            img.thumbnail(output_size)
+            img.save(self.imagem.path)
 # class Suporte(models.Model):
 #     motivo_contato = models.CharField(max_length=40)
 #     mensagem = models.TextField()

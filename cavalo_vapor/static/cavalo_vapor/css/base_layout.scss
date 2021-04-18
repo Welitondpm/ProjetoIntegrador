@@ -1,0 +1,107 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+a{
+    text-decoration: none;
+}
+
+nav{
+    background-color: #000000;
+    height: 100vh;
+    width: 600px;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    position: sticky;
+    top: 0px;
+    
+    ul{
+        
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 60vh;
+        margin-left: 50px;
+        
+        li{
+            display: inline;
+            margin-right: 10px;
+            color: darkslategrey;
+        }
+        a{
+            text-decoration: none;
+            color: darkslategrey;
+            font-size: 2vw;
+        }
+    }
+}
+
+#usuario{
+    color: darkslategray;
+}
+
+nav ul li a:hover{
+    text-decoration: underline;
+    color: lightslategrey;
+}
+
+body{
+    background-color: darkslategrey;
+    display: flex;
+}
+
+#esquerda{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: darkslategrey;
+}
+
+#direita{
+    display: flex;
+    align-items: center;
+    /* border: red solid 3px; */
+}
+
+/* LISTAS */
+
+input,select,textarea{
+    border-radius: 0.5rem;
+    margin: 0.5rem 0;
+    /* border: 1px solid #ced4da; */
+    padding: 0.3rem;
+    background-color: lightslategrey;
+    color: darkslateblue;
+}
+
+svg{
+    transition: .17s;
+    border-radius: 50%;
+}
+
+svg:hover{
+ background-color: rgb(218, 218, 218); 
+}
+
+.procurar{
+  text-align: right;
+  margin: 0 20px;
+}
+
+.filtrar{
+  text-align: right;
+  margin: 0;
+  margin-right: 20px;
+}
+
+.filtrar span{
+  font-size: 14px;
+}

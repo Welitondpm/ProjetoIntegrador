@@ -1,31 +1,44 @@
 from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse, Http404
+from cavalo_vapor.form import UserForm
+from django.contrib import messages
 from .form import *
+from django.contrib.auth.decorators import login_required
 from .models import *
-from .login import loginVerify
 
 # Create your views here.
 
 
 def index(request):
-    listaObj = Usuario.objects.all()
-    listaObj2 = Email.objects.all()
-    contexto = {"objetos": listaObj, "objetos2": listaObj2}
-    return render(request, "cavalo_vapor/index.html", contexto)
+    return render(request, "cavalo_vapor/index.html",)
 
 
 def cadastro(request):
-    userform = CadastroForm()
+    superusers = ['fel9.renan02@gmail.com', 'gusferreira1203@gmail.com']
     if request.method == "POST":
-        userform = CadastroForm(request.POST)
-        if userform.is_valid():
-            Usuario.objects.create(**userform.cleaned_data)
-            print(request.POST)
-        else:
-            # print(userform.errors)
-            print(userform.errors)
-    contexto = {"user": userform}
-    return render(request, "cavalo_vapor/cadastro.html", contexto)
+        formulario = UserForm(request.POST)
+        if formulario.is_valid():
+            if formulario.cleaned_data.get("email") in superusers:
+                User.objects.create_user(
+                    username=formulario.cleaned_data.get("username"),
+                    email=formulario.cleaned_data.get("email"),
+                    password=formulario.cleaned_data.get("password1"),
+                    is_staff=True,
+                    is_superuser=True,
+                )
+            else:
+                formulario.save()
+                username = formulario.cleaned_data.get("username")
+
+                # email = formulario.cleaned_data.get("email")
+                messages.success(
+                    request,
+                    f"Conta registrada com sucesso {username}! Faça o login e aproveite!",
+                )
+                return redirect("login")
+    else:
+        formulario = UserForm()
+    return render(request, "cavalo_vapor/cadastro.html", {"form": formulario})
 
 
 #
@@ -65,10 +78,6 @@ def cadastro(request):
 # return render(request, "cavalo_vapor/cadastro.html", contexto)
 
 
-def chat_individual(request, id_sala):
-    return render(request, "cavalo_vapor/chat_individual.html")
-
-
 def chat(request):
     return render(request, "cavalo_vapor/chat.html")
 
@@ -82,30 +91,25 @@ def fretes(request):
 
 
 def login(request):
-    loginform = LoginForm()
-    if request.method == "POST":
-        perfil = request.POST["login"]
-        password = request.POST["senha"]
-        loginVerify(perfil, password)
-    contexto = {"loginform": loginform}
-    return render(request, "cavalo_vapor/login.html", contexto)
-
-
-def perfil_individual(request, id_perfil):
-    return render(request, "cavalo_vapor/perfil_individual.html")
-
-
-# só to testando (como sempre), para voltar como era antes, eu apago
-info = {
-    "nome": "Renan",
-    "ação": "fazendo merda",
-    "resultado": "weliton falando, que merda tu ta fazendo",
-}
+    return render(request, "cavalo_vapor/login.html")
 
 
 def perfis(request):
-    return render(request, "cavalo_vapor/perfis.html", info)
+    return render(request, "cavalo_vapor/perfis.html")
 
 
 def suporte(request):
     return render(request, "cavalo_vapor/suporte.html")
+
+
+def logout(request):
+    return render(request, "logout.html")
+
+
+@login_required
+def perfil_individual(request):
+    return render(request, "cavalo_vapor/perfil_individual.html")
+
+
+def chat_individual(request, id_sala):
+    return render(request, "cavalo_vapor/chat_individual.html")

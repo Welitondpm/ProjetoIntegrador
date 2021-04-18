@@ -1,56 +1,94 @@
-.abas{
-    width: 100%;
-    height: 30px;
-    padding: 3px;
-    border: blueviolet solid 2px;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    align-items: center;
+.abas {
+  width: 100%;
+  height: 30px;
+  padding: 3px;
+  border: blueviolet solid 2px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
-.abas div{
-    border-radius: 5px;
-    width: 30%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: rgba(37, 95, 255, 0.7);
+.abas div {
+  border-radius: 5px;
+  width: 30%;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: rgba(37, 95, 255, 0.7);
 }
 
-.abas div:hover{
-    background-color: rgba(37, 95, 255, 1);
-}
-.invisivel{
-    display: none;
+.abas div:hover {
+  background-color: #255fff;
 }
 
-.colunas{
-    display: grid;
-    grid-template-columns: repeat(2, 50%);
-    margin: 10px 20px;
-}
-.fretes{
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(9rem, 2fr));
-    grid-gap: 1rem;
-    justify-content: center;
-    align-items: center;
-    /* text-align: center; */
+.invisivel {
+  display: none;
 }
 
-.colunas h3{
-    margin-bottom: 20px;
+main {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 
-.pessoal h3{
-    display: inline;
+.colunas {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  /* grid-template-columns: repeat(2, 50%); */
+  margin: 10px 20px;
 }
 
-.pessoal{
-    margin-bottom: 20px;
+.fretes {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (minmax(9rem, 2fr))[auto-fit];
+      grid-template-columns: repeat(auto-fit, minmax(9rem, 2fr));
+  grid-gap: 1rem;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  /* text-align: center; */
 }
-.pesquisa{
-    margin: 0 20px;
+
+.colunas h3 {
+  margin-bottom: 20px;
 }
+
+.pessoal h3 {
+  display: inline;
+}
+
+.pessoal {
+  margin-bottom: 20px;
+}
+
+.pesquisa {
+  margin: 0 20px;
+}
+/*# sourceMappingURL=fretes.css.map */

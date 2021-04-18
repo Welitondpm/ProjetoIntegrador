@@ -1,21 +1,13 @@
-@charset "UTF-8";
 /* Estilo Igual Para Ambos */
+
 * {
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 .conteudo {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  flex-direction: column;
+  align-items: center;
 }
 
 .formulario {
@@ -44,12 +36,8 @@ select:focus {
 
 .formulario div {
   width: 100%;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  justify-content: center;
 }
 
 .formulario button {
@@ -63,13 +51,11 @@ select:focus {
 }
 
 .formulario button:hover {
-  -webkit-transition: 0.3s;
   transition: 0.3s;
   background-color: rgba(5, 40, 183, 0.835);
 }
 
 .formulario button:focus {
-  -webkit-transition: 0.3s;
   transition: 0.3s;
   background-color: rgba(5, 40, 183, 0.835);
 }
@@ -80,15 +66,12 @@ select:focus {
 }
 
 /* Estilos epecífico Cadastro */
+
 /* Estilos epecífico Login */
+
 .formulario .esqueceu_senha {
   width: 100%;
   margin-top: -0.5rem;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: end;
-      -ms-flex-pack: end;
-          justify-content: flex-end;
+  justify-content: flex-end;
 }
-/*# sourceMappingURL=login_cadastro.css.map */
