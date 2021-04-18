@@ -11,10 +11,16 @@ a{
     text-decoration: none;
 }
 
+main{
+    display: flex;
+    flex-direction: column;
+    width: 75vw;
+}
+
 nav{
     background-color: #000000;
     height: 100vh;
-    width: 600px;
+    width: 25vw;
     display: flex;
     justify-content: space-around;
     flex-direction: column;
@@ -35,10 +41,16 @@ nav{
             margin-right: 10px;
             color: darkslategrey;
         }
+
         a{
             text-decoration: none;
             color: darkslategrey;
             font-size: 2vw;
+        }
+
+        a:hover{
+            text-decoration: underline;
+            color: lightslategrey;
         }
     }
 }
@@ -47,17 +59,12 @@ nav{
     color: darkslategray;
 }
 
-nav ul li a:hover{
-    text-decoration: underline;
-    color: lightslategrey;
-}
-
 body{
     background-color: darkslategrey;
     display: flex;
 }
 
-#esquerda{
+.titulo{
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -65,18 +72,11 @@ body{
     color: darkslategrey;
 }
 
-#direita{
-    display: flex;
-    align-items: center;
-    /* border: red solid 3px; */
-}
-
 /* LISTAS */
 
 input,select,textarea{
     border-radius: 0.5rem;
     margin: 0.5rem 0;
-    /* border: 1px solid #ced4da; */
     padding: 0.3rem;
     background-color: lightslategrey;
     color: darkslateblue;
@@ -91,6 +91,12 @@ svg:hover{
  background-color: rgb(218, 218, 218); 
 }
 
+.pesquisa{
+    display: flex;
+    flex-direction: column;
+    width: 75vw;
+}
+
 .procurar{
   text-align: right;
   margin: 0 20px;
@@ -100,6 +106,9 @@ svg:hover{
   text-align: right;
   margin: 0;
   margin-right: 20px;
+  width: 25vw;
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .filtrar span{

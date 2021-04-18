@@ -1,29 +1,15 @@
-*{
-  box-sizing: border-box;
-}
-
 .menu{
   display: flex;
   list-style: none;
   background-color: gray;
 }
 
-ul li a{
+a{
   text-decoration: none;
   color: darkblue;
 }
 
-ul li a:hover{
-  text-decoration: none;
-  color: dodgerblue;
-}
-
-p a{
-  text-decoration: none;
-  color: darkblue;
-}
-
-p a:hover{
+a:hover{
   text-decoration: none;
   color: dodgerblue;
 }

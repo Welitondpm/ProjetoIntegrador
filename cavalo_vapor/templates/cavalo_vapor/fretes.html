@@ -6,13 +6,12 @@
 {% block script %}{% endblock %}
 {% block title %} Cavalo-Vapor Fretes | Fretes {% endblock %}
 {% block conteudo %}
-<main>
 
-
-  <h2>
-    lembrar do "filtrar por" e "ordenar", Renan
-  </h2>
-  <!--
+<h2>
+  lembrar do "filtrar por" e "ordenar", Renan
+</h2>
+<button>Cadastrar</button>
+<!--
 prazo de carga, tempo de confirmação antes do fretes, tipo da carga, carga, Ao clicar em “mostrar mais” vai para a página frete em que:
 dados do frete(acima) e opção de candidatar-se (empresa pode aceitar e remover candidatos).
 			!! Observações !!
@@ -25,8 +24,9 @@ BD: por tempo de confirmação antes do fretes como DATETIME e se a carga é div
  -->
 
 
-  <div class="pesquisa">
-    <input type="text">
+<div class="pesquisa">
+  <section class='filtrar'>
+    <input type="text" />
     <span>
       <svg focusable="false" width="16" height="16" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
         <path
@@ -34,229 +34,226 @@ BD: por tempo de confirmação antes do fretes como DATETIME e se a carga é div
         </path>
       </svg>
     </span>
-    <section class='filtrar'>
-      <span>Filtrar por:</span>
-      <select name="estado" id="estado_filtro">
-        <option value="">Estado</option>
-        <option value="AC">Acre</option>
-        <option value="AM">Amapá</option>
-      </select>
-      <select name="cidade" id="cidade_filtro">
-        <option value="">Cidade</option>
-        <option value="araquari">Araquari</option>
-        <option value="joinville">Joinville</option>
-      </select>
+  </section>
+  <section class='filtrar'>
+    <span>Filtrar por:</span>
+    <select name="estado" id="estado_filtro">
+      <option value="">Estado</option>
+      <option value="AC">Acre</option>
+      <option value="AM">Amapá</option>
+    </select>
+    <select name="cidade" id="cidade_filtro">
+      <option value="">Cidade</option>
+      <option value="araquari">Araquari</option>
+      <option value="joinville">Joinville</option>
+    </select>
 
 
 
-      <select name="tipo de carga" id="">
-        <option value="">Tipo de carga</option>
-        <option value="">Metais</option>
-        <option value="">Material de construção</option>
-        <option value="">Não sei os termos corretos</option>
-      </select>
-      <select name="carga" id="">
-        <option value="">Cargas</option>
-        <option value="">O mesmo de cima?</option>
-        <option value="">Ou diferente?</option>
-        <option value="">E não são peso</option>
-      </select>
-      <select name="valor" id="">
-        <option value="">Valor</option>
-        <option value="">Valor 1</option>
-        <option value="">Valor 2</option>
-        <option value="">Valor 3</option>
-      </select>
-      <select name="tipos de reboque" id="">
-        <option value="">Reboques</option>
-        <option value="">Weliton...</option>
-        <option value="">...preenche?</option>
-      </select>
-      <select name="peso" id="">
-        <option value="">Peso</option>
-        <option value="">Quantitativos</option>
-        <option value="">Não serão</option>
-        <option value="">Aplicados juntos</option>
-      </select>
-      <select name="prazo carga" id="">
-        <option value="">Data da carga</option>
-        <option value="">Data 1</option>
-        <option value="">Data 2</option>
-        <option value="">Data 3</option>
-      </select>
-      <select name="prazo descarga" id="">
-        <option value="">Data da descarga</option>
-        <option value="">Data 1</option>
-        <option value="">Data 2</option>
-        <option value="">Data 3</option>
-      </select>
-      <select name="distancia" id="">
-        <option value="">Distancia</option>
-        <option value="">Trajeto 1</option>
-        <option value="">Trajeto 2</option>
-        <option value="">Trajeto 3</option>
-      </select>
-      <select name="notificacao_previa" id="">
-        <option value="">Notificação prévia</option>
-        <option value="">Data 1</option>
-        <option value="">Data 2</option>
-        <option value="">Data 3</option>
-      </select>
+    <select name="tipo de carga" id="">
+      <option value="">Tipo de carga</option>
+      <option value="">Metais</option>
+      <option value="">Material de construção</option>
+      <option value="">Não sei os termos corretos</option>
+    </select>
+    <select name="carga" id="">
+      <option value="">Cargas</option>
+      <option value="">O mesmo de cima?</option>
+      <option value="">Ou diferente?</option>
+      <option value="">E não são peso</option>
+    </select>
+    <select name="valor" id="">
+      <option value="">Valor</option>
+      <option value="">Valor 1</option>
+      <option value="">Valor 2</option>
+      <option value="">Valor 3</option>
+    </select>
+    <select name="tipos de reboque" id="">
+      <option value="">Reboques</option>
+      <option value="">Weliton...</option>
+      <option value="">...preenche?</option>
+    </select>
+    <select name="peso" id="">
+      <option value="">Peso</option>
+      <option value="">Quantitativos</option>
+      <option value="">Não serão</option>
+      <option value="">Aplicados juntos</option>
+    </select>
+    <select name="prazo carga" id="">
+      <option value="">Data da carga</option>
+      <option value="">Data 1</option>
+      <option value="">Data 2</option>
+      <option value="">Data 3</option>
+    </select>
+    <select name="prazo descarga" id="">
+      <option value="">Data da descarga</option>
+      <option value="">Data 1</option>
+      <option value="">Data 2</option>
+      <option value="">Data 3</option>
+    </select>
+    <select name="distancia" id="">
+      <option value="">Distancia</option>
+      <option value="">Trajeto 1</option>
+      <option value="">Trajeto 2</option>
+      <option value="">Trajeto 3</option>
+    </select>
+    <select name="notificacao_previa" id="">
+      <option value="">Notificação prévia</option>
+      <option value="">Data 1</option>
+      <option value="">Data 2</option>
+      <option value="">Data 3</option>
+    </select>
 
 
-      <!-- name, id, value e for estão assim porque eu peguei da net -->
-      <form action="">
-        <input type="radio" id="male" name="gender" value="male">
-        <label for="male">Carregamento</label>
-        <input type="radio" id="female" name="gender" value="female">
-        <label for="female">Entrega</label>
-      </form>
-    </section>
+    <!-- name, id, value e for estão assim porque eu peguei da net -->
+    <form action="">
+      <input type="radio" id="male" name="gender" value="male">
+      <label for="male">Carregamento</label>
+      <input type="radio" id="female" name="gender" value="female">
+      <label for="female">Entrega</label>
+    </form>
+  </section>
 
 
-    <!-- <p>
+  <!-- <p>
       Ordenar: prazo, data de carregamento, distância, avaliação empresa tempo de confirmação antes do fretes.
     </p> -->
 
+</div>
+<section class="colunas">
+  <div class="lookfor">
+    <h3>
+      Procurar fretes
+    </h3>
+    <ul class="fretes">
+      <li>
+        <h4>Frete 1</h4>
+        <div>Local de carga e descarga: A, B</div>
+        <div>Valor: R$ 1</div>
+        <div>Distancia: 1km</div>
+        <div>Cliente: Pessoa 1</div>
+        <div>Candidatos: Fulano 1</div>
+        <div>Prazo de descarga: Data 1</div>
+        <div>Peso: 1 tonelada(s)</div>
+        <div>Volume: 1 metro(s) cúbicos</div>
+        <div>Prazo de carga: Data 1</div>
+        <div>Noticação prévia em: 1 dia(s)</div>
+        <div>Tipo de carga: Tipo 1</div>
+        <div>Carga: Carga 1</div>
+      </li>
+      <li>
+        <h4>Frete 1</h4>
+        <div>Local de carga e descarga: A, B</div>
+        <div>Valor: R$ 1</div>
+        <div>Distancia: 1km</div>
+        <div>Cliente: Pessoa 1</div>
+        <div>Candidatos: Fulano 1</div>
+        <div>Prazo de descarga: Data 1</div>
+        <div>Peso: 1 tonelada(s)</div>
+        <div>Volume: 1 metro(s) cúbicos</div>
+        <div>Prazo de carga: Data 1</div>
+        <div>Noticação prévia em: 1 dia(s)</div>
+        <div>Tipo de carga: Tipo 1</div>
+        <div>Carga: Carga 1</div>
+      </li>
+      <li>
+        <h4>Frete 1</h4>
+        <div>Local de carga e descarga: A, B</div>
+        <div>Valor: R$ 1</div>
+        <div>Distancia: 1km</div>
+        <div>Cliente: Pessoa 1</div>
+        <div>Candidatos: Fulano 1</div>
+        <div>Prazo de descarga: Data 1</div>
+        <div>Peso: 1 tonelada(s)</div>
+        <div>Volume: 1 metro(s) cúbicos</div>
+        <div>Prazo de carga: Data 1</div>
+        <div>Noticação prévia em: 1 dia(s)</div>
+        <div>Tipo de carga: Tipo 1</div>
+        <div>Carga: Carga 1</div>
+      </li>
+      <li>
+        <h4>Frete 1</h4>
+        <div>Local de carga e descarga: A, B</div>
+        <div>Valor: R$ 1</div>
+        <div>Distancia: 1km</div>
+        <div>Cliente: Pessoa 1</div>
+        <div>Candidatos: Fulano 1</div>
+        <div>Prazo de descarga: Data 1</div>
+        <div>Peso: 1 tonelada(s)</div>
+        <div>Volume: 1 metro(s) cúbicos</div>
+        <div>Prazo de carga: Data 1</div>
+        <div>Noticação prévia em: 1 dia(s)</div>
+        <div>Tipo de carga: Tipo 1</div>
+        <div>Carga: Carga 1</div>
+      </li>
+    </ul>
   </div>
-  <section class="colunas">
-    <div>
-      <h3>
-        Procurar fretes
-      </h3>
-      <ul class="fretes">
-        <li>
-          <h4>Frete 1</h4>
-          <div>Local de carga e descarga: A, B</div>
-          <div>Valor: R$ 1</div>
-          <div>Distancia: 1km</div>
-          <div>Cliente: Pessoa 1</div>
-          <div>Candidatos: Fulano 1</div>
-          <div>Prazo de descarga: Data 1</div>
-          <div>Peso: 1 tonelada(s)</div>
-          <div>Volume: 1 metro(s) cúbicos</div>
-          <div>Prazo de carga: Data 1</div>
-          <div>Noticação prévia em: 1 dia(s)</div>
-          <div>Tipo de carga: Tipo 1</div>
-          <div>Carga: Carga 1</div>
-        </li>
-        <li>
-          <h4>Frete 1</h4>
-          <div>Local de carga e descarga: A, B</div>
-          <div>Valor: R$ 1</div>
-          <div>Distancia: 1km</div>
-          <div>Cliente: Pessoa 1</div>
-          <div>Candidatos: Fulano 1</div>
-          <div>Prazo de descarga: Data 1</div>
-          <div>Peso: 1 tonelada(s)</div>
-          <div>Volume: 1 metro(s) cúbicos</div>
-          <div>Prazo de carga: Data 1</div>
-          <div>Noticação prévia em: 1 dia(s)</div>
-          <div>Tipo de carga: Tipo 1</div>
-          <div>Carga: Carga 1</div>
-        </li>
-        <li>
-          <h4>Frete 1</h4>
-          <div>Local de carga e descarga: A, B</div>
-          <div>Valor: R$ 1</div>
-          <div>Distancia: 1km</div>
-          <div>Cliente: Pessoa 1</div>
-          <div>Candidatos: Fulano 1</div>
-          <div>Prazo de descarga: Data 1</div>
-          <div>Peso: 1 tonelada(s)</div>
-          <div>Volume: 1 metro(s) cúbicos</div>
-          <div>Prazo de carga: Data 1</div>
-          <div>Noticação prévia em: 1 dia(s)</div>
-          <div>Tipo de carga: Tipo 1</div>
-          <div>Carga: Carga 1</div>
-        </li>
-        <li>
-          <h4>Frete 1</h4>
-          <div>Local de carga e descarga: A, B</div>
-          <div>Valor: R$ 1</div>
-          <div>Distancia: 1km</div>
-          <div>Cliente: Pessoa 1</div>
-          <div>Candidatos: Fulano 1</div>
-          <div>Prazo de descarga: Data 1</div>
-          <div>Peso: 1 tonelada(s)</div>
-          <div>Volume: 1 metro(s) cúbicos</div>
-          <div>Prazo de carga: Data 1</div>
-          <div>Noticação prévia em: 1 dia(s)</div>
-          <div>Tipo de carga: Tipo 1</div>
-          <div>Carga: Carga 1</div>
-        </li>
-      </ul>
-    </div>
-    <div>
-      <div class="pessoal">
-        <h3>
-          Meus fretes
-        </h3>
-        <button>Cadastrar</button>
-      </div>
-      <ul class="fretes">
-        <li>
-          <h4>Frete 1</h4>
-          <div>Local de carga e descarga: A, B</div>
-          <div>Valor: R$ 1</div>
-          <div>Distancia: 1km</div>
-          <div>Cliente: Pessoa 1</div>
-          <div>Candidatos: Fulano 1</div>
-          <div>Prazo de descarga: Data 1</div>
-          <div>Peso: 1 tonelada(s)</div>
-          <div>Volume: 1 metro(s) cúbicos</div>
-          <div>Prazo de carga: Data 1</div>
-          <div>Noticação prévia em: 1 dia(s)</div>
-          <div>Tipo de carga: Tipo 1</div>
-          <div>Carga: Carga 1</div>
-        </li>
-        <li>
-          <h4>Frete 1</h4>
-          <div>Local de carga e descarga: A, B</div>
-          <div>Valor: R$ 1</div>
-          <div>Distancia: 1km</div>
-          <div>Cliente: Pessoa 1</div>
-          <div>Candidatos: Fulano 1</div>
-          <div>Prazo de descarga: Data 1</div>
-          <div>Peso: 1 tonelada(s)</div>
-          <div>Volume: 1 metro(s) cúbicos</div>
-          <div>Prazo de carga: Data 1</div>
-          <div>Noticação prévia em: 1 dia(s)</div>
-          <div>Tipo de carga: Tipo 1</div>
-          <div>Carga: Carga 1</div>
-        </li>
-        <li>
-          <h4>Frete 1</h4>
-          <div>Local de carga e descarga: A, B</div>
-          <div>Valor: R$ 1</div>
-          <div>Distancia: 1km</div>
-          <div>Cliente: Pessoa 1</div>
-          <div>Candidatos: Fulano 1</div>
-          <div>Prazo de descarga: Data 1</div>
-          <div>Peso: 1 tonelada(s)</div>
-          <div>Volume: 1 metro(s) cúbicos</div>
-          <div>Prazo de carga: Data 1</div>
-          <div>Noticação prévia em: 1 dia(s)</div>
-          <div>Tipo de carga: Tipo 1</div>
-          <div>Carga: Carga 1</div>
-        </li>
-        <li>
-          <h4>Frete 1</h4>
-          <div>Local de carga e descarga: A, B</div>
-          <div>Valor: R$ 1</div>
-          <div>Distancia: 1km</div>
-          <div>Cliente: Pessoa 1</div>
-          <div>Candidatos: Fulano 1</div>
-          <div>Prazo de descarga: Data 1</div>
-          <div>Peso: 1 tonelada(s)</div>
-          <div>Volume: 1 metro(s) cúbicos</div>
-          <div>Prazo de carga: Data 1</div>
-          <div>Noticação prévia em: 1 dia(s)</div>
-          <div>Tipo de carga: Tipo 1</div>
-          <div>Carga: Carga 1</div>
-        </li>
-      </ul>
-    </div>
-  </section>
-</main>
+  <div class="pessoal">
+    <h3>
+      Meus fretes
+    </h3>
+    <ul class="fretes">
+      <li>
+        <h4>Frete 1</h4>
+        <div>Local de carga e descarga: A, B</div>
+        <div>Valor: R$ 1</div>
+        <div>Distancia: 1km</div>
+        <div>Cliente: Pessoa 1</div>
+        <div>Candidatos: Fulano 1</div>
+        <div>Prazo de descarga: Data 1</div>
+        <div>Peso: 1 tonelada(s)</div>
+        <div>Volume: 1 metro(s) cúbicos</div>
+        <div>Prazo de carga: Data 1</div>
+        <div>Noticação prévia em: 1 dia(s)</div>
+        <div>Tipo de carga: Tipo 1</div>
+        <div>Carga: Carga 1</div>
+      </li>
+      <li>
+        <h4>Frete 1</h4>
+        <div>Local de carga e descarga: A, B</div>
+        <div>Valor: R$ 1</div>
+        <div>Distancia: 1km</div>
+        <div>Cliente: Pessoa 1</div>
+        <div>Candidatos: Fulano 1</div>
+        <div>Prazo de descarga: Data 1</div>
+        <div>Peso: 1 tonelada(s)</div>
+        <div>Volume: 1 metro(s) cúbicos</div>
+        <div>Prazo de carga: Data 1</div>
+        <div>Noticação prévia em: 1 dia(s)</div>
+        <div>Tipo de carga: Tipo 1</div>
+        <div>Carga: Carga 1</div>
+      </li>
+      <li>
+        <h4>Frete 1</h4>
+        <div>Local de carga e descarga: A, B</div>
+        <div>Valor: R$ 1</div>
+        <div>Distancia: 1km</div>
+        <div>Cliente: Pessoa 1</div>
+        <div>Candidatos: Fulano 1</div>
+        <div>Prazo de descarga: Data 1</div>
+        <div>Peso: 1 tonelada(s)</div>
+        <div>Volume: 1 metro(s) cúbicos</div>
+        <div>Prazo de carga: Data 1</div>
+        <div>Noticação prévia em: 1 dia(s)</div>
+        <div>Tipo de carga: Tipo 1</div>
+        <div>Carga: Carga 1</div>
+      </li>
+      <li>
+        <h4>Frete 1</h4>
+        <div>Local de carga e descarga: A, B</div>
+        <div>Valor: R$ 1</div>
+        <div>Distancia: 1km</div>
+        <div>Cliente: Pessoa 1</div>
+        <div>Candidatos: Fulano 1</div>
+        <div>Prazo de descarga: Data 1</div>
+        <div>Peso: 1 tonelada(s)</div>
+        <div>Volume: 1 metro(s) cúbicos</div>
+        <div>Prazo de carga: Data 1</div>
+        <div>Noticação prévia em: 1 dia(s)</div>
+        <div>Tipo de carga: Tipo 1</div>
+        <div>Carga: Carga 1</div>
+      </li>
+    </ul>
+  </div>
+</section>
 {% endblock %}

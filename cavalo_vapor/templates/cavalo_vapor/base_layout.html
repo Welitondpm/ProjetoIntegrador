@@ -14,54 +14,53 @@
 
 <body>
   <nav>
-    <div id="esquerda">
+    <div class="titulo">
       <img src="{% static 'cavalo_vapor/img/logo.png' %}" alt="Logo" width="108px" height="60px">
       <h1>Cavalo-Vapor Fretes</h1>
     </div>
-    <div id="direita">
-      <ul>
-        {% block menu %}
-        <li id='usuario'>{{user.username}}</li>
-        <li><img src="{% static 'cavalo_vapor/img/home.png' %}" alt="home" width="30vw" height="30vw"><a
-            href=" ../">Home</a></li>
-        <li><img src="{% static 'cavalo_vapor/img/frete.png' %}" alt="frete" width="30vw" height="30vw"><a
-            href=" ../fretes">Fretes</a>
-        </li>
-        <!-- <li><img src="{% static 'cavalo_vapor/img/frete.png' %}" alt="fretes" width="30vw" height="30vw"><a href="frete_individual">Fretes</a></li> -->
-        <li><img src="{% static 'cavalo_vapor/img/login.png' %}" alt="perfis" width="30vw" height="30vw"><a
-            href=" ../perfis">Perfis</a>
-        </li>
-        <li><img src="{% static 'cavalo_vapor/img/suporte.png' %}" alt="suporte" width="30vw" height="30vw"><a
-            href=" ../suporte">Suporte</a></li>
-        <li><img src="{% static 'cavalo_vapor/img/login.png' %}" alt="login" width="30vw" height="30vw"><a
-            href=" ../login">Login</a>
-        </li>
-        <li><img src="{% static 'cavalo_vapor/img/register.png' %}" alt="cadastro" width="30vw" height="30vw"><a
-            href=" ../cadastro">Cadastro</a></li>
+    <ul>
+      {% block menu %}
+      <li id='usuario'>{{user.username}}</li>
+      <li><img src="{% static 'cavalo_vapor/img/home.png' %}" alt="home" width="20vw" height="20vw"><a href=" ../">
+          Home</a></li>
+      <li><img src="{% static 'cavalo_vapor/img/frete.png' %}" alt="frete" width="20vw" height="20vw"><a
+          href=" ../fretes"> Fretes</a>
+      </li>
+      <!-- <li><img src="{% static 'cavalo_vapor/img/frete.png' %}" alt="fretes" width="20vw" height="20vw"><a href="frete_individual">Fretes</a></li> -->
+      <li><img src="{% static 'cavalo_vapor/img/login.png' %}" alt="perfis" width="20vw" height="20vw"><a
+          href=" ../perfis"> Perfis</a>
+      </li>
+      <li><img src="{% static 'cavalo_vapor/img/suporte.png' %}" alt="suporte" width="20vw" height="20vw"><a
+          href=" ../suporte"> Suporte</a></li>
+      <li><img src="{% static 'cavalo_vapor/img/login.png' %}" alt="login" width="20vw" height="20vw"><a
+          href=" ../login"> Login</a>
+      </li>
+      <li><img src="{% static 'cavalo_vapor/img/register.png' %}" alt="cadastro" width="20vw" height="20vw"><a
+          href=" ../cadastro"> Cadastro</a></li>
 
 
-        {% if user.is_authenticated or user.is_staff %}
-        <li><img src="{% static 'cavalo_vapor/img/chat.png' %}" alt="chat" width="30vw" height="30vw"><a
-            href="../chat">Chat</a></li>
-        {% comment %} <li><a href="">Perfil individual</a></li> {% endcomment %}
-        <li><img src="{% static 'cavalo_vapor/img/login.png' %}" alt="perfil individual" width="30vw" height="30vw"><a
-            href=" {% url 'perfil_individual' %}">Seu
-            Perfil</a></li>
-        <li><img src="{% static 'cavalo_vapor/img/logout.png' %}" alt="logout" width="30vw" height="30vw"><a
-            href=" ../logout">Logout</a>
-        </li>
-        {% endif %}
-        {% endblock %}
-      </ul>
-    </div>
+      {% if user.is_authenticated or user.is_staff %}
+      <li><img src="{% static 'cavalo_vapor/img/chat.png' %}" alt="chat" width="20vw" height="20vw"><a href="../chat">
+          Chat</a></li>
+      {% comment %} <li><a href="">Perfil individual</a></li> {% endcomment %}
+      <li><img src="{% static 'cavalo_vapor/img/login.png' %}" alt="perfil individual" width="20vw" height="20vw"><a
+          href=" {% url 'perfil_individual' %}"> Seu
+          Perfil</a></li>
+      <li><img src="{% static 'cavalo_vapor/img/logout.png' %}" alt="logout" width="20vw" height="20vw"><a
+          href=" ../logout"> Logout</a>
+      </li>
+      {% endif %}
+      {% endblock %}
+    </ul>
   </nav>
   {% if messages %} {% for message in messages %}
   <div>{{message}}</div>
   {% endfor %}
   {% endif %}
-
-  {% block conteudo %}{% endblock %}
-  {% block scripts %}{% endblock %}
+  <main>
+    {% block conteudo %}{% endblock %}
+    {% block scripts %}{% endblock %}
+  </main>
 </body>
 
 </html>

@@ -1,42 +1,10 @@
-.abas{
-    width: 100%;
-    height: 30px;
-    padding: 3px;
-    border: blueviolet solid 2px;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    align-items: center;
-}
-
-.abas div{
-    border-radius: 5px;
-    width: 30%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: rgba(37, 95, 255, 0.7);
-}
-
-.abas div:hover{
-    background-color: rgba(37, 95, 255, 1);
-}
-.invisivel{
-    display: none;
-}
-
-main{
-    display: flex;
-    flex-direction: column;
-}
-
 .colunas{
     display: flex;
-    flex-wrap: wrap;
-    /* grid-template-columns: repeat(2, 50%); */
+    justify-content: space-evenly;
+    align-items: center;
     margin: 10px 20px;
 }
+
 .fretes{
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(9rem, 2fr));
@@ -44,6 +12,14 @@ main{
     justify-content: center;
     align-items: center;
     /* text-align: center; */
+}
+
+.fretes li{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 25vw;
 }
 
 .colunas h3{
@@ -57,6 +33,12 @@ main{
 .pessoal{
     margin-bottom: 20px;
 }
-.pesquisa{
-    margin: 0 20px;
+
+.lookfor h3{
+    display: inline;
+}
+
+.lookfor{
+    margin-bottom: 20px;
+
 }
