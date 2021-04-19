@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 from django.db.models.deletion import CASCADE
+from PIL import Image
 
 # Create your models here.
 
@@ -33,16 +34,16 @@ class Usuario(models.Model):
     modo_preferencia = models.CharField(max_length=1, default=0)
     nome = models.CharField(max_length=200)
     senha = models.CharField(max_length=64)
-    usuario = models.OneToOneField(User, on_delete=CASCADE)
+    perfil = models.OneToOneField(User, on_delete=CASCADE)
     login = models.CharField(max_length=200)
     admin = models.BooleanField(max_length=1, default=False)
     imagem = models.ImageField(default="default.jpeg", upload_to="img_perfil")
 
     def __str__(self):
-        return f"{self.usuario.username} Perfil"
+        return f"{self.perfil.username} Perfil"
 
     def save(self, *args, **kwargs):
-        super(Perfil, self).save(*args, **kwargs)
+        super(Usuario, self).save(*args, **kwargs)
 
         img = Image.open(self.imagem.path)
 

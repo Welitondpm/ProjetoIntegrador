@@ -11,3 +11,17 @@ class UserForm(UserCreationForm):
     class Meta:
         model = User
         fields = ["username", "email", "password1", "password2"]
+
+
+class AtualizarUsuario(forms.ModelForm):
+    email = forms.EmailField()
+
+    class Meta:
+        model = User
+        fields = ["username", "email"]
+
+
+class AtualizarImagemUsuario(forms.ModelForm):
+    class Meta:
+        model = Usuario
+        fields = ["imagem"]
