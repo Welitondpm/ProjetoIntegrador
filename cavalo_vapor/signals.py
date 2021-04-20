@@ -7,9 +7,9 @@ from django.dispatch import receiver
 @receiver(post_save, sender=User)
 def CriaPerfil(sender, instance, created, **kwags):
     if created:
-        Usuario.objects.create(perfil=instance)
+        Perfil.objects.create(usuario=instance)
 
 
 @receiver(post_save, sender=User)
 def SalvaPerfil(sender, instance, **kwags):
-    instance.perfil.save()
+    instance.usuario.save()

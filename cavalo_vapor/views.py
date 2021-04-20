@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse, Http404
-from cavalo_vapor.form import UserForm, AtualizarImagemUsuario, AtualizarUsuario
+from cavalo_vapor.form import UserForm, PerfilForm, UserPerfilForm
 from django.contrib import messages
 from .form import *
 from django.contrib.auth.decorators import login_required
@@ -98,25 +98,20 @@ def logout(request):
 
 @login_required
 def perfil_individual(request):
-    # if request.method == "POST":
-    #     uAtualizar = AtualizarUsuario(request.POST, instance=request.user)
-    #     pAtualizar = AtualizarImagemUsuario(
-    #         request.POST, request.FILES, instance=request.user.usuario
-    #     )
-    #     if uAtualizar.is_valid() and pAtualizar.is_valid():
-    #         uAtualizar.save()
-    #         pAtualizar.save()
-    #         messages.success(
-    #             request,
-    #             f"Conta atualizada com sucesso!",
-    #         )
-    #         return redirect("perfil")
-    # else:
-    #     uAtualizar = AtualizarUsuario(instance=request.user)
-
-    #     pAtualizar = AtualizarImagemUsuario(instance=request.user.perfil)
-    # contexto = {"uAtualizar": uAtualizar, "pAtualizar": pAtualizar}
-    return render(request, "cavalo_vapor/perfil_individual.html")
+    usuario = request.user
+    formUser = UserPerfilForm(instance=usuario)
+    formProfile = PerfilForm(instance=usuario)
+    if request == request.POST:
+        if request.method == "POST":
+            formProfile = PerfilForm(
+                request.POST, request.FILES, instance=usuario)
+            formUser = UserPerfilForm(request.POST)
+            if formUser.is_valid():
+                formUser.save()
+            if formProfile.is_valid():
+                formProfile.save()
+    contexto = {'form1': formProfile, 'form2': formUser}
+    return render(request, "cavalo_vapor/perfil_individual.html", contexto)
 
 
 def chat_individual(request, id_sala):

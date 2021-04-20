@@ -12,16 +12,18 @@
     {% comment %} <img src="{{user.perfil.imagem.url}}" id="perfil_img" alt="" width="100px" height="100px" srcset="" />
     {% endcomment %}
     <div>
-      <h3>{{user.username}}</h3>
+      <p>{{user.username}}</p>
       <p>{{user.email}}</p>
+      <p><img src="{{request.user.usuario.imagem.url}}" width='100px' alt=""></p>
     </div>
   </section>
 
   <main>
-    <form action="" method="post">
+    <form action="" method="post" encrypted='multipart/form-data'>
       {% csrf_token %}
-
-      <div>
+      {{form2}}
+      {{form1}}
+      {% comment %} <div>
         <span>Logo</span>
         <input type="file" placeholder="Insira uma imagem de logo">
       </div>
@@ -49,7 +51,8 @@
       <div>
         <span>Telefone</span>
         <input type="text" placeholder="Insira seu telefone">
-      </div>
+      </div> {% endcomment %}
+      <button>Atualizar</button>
     </form>
   </main>
 

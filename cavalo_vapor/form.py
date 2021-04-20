@@ -13,15 +13,14 @@ class UserForm(UserCreationForm):
         fields = ["username", "email", "password1", "password2"]
 
 
-class AtualizarUsuario(forms.ModelForm):
-    email = forms.EmailField()
-
-    class Meta:
-        model = User
-        fields = ["username", "email"]
-
-
-class AtualizarImagemUsuario(forms.ModelForm):
+class PerfilForm(ModelForm):
     class Meta:
         model = Usuario
-        fields = ["imagem"]
+        fields = "__all__"
+        exclude = ['usuario']
+
+
+class UserPerfilForm(ModelForm):
+    class Meta:
+        model = User
+        fields = ['email', 'first_name', 'last_name', 'username']

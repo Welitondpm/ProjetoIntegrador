@@ -32,25 +32,15 @@ class Usuario(models.Model):
     qtd_avaliacoes = models.IntegerField(default=0)
     descricao = models.TextField(blank=True)
     modo_preferencia = models.CharField(max_length=1, default=0)
-    nome = models.CharField(max_length=200)
-    senha = models.CharField(max_length=64)
-    perfil = models.OneToOneField(User, on_delete=CASCADE)
-    login = models.CharField(max_length=200)
-    admin = models.BooleanField(max_length=1, default=False)
-    imagem = models.ImageField(default="default.jpeg", upload_to="img_perfil")
+    nome = models.CharField(max_length=200, blank=True)
+    user = models.OneToOneField(User, on_delete=CASCADE)
+    imagem = models.ImageField(
+        default="default.jpeg", upload_to="img_perfil")
 
     def __str__(self):
-        return f"{self.perfil.username} Perfil"
+        return self.user.username
 
-    def save(self, *args, **kwargs):
-        super(Usuario, self).save(*args, **kwargs)
 
-        img = Image.open(self.imagem.path)
-
-        if img.height > 300 or img.width > 300:
-            output_size = (300, 300)
-            img.thumbnail(output_size)
-            img.save(self.imagem.path)
 # class Suporte(models.Model):
 #     motivo_contato = models.CharField(max_length=40)
 #     mensagem = models.TextField()
