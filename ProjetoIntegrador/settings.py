@@ -121,8 +121,7 @@ USE_TZ = True
 
 STATIC_URL = "/static/"
 
-MEDIA_ROOT = os.path.join(
-    BASE_DIR/"cavalo_vapor/static/cavalo_vapor/img")
+MEDIA_ROOT = os.path.join(BASE_DIR / "cavalo_vapor/static/cavalo_vapor/img")
 MEDIA_URL = "/media/"
 
 

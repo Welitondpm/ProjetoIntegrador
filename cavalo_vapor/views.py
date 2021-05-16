@@ -1,6 +1,5 @@
-from django.shortcuts import render, get_object_or_404
-from django.http import HttpResponse, Http404
-from cavalo_vapor.form import UserForm, PerfilForm, UserPerfilForm
+from django.shortcuts import render, redirect
+from cavalo_vapor.form import UserForm, UserPerfilForm, PerfilForm
 from django.contrib import messages
 from .form import *
 from django.contrib.auth.decorators import login_required
@@ -10,7 +9,10 @@ from .models import *
 
 
 def index(request):
-    return render(request, "cavalo_vapor/index.html",)
+    return render(
+        request,
+        "cavalo_vapor/index.html",
+    )
 
 
 # def cadastro(request):
@@ -42,7 +44,7 @@ def index(request):
 
 
 def cadastro(request):
-    superusers = ['fel9.renan02@gmail.com', 'gusferreira1203@gmail.com']
+    superusers = ["fel9.renan02@gmail.com", "gusferreira1203@gmail.com"]
     if not request.method == "POST":
         formulario = UserForm()
     formulario = UserForm(request.POST)
@@ -98,19 +100,20 @@ def logout(request):
 
 @login_required
 def perfil_individual(request):
-    usuario = request.user
-    formUser = UserPerfilForm(instance=usuario)
-    formProfile = PerfilForm(instance=usuario)
-    if request == request.POST:
-        if request.method == "POST":
-            formProfile = PerfilForm(
-                request.POST, request.FILES, instance=usuario)
-            formUser = UserPerfilForm(request.POST)
-            if formUser.is_valid():
-                formUser.save()
-            if formProfile.is_valid():
-                formProfile.save()
-    contexto = {'form1': formProfile, 'form2': formUser}
+    if request.method == "POST":
+        userUpdate = UserPerfilForm(request.POST, instance=request.user)
+        perfilUpdate = PerfilForm(
+            request.POST, request.FILES, instance=request.user.usuario
+        )
+        if userUpdate.is_valid() or perfilUpdate.is_valid():
+            userUpdate.save()
+            perfilUpdate.save()
+            return redirect("perfil_individual")
+    else:
+        userUpdate = UserPerfilForm(instance=request.user)
+        perfilUpdate = PerfilForm(instance=request.user.usuario)
+
+    contexto = {"userUpdate": userUpdate, "perfilUpdate": perfilUpdate}
     return render(request, "cavalo_vapor/perfil_individual.html", contexto)
 
 

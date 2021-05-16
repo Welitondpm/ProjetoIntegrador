@@ -16,11 +16,10 @@ class UserForm(UserCreationForm):
 class PerfilForm(ModelForm):
     class Meta:
         model = Usuario
-        fields = "__all__"
-        exclude = ['usuario']
+        fields = ["imagem"]
 
 
 class UserPerfilForm(ModelForm):
     class Meta:
         model = User
-        fields = ['email', 'first_name', 'last_name', 'username']
+        fields = ["email", "first_name", "last_name"]

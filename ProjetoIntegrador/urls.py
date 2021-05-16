@@ -22,21 +22,27 @@ from django.conf.urls.static import static
 from django.urls import path
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path("admin/", admin.site.urls),
     path("", views.index, name="index"),
     path("cadastro/", views.cadastro, name="cadastro"),
     path("chat/<int:id_sala>", views.chat_individual, name="chat_individual"),
     path("chat", views.chat, name="chat"),
     path("frete/<int:id>", views.frete_individual, name="frete_individual"),
     path("fretes", views.fretes, name="fretes"),
-    path("login/", auth_views.LoginView.as_view(template_name="cavalo_vapor/login.html"), name="login",),
+    path(
+        "login/",
+        auth_views.LoginView.as_view(template_name="cavalo_vapor/login.html"),
+        name="login",
+    ),
     path("perfil/", views.perfil_individual, name="perfil_individual"),
     path("perfis", views.perfis, name="perfis"),
     path("suporte", views.suporte, name="suporte"),
-    path("logout/", auth_views.LogoutView.as_view(
-        template_name="cavalo_vapor/logout.html"), name="logout",),
+    path(
+        "logout/",
+        auth_views.LogoutView.as_view(template_name="cavalo_vapor/logout.html"),
+        name="logout",
+    ),
 ]
 
 if settings.DEBUG:
-    urlpatterns += static(settings.MEDIA_URL,
-                          document_root=settings.MEDIA_ROOT)
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

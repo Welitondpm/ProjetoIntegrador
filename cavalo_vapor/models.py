@@ -26,6 +26,7 @@ class Adress(models.Model):
 
 
 class Usuario(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
     soma_avaliacoes = models.IntegerField(default=0)
     foto_capa = models.CharField(max_length=200, blank=True)
     logo = models.CharField(max_length=200, blank=True)
@@ -33,9 +34,7 @@ class Usuario(models.Model):
     descricao = models.TextField(blank=True)
     modo_preferencia = models.CharField(max_length=1, default=0)
     nome = models.CharField(max_length=200, blank=True)
-    user = models.OneToOneField(User, on_delete=CASCADE)
-    imagem = models.ImageField(
-        default="default.jpeg", upload_to="img_perfil")
+    imagem = models.ImageField(default="default.jpeg", upload_to="img_perfil")
 
     def __str__(self):
         return self.user.username
