@@ -5,39 +5,15 @@ button {
 }
 
 .colunas {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: space-evenly;
-      -ms-flex-pack: space-evenly;
-          justify-content: space-evenly;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-
-.colunas h3 {
-  width: auto;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  display: -ms-grid;
+  display: grid;
 }
 
 .fretes {
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: (minmax(9rem, 2fr))[auto-fit];
-      grid-template-columns: repeat(auto-fit, minmax(9rem, 2fr));
+  -ms-grid-columns: (minmax(9rem, 1fr))[auto-fit];
+      grid-template-columns: repeat(auto-fit, minmax(9rem, 1fr));
   grid-gap: 1rem;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
@@ -62,7 +38,6 @@ button {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  width: 25vw;
 }
 
 .pessoal h3 {
@@ -71,5 +46,12 @@ button {
 
 .lookfor h3 {
   display: inline;
+}
+
+#comlupa {
+  font-size: xx-large;
+  background-color: transparent;
+  border: 0px transparent solid;
+  color: #224488;
 }
 /*# sourceMappingURL=fretes.css.map */

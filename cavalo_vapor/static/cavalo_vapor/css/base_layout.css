@@ -26,17 +26,18 @@ main {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  width: 75vw;
+  padding: 5vw;
 }
 
 .alwaysthere {
-  position: -webkit-sticky;
-  position: sticky;
-  height: 80px;
-  padding: 20px;
+  position: fixed;
+  height: 40px;
+  width: 40px;
+  padding: 0px;
   margin: 20px;
-  margin-top: 0px;
-  top: 20px;
+  margin-top: 80px;
+  top: -40px;
+  font-size: 30px;
 }
 
 #cobreatela {
@@ -50,8 +51,49 @@ main {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  position: fixed;
+  position: -webkit-sticky;
+  position: sticky;
   top: 0px;
+}
+
+#cobreatela #colorpickers {
+  display: none;
+  position: -webkit-sticky;
+  position: sticky;
+  height: 40px;
+  width: 60vw;
+  margin-left: 20vw;
+  top: 20px;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+#cobreatela #colorpickers input {
+  width: 100px;
+}
+
+#cobreatela .titulo {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  color: var(--cor2);
+  position: -webkit-sticky;
+  position: sticky;
+  top: 20px;
+}
+
+#cobreatela .titulo h1 {
+  font-size: 40px;
 }
 
 #cobreatela ul {
@@ -82,7 +124,7 @@ main {
 
 #cobreatela ul a {
   text-decoration: none;
-  color: darkslategrey;
+  color: var(--cor2);
   font-size: 40px;
 }
 
@@ -101,36 +143,22 @@ body {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-}
-
-.titulo {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  color: var(--cor2);
-}
-
-.titulo h1 {
-  font-size: 40px;
 }
 
 /* LISTAS */
-input, select, textarea {
-  border-radius: 0.5rem;
-  margin: 0.5rem 0;
+input, select, textarea, option, label {
+  margin: 0.5rem;
   padding: 0.3rem;
   background-color: var(--cor3);
   color: var(--cor2);
+  font-size: large;
+  width: 250px;
+  background-color: transparent;
+  border: 0px transparent solid;
 }
 
 svg {
@@ -140,7 +168,7 @@ svg {
 }
 
 svg:hover {
-  background-color: #dadada;
+  background-color: var(--cor3);
 }
 
 .pesquisa {
@@ -163,12 +191,20 @@ svg:hover {
   text-align: right;
   margin: 0;
   margin-right: 20px;
-  width: 25vw;
+  width: 70vw;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  background-color: var(--cor1);
+}
+
+.filtrar input {
+  padding: 10px;
 }
 
 .filtrar span {

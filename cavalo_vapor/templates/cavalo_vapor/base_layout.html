@@ -16,13 +16,15 @@
 
 <body>
   <nav id="cobreatela">
-    <div class="titulo">
-      <img src="{% static 'cavalo_vapor/img/logo.png' %}" alt="Logo" width="324px" height="180px">
-      <h1>Cavalo-Vapor Fretes</h1>
-    </div>
+  <div class="titulo">
+    <img src="{% static 'cavalo_vapor/img/logo1.png' %}" width="300px" height="180px">
+    <h1>Cavalo-Vapor Fretes</h1>
+  </div>
     <ul>
       {% block menu %}
+      {% if user.is_authenticated or user.is_staff %}
       <li id='usuario'>Olá, {{user.username}} !!!</li>
+      {% endif %}
       <li><img src="{% static 'cavalo_vapor/img/home.png' %}" alt="home"><a href=" ../">
           Home</a></li>
       <li><img src="{% static 'cavalo_vapor/img/frete.png' %}" alt="frete"><a href=" ../fretes"> Fretes</a>
@@ -32,13 +34,14 @@
       </li>
       <li><img src="{% static 'cavalo_vapor/img/suporte.png' %}" alt="suporte"><a href=" ../suporte">
           Suporte</a></li>
+      {% if not user.is_authenticated or user.is_staff %}
+      
       <li><img src="{% static 'cavalo_vapor/img/login.png' %}" alt="login"><a href=" ../login">
           Login</a>
       </li>
       <li><img src="{% static 'cavalo_vapor/img/register.png' %}" alt="cadastro"><a href=" ../cadastro">
           Cadastro</a></li>
-
-
+      {% endif %}
       {% if user.is_authenticated or user.is_staff %}
       <li><img src="{% static 'cavalo_vapor/img/chat.png' %}" alt="chat"><a href="../chat">
           Chat</a></li>
@@ -52,6 +55,10 @@
       {% endif %}
       {% endblock %}
     </ul>
+    <button id="colorpickers" onclick="cor()"> 
+      <input id="cor1" type="color" value="#000000"></input>
+      <input id="cor2" type="color" value="#223355"></input>
+    </button>
   </nav>
 
   <script>
@@ -59,10 +66,23 @@
     function showMenu() {
       if (modo == 1) {
         document.getElementById('cobreatela').style.display = 'flex';
+        document.getElementById('colorpickers').style.display = 'flex';
         modo--
       } else {
         document.getElementById('cobreatela').style.display = 'none';
+        document.getElementById('colorpickers').style.display = 'none';
         modo++
+      }
+    }
+
+    var modo2 = 1
+    function showFiltros() {
+      if (modo2 == 1) {
+        document.getElementById('filtrar').style.display = 'flex';
+        modo2--
+      } else {
+        document.getElementById('filtrar').style.display = 'none';
+        modo2++
       }
     }
 
@@ -72,16 +92,13 @@
     }
 
   </script>
-  <button onclick="showMenu()" class="alwaysthere"> <i class='fas fa-bars' style='font-size:36px'></i> </button>
-  <button class="alwaysthere" onclick="cor()"> 
-    <input id="cor1" type="color" value="#000000"></input>
-    <input id="cor2" type="color" value="#223355"></input>
-  </button>
-  {% if messages %} {% for message in messages %}
-  <div>{{message}}</div>
-  {% endfor %}
-  {% endif %}
+
   <main>
+    <button onclick="showMenu()" class="alwaysthere"> ☰ </button>
+    {% if messages %} {% for message in messages %}
+    <div>{{message}}</div>
+    {% endfor %}
+    {% endif %}
     {% block conteudo %}{% endblock %}
     {% block scripts %}{% endblock %}
   </main>

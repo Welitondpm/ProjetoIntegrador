@@ -1,1 +1,48 @@
-/* No CSS *//*# sourceMappingURL=perfil_individual.css.map */
+main {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+main label {
+  display: block;
+}
+
+main input {
+  display: block;
+  width: 60vw;
+  padding: 20px;
+}
+
+main text-area {
+  display: block;
+  width: 60vw;
+  padding: 20px;
+}
+
+.formulario button {
+  padding: 0.5rem 1.5rem;
+  border-radius: 0.5rem;
+  font-size: 1.05rem;
+  border: solid lightgray 1px;
+  background-color: rgba(0, 31, 188, 0.9);
+  margin: 0.5rem;
+  color: lightgrey;
+}
+
+.formulario button:hover {
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  background-color: rgba(5, 40, 183, 0.835);
+}
+
+.formulario button:focus {
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  background-color: rgba(5, 40, 183, 0.835);
+}
+/*# sourceMappingURL=perfil_individual.css.map */

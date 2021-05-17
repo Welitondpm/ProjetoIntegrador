@@ -1,0 +1,37 @@
+main{
+    display: flex;
+    flex-direction: column;
+    label{
+        display: block;
+    }
+    input{
+        display: block;
+        width: 60vw;
+        padding: 20px;
+    }
+    text-area{
+        display: block;
+        width: 60vw;
+        padding: 20px;
+    }
+}
+
+.formulario button {
+    padding: 0.5rem 1.5rem;
+    border-radius: 0.5rem;
+    font-size: 1.05rem;
+    border: solid lightgray 1px;
+    background-color: rgba(0, 31, 188, 0.9);
+    margin: 0.5rem;
+    color: lightgrey;
+  }
+  
+  .formulario button:hover {
+    transition: 0.3s;
+    background-color: rgba(5, 40, 183, 0.835);
+  }
+  
+  .formulario button:focus {
+    transition: 0.3s;
+    background-color: rgba(5, 40, 183, 0.835);
+  }

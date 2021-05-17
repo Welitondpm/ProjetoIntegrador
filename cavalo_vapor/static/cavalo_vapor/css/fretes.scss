@@ -4,23 +4,12 @@ button{
 }
 
 .colunas{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    align-items: center;
-    // margin: 10px 20px;
-
-    h3{
-        width: auto;
-        display: flex;
-        justify-content: center;
-    align-items: center;
-    }
+    display: grid;
 }
 
 .fretes{
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(9rem, 2fr));
+    grid-template-columns: repeat(auto-fit, minmax(9rem, 1fr));
     grid-gap: 1rem;
     justify-content: center;
     align-items: center;
@@ -32,7 +21,6 @@ button{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 25vw;
 }
 
 // .colunas h3{
@@ -55,3 +43,12 @@ button{
 //     // margin-bottom: 20px;
 
 // }
+
+#comlupa{
+    // background-image: url(../img/lupa.svg);
+    // background-repeat: no-repeat;
+    font-size: xx-large;
+    background-color: transparent;
+    border: 0px transparent solid;
+    color: #224488;
+}

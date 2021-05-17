@@ -16,7 +16,15 @@ class UserForm(UserCreationForm):
 class PerfilForm(ModelForm):
     class Meta:
         model = Usuario
-        fields = ["imagem"]
+        fields = [
+            "imagem",
+            "soma_avaliacoes",
+            "foto_capa",
+            "logo",
+            "qtd_avaliacoes",
+            "descricao",
+            "modo_preferencia",
+        ]
 
 
 class UserPerfilForm(ModelForm):

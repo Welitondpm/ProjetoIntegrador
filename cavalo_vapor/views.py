@@ -1,9 +1,9 @@
 from django.shortcuts import render, redirect
 from cavalo_vapor.form import UserForm, UserPerfilForm, PerfilForm
 from django.contrib import messages
-from .form import *
 from django.contrib.auth.decorators import login_required
-from .models import *
+from .models import Usuario
+from django.contrib.auth.models import User
 
 # Create your views here.
 
@@ -13,34 +13,6 @@ def index(request):
         request,
         "cavalo_vapor/index.html",
     )
-
-
-# def cadastro(request):
-#     superusers = ['fel9.renan02@gmail.com', 'gusferreira1203@gmail.com']
-#     if request.method == "POST":
-#         formulario = UserForm(request.POST)
-#         if formulario.is_valid():
-#             if formulario.cleaned_data.get("email") in superusers:
-#                 User.objects.create_user(
-#                     username=formulario.cleaned_data.get("username"),
-#                     email=formulario.cleaned_data.get("email"),
-#                     password=formulario.cleaned_data.get("password1"),
-#                     is_staff=True,
-#                     is_superuser=True,
-#                 )
-#             else:
-#                 formulario.save()
-#                 username = formulario.cleaned_data.get("username")
-
-#                 # email = formulario.cleaned_data.get("email")
-#                 messages.success(
-#                     request,
-#                     f"Conta registrada com sucesso {username}! Faça o login e aproveite!",
-#                 )
-#                 return redirect("login")
-#     else:
-#         formulario = UserForm()
-#     return render(request, "cavalo_vapor/cadastro.html", {"form": formulario})
 
 
 def cadastro(request):
@@ -87,7 +59,9 @@ def login(request):
 
 
 def perfis(request):
-    return render(request, "cavalo_vapor/perfis.html")
+    users = User.objects.all()
+    contexto = {"users": users}
+    return render(request, "cavalo_vapor/perfis.html", contexto)
 
 
 def suporte(request):

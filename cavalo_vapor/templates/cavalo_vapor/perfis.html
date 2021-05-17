@@ -56,166 +56,29 @@
 
 <main>
   <ul class="perfis">
+    {% for user in users %}
     <li>
-      <!-- <img src="{% static 'cavalo_vapor/img/logo.png' %}" width="100px" height="100px" alt=""> inserção da logo -->
       <h4>
-        {{nome}}
+        {{user.username}}
       </h4>
-      <!-- lembrar trocar para divs, estilo fretes -->
-      <span class="resumo">
-        uma descrição dizendo alguma coisa em resumo do perfil <br>
-        fel9.renan02@gmail.com <br>
-        <span class='mais'>
+      
+      <div class="resumo">
+        <img src="{{user.usuario.imagem.url}}" width="50px" height="50px">
+        <div>{{user.usuario.descricao}} </div>
+        <div>{{user.email}}</div>
+        <div class='mais'>
           (47)99172-4227 <br>
           Santa-Catarina <br>
           São Francisco do Sul
-        </span>
-      </span>
+        </div>
+      </div>
       <div>
         <svg focusable="false" width="16" height="16" viewBox="0 0 24 24" class=" NMm5M">
           <path d="M12 16.41l-6.71-6.7 1.42-1.42 5.29 5.3 5.29-5.3 1.42 1.42z"></path>
         </svg>
       </div>
     </li>
-    <li>
-      <h4>
-        Perfil 2
-      </h4>
-
-      <span class="resumo">
-        uma descrição dizendo alguma coisa em resumo do perfil <br>
-        fel9.renan02@gmail.com <br>
-        <span class='mais'>
-          (47)99172-4227 <br>
-          Santa-Catarina <br>
-          São Francisco do Sul
-        </span>
-      </span>
-
-      <div>
-        <svg class="svg" focusable="false" width="16" height="16" viewBox="0 0 24 24" class=" NMm5M">
-          <path d="M12 16.41l-6.71-6.7 1.42-1.42 5.29 5.3 5.29-5.3 1.42 1.42z"></path>
-        </svg>
-      </div>
-    </li>
-    <li>
-      <h4>
-        Perfil 3
-      </h4>
-
-      <span class="resumo">
-        uma descrição dizendo alguma coisa em resumo do perfil <br>
-        renan.fas02@gmail.com <br>
-        <span class='mais'>
-          (xx)yxxxx-xxxx <br>
-          Paraná <br>
-          Curitiba
-        </span>
-      </span>
-      <svg focusable="false" width="16" height="16" viewBox="0 0 24 24" class=" NMm5M">
-        <path d="M12 16.41l-6.71-6.7 1.42-1.42 5.29 5.3 5.29-5.3 1.42 1.42z"></path>
-      </svg>
-      </div>
-    </li>
-    <li>
-      <h4>
-        Perfil 3
-      </h4>
-
-      <span class="resumo">
-        uma descrição dizendo alguma coisa em resumo do perfil <br>
-        renan.fas02@gmail.com <br>
-        <span class='mais'>
-          (xx)yxxxx-xxxx <br>
-          Paraná <br>
-          Curitiba
-        </span>
-      </span>
-      <svg focusable="false" width="16" height="16" viewBox="0 0 24 24" class=" NMm5M">
-        <path d="M12 16.41l-6.71-6.7 1.42-1.42 5.29 5.3 5.29-5.3 1.42 1.42z"></path>
-      </svg>
-      </div>
-    </li>
-    <li>
-      <!-- <img src="{% static 'cavalo_vapor/img/logo.png' %}" width="100px" height="100px" alt=""> inserção da logo -->
-      <h4>
-        {{nome}}
-      </h4>
-      <!-- dados virão dessa forma? -->
-      <span class="resumo">
-        uma descrição dizendo alguma coisa em resumo do perfil <br>
-        fel9.renan02@gmail.com <br>
-        <span class='mais'>
-          (47)99172-4227 <br>
-          Santa-Catarina <br>
-          São Francisco do Sul
-        </span>
-      </span>
-      <div>
-        <svg focusable="false" width="16" height="16" viewBox="0 0 24 24" class=" NMm5M">
-          <path d="M12 16.41l-6.71-6.7 1.42-1.42 5.29 5.3 5.29-5.3 1.42 1.42z"></path>
-        </svg>
-      </div>
-    </li>
-    <li>
-      <h4>
-        Perfil 2
-      </h4>
-
-      <span class="resumo">
-        uma descrição dizendo alguma coisa em resumo do perfil <br>
-        fel9.renan02@gmail.com <br>
-        <span class='mais'>
-          (47)99172-4227 <br>
-          Santa-Catarina <br>
-          São Francisco do Sul
-        </span>
-      </span>
-
-      <div>
-        <svg class="svg" focusable="false" width="16" height="16" viewBox="0 0 24 24" class=" NMm5M">
-          <path d="M12 16.41l-6.71-6.7 1.42-1.42 5.29 5.3 5.29-5.3 1.42 1.42z"></path>
-        </svg>
-      </div>
-    </li>
-    <li>
-      <h4>
-        Perfil 3
-      </h4>
-
-      <span class="resumo">
-        uma descrição dizendo alguma coisa em resumo do perfil <br>
-        renan.fas02@gmail.com <br>
-        <span class='mais'>
-          (xx)yxxxx-xxxx <br>
-          Paraná <br>
-          Curitiba
-        </span>
-      </span>
-      <svg focusable="false" width="16" height="16" viewBox="0 0 24 24" class=" NMm5M">
-        <path d="M12 16.41l-6.71-6.7 1.42-1.42 5.29 5.3 5.29-5.3 1.42 1.42z"></path>
-      </svg>
-      </div>
-    </li>
-    <li>
-      <h4>
-        Perfil 3
-      </h4>
-
-      <span class="resumo">
-        uma descrição dizendo alguma coisa em resumo do perfil <br>
-        renan.fas02@gmail.com <br>
-        <span class='mais'>
-          (xx)yxxxx-xxxx <br>
-          Paraná <br>
-          Curitiba
-        </span>
-      </span>
-      <svg focusable="false" width="16" height="16" viewBox="0 0 24 24" class=" NMm5M">
-        <path d="M12 16.41l-6.71-6.7 1.42-1.42 5.29 5.3 5.29-5.3 1.42 1.42z"></path>
-      </svg>
-      </div>
-    </li>
+    {% endfor %}
   </ul>
 </main>
 
