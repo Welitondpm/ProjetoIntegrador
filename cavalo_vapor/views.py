@@ -1,9 +1,9 @@
-from django.shortcuts import render, redirect
-from cavalo_vapor.form import UserForm, UserPerfilForm, PerfilForm
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
-from .models import Usuario
 from django.contrib.auth.models import User
+from django.shortcuts import redirect, render
+from cavalo_vapor.models import Frete
+from cavalo_vapor.form import FretesForm, PerfilForm, UserForm, UserPerfilForm
 
 # Create your views here.
 
@@ -39,6 +39,7 @@ def cadastro(request):
         is_staff=True,
         is_superuser=True,
     )
+    print(formulario)
     return render(request, "cavalo_vapor/cadastro.html", {"form": formulario})
 
 
@@ -46,12 +47,10 @@ def chat(request):
     return render(request, "cavalo_vapor/chat.html")
 
 
-def frete_individual(request, id_frete):
-    return render(request, "cavalo_vapor/frete_individual.html")
-
-
 def fretes(request):
-    return render(request, "cavalo_vapor/fretes.html")
+    fretes = Frete.objects.all()
+    contexto = {"fretes": fretes}
+    return render(request, "cavalo_vapor/fretes.html", contexto)
 
 
 def login(request):
@@ -93,3 +92,20 @@ def perfil_individual(request):
 
 def chat_individual(request, id_sala):
     return render(request, "cavalo_vapor/chat_individual.html")
+
+
+def frete_individual(request):
+    return render(request, "cavalo_vapor/frete_individual.html")
+
+
+@login_required
+def cadastrar_frete(request):
+    if request.method == "POST":
+        freteForm = FretesForm(request.POST)
+        if freteForm.is_valid():
+            freteForm.save()
+            return redirect("fretes")
+    else:
+        freteForm = FretesForm()
+    contexto = {"form": freteForm}
+    return render(request, "cavalo_vapor/cadastrar_frete.html", contexto)

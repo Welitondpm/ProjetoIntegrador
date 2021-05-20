@@ -10,10 +10,16 @@ class Estado(models.Model):
     nome = models.CharField(max_length=200)
     uf = models.CharField(max_length=2)
 
+    def __str__(self):
+        return self.uf
+
 
 class Municipio(models.Model):
     nome = models.CharField(max_length=200)
     estado = models.ForeignKey(Estado, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.estado
 
 
 class Adress(models.Model):
@@ -23,6 +29,9 @@ class Adress(models.Model):
     number = models.SmallIntegerField()
     municipio = models.ForeignKey(Municipio, on_delete=models.CASCADE)
     estado = models.ForeignKey(Estado, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.estado
 
 
 class Usuario(models.Model):
@@ -34,6 +43,7 @@ class Usuario(models.Model):
     descricao = models.TextField(blank=True)
     modo_preferencia = models.CharField(max_length=1, default=0)
     imagem = models.ImageField(default="default.jpeg", upload_to="img_perfil")
+    faz_frete = models.BooleanField(default=False)
 
     def __str__(self):
         return self.user.username
@@ -61,10 +71,16 @@ class Email(models.Model):
     email_de_recuperacao = models.BooleanField(default=False)
     usuario = models.ForeignKey(Usuario, on_delete=models.CASCADE)
 
+    def __str__(self):
+        return self.usuario
+
 
 class Telefone(models.Model):
     numero = models.CharField(max_length=15)
     usuario = models.ForeignKey(Usuario, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.usuario
 
 
 class Empresa(models.Model):
@@ -72,11 +88,17 @@ class Empresa(models.Model):
     ano_fundacao = models.CharField(max_length=4, blank=True)
     usuario = models.ForeignKey(Usuario, on_delete=models.CASCADE)
 
+    def __str__(self):
+        return self.usuario
+
 
 class Filial(models.Model):
     cnpj = models.ForeignKey(Empresa, on_delete=models.CASCADE)
     usuario = models.ForeignKey(Usuario, on_delete=models.CASCADE)
     adress = models.ForeignKey(Adress, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.usuario
 
 
 class Funcionario(models.Model):
@@ -86,10 +108,16 @@ class Funcionario(models.Model):
     data_nascimento = models.DateField(blank=True)
     usuario = models.ForeignKey(Usuario, on_delete=models.CASCADE)
 
+    def __str__(self):
+        return self.usuario
+
 
 class Funcionario_Filial(models.Model):
     funcionario = models.ForeignKey(Funcionario, on_delete=models.CASCADE)
     filial = models.ForeignKey(Filial, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.usuario
 
 
 class Notificacao(models.Model):
@@ -98,10 +126,16 @@ class Notificacao(models.Model):
     titulo = models.CharField(max_length=150)
     cnpj = models.ForeignKey(Empresa, on_delete=models.CASCADE)
 
+    def __str__(self):
+        return self.usuario
+
 
 class Destinatarios(models.Model):
     usuario = models.ForeignKey(Usuario, on_delete=models.CASCADE)
     notificacao = models.ForeignKey(Notificacao, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.usuario
 
 
 class Sala(models.Model):
@@ -111,11 +145,17 @@ class Sala(models.Model):
     texto = models.TextField()
     usuario = models.ForeignKey(Usuario, on_delete=models.CASCADE)
 
+    def __str__(self):
+        return self.usuario
+
 
 class Integrante(models.Model):
     permissao = models.CharField(max_length=40)
     sala = models.ForeignKey(Sala, on_delete=models.CASCADE)
     usuario = models.ForeignKey(Usuario, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.usuario
 
 
 class Post(models.Model):
@@ -124,10 +164,16 @@ class Post(models.Model):
     integrante = models.ForeignKey(Integrante, on_delete=models.CASCADE)
     sala = models.ForeignKey(Sala, on_delete=models.CASCADE)
 
+    def __str__(self):
+        return self.usuario
+
 
 class Sala_favorita(models.Model):
     sala = models.ForeignKey(Sala, on_delete=models.CASCADE)
     usuario = models.ForeignKey(Usuario, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.usuario
 
 
 class Caminhoneiro(models.Model):
@@ -135,11 +181,17 @@ class Caminhoneiro(models.Model):
     data_nascimento = models.DateField(blank=True)
     genero = models.CharField(max_length=1, blank=True)
     usuario = models.ForeignKey(Usuario, on_delete=models.CASCADE)
-    adrees = models.ForeignKey(Adress, on_delete=models.CASCADE)
+    adress = models.ForeignKey(Adress, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.usuario
 
 
 class Marca(models.Model):
     marca = models.CharField(max_length=150, primary_key=True)
+
+    def __str__(self):
+        return self.marca
 
 
 class Caminhao(models.Model):
@@ -150,14 +202,23 @@ class Caminhao(models.Model):
     usuario = models.ForeignKey(Usuario, on_delete=models.CASCADE)
     marca = models.ForeignKey(Marca, on_delete=models.CASCADE)
 
+    def __str__(self):
+        return self.usuario
+
 
 class Tipo_Carreta(models.Model):
     tipo_de_carreta = models.CharField(max_length=100)
     eixos = models.SmallIntegerField()
 
+    def __str__(self):
+        return self.tipo_de_carreta
+
 
 class Tipo_Reboque(models.Model):
     tipo_de_reboque = models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.tipo_de_reboque
 
 
 class Carreta(models.Model):
@@ -168,6 +229,9 @@ class Carreta(models.Model):
     usuario = models.ForeignKey(Usuario, on_delete=models.CASCADE)
     tipo_de_carreta = models.ForeignKey(Tipo_Carreta, on_delete=models.CASCADE)
     tipo_de_reboque = models.ForeignKey(Tipo_Reboque, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.usuario
 
 
 class Frete(models.Model):
@@ -184,8 +248,11 @@ class Frete(models.Model):
     distancia = models.SmallIntegerField()
     data_hora_descarga = models.DateTimeField(blank=True)
     descricao_status = models.TextField()
-    peso_incial = models.SmallIntegerField()
+    peso_inicial = models.SmallIntegerField()
     tempo_de_candidato = models.SmallIntegerField(default=168)
+
+    def __str__(self):
+        return self.descricao
 
 
 class Adress_Frete(models.Model):
@@ -193,11 +260,17 @@ class Adress_Frete(models.Model):
     frete = models.ForeignKey(Frete, on_delete=models.CASCADE)
     carga_descarga = models.CharField(max_length=1)
 
+    def __str__(self):
+        return self.adress
+
 
 class Frete_Usuario(models.Model):
     usuario = models.ForeignKey(Usuario, on_delete=models.CASCADE)
     frete = models.ForeignKey(Frete, on_delete=models.CASCADE)
     cliente_prestador = models.CharField(max_length=40)
+
+    def __str__(self):
+        return self.usuario
 
 
 class Candidato(models.Model):
@@ -205,3 +278,6 @@ class Candidato(models.Model):
     caminhao = models.ForeignKey(Caminhao, on_delete=models.CASCADE)
     usuario = models.ForeignKey(Usuario, on_delete=models.CASCADE)
     frete = models.ForeignKey(Frete, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.frete

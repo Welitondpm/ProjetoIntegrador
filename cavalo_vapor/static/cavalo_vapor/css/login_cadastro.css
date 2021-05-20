@@ -18,10 +18,6 @@
           align-items: center;
 }
 
-.formulario {
-  max-width: 70%;
-}
-
 .formulario input,
 select {
   width: 100%;

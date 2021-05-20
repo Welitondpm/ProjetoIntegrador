@@ -39,4 +39,21 @@
 .perfis span {
   display: block;
 }
+
+.active, .collapsible {
+  color: white;
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  border: none;
+  text-align: center;
+  outline: none;
+  font-size: 15px;
+}
+
+.mais {
+  padding: 0 18px;
+  display: none;
+  overflow: hidden;
+}
 /*# sourceMappingURL=perfis.css.map */

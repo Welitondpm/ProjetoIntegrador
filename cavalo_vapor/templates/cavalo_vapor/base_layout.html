@@ -16,46 +16,47 @@
 
 <body>
   <nav id="cobreatela">
-  <div class="titulo">
-    <img src="{% static 'cavalo_vapor/img/logo1.png' %}" width="300px" height="180px">
-    <h1>Cavalo-Vapor Fretes</h1>
-  </div>
+    <div class="titulo">
+      <img src="{% static 'cavalo_vapor/img/logo1.png' %}" width="300px" height="180px">
+      <h1>Cavalo-Vapor Fretes</h1>
+    </div>
     <ul>
       {% block menu %}
       {% if user.is_authenticated or user.is_staff %}
       <li id='usuario'>Olá, {{user.username}} !!!</li>
       {% endif %}
-      <li><img src="{% static 'cavalo_vapor/img/home.png' %}" alt="home"><a href=" ../">
+      <li><img src="{% static 'cavalo_vapor/img/home.png' %}" alt="home"><a href=" {% url 'index' %}">
           Home</a></li>
-      <li><img src="{% static 'cavalo_vapor/img/frete.png' %}" alt="frete"><a href=" ../fretes"> Fretes</a>
+      <li><img src="{% static 'cavalo_vapor/img/frete.png' %}" alt="frete"><a href=" {% url 'fretes' %}"> Fretes</a>
       </li>
       <!-- <li><img src="{% static 'cavalo_vapor/img/frete.png' %}" alt="fretes" ><a href="frete_individual">Fretes</a></li> -->
-      <li><img src="{% static 'cavalo_vapor/img/login.png' %}" alt="perfis"><a href=" ../perfis"> Perfis</a>
+      <li><img src="{% static 'cavalo_vapor/img/login.png' %}" alt="perfis"><a href=" {% url 'perfis' %}"> Perfis</a>
       </li>
-      <li><img src="{% static 'cavalo_vapor/img/suporte.png' %}" alt="suporte"><a href=" ../suporte">
+      <li><img src="{% static 'cavalo_vapor/img/suporte.png' %}" alt="suporte"><a href=" {% url 'suporte' %}">
           Suporte</a></li>
-      {% if not user.is_authenticated or user.is_staff %}
-      
-      <li><img src="{% static 'cavalo_vapor/img/login.png' %}" alt="login"><a href=" ../login">
+      {% if not user.is_authenticated %}
+
+      <li><img src="{% static 'cavalo_vapor/img/login.png' %}" alt="login"><a href=" {% url 'login' %}">
           Login</a>
       </li>
-      <li><img src="{% static 'cavalo_vapor/img/register.png' %}" alt="cadastro"><a href=" ../cadastro">
+      <li><img src="{% static 'cavalo_vapor/img/register.png' %}" alt="cadastro"><a href=" {% url 'cadastro' %}">
           Cadastro</a></li>
       {% endif %}
       {% if user.is_authenticated or user.is_staff %}
-      <li><img src="{% static 'cavalo_vapor/img/chat.png' %}" alt="chat"><a href="../chat">
+
+      <li><a href="{% url 'cadastrar_frete' %}">Cadastrar frete</a></li>
+      <li><img src="{% static 'cavalo_vapor/img/chat.png' %}" alt="chat"><a href="{% url 'chat' %}">
           Chat</a></li>
-      {% comment %} <li><a href="">Perfil individual</a></li> {% endcomment %}
       <li><img src="{% static 'cavalo_vapor/img/login.png' %}" alt="perfil individual" idth="11%"><a
           href=" {% url 'perfil_individual' %}"> Seu
           Perfil</a></li>
-      <li><img src="{% static 'cavalo_vapor/img/logout.png' %}" alt="logout"><a href=" ../logout">
+      <li><img src="{% static 'cavalo_vapor/img/logout.png' %}" alt="logout"><a href=" {% url 'logout' %}">
           Logout</a>
       </li>
       {% endif %}
       {% endblock %}
     </ul>
-    <button id="colorpickers" onclick="cor()"> 
+    <button id="colorpickers" onclick="cor()">
       <input id="cor1" type="color" value="#000000"></input>
       <input id="cor2" type="color" value="#223355"></input>
     </button>

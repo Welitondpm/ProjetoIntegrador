@@ -54,4 +54,48 @@ button {
   border: 0px transparent solid;
   color: #224488;
 }
+
+.fretes {
+  display: -ms-grid;
+  display: grid;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  text-align: center;
+  margin-top: 35px;
+  grid-gap: 1.5rem;
+  -ms-grid-columns: (minmax(10rem, 15rem))[auto-fit];
+      grid-template-columns: repeat(auto-fit, minmax(10rem, 15rem));
+}
+
+.fretes li {
+  display: block;
+  -webkit-box-shadow: 0 0 7px;
+          box-shadow: 0 0 7px;
+  padding: 5px 0;
+  margin: 0;
+  border-radius: 10px;
+  background-color: #3f5f5f;
+}
+
+.active,
+.collapsible {
+  color: white;
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  border: none;
+  text-align: center;
+  outline: none;
+  font-size: 15px;
+}
+
+.mais {
+  padding: 0 18px;
+  display: none;
+  overflow: hidden;
+}
 /*# sourceMappingURL=fretes.css.map */

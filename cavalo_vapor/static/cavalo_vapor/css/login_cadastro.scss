@@ -10,10 +10,6 @@
   align-items: center;
 }
 
-.formulario {
-  max-width: 70%;
-}
-
 .formulario input,
 select {
   width: 100%;
@@ -24,6 +20,7 @@ select {
   padding: 0.7rem 0.75rem;
   background-color: #fff;
 }
+
 
 .formulario input:focus,
 select:focus {

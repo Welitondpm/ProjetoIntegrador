@@ -1,11 +1,7 @@
-{% extends "cavalo_vapor/base_layout.html" %}
-{% block style %}
-{% load static %}
-<link rel="stylesheet" type="text/css" href="{% static 'cavalo_vapor/css/perfis.css' %}">
-{% endblock %}
-{% block script %}{% endblock %}
-{% block title %} Cavalo-Vapor Fretes | Perfis {% endblock %}
-{% block conteudo %}
+{% extends "cavalo_vapor/base_layout.html" %} {% block style %} {% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'cavalo_vapor/css/perfis.css' %}" />
+{% endblock %} {% block title %} Cavalo-Vapor
+Fretes | Perfis {% endblock %} {% block conteudo %}
 <div class="procurar">
   <input type="text" name="pesquisa" id="pesquisa_perfis" placeholder="Buscar perfis" />
   <span>
@@ -17,7 +13,7 @@
   </span>
 </div>
 
-<section class='filtrar'>
+<section class="filtrar">
   <span>Filtrar por:</span>
   <select name="estado" id="estado_filtro">
     <option value="">Estado</option>
@@ -42,38 +38,31 @@
   </select>
 
   <div class="pessoas">
-    <input type="checkbox" name="pessoa_fisica_filtro" id="pessoa_fisica_filtro">
-    <span>
-      Pessoa Física
-    </span>
-    <input type="checkbox" name="pessoa_juridica_filtro" id="pessoa_juridica_filtro">
-    <span>
-      Pessoa Jurídica
-    </span>
+    <input type="checkbox" name="pessoa_fisica_filtro" id="pessoa_fisica_filtro" />
+    <span> Pessoa Física </span>
+    <input type="checkbox" name="pessoa_juridica_filtro" id="pessoa_juridica_filtro" />
+    <span> Pessoa Jurídica </span>
   </div>
-
 </section>
 
 <main>
   <ul class="perfis">
     {% for user in users %}
     <li>
-      <h4>
-        {{user.username}}
-      </h4>
-      
-      <div class="resumo">
-        <img src="{{user.usuario.imagem.url}}" width="50px" height="50px">
-        <div>{{user.usuario.descricao}} </div>
+      <h4>{{user.username}}</h4>
+
+      <div class="resumo collapsible">
+        <img src="{{user.usuario.imagem.url}}" width="50px" height="50px" />
+        <div>{{user.usuario.descricao}}</div>
         <div>{{user.email}}</div>
-        <div class='mais'>
-          (47)99172-4227 <br>
-          Santa-Catarina <br>
-          São Francisco do Sul
-        </div>
+      </div>
+      <div class="mais">
+        <div>(47)99172-4227</div>
+        <div>Santa-Catarina</div>
+        <div>São Francisco do Sul</div>
       </div>
       <div>
-        <svg focusable="false" width="16" height="16" viewBox="0 0 24 24" class=" NMm5M">
+        <svg focusable="false" width="16" height="16" viewBox="0 0 24 24" class="NMm5M">
           <path d="M12 16.41l-6.71-6.7 1.42-1.42 5.29 5.3 5.29-5.3 1.42 1.42z"></path>
         </svg>
       </div>
@@ -81,17 +70,7 @@
     {% endfor %}
   </ul>
 </main>
-
-
-
-
-
-
-
-
-
-
-
-
-
+{% block script %}
+<script src="{% static 'cavalo_vapor/js/perfis.js' %}"></script>
+{% endblock %}
 {% endblock %}

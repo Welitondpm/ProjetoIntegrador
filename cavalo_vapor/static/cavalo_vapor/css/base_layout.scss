@@ -118,16 +118,24 @@ body{
 }
 
 /* LISTAS */
+.pesquisa, .filtrar{
+    input,select,textarea,option,label{
+        margin: 0.5rem;
+        padding: 0.3rem;
+        background-color: var(--cor3);
+        color: var(--cor2);
+        font-size: large;
+        width: 250px;
+        background-color: transparent;
+        border: 0px transparent solid;
+    }
+}
 
-input,select,textarea,option,label{
-    margin: 0.5rem;
+input,select,textarea,option{
+    border-radius: 0.5rem;
+    margin: 0.5rem 0;
     padding: 0.3rem;
-    background-color: var(--cor3);
-    color: var(--cor2);
-    font-size: large;
-    width: 250px;
-    background-color: transparent;
-    border: 0px transparent solid;
+    background-color: lightslategrey;
 }
 
 svg{
@@ -136,7 +144,7 @@ svg{
 }
 
 svg:hover{
- background-color: var(--cor3); 
+    background-color: var(--cor3); 
 }
 
 .pesquisa{

@@ -150,7 +150,7 @@ body {
 }
 
 /* LISTAS */
-input, select, textarea, option, label {
+.pesquisa input, .pesquisa select, .pesquisa textarea, .pesquisa option, .pesquisa label, .filtrar input, .filtrar select, .filtrar textarea, .filtrar option, .filtrar label {
   margin: 0.5rem;
   padding: 0.3rem;
   background-color: var(--cor3);
@@ -159,6 +159,13 @@ input, select, textarea, option, label {
   width: 250px;
   background-color: transparent;
   border: 0px transparent solid;
+}
+
+input, select, textarea, option {
+  border-radius: 0.5rem;
+  margin: 0.5rem 0;
+  padding: 0.3rem;
+  background-color: lightslategrey;
 }
 
 svg {
