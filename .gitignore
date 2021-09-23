@@ -1,6 +1,7 @@
 __pycache__/
-ProjetoIntegrador/__pycache__
 cavalo_vapor/__pycache__
+
 cavalo_vapor/migrations/__pycache__
+ProjetoIntegrador/__pycache__
 db.sqlite3
-.vscode/*
+.vscode
