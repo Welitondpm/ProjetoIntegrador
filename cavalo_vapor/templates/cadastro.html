@@ -1,11 +1,14 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block pageTitle %}Cavalo-Vapor Fretes | Cadastro{% endblock %}
 
 {% block pageConteudo %}
 
 <div class="container-fluid">
-	<h1 class="text-center m-4"><u>Cadastro</u></h1>
+	<div class="row justify-content-center mt-2">
+		<h1 class="text-center"><img src="{% static 'img/svg/clipboard.svg' %}" alt="" width="34px" height="34px"><u>Cadastro</u></h1>
+	</div>
 	<form action="" class="col-lg-6 offset-lg-3">
 		<div class="form-group">
 			<label for="inputUsername">Digite seu Username: </label>

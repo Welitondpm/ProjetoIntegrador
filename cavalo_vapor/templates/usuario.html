@@ -1,11 +1,14 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block pageTitle %}Cavalo-Vapor Fretes | Usuário{% endblock %}
 
 {% block pageConteudo %}
 
 <div class="container-fluid">
-  Usuário
+	<div class="row justify-content-center mt-2">
+    <h1 class="text-center"><img src="{% static 'img/svg/person.svg' %}" alt="" width="34px" height="34px"><u>Usuário</u></h1>
+  </div>
 </div>
 
 {% endblock %}

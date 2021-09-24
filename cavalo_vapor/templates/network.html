@@ -1,11 +1,233 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block pageTitle %}Cavalo-Vapor Fretes | Network{% endblock %}
 
 {% block pageConteudo %}
 
 <div class="container-fluid">
-  Network
+  <div class="text-center">
+    <h1 class="m-3"><img src="{% static 'img/svg/network.svg' %}" alt="" width="34px" height="34px"><u>Network</u></h1>
+  </div>
+  <div class="mt-3">
+    <form action="">
+      <div class="card">
+        <div class="card-header" id="headingFiltros">
+          <div class="form-row">
+            <input type="search" id="inputSearch" class="form-control col m-1" placeholder="Buscar Filial/Funcionário">
+            <div class="btn btn-outline-primary col-2 m-1" data-toggle="collapse" data-target="#Filtros" aria-expanded="true" aria-controls="Filtros">
+              Filtros
+            </div>
+            <div class="btn btn-outline-info col-2 m-1" data-toggle="collapse" data-target="#Ordenar" aria-expanded="true" aria-controls="Ordenar">
+              Ordenar
+            </div>
+            <button type="submit" class="btn btn-outline-success col-2 m-1">Pesquisar</button>
+          </div>
+        </div>
+        <div class="accordion" id="accordionFiltrosOrdenar">
+          <div id="Filtros" class="collapse" aria-labelledby="headingFiltros" data-parent="#accordionFiltrosOrdenar">
+            <div class="card-body">
+              <h5 class="card-title">Filtros: </h5>
+              <div class="form-row p-0 m-0">
+                <select class="form-control col-md m-1">
+                  <option value="csc">Estado</option>
+                </select>
+                <select class="form-control col-md m-1">
+                  <option value="csc">Cidade Destino</option>
+                </select>
+                <select class="form-control col-md m-1">
+                  <option value="csc">Cidade Origem</option>
+                </select>
+                <select class="form-control col-md m-1">
+                  <option value="csc">Tipo de Carga</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div id="Ordenar" class="collapse" aria-labelledby="headingOrdenar" data-parent="#accordionFiltrosOrdenar">
+            <div class="card-body">
+              <h5 class="card-title">Ordenar: </h5>
+              <div class="form-row p-0 m-0">
+                <select class="form-control col-md m-1">
+                  <option value="csc">Valor</option>
+                </select>
+                <select class="form-control col-md m-1">
+                  <option value="csc">Prazo</option>
+                </select>
+                <select class="form-control col-md m-1">
+                  <option value="csc">Data de carregamento</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+  <nav class="mt-3">
+    <div class="nav nav-tabs" id="nav-tab" role="tablist">
+      <a class="nav-item nav-link active col" id="nav-filial-tab" data-toggle="tab" href="#nav-filial" role="tab" aria-controls="nav-filial" aria-selected="true">Filial</a>
+      <a class="nav-item nav-link col" id="nav-funcionarios-tab" data-toggle="tab" href="#nav-funcionarios" role="tab" aria-controls="nav-funcionarios" aria-selected="false">Funcionários</a>
+      <a class="nav-item nav-link col" id="nav-candidato-tab" data-toggle="tab" href="#nav-filial_selecionada" role="tab" aria-controls="nav-filial_selecionada" aria-selected="false">Filial Selecionada</a>
+      <div class="btn btn-outline-dark col-2 m-1">
+        Adicionar Filial/Funcionário
+      </div>
+    </div>
+  </nav>
+  <div class="tab-content" id="nav-tabContent">
+    <div class="tab-pane fade show active" id="nav-filial" role="tabpanel" aria-labelledby="nav-filial-tab">
+      <div class="row">
+        <div class="col-lg-6 col-md-12">
+          <div class="card col m-2">
+            <div class="card-header">
+              <div class="row">
+                <span class="col">
+                  Filial 1
+                </span>
+                <span class="col-1">
+                  <a href="">
+                    <img src="{% static 'img/svg/pencil.svg'%}" alt="" width="24px" height="24px">
+                  </a>
+                </span>
+                <span class="col-1">
+                  <a href="">
+                    <img src="{% static 'img/svg/del.svg'%}" alt="" width="24px" height="24px">
+                  </a>
+                </span>
+              </div>
+            </div>
+            <div class="card-body">
+              <div class="row">
+                <div class="col-md-6 text-center">
+                  <img class="img-thumbnail" src="https://s2.glbimg.com/kFVWSygp2KNBKbovCZ38poINlE0=/0x0:1152x864/984x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_59edd422c0c84a879bd37670ae4f538a/internal_photos/bs/2021/J/3/hMMajoTb6eOPbzWcAvtw/whatsapp-image-2021-05-17-at-13.06.57.jpeg" alt="">
+                </div>
+                <div class="col-md-6 pt-1">
+                  <p class="card-text">
+                    Descrição: Fundade em 19/09/1997 transportando combustível para todo o Brasil 24 horas por dia!<br>
+                    Avaliação: <br>
+                    Email: <br>
+                    Telefone: <br>
+                    Estado: <br>
+                    Cidade: <br>
+                  </p>
+                </div>
+              </div>
+              <table class="table table-bordered table-hover">
+                <thead>
+                  <tr>
+                    <th scope="col">Nome</th>
+                    <th scope="col">Matrícula</th>
+                    <th scope="col">CPF</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">Funcionário 1</th>
+                    <td>2019324099</td>
+                    <td>000.000.000-02</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="tab-pane fade" id="nav-funcionarios" role="tabpanel" aria-labelledby="nav-funcionarios-tab">
+      <div class="row">
+        <div class="col-lg-3 col-md-4 col-sm-6">
+          <div class="card col m-2">
+            <img class="card-img-top img-thumbnail" src="https://i.insider.com/61135525ad63f30019501966?width=700" alt="">
+            <div class="card-body">
+              <h5 class="card-title">Funcionário 1</h5>
+              <p class="card-text">
+                Matrícula: 2019324099 <br>
+                CPF: 000.000.000-02 <br>
+                Email: TriuVirato@gmail.com <br>
+                Telefone: (47) 8422-8922 <br>
+                Sexo: Masculino <br>
+                Data Nascimento: 20/09/2002  <br>
+                Estado: Santa Catarina <br>
+                Cidade: Araquari              			
+              </p>
+              <div class="row">
+                <span class="col">
+                  <button class="btn btn-dark col m-1">
+                    <img src="{% static 'img/svg/pencil.svg'%}" alt="" width="24px" height="24px">
+                  </button>
+                </span>
+                <span class="col">
+                  <button class="btn btn-danger col m-1">
+                    <img src="{% static 'img/svg/del.svg'%}" alt="" width="24px" height="24px">
+                  </button>
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="tab-pane fade" id="nav-filial_selecionada" role="tabpanel" aria-labelledby="nav-filial_selecionada-tab">
+      <div class="card">
+        <div class="card-header">
+          <div class="row">
+            <span class="col">
+              Filial 1
+            </span>
+            <span class="col-1">
+              <a href="">
+                <img src="{% static 'img/svg/del.svg'%}" alt="" width="24px" height="24px">
+              </a>
+            </span>
+          </div>
+        </div>
+        <div class="card-body p-0">
+          <p class="card-text">
+            <div class="row col m-1">
+              Descrição: Fundade em 19/09/1997 transportando combustível para todo o Brasil 24 horas por dia! <br>
+              Avaliação: <br>
+              Email: <br>
+              Telefone: <br>
+              Estado: <br>
+              Cidade:
+            </div>
+            <div class="row">
+              <div class="col-lg-3 col-md-4 col-sm-6">
+                <div class="card col m-2">
+                  <img class="card-img-top img-thumbnail" src="https://i.insider.com/61135525ad63f30019501966?width=700" alt="">
+                  <div class="card-body">
+                    <h5 class="card-title">Funcionário 1</h5>
+                    <p class="card-text">
+                      Matrícula: 2019324099 <br>
+                      CPF: 000.000.000-02 <br>
+                      Email: TriuVirato@gmail.com <br>
+                      Telefone: (47) 8422-8922 <br>
+                      Sexo: Masculino <br>
+                      Data Nascimento: 20/09/2002  <br>
+                      Estado: Santa Catarina <br>
+                      Cidade: Araquari              			
+                    </p>
+                    <div class="row">
+                      <span class="col">
+                        <button class="btn btn-dark col m-1">
+                          <img src="{% static 'img/svg/pencil.svg'%}" alt="" width="24px" height="24px">
+                        </button>
+                      </span>
+                      <span class="col">
+                        <button class="btn btn-danger col m-1">
+                          <img src="{% static 'img/svg/del.svg'%}" alt="" width="24px" height="24px">
+                        </button>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 
 {% endblock %}

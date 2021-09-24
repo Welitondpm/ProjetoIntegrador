@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block pageTitle %}Cavalo-Vapor Fretes | Suporte{% endblock %}
 
@@ -6,7 +7,7 @@
 
 <div class="container-fluid">
   <div class="text-center">
-    <h1 class="m-4"><u>Seja bem-vindo ao suporte da Cavalo-Vapor!</u></h1>
+    <h1 class="m-4"><img src="{% static 'img/svg/help.svg' %}" alt="" width="34px" height="34px"><u>Seja bem-vindo ao suporte da Cavalo-Vapor!</u></h1>
     <p>
       Estamos sempre atentos a novas dúvidas e sugestões vindo dos usuários de nossa plataforma.
       É sempre gratificante atendê-los.<br>
