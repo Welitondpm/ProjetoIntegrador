@@ -25,14 +25,11 @@ def perfis(request):
 def network(request):
     return render(request, "network.html")
 
+def usuario(request):
+    return render(request, "usuario.html")
+
 def atividade(request):
     return render(request, "atividade.html")
 
 def chats(request):
     return render(request, "chats.html")
-
-def mapa(request):
-    return render(request, "mapa.html")
-
-def usuario(request):
-    return render(request, "usuario.html")

@@ -6,86 +6,89 @@
 {% block pageConteudo %}
 
 <div class="container-fluid">
-	<div class="row justify-content-center mt-2">
-		<h1 class="text-center"><img src="{% static 'img/svg/truck.svg' %}" alt="" width="40px" height="40px"><u>Caminhões</u></h1>
-	</div>
-  <div class="mt-3">
-    <form action="">
-      <div class="card">
-        <div class="card-header" id="headingFiltros">
-          <div class="form-row">
-            <input type="search" id="inputSearch" class="form-control col m-1" placeholder="Buscar Caminhões/Carretas">
-            <div class="btn btn-outline-primary col-2 m-1" data-toggle="collapse" data-target="#Filtros" aria-expanded="true" aria-controls="Filtros">
-              Filtros
+  <form action="">
+    <div class="card">
+      <div class="card-header" id="headingFiltros">
+        <div class="form-row">
+          <h2 class="mr-2 text-center col-sm-12 col-md-2">
+            <img src="{% static 'img/svg/truck.svg' %}" alt="" width="40px" height="40px"><u>Caminhões</u>
+          </h2>
+          <div class="input-group col p-1">
+            <input type="search" id="inputSearch" class="form-control m-0" placeholder="Buscar Caminhões/Carretas">
+            <div class="input-group-append m-0">
+              <button type="submit" class="btn btn-outline-success">Pesquisar</button>
             </div>
-            <div class="btn btn-outline-info col-2 m-1" data-toggle="collapse" data-target="#Ordenar" aria-expanded="true" aria-controls="Ordenar">
-              Ordenar
+          </div>
+          <div class="btn btn-outline-primary col-2 m-1" data-toggle="collapse" data-target="#Filtros" aria-expanded="true" aria-controls="Filtros">
+            Filtros
+          </div>
+          <div class="btn btn-outline-info col-2 m-1" data-toggle="collapse" data-target="#Ordenar" aria-expanded="true" aria-controls="Ordenar">
+            Ordenar
+          </div>
+          <button type="submit" class="btn btn-outline-success col-2 m-1">Pesquisar</button>
+          <button class="btn btn-secondary m-0 p-1 rounded-circle">
+            <img src="{% static 'img/svg/adicionar.svg'%}" alt="" width="30px" height="30px">
+          </button>
+        </div>
+      </div>
+      <div class="accordion" id="accordionFiltrosOrdenar">
+        <div id="Filtros" class="collapse" aria-labelledby="headingFiltros" data-parent="#accordionFiltrosOrdenar">
+          <div class="card-body">
+            <h5 class="card-title">Filtros: </h5>
+            <div class="form-row p-0 m-0">
+              <select class="form-control col-md m-1">
+                <option value="csc">Tipo de Carreta</option>
+              </select>
+              <select class="form-control col-md m-1">
+                <option value="csc">QTD de Eixos</option>
+              </select>
+              <select class="form-control col-md m-1">
+                <option value="csc">Peso Máximo</option>
+              </select>
             </div>
-            <button type="submit" class="btn btn-outline-success col-2 m-1">Pesquisar</button>
-            <button class="btn btn-secondary m-0 p-1 rounded-circle">
-              <img src="{% static 'img/svg/adicionar.svg'%}" alt="" width="34px" height="34px">
-            </button>
+            <div class="form-row p-0 m-0">
+              <select class="form-control col-md m-1">
+                <option value="csc">Comprimento</option>
+              </select>
+              <select class="form-control col-md m-1">
+                <option value="csc">Eixos Eleváveis</option>
+              </select>
+              <select class="form-control col-md m-1">
+                <option value="csc">Volume Máximo</option>
+              </select>
+            </div>
           </div>
         </div>
-        <div class="accordion" id="accordionFiltrosOrdenar">
-          <div id="Filtros" class="collapse" aria-labelledby="headingFiltros" data-parent="#accordionFiltrosOrdenar">
-            <div class="card-body">
-              <h5 class="card-title">Filtros: </h5>
-              <div class="form-row p-0 m-0">
-                <select class="form-control col-md m-1">
-                  <option value="csc">Tipo de Carreta</option>
-                </select>
-                <select class="form-control col-md m-1">
-                  <option value="csc">QTD de Eixos</option>
-                </select>
-                <select class="form-control col-md m-1">
-                  <option value="csc">Peso Máximo</option>
-                </select>
-              </div>
-              <div class="form-row p-0 m-0">
-                <select class="form-control col-md m-1">
-                  <option value="csc">Comprimento</option>
-                </select>
-                <select class="form-control col-md m-1">
-                  <option value="csc">Eixos Eleváveis</option>
-                </select>
-                <select class="form-control col-md m-1">
-                  <option value="csc">Volume Máximo</option>
-                </select>
-              </div>
+        <div id="Ordenar" class="collapse" aria-labelledby="headingOrdenar" data-parent="#accordionFiltrosOrdenar">
+          <div class="card-body">
+            <h5 class="card-title">Ordenar: </h5>
+            <div class="form-row p-0 m-0">
+              <select class="form-control col-md m-1">
+                <option value="csc">Tipo de Carreta</option>
+              </select>
+              <select class="form-control col-md m-1">
+                <option value="csc">QTD de Eixos</option>
+              </select>
+              <select class="form-control col-md m-1">
+                <option value="csc">Peso Máximo</option>
+              </select>
             </div>
-          </div>
-          <div id="Ordenar" class="collapse" aria-labelledby="headingOrdenar" data-parent="#accordionFiltrosOrdenar">
-            <div class="card-body">
-              <h5 class="card-title">Ordenar: </h5>
-              <div class="form-row p-0 m-0">
-                <select class="form-control col-md m-1">
-                  <option value="csc">Tipo de Carreta</option>
-                </select>
-                <select class="form-control col-md m-1">
-                  <option value="csc">QTD de Eixos</option>
-                </select>
-                <select class="form-control col-md m-1">
-                  <option value="csc">Peso Máximo</option>
-                </select>
-              </div>
-              <div class="form-row p-0 m-0">
-                <select class="form-control col-md m-1">
-                  <option value="csc">Comprimento</option>
-                </select>
-                <select class="form-control col-md m-1">
-                  <option value="csc">Eixos Eleváveis</option>
-                </select>
-                <select class="form-control col-md m-1">
-                  <option value="csc">Volume Máximo</option>
-                </select>
-              </div>
+            <div class="form-row p-0 m-0">
+              <select class="form-control col-md m-1">
+                <option value="csc">Comprimento</option>
+              </select>
+              <select class="form-control col-md m-1">
+                <option value="csc">Eixos Eleváveis</option>
+              </select>
+              <select class="form-control col-md m-1">
+                <option value="csc">Volume Máximo</option>
+              </select>
             </div>
           </div>
         </div>
       </div>
-    </form>
-  </div>
+    </div>
+  </form>
   <div class="row">
     <div class="col-lg-6 col-md-12">
       <div class="card col m-2">

@@ -9,6 +9,159 @@
 	<div class="row justify-content-center mt-2">
     <h1 class="text-center"><img src="{% static 'img/svg/person.svg' %}" alt="" width="34px" height="34px"><u>Usuário</u></h1>
   </div>
+  <form action="">
+    <div class="col-lg-4 col-md-6 offset-lg-4 offset-md-3">
+      <img class="img-thumbnail" src="https://i.insider.com/61135525ad63f30019501966?width=700" alt="">
+      <div class="form-group">
+        <label for="inputLogo">Alterar Imagem: </label>
+        <div class="input-group">
+          <input type="file" id="inputLogo" class="form-control" readonly>
+          <div class="input-group-append">
+            <span class="input-group-text">
+              <a href="">
+                <img src="{% static 'img/svg/pencil.svg'%}" alt="" width="24px" height="24px">
+              </a>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="inputDescricao">Descrição: </label>
+      <div class="input-group">
+        <textarea id="inputDescricao" class="form-control" cols="30" rows="5" readonly></textarea>
+        <div class="input-group-append">
+          <span class="input-group-text">
+            <a href="">
+              <img src="{% static 'img/svg/pencil.svg'%}" alt="" width="24px" height="24px">
+            </a>
+          </span>
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="inputNome">Nome: </label>
+      <div class="input-group">
+        <input type="text" id="inputNome" class="form-control" readonly placeholder="TriuVirato IFC">
+        <div class="input-group-append">
+          <span class="input-group-text">
+            <a href="">
+              <img src="{% static 'img/svg/pencil.svg'%}" alt="" width="24px" height="24px">
+            </a>
+          </span>
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="inputSenha">Nova Senha: </label>
+      <div class="input-group">
+        <input type="password" id="inputSenha" class="form-control" readonly placeholder="Nova Senha">
+        <div class="input-group-append">
+          <span class="input-group-text">
+            <a href="">
+              <img src="{% static 'img/svg/pencil.svg'%}" alt="" width="24px" height="24px">
+            </a>
+          </span>
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="inputConfirmeSenha">Confirme a Nova Senha: </label>
+      <input type="password" id="inputConfirmeSenha" class="form-control" placeholder="Confirme a Nova Senha">
+    </div>
+    <div class="form-group">
+      <label for="inputEmail">Email 1: </label>
+      <div class="input-group">
+        <input type="email" id="inputEmail" class="form-control" readonly placeholder="Example@Htmail.com">
+        <div class="input-group-append">
+          <span class="input-group-text">
+            <a href="">
+              <img src="{% static 'img/svg/pencil.svg'%}" alt="" width="24px" height="24px">
+            </a>
+          </span>
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="inputTelefone">Telefone 1: </label>
+      <div class="input-group">
+        <input type="text" id="inputTelefone" class="form-control" readonly placeholder="(47) 99234-9283">
+        <div class="input-group-append">
+          <span class="input-group-text">
+            <a href="">
+              <img src="{% static 'img/svg/pencil.svg'%}" alt="" width="24px" height="24px">
+            </a>
+          </span>
+        </div>
+      </div>
+    </div>
+    <div class="row p-2">
+      <div class="form-group col-lg-4 col-md-6 p-1">
+        <label for="inputEstado">Estado: </label>
+        <div class="input-group">
+          <select id="inputEstado" class="form-control" disabled="disabled">
+            <option value="">Estado</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-group col-lg-4 col-md-6 p-1">
+        <label for="inputCidade">Cidade: </label>
+        <div class="input-group">
+          <select id="inputCidade" class="form-control" disabled="disabled">
+            <option value="">Cidade</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-group col-lg-4 col-md-6 p-1">
+        <label for="inputBairro">Bairro: </label>
+        <div class="input-group">
+          <input type="text" id="inputBairro" class="form-control" readonly>
+          <div class="input-group-append">
+            <span class="input-group-text">
+              <a href="">
+                <img src="{% static 'img/svg/pencil.svg'%}" alt="" width="24px" height="24px">
+              </a>
+            </span>
+          </div>
+        </div>
+      </div>
+      <div class="form-group col-lg-4 col-md-6 p-1">
+        <label for="inputDataNascimento">Data de Nascimento/Fundação: </label>
+        <input type="date" id="inputDataNascimento" class="form-control" disabled="disabled">
+      </div>
+      <div class="form-group col-lg-4 col-md-6 p-1">
+        <label for="inputGenero">Genêro: </label>
+        <div class="input-group">
+          <select id="inputGenero" class="form-control" disabled="disabled">
+            <option value="">Masculino</option>
+            <option value="">Feminino</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-group col-lg-4 col-md-6 p-1">
+        <label for="inputModoPreferencial">Modo Preferencial: </label>
+        <div class="input-group">
+          <input type="number" id="inputModoPreferencial" class="form-control" min="0" max="1" readonly>
+          <div class="input-group-append">
+            <span class="input-group-text">
+              <a href="">
+                <img src="{% static 'img/svg/pencil.svg'%}" alt="" width="24px" height="24px">
+              </a>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row justify-content-end p-4 m-2">
+      <button type="reset" class="btn btn-secondary mr-3">
+        Cancelar
+      </button>
+			<button type="submit" class="btn btn-primary ">
+				Salvar Alterações
+			</button>
+		</div>
+  </form>
+
 </div>
 
 {% endblock %}

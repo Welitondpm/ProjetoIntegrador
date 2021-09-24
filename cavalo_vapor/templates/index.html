@@ -3,14 +3,17 @@
 
 {% block pageConteudo %}
 
-<div class="container-fluid">
+<div class="container-fluid" style="color: black;">
 	<div class="row justify-content-center mt-2">
     <h1 class="text-center"><img src="{% static 'img/svg/home.svg' %}" alt="" width="34px" height="34px"><u>Home</u></h1>
   </div>
-  <div class="col-lg-6 mt-4 offset-lg-3">
+  <div id="homeBackImage"></div>
+  <div id="homeBackGrad"></div>
+  <div class="col">
+    <h1>Sobre:</h1>
     <p>
       Iniciado finalmente no dia 7 de fevereiro de 2021, por três alunos cursando
-      o segundo ano ensino médio técnico no Institudo Federal Catarinense Campus Araquari.
+      o terceiro ano ensino médio técnico no Institudo Federal Catarinense Campus Araquari.
     </p>
     <p>Este projeto pode ser encontrar em:
       <a href="https://github.com/Welitondpm/ProjetoIntegrador" target="_blank">Github</a>
@@ -33,6 +36,150 @@
       </ul>
     </p>
   </div>
+  <div class="row col p-3">
+    <div class="col">
+      <div class="card">
+        <div class="card-body text-center p-0 pt-4 pb-2">
+          <h1>Gráfico</h1>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card">
+        <div class="card-body text-center p-0 pt-4 pb-2">
+          <h1>Mapa</h1>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row col p-3">
+    <div class="col">
+      <div class="card">
+        <div class="card-body text-center p-0 pt-4 pb-2">
+          <h1>Gráfico</h1>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="row">
+        <div class="col mb-2">
+          <div class="card">
+            <div class="card-body text-center p-0 pt-4 pb-2">
+              <h6 class="card-subtitle mb-2 text-muted">
+                Distância Percorrida
+              </h6>
+              <h1>234 Km</h1>
+            </div>
+          </div>
+        </div>
+        <div class="col mb-2">
+          <div class="card">
+            <div class="card-body text-center p-0 pt-4 pb-2">
+              <h6 class="card-subtitle mb-2 text-muted">
+                Distância Percorrida
+              </h6>
+              <h1>234 Km</h1>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col mt-2">
+          <div class="card">
+            <div class="card-body text-center p-0 pt-4 pb-2">
+              <h6 class="card-subtitle mb-2 text-muted">
+                Distância Percorrida
+              </h6>
+              <h1>234 Km</h1>
+            </div>
+          </div>
+        </div>
+        <div class="col mt-2">
+          <div class="card">
+            <div class="card-body text-center p-0 pt-4 pb-2">
+              <h6 class="card-subtitle mb-2 text-muted">
+                Distância Percorrida
+              </h6>
+              <h1>234 Km</h1>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card">
+        <div class="card-body text-center p-0 pt-4 pb-2">
+          <h1>Gráfico</h1>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="text-center col m-0 mt-4">
+    <h1>
+      <img src="{% static 'img/svg/trophy.svg'%}" alt="" width="34px" height="34px">
+      Top Ranking
+      <img src="{% static 'img/svg/ribbon.svg'%}" alt="" width="34px" height="34px">
+    </h1>
+  </div>
+  <div class="row col justify-content-end m-0 p-0">
+    <select id="" class="form-control col-lg-3 col-md-4 mr-1" disabled="disabled">
+			<option value="">Semanal</option>
+		</select>
+  </div>
+  <div class="row col m-0 p-0">
+    <div class="card col m-1 mr-4 p-0 pt-3">
+      <div class="row col">
+        <div class="col-12">
+          <h2 class="text-center">
+            Total Ganho
+          </h2>
+        </div>
+        <hr class="col-12">
+        <div class="col m-1">
+          <h3 class="text-center">
+            Caminhoneiros
+          </h3>
+        </div>
+        <div class="col m-1">
+          <h3 class="text-center">
+            Empresas
+          </h3>
+        </div>
+        <hr class="col-12">
+      </div>
+    </div>
+    <div class="card col m-1 ml-4 p-0 pt-3">
+      <div class="row col">
+        <div class="col-12">
+          <h2 class="text-center">
+            Total Percorrido
+          </h2>
+        </div>
+        <hr class="col-12">
+        <div class="col m-1">
+          <h3 class="text-center">
+            Caminhoneiros
+          </h3>
+        </div>
+        <div class="col m-1">
+          <h3 class="text-center">
+            Empresas
+          </h3>
+        </div>
+        <hr class="col-12">
+      </div>
+    </div>
+  </div>
 </div>
+
+{% block pageStyle %}
+  <style>
+    hr{
+      color: gray;
+      height: 0.7px;
+      background-color:black;
+    }
+  </style>
+{% endblock %}
 
 {% endblock %}

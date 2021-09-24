@@ -13,7 +13,7 @@
 </head>
 <body>{% comment %}  class="bg-secondary" {% endcomment %}
 	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-		<a class="navbar-brand" href="">
+		<a class="navbar-brand" href="{% url 'index' %}">
       <img src="{% static 'img/logo.png' %}" width="60" height="34" class="d-inline-block align-top" alt="" loading="lazy">
       Cavalo-Vapor
     </a>
@@ -22,12 +22,12 @@
 		</button>
 		<div class="collapse navbar-collapse" id="navbarTogglerDemo02">
 			<ul class="navbar-nav w-100 d-flex justify-content-around">
-				<li class="nav-item">
+				{% comment %} <li class="nav-item">
 					<a class="nav-link" href="{% url 'index' %}">
             <img src="{% static 'img/svg/home.svg'%}" alt="" width="34px" height="34px" class="d-lg-none">
             Home
             </a>
-				</li>
+				</li> {% endcomment %}
 				<li class="nav-item">
           <a class="nav-link" href="{% url 'fretes' %}">
             <img src="{% static 'img/svg/cube.svg'%}" alt="" width="34px" height="34px" class="d-lg-none">
@@ -70,12 +70,12 @@
             Atividade
           </a>
 				</li>
-        <li class="nav-item">
+        {% comment %} <li class="nav-item">
 					<a class="nav-link" href="{% url 'mapa' %}">
             <img src="{% static 'img/svg/map.svg'%}" alt="" width="34px" height="34px" class="d-lg-none">
             Mapa
           </a>
-				</li>
+				</li> {% endcomment %}
         <li class="nav-item">
 					<a class="nav-link" href="{% url 'cadastro' %}">
             <img src="{% static 'img/svg/clipboard.svg'%}" alt="" width="34px" height="34px" class="d-lg-none">

@@ -12,8 +12,7 @@ urlpatterns = [
     path('caminhoes/', views.caminhoes, name="caminhoes"),
     path('perfis/', views.perfis, name="perfis"),
     path('network/', views.network, name="network"),
+    path('usuario/', views.usuario, name="usuario"),
     path('atividade/', views.atividade, name="atividade"),
     path('chats/', views.chats, name="chats"),
-    path('mapa/', views.mapa, name="mapa"),
-    path('usuario/', views.usuario, name="usuario"),
 ]
