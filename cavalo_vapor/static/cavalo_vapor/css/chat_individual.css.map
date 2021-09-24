@@ -1,9 +1,0 @@
-{
-    "version": 3,
-    "mappings": "AAAA,AAAA,QAAQ,CAAA;EACN,OAAO,EAAE,IAAI;EACb,qBAAqB,EAAE,cAAc;CACtC;;AAED,AAAA,IAAI,CAAA;EACF,UAAU,EAAE,IAAI;EAChB,OAAO,EAAE,MAAM;CAChB;;AAED,AAAA,IAAI,CAAC,QAAQ,CAAA;EACX,OAAO,EAAE,KAAK;CACf;;AAED,AAAA,IAAI,CAAC,EAAE,CAAA;EACL,aAAa,EAAE,IAAI;CACpB;;AAED,AAAA,MAAM,CAAA;EACJ,aAAa,EAAE,GAAG;CACnB",
-    "sources": [
-        "chat_individual.scss"
-    ],
-    "names": [],
-    "file": "chat_individual.css"
-}

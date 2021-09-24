@@ -1,0 +1,198 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block pageTitle %}Cavalo-Vapor Fretes | Caminhões{% endblock %}
+
+{% block pageConteudo %}
+
+<div class="container-fluid">
+  <form action="">
+    <div class="card">
+      <div class="card-header" id="headingFiltros">
+        <div class="form-row">
+          <h2 class="mr-2 text-center col-sm-12 col-md-2">
+            <img src="{% static 'img/svg/truck.svg' %}" alt="" width="40px" height="40px"><u>Caminhões</u>
+          </h2>
+          <div class="input-group col p-1">
+            <input type="search" id="inputSearch" class="form-control m-0" placeholder="Buscar Caminhões/Carretas">
+            <div class="input-group-append m-0">
+              <button type="submit" class="btn btn-outline-success">Pesquisar</button>
+            </div>
+          </div>
+          <div class="btn btn-outline-primary col-2 m-1" data-toggle="collapse" data-target="#Filtros" aria-expanded="true" aria-controls="Filtros">
+            Filtros
+          </div>
+          <div class="btn btn-outline-info col-2 m-1" data-toggle="collapse" data-target="#Ordenar" aria-expanded="true" aria-controls="Ordenar">
+            Ordenar
+          </div>
+          <button type="submit" class="btn btn-outline-success col-2 m-1">Pesquisar</button>
+          <button class="btn btn-secondary m-0 p-1 rounded-circle">
+            <img src="{% static 'img/svg/adicionar.svg'%}" alt="" width="30px" height="30px">
+          </button>
+        </div>
+      </div>
+      <div class="accordion" id="accordionFiltrosOrdenar">
+        <div id="Filtros" class="collapse" aria-labelledby="headingFiltros" data-parent="#accordionFiltrosOrdenar">
+          <div class="card-body">
+            <h5 class="card-title">Filtros: </h5>
+            <div class="form-row p-0 m-0">
+              <select class="form-control col-md m-1">
+                <option value="csc">Tipo de Carreta</option>
+              </select>
+              <select class="form-control col-md m-1">
+                <option value="csc">QTD de Eixos</option>
+              </select>
+              <select class="form-control col-md m-1">
+                <option value="csc">Peso Máximo</option>
+              </select>
+            </div>
+            <div class="form-row p-0 m-0">
+              <select class="form-control col-md m-1">
+                <option value="csc">Comprimento</option>
+              </select>
+              <select class="form-control col-md m-1">
+                <option value="csc">Eixos Eleváveis</option>
+              </select>
+              <select class="form-control col-md m-1">
+                <option value="csc">Volume Máximo</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div id="Ordenar" class="collapse" aria-labelledby="headingOrdenar" data-parent="#accordionFiltrosOrdenar">
+          <div class="card-body">
+            <h5 class="card-title">Ordenar: </h5>
+            <div class="form-row p-0 m-0">
+              <select class="form-control col-md m-1">
+                <option value="csc">Tipo de Carreta</option>
+              </select>
+              <select class="form-control col-md m-1">
+                <option value="csc">QTD de Eixos</option>
+              </select>
+              <select class="form-control col-md m-1">
+                <option value="csc">Peso Máximo</option>
+              </select>
+            </div>
+            <div class="form-row p-0 m-0">
+              <select class="form-control col-md m-1">
+                <option value="csc">Comprimento</option>
+              </select>
+              <select class="form-control col-md m-1">
+                <option value="csc">Eixos Eleváveis</option>
+              </select>
+              <select class="form-control col-md m-1">
+                <option value="csc">Volume Máximo</option>
+              </select>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+  <div class="row">
+    <div class="col-lg-6 col-md-12">
+      <div class="card col m-2">
+        <div class="card-header">
+          <div class="row">
+            <span class="col">
+              Volvo Vanderléia
+            </span>
+            <span class="col-1">
+              <a href="">
+                <img src="{% static 'img/svg/pencil.svg'%}" alt="" width="24px" height="24px">
+              </a>
+            </span>
+            <span class="col-1">
+              <a href="">
+                <img src="{% static 'img/svg/del.svg'%}" alt="" width="24px" height="24px">
+              </a>
+            </span>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="row">
+            <div class="col-md-6 text-center">
+              <img class="img-thumbnail" src="https://s2.glbimg.com/kFVWSygp2KNBKbovCZ38poINlE0=/0x0:1152x864/984x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_59edd422c0c84a879bd37670ae4f538a/internal_photos/bs/2021/J/3/hMMajoTb6eOPbzWcAvtw/whatsapp-image-2021-05-17-at-13.06.57.jpeg" alt="">
+            </div>
+            <div class="col-md-6 pt-1">
+              <p class="card-text">
+                <div class="row">
+                  <div class="col">
+                    <h3>Carreta</h3>
+                    Tipo de Carreta: LSL <br>
+                    QTD de Eixos: <br>
+                    Peso Máximo: <br>
+                    Volume Máximo: <br>
+                    Comprimento: <br>
+                    Eixos Eleváveis: 
+                  </div>
+                  <div class="col">
+                    <h3>Cavalo Mecânico</h3>
+                    Potência: <br>
+                    Eixos: <br>
+                    Litros: <br>
+                    Autonomia: <br>
+                    Eixos Eleváveis: 
+                  </div>
+                </div>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-6 col-md-12">
+      <div class="card col m-2">
+        <div class="card-header">
+          <div class="row">
+            <span class="col">
+              Scania LSL 2
+            </span>
+            <span class="col-1">
+              <a href="">
+                <img src="{% static 'img/svg/pencil.svg'%}" alt="" width="24px" height="24px">
+              </a>
+            </span>
+            <span class="col-1">
+              <a href="">
+                <img src="{% static 'img/svg/del.svg'%}" alt="" width="24px" height="24px">
+              </a>
+            </span>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="row">
+            <div class="col-md-6 text-center">
+              <img class="img-thumbnail" src="https://images.tcdn.com.br/img/img_prod/697730/lona_para_caminhao_carreta_3_eixos_14x4_metros_tipo_vinilona_1147483719_2_20191206154206.jpg" alt="">
+            </div>
+            <div class="col-md-6">
+              <p class="card-text">
+                <div class="row">
+                  <div class="col">
+                    <h3>Carreta</h3>
+                    Tipo de Carreta: LSL <br>
+                    QTD de Eixos: <br>
+                    Peso Máximo: <br>
+                    Volume Máximo: <br>
+                    Comprimento: <br>
+                    Eixos Eleváveis: 
+                  </div>
+                  <div class="col">
+                    <h3>Cavalo Mecânico</h3>
+                    Potência: <br>
+                    Eixos: <br>
+                    Litros: <br>
+                    Autonomia: <br>
+                    Eixos Eleváveis: 
+                  </div>
+                </div>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

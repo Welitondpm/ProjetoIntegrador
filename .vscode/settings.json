@@ -1,4 +1,5 @@
 {
-  "editor.formatOnSave": true,
-  "python.pythonPath": "/usr/bin/python3",
+    "emmet.includeLanguages": {
+        "django-html": "html"
+    }
 }

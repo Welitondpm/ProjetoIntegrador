@@ -1,0 +1,285 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block pageTitle %}Cavalo-Vapor Fretes | Fretes{% endblock %}
+
+{% block pageConteudo %}
+
+<div class="container-fluid">
+  <form action="">
+    <div class="card">
+      <div class="card-header" id="headingFiltros">
+        <div class="form-row">
+          <h2 class="mr-2 text-center col-sm-12 col-md-2">
+            <img src="{% static 'img/svg/cube.svg' %}" alt="" width="34px" height="34px"><u>Fretes</u>
+          </h2>
+          <div class="input-group col p-1">
+            <input type="search" id="inputSearch" class="form-control m-0" placeholder="Buscar Frete">
+            <div class="input-group-append m-0">
+              <button type="submit" class="btn btn-outline-success">Pesquisar</button>
+            </div>
+          </div>
+          <div class="btn btn-outline-primary col-2 m-1" data-toggle="collapse" data-target="#Filtros" aria-expanded="true" aria-controls="Filtros">
+            Filtros
+          </div>
+          <div class="btn btn-outline-info col-2 m-1" data-toggle="collapse" data-target="#Ordenar" aria-expanded="true" aria-controls="Ordenar">
+            Ordenar
+          </div>
+          <button type="submit" class="btn btn-outline-success col-2 m-1">Pesquisar</button>
+        </div>
+      </div>
+      <div class="accordion" id="accordionFiltrosOrdenar">
+        <div id="Filtros" class="collapse" aria-labelledby="headingFiltros" data-parent="#accordionFiltrosOrdenar">
+          <div class="card-body">
+            <h5 class="card-title">Filtros: </h5>
+            <div class="form-row p-0 m-0">
+              <select class="form-control col-md m-1">
+                <option value="csc">Estado</option>
+              </select>
+              <select class="form-control col-md m-1">
+                <option value="csc">Cidade Destino</option>
+              </select>
+              <select class="form-control col-md m-1">
+                <option value="csc">Cidade Origem</option>
+              </select>
+              <select class="form-control col-md m-1">
+                <option value="csc">Tipo de Carga</option>
+              </select>
+            </div>
+            <div class="form-row p-0 m-0">
+              <select class="form-control col-md m-1">
+                <option value="csc">Valor</option>
+              </select>
+              <select class="form-control col-md m-1">
+                <option value="csc">Tipo de Reboque</option>
+              </select>
+              <select class="form-control col-md m-1">
+                <option value="csc">Peso</option>
+              </select>
+            </div>
+            <div class="form-row p-0 m-0">
+              <select class="form-control col-md m-1">
+                <option value="csc">Prazo Carregamento</option>
+              </select>
+              <select class="form-control col-md m-1">
+                <option value="csc">Prazo Entrega</option>
+              </select>
+              <select class="form-control col-md m-1">
+                <option value="csc">Distância</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div id="Ordenar" class="collapse" aria-labelledby="headingOrdenar" data-parent="#accordionFiltrosOrdenar">
+          <div class="card-body">
+            <h5 class="card-title">Ordenar: </h5>
+            <div class="form-row p-0 m-0">
+              <select class="form-control col-md m-1">
+                <option value="csc">Valor</option>
+              </select>
+              <select class="form-control col-md m-1">
+                <option value="csc">Prazo</option>
+              </select>
+              <select class="form-control col-md m-1">
+                <option value="csc">Data de carregamento</option>
+              </select>
+            </div>
+            <div class="form-row p-0 m-0">
+              <select class="form-control col-md m-1">
+                <option value="csc">Avaliação Empresa</option>
+              </select>
+              <select class="form-control col-md m-1">
+                <option value="csc">Tempo de Confirmação</option>
+              </select>
+              <select class="form-control col-md m-1">
+                <option value="csc">Distância</option>
+              </select>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+
+  <nav class="mt-3">
+    <div class="nav nav-tabs" id="nav-tab" role="tablist">
+      <a class="nav-item nav-link active col" id="nav-fretes-tab" data-toggle="tab" href="#nav-fretes" role="tab" aria-controls="nav-fretes" aria-selected="true">Fretes</a>
+      <a class="nav-item nav-link col" id="nav-historico-tab" data-toggle="tab" href="#nav-historico" role="tab" aria-controls="nav-historico" aria-selected="false">Histórico</a>
+      <a class="nav-item nav-link col" id="nav-candidato-tab" data-toggle="tab" href="#nav-candidato" role="tab" aria-controls="nav-candidato" aria-selected="false">Candidato</a>
+      <div class="btn btn-outline-dark col-2 m-1">
+        Adicionar Frete
+      </div>
+    </div>
+  </nav>
+  <div class="tab-content" id="nav-tabContent">
+    <div class="tab-pane fade show active" id="nav-fretes" role="tabpanel" aria-labelledby="nav-fretes-tab">
+      <div class="accordion mt-2" id="accordionFretes">
+        <div class="card text-white bg-danger">
+          <div class="card-header" id="headingfrete1">
+          <div class="row">
+            <span class="col-10">
+              <h5 class="card-title w-100"  data-toggle="collapse" data-target="#frete1" aria-expanded="true" aria-controls="frete1">
+                Origem: Sigmacrom Araquari-SC, Destino: Posped São Paulo-SP
+              </h5>
+            </span>
+            <span class="col-2">
+              <div class="text-right">
+                <a href="#" class="btn btn-primary">Candidatar</a>
+              </div>
+            </span>
+          </div>
+          </div>
+          <div id="frete1" class="collapse" aria-labelledby="headingfrete1" data-parent="#accordionFretes">
+            <div class="card-body">
+              <p class="card-text">
+                Local de carga e descarga: A, B <br>
+                Valor: R$ 1 <br>
+                Distancia: 1km <br>
+                Cliente: Pessoa 1 <br>
+                Candidatos: Fulano 1 <br>
+                Prazo de descarga: Data 1 <br>
+                Peso: 1 tonelada(s) <br>
+                Volume: 1 metro(s) cúbicos <br>
+                Prazo de carga: Data 1 <br>
+                Noticação prévia em: 1 dia(s) <br>
+                Tipo de carga: Tipo 1 <br>
+                Carga: Carga 1
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="card text-white bg-warning">
+          <div class="card-header" id="headingfrete2">
+            <h5 class="card-title w-100"  data-toggle="collapse" data-target="#frete2" aria-expanded="true" aria-controls="frete2">
+              Origem: Posped São Paulo-SP, Destino: TAF Araquari-SC, 
+            </h5>
+          </div>
+          <div id="frete2" class="collapse" aria-labelledby="headingfrete2" data-parent="#accordionFretes">
+            <div class="card-body">
+              <p class="card-text">
+                Local de carga e descarga: A, B <br>
+                Valor: R$ 1 <br>
+                Distancia: 1km <br>
+                Cliente: Pessoa 1 <br>
+                Candidatos: Fulano 1 <br>
+                Prazo de descarga: Data 1 <br>
+                Peso: 1 tonelada(s) <br>
+                Volume: 1 metro(s) cúbicos <br>
+                Prazo de carga: Data 1 <br>
+                Noticação prévia em: 1 dia(s) <br>
+                Tipo de carga: Tipo 1 <br>
+                Carga: Carga 1 <br>
+                <a href="#" class="btn btn-primary">Candidatar</a>
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="card text-white bg-info">
+          <div class="card-header" id="headingfrete3">
+            <h5 class="card-title w-100"  data-toggle="collapse" data-target="#frete3" aria-expanded="true" aria-controls="frete3">
+              Origem: TAF Araquari-SC, Destino: Porto São Francisco-SC
+            </h5>
+          </div>
+          <div id="frete3" class="collapse" aria-labelledby="headingfrete3" data-parent="#accordionFretes">
+            <div class="card-body">
+              <p class="card-text">
+                Local de carga e descarga: A, B <br>
+                Valor: R$ 1 <br>
+                Distancia: 1km <br>
+                Cliente: Pessoa 1 <br>
+                Candidatos: Fulano 1 <br>
+                Prazo de descarga: Data 1 <br>
+                Peso: 1 tonelada(s) <br>
+                Volume: 1 metro(s) cúbicos <br>
+                Prazo de carga: Data 1 <br>
+                Noticação prévia em: 1 dia(s) <br>
+                Tipo de carga: Tipo 1 <br>
+                Carga: Carga 1 <br>
+                <a href="#" class="btn btn-primary">Candidatar</a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="tab-pane fade" id="nav-historico" role="tabpanel" aria-labelledby="nav-historico-tab">
+      <div class="accordion mt-2" id="accordionFretes">
+        <div class="card text-white bg-danger">
+          <div class="card-header" id="headingfrete1">
+          <div class="row">
+            <span class="col-10">
+              <h5 class="card-title w-100"  data-toggle="collapse" data-target="#frete1" aria-expanded="true" aria-controls="frete1">
+                Origem: Sigmacrom Araquari-SC, Destino: Posped São Paulo-SP
+              </h5>
+            </span>
+            <span class="col-2">
+              <div class="text-right">
+                <a href="#" class="btn btn-primary">Candidatar</a>
+              </div>
+            </span>
+          </div>
+          </div>
+          <div id="frete1" class="collapse" aria-labelledby="headingfrete1" data-parent="#accordionFretes">
+            <div class="card-body">
+              <p class="card-text">
+                Local de carga e descarga: A, B <br>
+                Valor: R$ 1 <br>
+                Distancia: 1km <br>
+                Cliente: Pessoa 1 <br>
+                Candidatos: Fulano 1 <br>
+                Prazo de descarga: Data 1 <br>
+                Peso: 1 tonelada(s) <br>
+                Volume: 1 metro(s) cúbicos <br>
+                Prazo de carga: Data 1 <br>
+                Noticação prévia em: 1 dia(s) <br>
+                Tipo de carga: Tipo 1 <br>
+                Carga: Carga 1
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="tab-pane fade" id="nav-candidato" role="tabpanel" aria-labelledby="nav-candidato-tab">
+      <div class="accordion mt-2" id="accordionFretes">
+        <div class="card bg-secondary">
+          <div class="card-header" id="headingfrete1">
+          <div class="row">
+            <span class="col-10">
+              <h5 class="card-title w-100"  data-toggle="collapse" data-target="#frete1" aria-expanded="true" aria-controls="frete1">
+                Origem: Sigmacrom Araquari-SC, Destino: Posped São Paulo-SP
+              </h5>
+            </span>
+            <span class="col-2">
+              <div class="text-right">
+                <a href="#" class="btn btn-primary">Candidatar</a>
+              </div>
+            </span>
+          </div>
+          </div>
+          <div id="frete1" class="collapse" aria-labelledby="headingfrete1" data-parent="#accordionFretes">
+            <div class="card-body">
+              <p class="card-text">
+                Local de carga e descarga: A, B <br>
+                Valor: R$ 1 <br>
+                Distancia: 1km <br>
+                Cliente: Pessoa 1 <br>
+                Candidatos: Fulano 1 <br>
+                Prazo de descarga: Data 1 <br>
+                Peso: 1 tonelada(s) <br>
+                Volume: 1 metro(s) cúbicos <br>
+                Prazo de carga: Data 1 <br>
+                Noticação prévia em: 1 dia(s) <br>
+                Tipo de carga: Tipo 1 <br>
+                Carga: Carga 1
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+{% endblock %}

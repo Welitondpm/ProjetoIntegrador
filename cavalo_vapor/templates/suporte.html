@@ -1,0 +1,99 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block pageTitle %}Cavalo-Vapor Fretes | Suporte{% endblock %}
+
+{% block pageConteudo %}
+
+<div class="container-fluid">
+  <div class="text-center">
+    <h1 class="m-4"><img src="{% static 'img/svg/help.svg' %}" alt="" width="34px" height="34px"><u>Seja bem-vindo ao suporte da Cavalo-Vapor!</u></h1>
+    <p>
+      Estamos sempre atentos a novas dúvidas e sugestões vindo dos usuários de nossa plataforma.
+      É sempre gratificante atendê-los.<br>
+      Por esta página você encontra perguntas frequentes e respostas a elas.
+      Conte também com a possibilidade de entrar em contato conosco.
+    </p>
+  </div>
+  <h3>Perguntas frequentes</h3>
+  <div class="accordion" id="accordionPerguntas">
+    <div class="card text-white bg-dark">
+      <div class="card-header" id="headingPergunta1">
+        <h5 class="card-title w-100"  data-toggle="collapse" data-target="#pergunta1" aria-expanded="true" aria-controls="pergunta1">
+          Após o cadastro, há como adicionar mais informações no meu perfil?
+        </h5>
+      </div>
+      <div id="pergunta1" class="collapse" aria-labelledby="headingPergunta1" data-parent="#accordionPerguntas">
+        <div class="card-body">
+          <p class="card-text">
+            Na sua página de perfil, encontrará a opção editar perfil... Lorem Ipsum has been 
+            the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley 
+            of type and scrambled it to make a type specimen book. It has survived not only five centuries, 
+            but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised 
+            in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more 
+            recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="card text-white bg-dark">
+      <div class="card-header" id="headingPergunta2">
+        <h5 class="card-title w-100"  data-toggle="collapse" data-target="#pergunta2" aria-expanded="true" aria-controls="pergunta2">
+          Pergunta 2
+        </h5>
+      </div>
+      <div id="pergunta2" class="collapse" aria-labelledby="headingPergunta2" data-parent="#accordionPerguntas">
+        <div class="card-body">
+          <p class="card-text">
+            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been 
+            the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley 
+            of type and scrambled it to make a type specimen book. It has survived not only five centuries, 
+            but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised 
+            in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more 
+            recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="text-center m-4">
+    <h3 class="m-2">Não encontrou o que desejava?</h3>
+    <p>
+      Fique a vontade para entrar em contato conosco, preenchendo os campos abaixo.<br>
+      Seu feedback é sempre importante.
+    </p>
+  </div>
+  <form action="">
+    <div class="form-row">
+      <div class="form-group col-md-5 col-6">
+        <label for="selectMotivo">Qual o motivo do contato: </label>
+        <select id="selectMotivo" class="form-control">
+          <option value="csc">Crítica/Sugestão/Comentário</option>
+          <option value="bug">Relatar um bug</option>
+          <option value="fin">Falar com o setor financeiro</option>
+          <option value="dig">Outro</option>
+        </select>
+      </div>
+      <div class="form-group col-md-7 col-6">
+        <label for="inputMotivo">Outro? Digite aqui: </label>
+        <input type="text" id="inputMotivo" class="form-control" placeholder="Motivo">
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="inputEmail">Digite seu Email: </label>
+      <input type="email" id="inputEmail" class="form-control" placeholder="Email">
+    </div>
+    <div class="form-group">
+      <label for="inputText">Digite a sua mensagem: </label>
+      <textarea id="inputText" cols="30" rows="10" class="form-control" placeholder="Digite aqui a sua Mensagem!"></textarea>
+    </div>
+    <div class="row justify-content-center m-3">
+			<button type="submit" class="btn btn-primary col-lg-3">
+				Enviar
+			</button>
+		</div>
+  </form>
+  <p class="text-center">Nossa equipe dará retorno ano que vem!</p>
+</div>
+
+{% endblock %}
