@@ -21,79 +21,83 @@
 			<span class="navbar-toggler-icon"></span>
 		</button>
 		<div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-			<ul class="navbar-nav w-100 d-flex justify-content-around">
-				{% comment %} <li class="nav-item">
+			<ul class="navbar-nav w-100 d-flex {% if request.user.is_authenticated %}
+        justify-content-around{% else %} justify-content-end{% endif %}">
+        {% if request.user.is_authenticated %}
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'fretes' %}">
+              <img src="{% static 'img/svg/cube.svg'%}" alt="" width="34px" height="34px" class="d-lg-none">
+              Fretes
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'network' %}">
+              <img src="{% static 'img/svg/network.svg'%}" alt="" width="34px" height="34px" class="d-lg-none">
+              Network
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'caminhoes' %}">
+              <img src="{% static 'img/svg/truck.svg'%}" alt="" width="34px" height="34px" class="d-lg-none">
+              Caminhões
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'chats' %}">
+              <img src="{% static 'img/svg/chatbox.svg'%}" alt="" width="34px" height="34px" class="d-lg-none">
+              Chats
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'perfis' %}">
+              <img src="{% static 'img/svg/people.svg'%}" alt="" width="34px" height="34px" class="d-lg-none">
+              Perfis
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'atividade' %}">
+              <img src="{% static 'img/svg/chart.svg'%}" alt="" width="34px" height="34px" class="d-lg-none">
+              Atividade
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'usuario' %}">
+              <img src="{% static 'img/svg/person.svg'%}" alt="" width="34px" height="34px" class="d-lg-none">
+              {{ user.email }}
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'logout' %}">
+              <img src="{% static 'img/svg/log-out.svg'%}" alt="" width="34px" height="34px" class="d-lg-none">
+              Logout
+            </a>
+          </li>
+        {% else %}
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'cadastro' %}">
+              <img src="{% static 'img/svg/clipboard.svg'%}" alt="" width="34px" height="34px" class="d-lg-none">
+              Cadastro
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'login' %}">
+              <img src="{% static 'img/svg/log-in.svg'%}" alt="" width="34px" height="34px" class="d-lg-none">
+              Login
+            </a>
+          </li>
+        {% endif %}
+        {% comment %} <li class="nav-item">
 					<a class="nav-link" href="{% url 'index' %}">
             <img src="{% static 'img/svg/home.svg'%}" alt="" width="34px" height="34px" class="d-lg-none">
             Home
             </a>
 				</li> {% endcomment %}
-				<li class="nav-item">
-          <a class="nav-link" href="{% url 'fretes' %}">
-            <img src="{% static 'img/svg/cube.svg'%}" alt="" width="34px" height="34px" class="d-lg-none">
-            Fretes
-          </a>
-				</li>
-        <li class="nav-item">
-					<a class="nav-link" href="{% url 'usuario' %}">
-            <img src="{% static 'img/svg/person.svg'%}" alt="" width="34px" height="34px" class="d-lg-none">
-            Usuário
-          </a>
-				</li>
-        <li class="nav-item">
-					<a class="nav-link" href="{% url 'network' %}">
-            <img src="{% static 'img/svg/network.svg'%}" alt="" width="34px" height="34px" class="d-lg-none">
-            Network
-          </a>
-				</li>
-        <li class="nav-item">
-          <a class="nav-link" href="{% url 'caminhoes' %}">
-            <img src="{% static 'img/svg/truck.svg'%}" alt="" width="34px" height="34px" class="d-lg-none">
-            Caminhões
-          </a>
-				</li>
-        <li class="nav-item">
-					<a class="nav-link" href="{% url 'chats' %}">
-            <img src="{% static 'img/svg/chatbox.svg'%}" alt="" width="34px" height="34px" class="d-lg-none">
-            Chats
-          </a>
-				</li>
-        <li class="nav-item">
-					<a class="nav-link" href="{% url 'perfis' %}">
-            <img src="{% static 'img/svg/people.svg'%}" alt="" width="34px" height="34px" class="d-lg-none">
-            Perfis
-          </a>
-				</li>
-        <li class="nav-item">
-					<a class="nav-link" href="{% url 'atividade' %}">
-            <img src="{% static 'img/svg/chart.svg'%}" alt="" width="34px" height="34px" class="d-lg-none">
-            Atividade
-          </a>
-				</li>
         {% comment %} <li class="nav-item">
 					<a class="nav-link" href="{% url 'mapa' %}">
             <img src="{% static 'img/svg/map.svg'%}" alt="" width="34px" height="34px" class="d-lg-none">
             Mapa
           </a>
 				</li> {% endcomment %}
-        <li class="nav-item">
-					<a class="nav-link" href="{% url 'cadastro' %}">
-            <img src="{% static 'img/svg/clipboard.svg'%}" alt="" width="34px" height="34px" class="d-lg-none">
-            Cadastro
-          </a>
-				</li>
-        <li class="nav-item">
-					<a class="nav-link" href="{% url 'login' %}">
-            <img src="{% static 'img/svg/log-in.svg'%}" alt="" width="34px" height="34px" class="d-lg-none">
-            Login
-          </a>
-				</li>
-        <li class="nav-item">
-					<a class="nav-link" href="">
-            <img src="{% static 'img/svg/log-out.svg'%}" alt="" width="34px" height="34px" class="d-lg-none">
-            Logout
-          </a>
-				</li>
 			</ul>
 		</div>
 	</nav>

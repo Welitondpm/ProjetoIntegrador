@@ -63,15 +63,16 @@
       Seu feedback é sempre importante.
     </p>
   </div>
-  <form action="">
+  <form method="POST" action="">
+    {% csrf_token %}
     <div class="form-row">
       <div class="form-group col-md-5 col-6">
         <label for="selectMotivo">Qual o motivo do contato: </label>
-        <select id="selectMotivo" class="form-control">
-          <option value="csc">Crítica/Sugestão/Comentário</option>
+        <select id="selectMotivo" class="form-control" name="motivo">
+          <option value="critica">Crítica/Sugestão/Comentário</option>
           <option value="bug">Relatar um bug</option>
-          <option value="fin">Falar com o setor financeiro</option>
-          <option value="dig">Outro</option>
+          <option value="financeiro">Falar com o setor financeiro</option>
+          <option value="outro">Outro</option>
         </select>
       </div>
       <div class="form-group col-md-7 col-6">
@@ -81,11 +82,11 @@
     </div>
     <div class="form-group">
       <label for="inputEmail">Digite seu Email: </label>
-      <input type="email" id="inputEmail" class="form-control" placeholder="Email">
+      <input type="email" id="inputEmail" class="form-control" name="email" placeholder="Email" required>
     </div>
     <div class="form-group">
       <label for="inputText">Digite a sua mensagem: </label>
-      <textarea id="inputText" cols="30" rows="10" class="form-control" placeholder="Digite aqui a sua Mensagem!"></textarea>
+      <textarea id="inputText" cols="30" rows="10" class="form-control" name="mensagem" placeholder="Digite aqui a sua Mensagem!" required></textarea>
     </div>
     <div class="row justify-content-center m-3">
 			<button type="submit" class="btn btn-primary col-lg-3">
