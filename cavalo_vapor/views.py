@@ -3,20 +3,30 @@ from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, logout, login
 from django.http import HttpResponseRedirect
 from django.core.mail import send_mail
+from .models import *
 
+# idEstado = Estado.objects.get(id=int(item[2]))
 
 def index(request):
     return render(request, "index.html")
 
-#     contexto = {'senha': 0, 'usuario': 0}
-#         contexto = {'senha': request.POST['senha'], 'usuario': request.POST['usuario']}
-#     return render(request, "login.html", contexto)
-
 def cadastro(request):
     if request.method == 'POST':
         if request.POST['senha'] == request.POST['confirmeSenha']:
-            user = User.objects.create_user(request.POST['usuario'], request.POST['email'], request.POST['senha'])
+            user = User.objects.create_user(
+                username=request.POST['usuario'],
+                email=request.POST['email'],
+                password=request.POST['senha'],
+                first_name=request.POST['firstName'],
+                last_name=request.POST['lastName'],
+            )
             user.save()
+            testando = Usuario(
+                descricao="Agora isso foi automatico",
+                usuario_chave=User.objects.get(username=request.POST['usuario']),
+            )
+            testando.save()
+            return HttpResponseRedirect('/login/')
     return render(request, "cadastro.html")
 
 def logar(request):
@@ -24,6 +34,12 @@ def logar(request):
         user = authenticate(username=request.POST['usuario'], password=request.POST["senha"])
         if user is not None:
             login(request, user)
+            usuarioId = User.objects.get(username=request.POST['usuario'])
+            usuarioObeject = Usuario.objects.get(usuario_chave=usuarioId)
+            request.session['dados'] = {
+                'descricao': usuarioObeject.descricao,
+                "usuarioId": usuarioId,
+            }
             return HttpResponseRedirect('/')
     return render(request, "login.html")
 
@@ -56,7 +72,7 @@ def network(request):
     return render(request, "network.html")
 
 def usuario(request):
-    return render(request, "usuario.html")
+    return render(request, "usuario.html", request.session['dados'])
 
 def atividade(request):
     return render(request, "atividade.html")

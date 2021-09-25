@@ -1,7 +1,9 @@
-__pycache__/
-cavalo_vapor/__pycache__
 
 cavalo_vapor/migrations/__pycache__
 ProjetoIntegrador/__pycache__
+cavalo_vapor/__pycache__
+__pycache__/
 db.sqlite3
 .vscode
+cavalo_vapor/migrations/0001_initial.py
+cavalo_vapor/migrations/0002_rename_qtd_usuario_descricao.py

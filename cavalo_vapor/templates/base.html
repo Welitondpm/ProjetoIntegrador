@@ -21,7 +21,7 @@
 			<span class="navbar-toggler-icon"></span>
 		</button>
 		<div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-			<ul class="navbar-nav w-100 d-flex {% if request.user.is_authenticated %}
+			<ul class="navbar-nav w-100 d-flex align-items-center {% if request.user.is_authenticated %}
         justify-content-around{% else %} justify-content-end{% endif %}">
         {% if request.user.is_authenticated %}
           <li class="nav-item">
@@ -63,13 +63,13 @@
           <li class="nav-item">
             <a class="nav-link" href="{% url 'usuario' %}">
               <img src="{% static 'img/svg/person.svg'%}" alt="" width="34px" height="34px" class="d-lg-none">
-              {{ user.email }}
+              {{ user }}
             </a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="{% url 'logout' %}">
-              <img src="{% static 'img/svg/log-out.svg'%}" alt="" width="34px" height="34px" class="d-lg-none">
-              Logout
+              <img src="{% static 'img/svg/log-out.svg'%}" alt="" width="26px" height="26px">
+              Sair
             </a>
           </li>
         {% else %}

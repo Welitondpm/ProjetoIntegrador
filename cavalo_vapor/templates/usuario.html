@@ -15,40 +15,31 @@
       <div class="form-group">
         <label for="inputLogo">Alterar Imagem: </label>
         <div class="input-group">
-          <input type="file" id="inputLogo" class="form-control" readonly>
-          <div class="input-group-append">
-            <span class="input-group-text">
-              <a href="">
-                <img src="{% static 'img/svg/pencil.svg'%}" alt="" width="24px" height="24px">
-              </a>
-            </span>
-          </div>
+          <input type="file" id="inputLogo" class="form-control">
+          {% include 'pencilEdit.html' %}
         </div>
       </div>
     </div>
     <div class="form-group">
       <label for="inputDescricao">Descrição: </label>
       <div class="input-group">
-        <textarea id="inputDescricao" class="form-control" cols="30" rows="5" readonly></textarea>
-        <div class="input-group-append">
-          <span class="input-group-text">
-            <a href="">
-              <img src="{% static 'img/svg/pencil.svg'%}" alt="" width="24px" height="24px">
-            </a>
-          </span>
-        </div>
+        <textarea id="inputDescricao" class="form-control" cols="30" rows="5" readonly>{{descricao}}</textarea>
+        {% include 'pencilEdit.html' %}
       </div>
     </div>
-    <div class="form-group">
-      <label for="inputNome">Nome: </label>
-      <div class="input-group">
-        <input type="text" id="inputNome" class="form-control" readonly placeholder="TriuVirato IFC">
-        <div class="input-group-append">
-          <span class="input-group-text">
-            <a href="">
-              <img src="{% static 'img/svg/pencil.svg'%}" alt="" width="24px" height="24px">
-            </a>
-          </span>
+    <div class="row">
+      <div class="form-group col-md-6 col-sm-12">
+        <label for="inputNome">Nome: </label>
+        <div class="input-group">
+          <input type="text" id="inputNome" class="form-control" value="{{user.first_name}}" readonly>
+          {% include 'pencilEdit.html' %}
+        </div>
+      </div>
+      <div class="form-group col-md-6 col-sm-12">
+        <label for="inputSobrenome">Sobrenome: </label>
+        <div class="input-group">
+          <input type="text" id="inputSobrenome" class="form-control" value="{{user.last_name}}" readonly>
+          {% include 'pencilEdit.html' %}
         </div>
       </div>
     </div>
@@ -56,43 +47,25 @@
       <label for="inputSenha">Nova Senha: </label>
       <div class="input-group">
         <input type="password" id="inputSenha" class="form-control" readonly placeholder="Nova Senha">
-        <div class="input-group-append">
-          <span class="input-group-text">
-            <a href="">
-              <img src="{% static 'img/svg/pencil.svg'%}" alt="" width="24px" height="24px">
-            </a>
-          </span>
-        </div>
+        {% include 'pencilEdit.html' %}
       </div>
     </div>
-    <div class="form-group">
+    <div class="form-group d-none">
       <label for="inputConfirmeSenha">Confirme a Nova Senha: </label>
       <input type="password" id="inputConfirmeSenha" class="form-control" placeholder="Confirme a Nova Senha">
     </div>
     <div class="form-group">
       <label for="inputEmail">Email 1: </label>
       <div class="input-group">
-        <input type="email" id="inputEmail" class="form-control" readonly placeholder="Example@Htmail.com">
-        <div class="input-group-append">
-          <span class="input-group-text">
-            <a href="">
-              <img src="{% static 'img/svg/pencil.svg'%}" alt="" width="24px" height="24px">
-            </a>
-          </span>
-        </div>
+        <input type="email" id="inputEmail" class="form-control" value="{{user.email}}" readonly>
+        {% include 'pencilEdit.html' %}
       </div>
     </div>
     <div class="form-group">
       <label for="inputTelefone">Telefone 1: </label>
       <div class="input-group">
         <input type="text" id="inputTelefone" class="form-control" readonly placeholder="(47) 99234-9283">
-        <div class="input-group-append">
-          <span class="input-group-text">
-            <a href="">
-              <img src="{% static 'img/svg/pencil.svg'%}" alt="" width="24px" height="24px">
-            </a>
-          </span>
-        </div>
+        {% include 'pencilEdit.html' %}
       </div>
     </div>
     <div class="row p-2">
@@ -116,13 +89,7 @@
         <label for="inputBairro">Bairro: </label>
         <div class="input-group">
           <input type="text" id="inputBairro" class="form-control" readonly>
-          <div class="input-group-append">
-            <span class="input-group-text">
-              <a href="">
-                <img src="{% static 'img/svg/pencil.svg'%}" alt="" width="24px" height="24px">
-              </a>
-            </span>
-          </div>
+          {% include 'pencilEdit.html' %}
         </div>
       </div>
       <div class="form-group col-lg-4 col-md-6 p-1">
@@ -142,13 +109,7 @@
         <label for="inputModoPreferencial">Modo Preferencial: </label>
         <div class="input-group">
           <input type="number" id="inputModoPreferencial" class="form-control" min="0" max="1" readonly>
-          <div class="input-group-append">
-            <span class="input-group-text">
-              <a href="">
-                <img src="{% static 'img/svg/pencil.svg'%}" alt="" width="24px" height="24px">
-              </a>
-            </span>
-          </div>
+          {% include 'pencilEdit.html' %}
         </div>
       </div>
     </div>
