@@ -37,6 +37,48 @@
 			<label for="inputConfirmeSenha">Confirme sua Senha: </label>
 			<input type="password" id="inputConfirmeSenha" name="confirmeSenha" class="form-control" placeholder="Confirme sua Senha" required>
 		</div>
+		{% comment %} <div class="row">
+			<div class="form-group col-md-6 col-sm-12">
+        <label for="inputEstado">Estado: </label>
+        <div class="input-group">
+          <select id="inputEstado" name="estado" class="form-control js-select-city">
+						{% for item in estados %}
+						<option value="{{item.uf}}">{{item}}</option>
+						{% endfor %}
+          </select>
+        </div>
+      </div>
+      <div class="form-group col-md-6 col-sm-12">
+        <label for="inputCidade">Cidade: </label>
+        <div class="input-group">
+          <select id="inputCidade" name="municipio" class="form-control"></select>
+        </div>
+      </div>
+      <div class="form-group col-md-6 col-sm-12">
+        <label for="inputBairro">Bairro: </label>
+        <div class="input-group">
+          <input type="text" id="inputBairro" name="bairro" class="form-control" placeholder="Bairro" required>
+        </div>
+      </div>
+      <div class="form-group col-md-6 col-sm-12">
+        <label for="inputCep">Cep: </label>
+        <div class="input-group">
+          <input type="text" id="inputCep" name="cep" class="form-control" placeholder="Cep" required>
+        </div>
+      </div>
+      <div class="form-group col-md-6 col-sm-12">
+        <label for="inputRua">Rua: </label>
+        <div class="input-group">
+          <input type="text" id="inputRua" name="rua" class="form-control" placeholder="Rua" required>
+        </div>
+      </div>
+      <div class="form-group col-md-6 col-sm-12">
+        <label for="inputNumero">Número: </label>
+        <div class="input-group">
+          <input type="number" id="inputNumero" name="numero" class="form-control" placeholder="Número" required>
+        </div>
+      </div>
+		</div> {% endcomment %}
 		<div class="row justify-content-center m-3">
 			<button type="submit" class="btn btn-primary">
 				Cadastrar
@@ -49,3 +91,31 @@
 </div>
 
 {% endblock %}
+
+{% comment %} {% block pageScript %}
+	<script>
+		window.onload = ajaxConection("AC");
+
+		$(".js-select-city").change(function () {
+			ajaxConection($(this).val())
+		});
+
+		function ajaxConection(estadoUf){
+			$.ajax({
+				url: "/ajax/select_city",
+				data: {
+					'estadoUf': estadoUf
+				},
+				success: function(data) {
+					var data = data["estados"]
+					document.getElementById("inputCidade").innerHTML = ""
+					var htmlInner = ""
+					for (item of data) {
+						htmlInner += "<option value=" + item[0] + ">" + item[1] + "</option>"
+					}
+					document.getElementById("inputCidade").innerHTML = htmlInner
+				}
+			})
+		}
+	</script>
+{% endblock %} {% endcomment %}

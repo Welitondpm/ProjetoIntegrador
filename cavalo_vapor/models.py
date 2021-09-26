@@ -1,12 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User #, AbstractBaseUser
 
-# blank=True    default
-# class Usuario(AbstractBaseUser):
-#     nome_usuario = models.CharField(max_length=40, unique=True)
-#     senha = AbstractBaseUser.password
-#     USERNAME_FIELD = 'nome_usuario'
-
 
 class Estado(models.Model):
   nome = models.CharField(max_length=200, unique=True)

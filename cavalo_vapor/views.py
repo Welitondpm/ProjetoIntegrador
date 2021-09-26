@@ -1,33 +1,36 @@
 from django.shortcuts import render
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, logout, login
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect, JsonResponse
 from django.core.mail import send_mail
 from .models import *
+from .templates.assets.saveDB import SaveDataBase
 
 # idEstado = Estado.objects.get(id=int(item[2]))
 
 def index(request):
     return render(request, "index.html")
 
+def select_city(request):
+    estadoUf = request.GET.get('estadoUf', None)
+    estadoId = Estado.objects.get(uf = estadoUf)
+    municipios = Municipio.objects.all().filter(idEstado = estadoId)
+    listaMunicipios = []
+    for item in municipios:
+        listaMunicipios.append([item.id ,item.nome])
+    data = {'estados': listaMunicipios}
+    return JsonResponse(data)
+
 def cadastro(request):
     if request.method == 'POST':
         if request.POST['senha'] == request.POST['confirmeSenha']:
-            user = User.objects.create_user(
-                username=request.POST['usuario'],
-                email=request.POST['email'],
-                password=request.POST['senha'],
-                first_name=request.POST['firstName'],
-                last_name=request.POST['lastName'],
-            )
-            user.save()
-            testando = Usuario(
-                descricao="Agora isso foi automatico",
-                usuario_chave=User.objects.get(username=request.POST['usuario']),
-            )
-            testando.save()
-            return HttpResponseRedirect('/login/')
-    return render(request, "cadastro.html")
+            saveBase = SaveDataBase()
+            if saveBase.CreateUsuario(request=request) == "Success":
+                return HttpResponseRedirect('/login/')
+    contexto = {
+        'estados': Estado.objects.all()
+    }
+    return render(request, "cadastro.html", contexto)
 
 def logar(request):
     if request.method == 'POST':
@@ -38,7 +41,7 @@ def logar(request):
             usuarioObeject = Usuario.objects.get(usuario_chave=usuarioId)
             request.session['dados'] = {
                 'descricao': usuarioObeject.descricao,
-                "usuarioId": usuarioId,
+                "usuarioId": usuarioId.username,
             }
             return HttpResponseRedirect('/')
     return render(request, "login.html")

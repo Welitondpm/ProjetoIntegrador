@@ -61,13 +61,13 @@
         {% include 'pencilEdit.html' %}
       </div>
     </div>
-    <div class="form-group">
+    {% comment %} <div class="form-group">
       <label for="inputTelefone">Telefone 1: </label>
       <div class="input-group">
         <input type="text" id="inputTelefone" class="form-control" readonly placeholder="(47) 99234-9283">
         {% include 'pencilEdit.html' %}
       </div>
-    </div>
+    </div> {% endcomment %}
     <div class="row p-2">
       <div class="form-group col-lg-4 col-md-6 p-1">
         <label for="inputEstado">Estado: </label>
@@ -92,6 +92,28 @@
           {% include 'pencilEdit.html' %}
         </div>
       </div>
+      <div class="form-group col-lg-4 col-md-6 p-1">
+        <label for="inputCep">Cep: </label>
+        <div class="input-group">
+          <input type="text" id="inputCep" class="form-control" readonly>
+          {% include 'pencilEdit.html' %}
+        </div>
+      </div>
+      <div class="form-group col-lg-4 col-md-6 p-1">
+        <label for="inputRua">Rua: </label>
+        <div class="input-group">
+          <input type="text" id="inputRua" class="form-control" readonly>
+          {% include 'pencilEdit.html' %}
+        </div>
+      </div>
+      <div class="form-group col-lg-4 col-md-6 p-1">
+        <label for="inputNumero">Número: </label>
+        <div class="input-group">
+          <input type="number" id="inputNumero" class="form-control" readonly>
+          {% include 'pencilEdit.html' %}
+        </div>
+      </div>
+
       <div class="form-group col-lg-4 col-md-6 p-1">
         <label for="inputDataNascimento">Data de Nascimento/Fundação: </label>
         <input type="date" id="inputDataNascimento" class="form-control" disabled="disabled">
