@@ -23,7 +23,7 @@
     <div class="form-group">
       <label for="inputDescricao">Descrição: </label>
       <div class="input-group">
-        <textarea id="inputDescricao" class="form-control" cols="30" rows="5" readonly>{{descricao}}</textarea>
+        <textarea id="inputDescricao" class="form-control" cols="30" rows="5" readonly>{{sesssionDados.descricao}}</textarea>
         {% include 'pencilEdit.html' %}
       </div>
     </div>
@@ -68,52 +68,53 @@
         {% include 'pencilEdit.html' %}
       </div>
     </div> {% endcomment %}
-    <div class="row p-2">
-      <div class="form-group col-lg-4 col-md-6 p-1">
+    <div class="row">
+			<div class="form-group col-md-6 col-lg-4">
         <label for="inputEstado">Estado: </label>
         <div class="input-group">
-          <select id="inputEstado" class="form-control" disabled="disabled">
-            <option value="">Estado</option>
+          <select id="inputEstado" name="estado" class="form-control js-select-city" disabled>
+						{% for item in estados %}
+						<option value="{{item.uf}}">{{item}}</option>
+						{% endfor %}
           </select>
         </div>
       </div>
-      <div class="form-group col-lg-4 col-md-6 p-1">
+      <div class="form-group col-md-6 col-lg-4">
         <label for="inputCidade">Cidade: </label>
         <div class="input-group">
-          <select id="inputCidade" class="form-control" disabled="disabled">
-            <option value="">Cidade</option>
-          </select>
+          <select id="inputCidade" name="municipio" class="form-control" disabled></select>
         </div>
       </div>
-      <div class="form-group col-lg-4 col-md-6 p-1">
+      <div class="form-group col-md-6 col-lg-4">
         <label for="inputBairro">Bairro: </label>
         <div class="input-group">
-          <input type="text" id="inputBairro" class="form-control" readonly>
+          <input type="text" id="inputBairro" name="bairro" class="form-control" placeholder="Bairro" readonly>
           {% include 'pencilEdit.html' %}
         </div>
       </div>
-      <div class="form-group col-lg-4 col-md-6 p-1">
+      <div class="form-group col-md-6 col-lg-4">
         <label for="inputCep">Cep: </label>
         <div class="input-group">
-          <input type="text" id="inputCep" class="form-control" readonly>
+          <input type="text" id="inputCep" name="cep" class="form-control" placeholder="Cep" readonly>
           {% include 'pencilEdit.html' %}
         </div>
       </div>
-      <div class="form-group col-lg-4 col-md-6 p-1">
+      <div class="form-group col-md-6 col-lg-4">
         <label for="inputRua">Rua: </label>
         <div class="input-group">
-          <input type="text" id="inputRua" class="form-control" readonly>
+          <input type="text" id="inputRua" name="rua" class="form-control" placeholder="Rua" readonly>
           {% include 'pencilEdit.html' %}
         </div>
       </div>
-      <div class="form-group col-lg-4 col-md-6 p-1">
+      <div class="form-group col-md-6 col-lg-4">
         <label for="inputNumero">Número: </label>
         <div class="input-group">
-          <input type="number" id="inputNumero" class="form-control" readonly>
+          <input type="number" id="inputNumero" name="numero" class="form-control" placeholder="Número" readonly>
           {% include 'pencilEdit.html' %}
         </div>
       </div>
-
+		</div>
+    <div class="row p-2">
       <div class="form-group col-lg-4 col-md-6 p-1">
         <label for="inputDataNascimento">Data de Nascimento/Fundação: </label>
         <input type="date" id="inputDataNascimento" class="form-control" disabled="disabled">
@@ -147,4 +148,23 @@
 
 </div>
 
+{% endblock %}
+
+{% block pageScript %}
+	<script>
+		dados = {
+			url: "/ajax/select_city",
+			"dados": "AC",
+		}
+		window.onload = ajaxConection(dados);
+
+		$(".js-select-city").change(function () {
+			dados = {
+				url: "/ajax/select_city",
+				"dados": $(this).val(),
+			}
+			ajaxConection(dados)
+		});
+
+	</script>
 {% endblock %}

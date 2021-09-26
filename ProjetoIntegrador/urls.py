@@ -14,7 +14,6 @@ urlpatterns = [
     path('network/', views.network, name="network"),
     path('usuario/', views.usuario, name="usuario"),
     path('atividade/', views.atividade, name="atividade"),
-    path('chats/', views.chats, name="chats"),
     path('logout_view/', views.logout_view, name="logout"),
     path('ajax/select_city/', views.select_city, name='select_city'),
 ]

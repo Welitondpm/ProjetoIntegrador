@@ -23,18 +23,30 @@ class Endereco(models.Model):
   numero = models.SmallIntegerField()
   idMunicipio = models.ForeignKey(Municipio, on_delete=models.CASCADE)
   idEstado = models.ForeignKey(Estado, on_delete=models.CASCADE)
+  
+  def __str__(self):
+    return "endereço: " + str(self.id)
 
 class Usuario(models.Model):
   usuario_chave = models.ForeignKey(User, on_delete=models.CASCADE)
   descricao = models.CharField(max_length=200)
 
+  def __str__(self):
+    return self.usuario_chave
+
 class Email(models.Model):
   email = models.CharField(max_length=200)
   idUsuario = models.ForeignKey(Usuario, on_delete=models.CASCADE)
 
+  def __str__(self):
+    return self.email
+
 class Telefone(models.Model):
   telefone = models.CharField(max_length=15)
   idUsuario = models.ForeignKey(Usuario, on_delete=models.CASCADE)
+
+  def __str__(self):
+    return self.telefone
 
 class Empresa(models.Model):
   cnpj = models.CharField(max_length=18, unique=True)
