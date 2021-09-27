@@ -1,0 +1,25 @@
+<template id="cadastroCaminhaoTemplate">
+  <swal-html>
+    <form action="" method="post">
+      {% csrf_token %}
+      <input type="text" class="d-none" value="caminhao" name="inputForm">
+      <div class="form-group">
+        <label for="inputNome">Nome</label>
+        <input type="text" id="inputNome" name="nome" class="form-control" maxlength="200">
+      </div>
+      <div class="form-group">
+        <label for="inputEixos">Eixos</label>
+        <input type="text" id="inputEixos" name="eixos" class="form-control" maxlength="2">
+      </div>
+      <div class="form-group">
+        <label for="inputMarca">Marca</label>
+        <select id="inputMarca" name="id_marca" class="form-control">
+          {% for item in marcas %}
+          <option value="{{item.id}}">{{item}}</option>
+          {% endfor %}
+        </select>
+      </div>
+      <button type="submit" class="btn btn-primary m-1">Cadastrar</button>
+    </form>
+  </swal-html>
+</template>

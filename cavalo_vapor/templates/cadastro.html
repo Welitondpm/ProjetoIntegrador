@@ -5,47 +5,45 @@
 
 {% block pageConteudo %}
 
-<div class="container-fluid">
-	<div class="row justify-content-center mt-2">
-		<h1 class="text-center"><img src="{% static 'img/svg/clipboard.svg' %}" alt="" width="34px" height="34px"><u>Cadastro</u></h1>
-	</div>
-	<form method="POST" action="" class="col-lg-6 offset-lg-3">
-		{% csrf_token %}
-		<div class="form-group">
-			<label for="inputUsername">Digite seu Username: </label>
-			<input type="text" id="inputUsername" name="usuario" class="form-control" placeholder="Username" required>
-		</div>
-    <div class="form-group">
-			<label for="inputEmail">Digite seu Email: </label>
-      <input type="email" id="inputEmail" name="email" class="form-control" placeholder="Email" required>
-		</div>
-		<div class="row">
-			<div class="form-group col-md-6 col-sm-12">
-				<label for="inputFirstName">Digite o primeiro Nome: </label>
-				<input type="text" id="inputFirstName" name="firstName" class="form-control" placeholder="Primeiro Nome" required>
-			</div>
-			<div class="form-group col-md-6 col-sm-12">
-				<label for="inputLastName">Digite o Sobrenome: </label>
-				<input type="text" id="inputLastName" name="lastName" class="form-control" placeholder="Sobrenome" required>
-			</div>
-		</div>
-		<div class="form-group">
-			<label for="inputSenha">Digite sua Senha: </label>
-			<input type="password" id="inputSenha" name="senha" class="form-control" placeholder="Senha" required>
-		</div>
-    <div class="form-group">
-			<label for="inputConfirmeSenha">Confirme sua Senha: </label>
-			<input type="password" id="inputConfirmeSenha" name="confirmeSenha" class="form-control" placeholder="Confirme sua Senha" required>
-		</div>
-		<div class="row justify-content-center m-3">
-			<button type="submit" class="btn btn-primary">
-				Cadastrar
-			</button>
-		</div>
-	</form>
-	<p class="text-center">
-		Já possui Cadastro? <a href="{% url 'login' %}">Clique Aqui!</a>
-	</p>
+<div class="row justify-content-center mt-2">
+	<h1 class="text-center"><img src="{% static 'img/svg/clipboard.svg' %}" alt="" width="34px" height="34px"><u>Cadastro</u></h1>
 </div>
+<form method="POST" action="" class="col-lg-6 offset-lg-3">
+	{% csrf_token %}
+	<div class="form-group">
+		<label for="inputUsername">Digite seu Username: </label>
+		<input type="text" id="inputUsername" name="usuario" class="form-control" placeholder="Username" required>
+	</div>
+	<div class="form-group">
+		<label for="inputEmail">Digite seu Email: </label>
+		<input type="email" id="inputEmail" name="email" class="form-control" placeholder="Email" required>
+	</div>
+	<div class="row">
+		<div class="form-group col-md-6 col-sm-12">
+			<label for="inputFirstName">Digite o primeiro Nome: </label>
+			<input type="text" id="inputFirstName" name="firstName" class="form-control" placeholder="Primeiro Nome" required>
+		</div>
+		<div class="form-group col-md-6 col-sm-12">
+			<label for="inputLastName">Digite o Sobrenome: </label>
+			<input type="text" id="inputLastName" name="lastName" class="form-control" placeholder="Sobrenome" required>
+		</div>
+	</div>
+	<div class="form-group">
+		<label for="inputSenha">Digite sua Senha: </label>
+		<input type="password" id="inputSenha" name="senha" class="form-control" placeholder="Senha" required>
+	</div>
+	<div class="form-group">
+		<label for="inputConfirmeSenha">Confirme sua Senha: </label>
+		<input type="password" id="inputConfirmeSenha" name="confirmeSenha" class="form-control" placeholder="Confirme sua Senha" required>
+	</div>
+	<div class="row justify-content-center m-3">
+		<button type="submit" class="btn btn-primary">
+			Cadastrar
+		</button>
+	</div>
+</form>
+<p class="text-center">
+	Já possui Cadastro? <a href="{% url 'login' %}">Clique Aqui!</a>
+</p>
 
 {% endblock %}

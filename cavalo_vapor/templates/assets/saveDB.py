@@ -52,7 +52,7 @@ class SaveDataBase():
     if verificaEmail(email):
       email = Email(
         email = email,
-        idUsuario = User.objects.get(username=request.POST['usuario']),
+        idUsuario = Usuario.objects.get(id=request.session["dados"]['usuarioId']),
       )
       email.save()
       return "Success"
@@ -64,7 +64,7 @@ class SaveDataBase():
     if verificaTelefone(telefone):
       telefone = Telefone(
         telefone = telefone,
-        idUsuario = User.objects.get(username=request.POST['usuario']),
+        idUsuario = Usuario.objects.get(id=request.session["dados"]['usuarioId']),
       )
       telefone.save()
       return "Success"
@@ -77,7 +77,7 @@ class SaveDataBase():
       empresa = Empresa(
         cnpj = OrganizaCpfCnpj(cnpj),
         anoFundacao = request.POST['anoFundacao'],
-        idUsuario = User.objects.get(username=request.POST['usuario']),
+        idUsuario = Usuario.objects.get(id=request.session["dados"]['usuarioId']),
       )
       empresa.save()
       return "Success"
@@ -91,7 +91,7 @@ class SaveDataBase():
       funcionario = Funcionario(
         matricula = matricula,
         cpf = OrganizaCpfCnpj(cpf),
-        idUsuario = User.objects.get(username=request.POST['usuario']),
+        idUsuario = Usuario.objects.get(id=request.session["dados"]['usuarioId']),
       )
       funcionario.save()
       return "Success"
@@ -101,7 +101,7 @@ class SaveDataBase():
   def CreateFilial(self, request):
     filial = Filial(
       idEmpresa = Empresa.objects.get(username=request.POST['id_empresa']),
-      idUsuario = User.objects.get(id=request.POST['usuario']),
+      idUsuario = Usuario.objects.get(id=request.session["dados"]['usuarioId']),
       idEndereco = Endereco.objects.get(id=request.POST['id_endereco']),
     )
     filial.save()
@@ -115,17 +115,6 @@ class SaveDataBase():
     funcionarioFilial.save()
   
 
-  def CreateMarca(self, request):
-    nome = request.POST['nome']
-    if verificaTamanho(nome, 150):
-      marca = Marca(
-        nome = nome,
-      )
-      marca.save()
-      return "Success"
-    return "Failed"
-  
-
   def CreateCaminhao(self, request):
     nome = request.POST['nome']
     eixos = request.POST['eixos']
@@ -133,7 +122,7 @@ class SaveDataBase():
       caminhao = Caminhao(
         nome = nome,
         eixos = eixos,
-        idUsuario = User.objects.get(username=request.POST['username']),
+        idUsuario = Usuario.objects.get(id=request.session['dados']['usuarioId']),
         idMarca = Marca.objects.get(id=request.POST['id_marca']),
       )
       caminhao.save()
@@ -146,34 +135,10 @@ class SaveDataBase():
     if verificaCPF(cpf):
       caminhoneiro = Caminhoneiro(
         cpf = OrganizaCpfCnpj(cpf),
-        idUsuario = User.objects.get(id=request.POST['username']),
+        idUsuario = Usuario.objects.get(id=request.session['dados']['usuarioId']),
         idEndereco = Endereco.objects.get(id=request.POST['id_endereco']),
       )
       caminhoneiro.save()
-      return "Success"
-    return "Failed"
-
-  
-  def CreateTipoCarreta(self, request):
-    nome = request.POST['nome']
-    eixos = request.POST['eixos']
-    if verificaTamanho(nome, 100) and verificaTamanho(eixos, 2):
-      tipoCarreta = TipoCarreta(
-        nome = nome,
-        eixos = eixos,
-      )
-      tipoCarreta.save()
-      return "Success"
-    return "Failed"
-  
-
-  def CreateTipoReboque(self, request):
-    nome = request.POST['nome']
-    if verificaTamanho(nome, 100):
-      tipoReboque = TipoReboque(
-        nome = nome,
-      )
-      tipoReboque.save()
       return "Success"
     return "Failed"
 
@@ -183,7 +148,7 @@ class SaveDataBase():
     if verificaTamanho(pesoMaximo, 2):
       carreta = Carreta(
         pesoMaximo = pesoMaximo,
-        idUser = User.objects.get(username=request.POST['username']),
+        idUsuario = Usuario.objects.get(id=request.session['dados']['usuarioId']),
         idTipoCarreta = TipoCarreta.objects.get(id=request.POST['id_TipoCarreta']),
         idTipoReboque = TipoReboque.objects.get(id=request.POST['id_TipoReboque']),
       )

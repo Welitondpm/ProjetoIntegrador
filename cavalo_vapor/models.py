@@ -16,6 +16,25 @@ class Municipio(models.Model):
   def __str__(self):
     return self.nome
 
+class Marca(models.Model):
+  nome = models.CharField(max_length=150, unique=True)
+
+  def __str__(self):
+    return self.nome
+
+class TipoCarreta(models.Model):
+  nome = models.CharField(max_length=100)
+
+  def __str__(self):
+    return self.nome
+
+class TipoReboque(models.Model):
+  nome = models.CharField(max_length=100)
+
+  def __str__(self):
+    return self.nome
+
+
 class Endereco(models.Model):
   rua = models.CharField(max_length=200)
   cep = models.CharField(max_length=9)
@@ -32,7 +51,7 @@ class Usuario(models.Model):
   descricao = models.CharField(max_length=200)
 
   def __str__(self):
-    return self.usuario_chave
+    return str(self.id)
 
 class Email(models.Model):
   email = models.CharField(max_length=200)
@@ -53,22 +72,31 @@ class Empresa(models.Model):
   anoFundacao = models.DateField()
   idUsuario = models.ForeignKey(Usuario, on_delete=models.CASCADE)
 
+  def __str__(self):
+    return self.cnpj
+
 class Funcionario(models.Model):
   matricula = models.CharField(max_length=50, unique=True)
   cpf = models.CharField(max_length=14, unique=True)
   idUsuario = models.ForeignKey(Usuario, on_delete=models.CASCADE)
+
+  def __str__(self):
+    return self.cpf
 
 class Filial(models.Model):
   idEmpresa = models.ForeignKey(Empresa, on_delete=models.CASCADE)
   idUsuario = models.ForeignKey(Usuario, on_delete=models.CASCADE)
   idEndereco = models.ForeignKey(Endereco, on_delete=models.CASCADE)
 
+  def __str__(self):
+    return self.idUsuario
+
 class FuncionarioFilial(models.Model):
   idFuncionario = models.ForeignKey(Funcionario, on_delete=models.CASCADE)
   idFilial = models.ForeignKey(Filial, on_delete=models.CASCADE)
 
-class Marca(models.Model):
-  nome = models.CharField(max_length=150, unique=True)
+  def __str__(self):
+    return self.idFilial
 
 class Caminhao(models.Model):
   nome = models.CharField(max_length=200)
@@ -76,17 +104,16 @@ class Caminhao(models.Model):
   idUsuario = models.ForeignKey(Usuario, on_delete=models.CASCADE)
   idMarca = models.ForeignKey(Marca, on_delete=models.CASCADE)
 
+  def __str__(self):
+    return self.nome
+
 class Caminhoneiro(models.Model):
   cpf = models.CharField(max_length=14, unique=True)
   idUsuario = models.ForeignKey(Usuario, on_delete=models.CASCADE)
   idEndereco = models.ForeignKey(Endereco, on_delete=models.CASCADE)
 
-class TipoCarreta(models.Model):
-  nome = models.CharField(max_length=100)
-  eixos = models.CharField(max_length=2)
-
-class TipoReboque(models.Model):
-  nome = models.CharField(max_length=100)
+  def __str__(self):
+    return self.cpf
 
 class Carreta(models.Model):
   pesoMaximo = models.CharField(max_length=2)
@@ -94,3 +121,5 @@ class Carreta(models.Model):
   idTipoCarreta = models.ForeignKey(TipoCarreta, on_delete=models.CASCADE)
   idTipoReboque = models.ForeignKey(TipoReboque, on_delete=models.CASCADE)
 
+  def __str__(self):
+    return self.idUsuario

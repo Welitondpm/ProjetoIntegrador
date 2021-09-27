@@ -1,0 +1,41 @@
+{% load static %}
+
+{% for caminhao in caminhoes %}
+  <div class="col-lg-6 col-md-12 caminhoes" id="caminhaoId{{caminhao.id}}">
+    <div class="card m-2">
+      <div class="card-header p-2">
+        <div class="col row">
+          <span class="col m-2">
+            {{caminhao.nome}}
+          </span>
+          <span class="col-1 mr-2">
+            <button class="btn btn-outline-info">
+              <img src="{% static 'img/svg/pencil.svg'%}" alt="Edit" widht="20px" height="20px">
+            </button>
+          </span>
+          <span class="col-1 ml-2">
+            <button class="btn btn-outline-danger" onclick="deletarCaminhao({{caminhao.id}});">
+              <img src="{% static 'img/svg/del.svg'%}" alt="Del" widht="20px" height="20px">
+            </button>
+          </span>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="row">
+          <div class="col-md-5 text-center">
+            <img class="img-thumbnail" src="{{dados.logo}}" alt="Tenho Quase Certeza que isso é completamente desnecessário">
+          </div>
+          <div class="col-md-7">
+            <p class="card-text m-0">
+              <div class="col">
+                <h3>Carreta</h3>
+                eixos: {{caminhao.eixos}} <br>
+                marca: {{caminhao.marca}} <br>
+              </div>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endfor %}

@@ -5,21 +5,22 @@
 
 {% block pageConteudo %}
 
-<div class="container-fluid">
-	<div class="row justify-content-center mt-2">
-    <h1 class="text-center"><img src="{% static 'img/svg/person.svg' %}" alt="" width="34px" height="34px"><u>{{user}}</u></h1>
-  </div>
-  <form action="">
-    <div class="col-lg-4 col-md-6 offset-lg-4 offset-md-3">
-      <img class="img-thumbnail" src="https://i.insider.com/61135525ad63f30019501966?width=700" alt="">
-      <div class="form-group">
-        <label for="inputLogo">Alterar Imagem: </label>
-        <div class="input-group">
-          <input type="file" id="inputLogo" class="form-control">
-          {% include 'pencilEdit.html' %}
-        </div>
+<div class="row justify-content-center mt-2">
+  <h1 class="text-center"><img src="{% static 'img/svg/person.svg' %}" alt="" width="34px" height="34px"><u>{{user}}</u></h1>
+</div>
+<form action="">
+  <div class="col-lg-4 col-md-6 offset-lg-4 offset-md-3">
+    <img class="img-thumbnail" src="https://i.insider.com/61135525ad63f30019501966?width=700" alt="">
+    <div class="form-group">
+      <label for="inputLogo">Alterar Imagem: </label>
+      <div class="input-group">
+        <input type="file" id="inputLogo" class="form-control" disabled>
+        {% include 'pencilEdit.html' %}
       </div>
     </div>
+  </div>
+  <div class="col p-2 m-0">
+    <h2 class="title">Informações do usuário: </h2>
     <div class="form-group">
       <label for="inputDescricao">Descrição: </label>
       <div class="input-group">
@@ -43,7 +44,7 @@
         </div>
       </div>
     </div>
-    <div class="form-group">
+    {% comment %} <div class="form-group">
       <label for="inputSenha">Nova Senha: </label>
       <div class="input-group">
         <input type="password" id="inputSenha" class="form-control" readonly placeholder="Nova Senha">
@@ -53,36 +54,41 @@
     <div class="form-group d-none">
       <label for="inputConfirmeSenha">Confirme a Nova Senha: </label>
       <input type="password" id="inputConfirmeSenha" class="form-control" placeholder="Confirme a Nova Senha">
-    </div>
+    </div> {% endcomment %}
     <div class="form-group">
-      <label for="inputEmail">Email 1: </label>
+      <label for="inputEmail">Email: </label>
       <div class="input-group">
         <input type="email" id="inputEmail" class="form-control" value="{{user.email}}" readonly>
         {% include 'pencilEdit.html' %}
       </div>
     </div>
-    {% comment %} <div class="form-group">
-      <label for="inputTelefone">Telefone 1: </label>
+    <div class="form-group">
+      <label for="inputTelefone">Telefone: </label>
       <div class="input-group">
-        <input type="text" id="inputTelefone" class="form-control" readonly placeholder="(47) 99234-9283">
+        <input type="text" id="inputTelefone" class="form-control" readonly placeholder="">
         {% include 'pencilEdit.html' %}
       </div>
-    </div> {% endcomment %}
+    </div>
+  </div>
+  <div class="col p-2 m-0">
+    <h2 class="title">Endereço: </h2>
     <div class="row">
-			<div class="form-group col-md-6 col-lg-4">
+      <div class="form-group col-md-6 col-lg-4">
         <label for="inputEstado">Estado: </label>
         <div class="input-group">
-          <select id="inputEstado" name="estado" class="form-control js-select-city" disabled>
-						{% for item in estados %}
-						<option value="{{item.uf}}">{{item}}</option>
-						{% endfor %}
+          <select id="inputEstado" name="estado" class="form-control js-select-city">
+            {% for item in estados %}
+            <option value="{{item.uf}}">{{item}}</option>
+            {% endfor %}
           </select>
+          {% include 'pencilEdit.html' %}
         </div>
       </div>
       <div class="form-group col-md-6 col-lg-4">
         <label for="inputCidade">Cidade: </label>
         <div class="input-group">
-          <select id="inputCidade" name="municipio" class="form-control" disabled></select>
+          <select id="inputCidade" name="municipio" class="form-control"></select>
+          {% include 'pencilEdit.html' %}
         </div>
       </div>
       <div class="form-group col-md-6 col-lg-4">
@@ -113,40 +119,101 @@
           {% include 'pencilEdit.html' %}
         </div>
       </div>
-		</div>
+    </div>
+  </div>
+  <div class="col p-2 m-0">
+    <h2 class="title">Informações da Empresa: </h2>
     <div class="row p-2">
       <div class="form-group col-lg-4 col-md-6 p-1">
-        <label for="inputDataNascimento">Data de Nascimento/Fundação: </label>
-        <input type="date" id="inputDataNascimento" class="form-control" disabled="disabled">
-      </div>
-      <div class="form-group col-lg-4 col-md-6 p-1">
-        <label for="inputGenero">Genêro: </label>
+        <label for="inputDataFundacao">Data de Fundação: </label>
         <div class="input-group">
-          <select id="inputGenero" class="form-control" disabled="disabled">
-            <option value="">Masculino</option>
-            <option value="">Feminino</option>
-          </select>
+          <input type="date" id="inputDataFundacao" class="form-control" readonly>
+          {% include 'pencilEdit.html' %}
         </div>
       </div>
       <div class="form-group col-lg-4 col-md-6 p-1">
-        <label for="inputModoPreferencial">Modo Preferencial: </label>
+        <label for="inputCNPJ">CNPJ: </label>
         <div class="input-group">
-          <input type="number" id="inputModoPreferencial" class="form-control" min="0" max="1" readonly>
+          <input type="text" id="inputCNPJ" class="form-control" readonly maxlength="18">
           {% include 'pencilEdit.html' %}
         </div>
       </div>
     </div>
-    <div class="row justify-content-end p-4 m-2">
-      <button type="reset" class="btn btn-secondary mr-3">
-        Cancelar
-      </button>
-			<button type="submit" class="btn btn-primary ">
-				Salvar Alterações
-			</button>
-		</div>
-  </form>
-
-</div>
+  </div>
+  <div class="col p-2 m-0">
+    <h2 class="title">Informações de Funcionário: </h2>
+    <div class="row p-2">
+      <div class="form-group col-lg-4 col-md-6 p-1">
+        <label for="inputMatricula">Matricula: </label>
+        <div class="input-group">
+          <input type="text" id="inputMatricula" class="form-control" readonly maxlength="50">
+          {% include 'pencilEdit.html' %}
+        </div>
+      </div>
+      <div class="form-group col-lg-4 col-md-6 p-1">
+        <label for="inputCPF">CPF: </label>
+        <div class="input-group">
+          <input type="text" id="inputCPF" class="form-control" readonly maxlength="14">
+          {% include 'pencilEdit.html' %}
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col p-2 m-0">
+    <h2 class="title">Informações do Caminhoneiro: </h2>
+    <div class="row p-2">
+      <div class="form-group col-lg-4 col-md-6 p-1">
+        <label for="inputCaminhoneiroCPF">CPF: </label>
+        <div class="input-group">
+          <input type="text" id="inputCaminhoneiroCPF" class="form-control" readonly maxlength="14">
+          {% include 'pencilEdit.html' %}
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col p-2 m-0">
+    <h2 class="title">Informações da Carreta: </h2>
+    <div class="row p-2">
+      <div class="form-group col-lg-4 col-md-6">
+        <label for="inputPesoMaximo">Peso Máximo: </label>
+        <div class="input-group">
+          <input type="text" id="inputPesoMaximo" class="form-control" readonly maxlength="2">
+          {% include 'pencilEdit.html' %}
+        </div>
+      </div>
+      <div class="form-group col-md-6 col-lg-4">
+        <label for="inputTipoCarreta">Tipo de Carreta: </label>
+        <div class="input-group">
+          <select id="inputTipoCarreta" name="tipoCarreta" class="form-control" disabled>
+            {% for item in carretas %}
+            <option value="{{item.id}}">{{item}}</option>
+            {% endfor %}
+          </select>
+          {% include 'pencilEdit.html' %}
+        </div>
+      </div>
+      <div class="form-group col-md-6 col-lg-4">
+        <label for="inputTipoCarroceria">Tipo de Carroceria: </label>
+        <div class="input-group">
+          <select id="inputTipoCarroceria" name="tipoCarroceria" class="form-control" disabled>
+            {% for item in carrocerias %}
+            <option value="{{item.id}}">{{item}}</option>
+            {% endfor %}
+          </select>
+          {% include 'pencilEdit.html' %}
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row justify-content-end p-4 m-2">
+    <button type="reset" class="btn btn-secondary mr-3">
+      Cancelar
+    </button>
+    <button type="submit" class="btn btn-primary ">
+      Salvar Alterações
+    </button>
+  </div>
+</form>
 
 {% endblock %}
 
@@ -162,6 +229,7 @@
 			dados = {
 				url: "/ajax/select_city",
 				"dados": $(this).val(),
+        "nome": "municipios"
 			}
 			ajaxConection(dados)
 		});

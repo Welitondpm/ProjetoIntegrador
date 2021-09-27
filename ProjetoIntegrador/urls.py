@@ -16,4 +16,5 @@ urlpatterns = [
     path('atividade/', views.atividade, name="atividade"),
     path('logout_view/', views.logout_view, name="logout"),
     path('ajax/select_city/', views.select_city, name='select_city'),
+    path('ajax/delCaminhoes/', views.delCaminhoes, name='delCaminhoes'),
 ]
