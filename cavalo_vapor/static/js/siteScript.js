@@ -8,6 +8,15 @@ function mostrarInputMotivo (elemento){
 }
 
 
+function login(){
+  Swal.fire({
+    template: "#loginFormTemplate",
+    showConfirmButton: false,
+    showCloseButton: true,
+  })
+}
+
+
 function ajaxConection(dados){
   $.ajax({
     url: dados["url"],

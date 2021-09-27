@@ -49,7 +49,6 @@ def logar(request):
 				"usuarioId": usuarioId.id,
 			}
 			return HttpResponseRedirect('/')
-	return render(request, "login.html")
 
 
 def logout_view(request):

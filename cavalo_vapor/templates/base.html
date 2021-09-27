@@ -74,10 +74,11 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="{% url 'login' %}">
+            <a class="nav-link" onclick="login();">
               <img src="{% static 'img/svg/log-in.svg'%}" alt="" width="34px" height="34px" class="d-lg-none">
               Login
             </a>
+            {% include "templates-form/login.html" %}
           </li>
         {% endif %}
         {% comment %} <li class="nav-item">
