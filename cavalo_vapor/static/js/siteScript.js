@@ -9,12 +9,7 @@ function mostrarInputMotivo (elemento){
 
 
 function login(){
-  Swal.fire({
-    template: "#loginFormTemplate",
-    allowOutsideClick: false,
-    showConfirmButton: false,
-    showCloseButton: true,
-  })
+  $('#formularioLogin').modal({backdrop:"static"})
 }
 
 

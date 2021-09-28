@@ -7,7 +7,19 @@ from .models import *
 
 
 def index(request):
-	return render(request, "index.html")
+	forms = {
+		'formLogin': {
+			"Name": 'Login',
+			"Url": "templates-form/formLogin.html",
+			"ButtonText": "Logar",
+			"ActionUrl": "/login/",
+			"modalId": "formularioLogin",
+		},
+	}
+	contexto = {
+		"forms": forms,
+	}
+	return render(request, "index.html", contexto)
 
 
 def select_city(request):
@@ -63,7 +75,19 @@ def cadastro(request):
 			saveBase = saveDB.SaveDataBase()
 			if saveBase.CreateUsuario(request=request) == "Success":
 				return HttpResponseRedirect('/')
-	return render(request, "cadastro.html")
+	forms = {
+		'formLogin': {
+			"Name": 'Login',
+			"Url": "templates-form/formLogin.html",
+			"ButtonText": "Logar",
+			"ActionUrl": "/login/",
+			"modalId": "formularioLogin",
+		},
+	}
+	contexto = {
+		"forms": forms,
+	}
+	return render(request, "cadastro.html", contexto)
 
 
 def logar(request):

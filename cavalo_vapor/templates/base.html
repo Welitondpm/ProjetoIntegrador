@@ -79,7 +79,7 @@
                 <img src="{% static 'img/svg/log-in.svg'%}" alt="" width="34px" height="34px" class="d-lg-none">
                 Login
               </a>
-              {% include "templates-form/login.html" %}
+              {% include "templates-form/modalTemplate.html" with form=forms.formLogin%}
             </li>
           {% endif %}
           {% comment %} <li class="nav-item">
