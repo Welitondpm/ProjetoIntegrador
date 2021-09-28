@@ -1,0 +1,19 @@
+<input type="hidden" value="carreta" name="inputForm">
+<input type='hidden' id="idCarreta" name="idCarreta">
+
+<label for="inputPesoMaximo" class="col text-left">Peso Máximo:</label>
+<input type="text" id="inputPesoMaximo" name="pesoMaximo" class="form-control" maxlength="2" placeholder="Digite o peso máximo">
+
+<label for="selectTipoCarreta" class="col text-left mt-3">Tipo Carreta:</label>
+<select id="selectTipoCarreta" name="id_TipoCarreta" class="form-control">
+  {% for item in tipoCarreta %}
+  <option value="{{item.id}}">{{item}}</option>
+  {% endfor %}
+</select>
+
+<label for="selectTipoReboque" class="col text-left mt-3">Tipo Reboque:</label>
+<select id="selectTipoReboque" name="id_TipoReboque" class="form-control">
+  {% for item in tipoReboque %}
+  <option value="{{item.id}}">{{item}}</option>
+  {% endfor %}
+</select>

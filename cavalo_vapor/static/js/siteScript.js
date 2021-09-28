@@ -11,6 +11,7 @@ function mostrarInputMotivo (elemento){
 function login(){
   Swal.fire({
     template: "#loginFormTemplate",
+    allowOutsideClick: false,
     showConfirmButton: false,
     showCloseButton: true,
   })
@@ -35,6 +36,8 @@ function conectionSuccess(data){
     PreencheMunicipios(data)
   } else if (data["nome"] == "delCaminhoes"){
     removeCaminhaoDeletado(data["id"])
+  } else if (data["nome"] == "delCarreta"){
+    removeCarretaDeletada(data["id"])
   }
 }
 
@@ -56,7 +59,27 @@ function removeCaminhaoDeletado(id){
 }
 
 
-function deletarCaminhao(id){
+function removeCarretaDeletada(id){
+  document.getElementById(id).remove();
+  verificaCarretasExistente()
+}
+
+
+function verificaCaminhoesExistente(){
+  if (document.getElementsByClassName("caminhoes").length == 0){
+    document.getElementById("mensagemSemCaminhao").classList.remove("d-none")
+  }
+}
+
+
+function verificaCarretasExistente(){
+  if (document.getElementsByClassName("carretas").length == 0){
+    document.getElementById("mensagemSemCarreta").classList.remove("d-none")
+  }
+}
+
+
+function alertDel(id, elementoNome){
   Swal.fire({
     title: 'Tem certeza?',
     text: "Você não poderá reverter isso!",
@@ -67,33 +90,64 @@ function deletarCaminhao(id){
     confirmButtonText: 'Sim, tenho!',
   }).then((result) => {
     if (result.isConfirmed) {
-      dados = {
-        url: "/ajax/delCaminhoes",
-        "dados": id,
-        "nome": "delCaminhoes",
-      }
-      ajaxConection(dados)
-      Swal.fire(
-        'Excluído!',
-        'Seu Caminhão foi deletado.',
-        'success',
-      )
-    } else {
-      Swal.fire(
-        'Cancelado',
-        'Operação abortada!',
-        'error',
-      )
+      ajaxDeleteDados(id, elementoNome)
     }
   })
 }
 
 
+function ajaxDeleteDados(id, elementoNome){
+  if (elementoNome == "caminhao"){
+    dados = {
+      url: "/ajax/delCaminhoes",
+      "dados": id,
+      "nome": "delCaminhoes",
+    }
+    ajaxConection(dados)
+    Swal.fire(
+      'Excluído!',
+      'Seu Caminhão foi deletado.',
+      'success',
+    )
+  } else if (elementoNome == "carreta") {
+    dados = {
+      url: "/ajax/delCarreta",
+      "dados": id,
+      "nome": "delCarreta",
+    }
+    ajaxConection(dados)
+    Swal.fire(
+      'Excluído!',
+      'Sua Carreta foi deletada.',
+      'success',
+    )
+  }
+}
+
+
+function updateCaminhao(dados){
+  $('#formularioUpdateCaminhao').modal({backdrop:"static"})
+  document.getElementById("idCaminhao").value = dados["id"]
+  document.getElementById("inputNomeCaminhao").value = dados["nome"]
+  document.getElementById("inputEixosCaminhao").value = dados["eixos"]
+  document.getElementById("selectMarca").value = dados["id_marca"]
+}
+
+
+function updateCarreta(dados){
+  $('#formularioUpdateCarreta').modal({backdrop:"static"})
+  document.getElementById("idCarreta").value = dados["id"]
+  document.getElementById("inputPesoMaximo").value = dados["peso_maximo"]
+  document.getElementById("selectTipoCarreta").value = dados["tipoCarreta"]
+  document.getElementById("selectTipoReboque").value = dados["tipoReboque"]
+}
+
+
 function cadastrarCaminhao(){
-  Swal.fire({
-    title: 'Cadastre seu Caminhão',
-    template: "#cadastroCaminhaoTemplate",
-    showConfirmButton: false,
-    showCloseButton: true,
-  })
+  $('#formularioCadastroCaminhao').modal({backdrop:"static"})
+}
+
+
+function cadastrarCarreta(){
+  $('#formularioCadastroCarreta').modal({backdrop:"static"})
 }

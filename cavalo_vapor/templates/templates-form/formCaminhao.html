@@ -1,0 +1,15 @@
+<input type="text" class="d-none" value="caminhao" name="inputForm">
+<input type='hidden' id="idCaminhao" value="" name="idCaminhao">
+
+<label for="inputNome" class="col text-left">Nome:</label>
+<input type="text" id="inputNomeCaminhao" name="nome" class="form-control" maxlength="200" placeholder="Digite seu nome">
+
+<label for="inputEixos" class="col text-left mt-3">Eixos:</label>
+<input type="text" id="inputEixosCaminhao" name="eixos" class="form-control" maxlength="2" placeholder="Digite a quantidade de eixos">
+
+<label for="selectMarca" class="col text-left mt-3">Marca:</label>
+<select id="selectMarca" name="id_marca" class="form-control">
+  {% for item in marcas %}
+  <option value="{{item.id}}">{{item}}</option>
+  {% endfor %}
+</select>

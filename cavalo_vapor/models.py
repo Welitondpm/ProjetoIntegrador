@@ -122,4 +122,4 @@ class Carreta(models.Model):
   idTipoReboque = models.ForeignKey(TipoReboque, on_delete=models.CASCADE)
 
   def __str__(self):
-    return self.idUsuario
+    return str(self.idUsuario)

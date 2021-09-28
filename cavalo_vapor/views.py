@@ -26,6 +26,35 @@ def delCaminhoes(request):
 	caminhaoObj = Caminhao.objects.get(id = caminhaoId).delete()
 	data = {'nome': 'delCaminhoes', "id": "caminhaoId" + str(caminhaoId)}
 	return JsonResponse(data)
+
+
+def delCarreta(request):
+	carretaId = request.GET.get('dados', None)
+	carretaObj = Carreta.objects.get(id = carretaId).delete()
+	data = {'nome': 'delCarreta', "id": "carretaId" + str(carretaId)}
+	return JsonResponse(data)
+
+
+def updateCaminhoes(request):
+	print(request.POST)
+	if request.method == 'POST':
+		caminhaoObj = Caminhao.objects.get(id = request.POST['idCaminhao'])
+		caminhaoObj.nome = request.POST['nome']
+		caminhaoObj.eixos = request.POST['eixos']
+		caminhaoObj.idMarca = Marca.objects.get(id=request.POST['id_marca'])
+		caminhaoObj.save()
+	return HttpResponseRedirect('/caminhoes/')
+
+
+def updateCarreta(request):
+	print(request.POST)
+	if request.method == 'POST':
+		carretaObj = Carreta.objects.get(id = request.POST['idCarreta'])
+		carretaObj.pesoMaximo = request.POST['pesoMaximo']
+		carretaObj.idTipoReboque = TipoReboque.objects.get(id=request.POST['id_TipoReboque'])
+		carretaObj.idTipoCarreta = TipoCarreta.objects.get(id=request.POST['id_TipoCarreta'])
+		carretaObj.save()
+	return HttpResponseRedirect('/caminhoes/')
 	
 
 def cadastro(request):
@@ -33,7 +62,7 @@ def cadastro(request):
 		if request.POST['senha'] == request.POST['confirmeSenha']:
 			saveBase = saveDB.SaveDataBase()
 			if saveBase.CreateUsuario(request=request) == "Success":
-				return HttpResponseRedirect('/login/')
+				return HttpResponseRedirect('/')
 	return render(request, "cadastro.html")
 
 
@@ -42,11 +71,12 @@ def logar(request):
 		user = authenticate(username=request.POST['usuario'], password=request.POST["senha"])
 		if user is not None:
 			login(request, user)
+			formsInfo(request)
 			usuarioId = User.objects.get(username=request.POST['usuario'])
 			usuarioObeject = Usuario.objects.get(usuario_chave=usuarioId)
 			request.session['dados'] = {
 				'descricao': usuarioObeject.descricao,
-				"usuarioId": usuarioId.id,
+				"usuarioId": usuarioObeject.id,
 			}
 			return HttpResponseRedirect('/')
 
@@ -83,6 +113,13 @@ def caminhoes(request):
 			saveBase = saveDB.SaveDataBase()
 			if saveBase.CreateCaminhao(request=request) == "Success":
 				caminhaoCriado = "Success"
+	carretaCriado = "None"
+	if request.method == "POST":
+		if request.POST["inputForm"] == "carreta":
+			saveBase = saveDB.SaveDataBase()
+			if saveBase.CreateCarreta(request=request) == "Success":
+				carretaCriado = "Success"	
+	
 	caminhoesObject = Caminhao.objects.all().filter(idUsuario = request.session["dados"]["usuarioId"])
 	caminhoesList = []
 	for item in caminhoesObject:
@@ -92,11 +129,28 @@ def caminhoes(request):
 			"nome": item.nome,
 			"eixos": item.eixos,
 			"marca": marca.nome,
+			"id_marca": marca.id,
+		})
+	carretaObject = Carreta.objects.all().filter(idUsuario = request.session["dados"]["usuarioId"])
+	carretasList = []
+	for item in carretaObject:
+		tipoCarreta = TipoCarreta.objects.get(id=item.idTipoCarreta.id)
+		tipoReboque = TipoReboque.objects.get(id=item.idTipoReboque.id)
+		carretasList.append({
+			"id": item.id, 
+			"peso_maximo": item.pesoMaximo,
+			"tipoCarreta": tipoCarreta.id,
+			"tipoReboque": tipoReboque.id,
 		})
 	contexto = {
 		"caminhoes": caminhoesList,
+		"carretas": carretasList,
 		'marcas': Marca.objects.all(),
+		'tipoReboque': TipoReboque.objects.all(),
+		'tipoCarreta': TipoCarreta.objects.all(),
 		"caminhaoCriado": caminhaoCriado,
+		"carretaCriado": carretaCriado,
+		"forms": request.session["forms"],
 	}
 	return render(request, "caminhoes.html", contexto)
 
@@ -121,3 +175,37 @@ def usuario(request):
 
 def atividade(request):
 	return render(request, "atividade.html")
+
+
+def formsInfo(request):
+	forms = {
+		'formUpdateCaminhao': {
+			"Name": "Atualize seu Caminhão",
+			"Url": "templates-form/formCaminhao.html",
+			"ButtonText": "Salvar Alterações",
+			"ActionUrl": "/update/updateCaminhao/",
+			"modalId": "formularioUpdateCaminhao",
+		},
+		'formCadastroCaminhao': {
+			"Name": "Cadastre um Caminhão",
+			"Url": "templates-form/formCaminhao.html",
+			"ButtonText": "Cadastrar Caminhão",
+			"ActionUrl": "",
+			"modalId": "formularioCadastroCaminhao",
+		},
+		'formUpdateCarreta': {
+			"Name": "Atualize sua Carreta",
+			"Url": "templates-form/formCarreta.html",
+			"ButtonText": "Salvar Alterações",
+			"ActionUrl": "/update/updateCarreta/",
+			"modalId": "formularioUpdateCarreta",
+		},
+		'formCadastroCarreta': {
+			"Name": "Cadastre uma Carreta",
+			"Url": "templates-form/formCarreta.html",
+			"ButtonText": "Cadastrar Carreta",
+			"ActionUrl": "",
+			"modalId": "formularioCadastroCarreta",
+		},
+	}
+	request.session["forms"] = forms

@@ -9,24 +9,28 @@
   <div class="card">
     <div class="card-header" id="headingFiltros">
       <div class="form-row">
-        <h2 class="m-0 mr-2 text-center col-sm-12 col-md-2">
-          <img src="{% static 'img/svg/truck.svg' %}" alt="" width="40px" height="40px"><u>Caminhões</u>
-        </h2>
-        <div class="input-group col p-1">
-          <input type="search" id="inputSearch" class="form-control m-0" placeholder="Buscar Caminhões/Carretas">
-          <div class="input-group-append m-0">
-            <button type="submit" class="btn btn-outline-success">Pesquisar</button>
+        
+        <div class="d-flex flex-row flex-grow-1">
+          <h2 class="m-0 mr-2 text-center d-flex flex-row">
+            <img src="{% static 'img/svg/truck.svg' %}" alt="" width="40px" height="40px">
+            <u>Caminhões</u>
+          </h2>
+          <div class="input-group p-1">
+            <input type="search" id="inputSearch" class="form-control m-0" placeholder="Buscar Caminhões/Carretas">
+            <div class="input-group-append m-0">
+              <button type="submit" class="btn btn-outline-success">Pesquisar</button>
+            </div>
           </div>
         </div>
-        <div class="btn btn-outline-primary m-1" data-toggle="collapse" data-target="#Filtros" aria-expanded="true" aria-controls="Filtros">
-          Filtros
-        </div>
-        <div class="btn btn-outline-info m-1" data-toggle="collapse" data-target="#Ordenar" aria-expanded="true" aria-controls="Ordenar">
-          Ordenar
-        </div>
-        <div class="btn btn-primary m-1 rounded" onclick="cadastrarCaminhao();">
-          Adicionar
-        </div>
+
+        <span>
+          <div class="btn btn-outline-primary m-1" data-toggle="collapse" data-target="#Filtros" aria-expanded="true" aria-controls="Filtros">
+            Filtros
+          </div>
+          <div class="btn btn-outline-info m-1" data-toggle="collapse" data-target="#Ordenar" aria-expanded="true" aria-controls="Ordenar">
+            Ordenar
+          </div>
+        </span>
       </div>
     </div>
     <div class="accordion" id="accordionFiltrosOrdenar">
@@ -87,16 +91,54 @@
     </div>
   </div>
 </form>
-<div class="row p-2">
-  {% if caminhoes %}
-    {% include "templates-listar/listarCaminhao.html" with dados=caminhoes %}
-  {% endif %}
-  <div class="alert alert-dark col mt-4 text-center d-none" role="alert" id="mensagemSemCaminhao">
-    Você não possui nenhum caminhão cadastrado! <a class="alert-link" onclick="cadastrarCaminhao();">Clique aqui!</a>
+
+<nav class="m-2">
+  <div class="nav nav-tabs" id="nav-tab" role="tablist">
+    <a class="nav-item nav-link active col p-2 pl-3 d-flex justify-content-between" id="nav-cavaloMecanico-tab" data-toggle="tab" href="#nav-cavaloMecanico" role="tab" aria-controls="nav-cavaloMecanico" aria-selected="true">
+      <span class="mt-2">
+        Cavalo Mecânico
+      </span>
+      <div class="btn btn-primary m-0 rounded" onclick="cadastrarCaminhao();">
+        Adicionar
+      </div>
+    </a>
+    <a class="nav-item nav-link col p-2 pl-3 d-flex justify-content-between" id="nav-carreta-tab" data-toggle="tab" href="#nav-carreta" role="tab" aria-controls="nav-carreta" aria-selected="false">
+      <span class="mt-2">
+        Carretas
+      </span>
+      <div class="btn btn-primary m-0 rounded" onclick="cadastrarCarreta();">
+        Adicionar
+      </div>
+    </a>
+  </div>
+</nav>
+<div class="tab-content" id="nav-tabContent">
+  <div class="tab-pane fade show active" id="nav-cavaloMecanico" role="tabpanel" aria-labelledby="nav-cavaloMecanico-tab">
+    <div class="row p-2">
+      {% if caminhoes %}
+        {% include "templates-listar/listarCaminhao.html" %}
+      {% endif %}
+      <div class="alert alert-dark col mt-4 text-center d-none" role="alert" id="mensagemSemCaminhao">
+        Você não possui nenhum caminhão cadastrado! <a class="alert-link" onclick="cadastrarCaminhao();">Clique aqui!</a>
+      </div>
+    </div>
+  </div>
+  <div class="tab-pane fade" id="nav-carreta" role="tabpanel" aria-labelledby="nav-carreta-tab">
+    <div class="row p-2">
+      {% if carretas %}
+        {% include "templates-listar/listarCarreta.html" %}
+      {% endif %}
+      <div class="alert alert-dark col mt-4 text-center d-none" role="alert" id="mensagemSemCarreta">
+        Você não possui nenhuma carreta cadastrada! <a class="alert-link" onclick="cadastrarCarreta();">Clique aqui!</a>
+      </div>
+    </div>
   </div>
 </div>
 
-{% include "templates-form/cadastroCaminhao.html" %}
+{% include "templates-form/modalTemplate.html" with form=forms.formUpdateCaminhao %}
+{% include "templates-form/modalTemplate.html" with form=forms.formCadastroCaminhao %}
+{% include "templates-form/modalTemplate.html" with form=forms.formUpdateCarreta %}
+{% include "templates-form/modalTemplate.html" with form=forms.formCadastroCarreta %}
 
 {% endblock %}
 
@@ -105,17 +147,21 @@
   <script type="text/javascript">
 
     window.onload = verificaCaminhoesExistente();
-    
-    function verificaCaminhoesExistente(){
-      if (document.getElementsByClassName("caminhoes").length == 0){
-        document.getElementById("mensagemSemCaminhao").classList.remove("d-none")
-      }
-    }
+    window.onload = verificaCarretasExistente();
 
     {% if caminhaoCriado == "Success" %}
       Swal.fire({
         icon: 'success',
         title: 'Seu caminhão foi criado com Sucesso!',
+        showConfirmButton: false,
+        timer: 3000
+      })
+    {% endif %}
+
+    {% if carretaCriado == "Success" %}
+      Swal.fire({
+        icon: 'success',
+        title: 'Sua carreta foi criada com Sucesso!',
         showConfirmButton: false,
         timer: 3000
       })
