@@ -6,12 +6,17 @@
 {% block pageConteudo %}
 
 <div class="row justify-content-center mt-2">
-  <h1 class="text-center"><img src="{% static 'img/svg/person.svg' %}" alt="" width="34px" height="34px"><u>{{user}}</u></h1>
+  <h1 class="text-center"><img src="{% static 'img/svg/person.svg' %}" alt="" width="34px" height="34px"><u>{{user}}</u>
+  </h1>
 </div>
-<form action="">
-  <div class="col-lg-4 col-md-6 offset-lg-4 offset-md-3">
-    <img class="img-thumbnail" src="https://i.insider.com/61135525ad63f30019501966?width=700" alt="">
-    <div class="form-group">
+<form action="" class="col-lg-6 offset-lg-3 justify-content-center">
+  <!-- img perfil -->
+  <div class="form-group">
+    <div class="row justify-content-center">
+      <img class="w-50" src="https://i.insider.com/61135525ad63f30019501966?width=700" alt="">
+    </div>
+
+    <div>
       <label for="inputLogo">Alterar Imagem: </label>
       <div class="input-group">
         <input type="file" id="inputLogo" class="form-control" disabled>
@@ -19,16 +24,19 @@
       </div>
     </div>
   </div>
-  <div class="col p-2 m-0">
+
+  <!-- informações usuario -->
+  <div class="p-2 m-0">
     <h2 class="title">Informações do usuário: </h2>
     <div class="form-group">
       <label for="inputDescricao">Descrição: </label>
       <div class="input-group">
-        <textarea id="inputDescricao" class="form-control" cols="30" rows="5" readonly>{{sesssionDados.descricao}}</textarea>
+        <textarea id="inputDescricao" class="form-control" cols="30" rows="5"
+          readonly>{{sesssionDados.descricao}}</textarea>
         {% include 'pencilEdit.html' %}
       </div>
     </div>
-    <div class="row">
+    <div class="form-row">
       <div class="form-group col-md-6 col-sm-12">
         <label for="inputNome">Nome: </label>
         <div class="input-group">
@@ -44,7 +52,7 @@
         </div>
       </div>
     </div>
-    {% comment %} <div class="form-group">
+    <div class="form-group">
       <label for="inputSenha">Nova Senha: </label>
       <div class="input-group">
         <input type="password" id="inputSenha" class="form-control" readonly placeholder="Nova Senha">
@@ -54,7 +62,7 @@
     <div class="form-group d-none">
       <label for="inputConfirmeSenha">Confirme a Nova Senha: </label>
       <input type="password" id="inputConfirmeSenha" class="form-control" placeholder="Confirme a Nova Senha">
-    </div> {% endcomment %}
+    </div>
     <div class="form-group">
       <label for="inputEmail">Email: </label>
       <div class="input-group">
@@ -70,9 +78,12 @@
       </div>
     </div>
   </div>
+
+
+  <!-- Endereço -->
   <div class="col p-2 m-0">
     <h2 class="title">Endereço: </h2>
-    <div class="row">
+    <div class="form-row">
       <div class="form-group col-md-6 col-lg-4">
         <label for="inputEstado">Estado: </label>
         <div class="input-group">
@@ -121,17 +132,19 @@
       </div>
     </div>
   </div>
-  <div class="col p-2 m-0">
+
+  <!-- Empresa -->
+  <!-- <div class="col p-2 m-0">
     <h2 class="title">Informações da Empresa: </h2>
-    <div class="row p-2">
-      <div class="form-group col-lg-4 col-md-6 p-1">
+    <div class="form-row ">
+      <div class="form-group col-lg-4 col-md-6">
         <label for="inputDataFundacao">Data de Fundação: </label>
         <div class="input-group">
           <input type="date" id="inputDataFundacao" class="form-control" readonly>
           {% include 'pencilEdit.html' %}
         </div>
       </div>
-      <div class="form-group col-lg-4 col-md-6 p-1">
+      <div class="form-group col-lg-4 col-md-6">
         <label for="inputCNPJ">CNPJ: </label>
         <div class="input-group">
           <input type="text" id="inputCNPJ" class="form-control" readonly maxlength="18">
@@ -139,18 +152,21 @@
         </div>
       </div>
     </div>
-  </div>
-  <div class="col p-2 m-0">
+  </div> -->
+
+
+  <!-- Funcionário -->
+  <!-- <div class="col p-2 m-0">
     <h2 class="title">Informações de Funcionário: </h2>
-    <div class="row p-2">
-      <div class="form-group col-lg-4 col-md-6 p-1">
+    <div class="form-row">
+      <div class="form-group col-lg-4 col-md-6">
         <label for="inputMatricula">Matricula: </label>
         <div class="input-group">
           <input type="text" id="inputMatricula" class="form-control" readonly maxlength="50">
           {% include 'pencilEdit.html' %}
         </div>
       </div>
-      <div class="form-group col-lg-4 col-md-6 p-1">
+      <div class="form-group col-lg-4 col-md-6">
         <label for="inputCPF">CPF: </label>
         <div class="input-group">
           <input type="text" id="inputCPF" class="form-control" readonly maxlength="14">
@@ -158,11 +174,13 @@
         </div>
       </div>
     </div>
-  </div>
-  <div class="col p-2 m-0">
+  </div> -->
+
+  <!-- Caminhoneiro -->
+  <!-- <div class="col p-2 m-0">
     <h2 class="title">Informações do Caminhoneiro: </h2>
-    <div class="row p-2">
-      <div class="form-group col-lg-4 col-md-6 p-1">
+    <div class="form-row">
+      <div class="form-group col-lg-4 col-md-6">
         <label for="inputCaminhoneiroCPF">CPF: </label>
         <div class="input-group">
           <input type="text" id="inputCaminhoneiroCPF" class="form-control" readonly maxlength="14">
@@ -170,10 +188,12 @@
         </div>
       </div>
     </div>
-  </div>
-  <div class="col p-2 m-0">
+  </div> -->
+
+  <!-- Carreta -->
+  <!-- <div class="col p-2 m-0">
     <h2 class="title">Informações da Carreta: </h2>
-    <div class="row p-2">
+    <div class="form-row">
       <div class="form-group col-lg-4 col-md-6">
         <label for="inputPesoMaximo">Peso Máximo: </label>
         <div class="input-group">
@@ -204,8 +224,11 @@
         </div>
       </div>
     </div>
-  </div>
-  <div class="row justify-content-end p-4 m-2">
+  </div> -->
+
+
+  <!-- botões de ação -->
+  <div class="form-row justify-content-end p-4 m-2">
     <button type="reset" class="btn btn-secondary mr-3">
       Cancelar
     </button>
@@ -218,21 +241,20 @@
 {% endblock %}
 
 {% block pageScript %}
-	<script>
-		dados = {
-			url: "/ajax/select_city",
-			"dados": "AC",
-		}
-		window.onload = ajaxConection(dados);
+<script>
+  dados = {
+    url: "/ajax/select_city",
+    "dados": "AC",
+  }
+  window.onload = ajaxConection(dados);
 
-		$(".js-select-city").change(function () {
-			dados = {
-				url: "/ajax/select_city",
-				"dados": $(this).val(),
-        "nome": "municipios"
-			}
-			ajaxConection(dados)
-		});
-
-	</script>
+  $(".js-select-city").change(function () {
+    dados = {
+      url: "/ajax/select_city",
+      "dados": $(this).val(),
+      "nome": "municipios"
+    }
+    ajaxConection(dados)
+  });
+</script>
 {% endblock %}
