@@ -15,6 +15,13 @@ def index(request):
 			"ActionUrl": "/login/",
 			"modalId": "formularioLogin",
 		},
+		'formCadastro': {
+			"Name": 'Cadastro',
+			"Url": "templates-form/formCadastro.html",
+			"ButtonText": "Cadastrar",
+			"ActionUrl": "/cadastro/",
+			"modalId": "formularioCadastro",
+		},
 	}
 	contexto = {
 		"forms": forms,
@@ -127,7 +134,10 @@ def suporte(request):
 
 
 def fretes(request):
-	return render(request, "fretes.html")
+	contexto = {
+		"forms": request.session["forms"],
+	}
+	return render(request, "fretes.html", contexto)
 
 
 def caminhoes(request):
@@ -180,11 +190,17 @@ def caminhoes(request):
 
 
 def perfis(request):
-	return render(request, "perfis.html")
+	contexto = {
+		"forms": request.session["forms"],
+	}
+	return render(request, "perfis.html", contexto)
 
 
 def network(request):
-	return render(request, "network.html")
+	contexto = {
+		"forms": request.session["forms"],
+	}
+	return render(request, "network.html", contexto)
 
 
 def usuario(request):
@@ -230,6 +246,22 @@ def formsInfo(request):
 			"ButtonText": "Cadastrar Carreta",
 			"ActionUrl": "",
 			"modalId": "formularioCadastroCarreta",
+		},
+		'formPesquisaFretes': {
+			"Placeholder": "Buscar Frete",
+			"FiltrosTemplate": "templates-filtros/filtrosFretes.html",
+		},
+		'formPesquisaNetwork': {
+			"Placeholder": "Buscar Filial/Funcionário",
+			"FiltrosTemplate": "templates-filtros/filtrosNetwork.html",
+		},
+		'formPesquisaCaminhao': {
+			"Placeholder": "Buscar Caminhões/Carretas",
+			"FiltrosTemplate": "templates-filtros/filtrosCaminhao.html",
+		},
+		'formPesquisaPerfis': {
+			"Placeholder": "Buscar Perfil por Nome, CPF/CNPJ",
+			"FiltrosTemplate": "templates-filtros/filtrosPerfis.html",
 		},
 	}
 	request.session["forms"] = forms

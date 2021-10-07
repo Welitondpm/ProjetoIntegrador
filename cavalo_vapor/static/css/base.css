@@ -2,6 +2,10 @@
   color: black;
 }
 
+/* .btn-primary{
+  background-color: #184B54 !important;
+} */
+
 #btn-suporte{
   position: fixed;
   bottom: 0;

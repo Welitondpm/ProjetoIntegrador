@@ -70,9 +70,11 @@
           {% else %}
             <li class="nav-item">
               <a class="nav-link" href="{% url 'cadastro' %}">
+              {% comment %} <a class="nav-link" onclick="cadastro();"> {% endcomment %}
                 <img src="{% static 'img/svg/clipboard.svg'%}" alt="" width="34px" height="34px" class="d-lg-none">
                 Cadastro
               </a>
+              {% comment %} {% include "templates-form/modalTemplate.html" with form=forms.formCadastro %} {% endcomment %}
             </li>
             <li class="nav-item">
               <a class="nav-link" onclick="login();">

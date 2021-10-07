@@ -9,12 +9,12 @@
             {{caminhao.nome}}
           </span>
           <span class="m-1">
-            <button class="btn btn-outline-info" onclick="updateCaminhao({{caminhao}});">
+            <button class="btn btn-info" onclick="updateCaminhao({{caminhao}});">
               <img src="{% static 'img/svg/pencil.svg'%}" alt="Edit" widht="20px" height="20px">
             </button>
           </span>
           <span class="m-1">
-            <button class="btn btn-outline-danger" onclick="alertDel({{caminhao.id}}, 'caminhao');">
+            <button class="btn btn-danger" onclick="alertDel({{caminhao.id}}, 'caminhao');">
               <img src="{% static 'img/svg/del.svg'%}" alt="Del" widht="20px" height="20px">
             </button>
           </span>

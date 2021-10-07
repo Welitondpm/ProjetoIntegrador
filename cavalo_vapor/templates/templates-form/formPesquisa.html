@@ -1,0 +1,22 @@
+<form action="">
+  <div class="card">
+    <div class="card-header" id="headingFiltros">
+      <div class="row">
+        <div class="input-group p-1 col">
+          <input type="search" id="inputSearch" class="form-control m-0" placeholder="{{pesquisa.Placeholder}}">
+          <div class="input-group-append m-0">
+            <button type="submit" class="btn btn-outline-success">Pesquisar</button>
+          </div>
+        </div>
+        <div class="btn btn-outline-primary m-1" data-toggle="collapse" data-target="#Filtros" aria-expanded="true" aria-controls="Filtros">
+          Filtros
+        </div>
+      </div>
+    </div>
+    <div class="accordion" id="accordionFiltros">
+      <div id="Filtros" class="collapse" aria-labelledby="headingFiltros" data-parent="#accordionFiltros">
+        {% include pesquisa.FiltrosTemplate %}
+      </div>
+    </div>
+  </div>
+</form>

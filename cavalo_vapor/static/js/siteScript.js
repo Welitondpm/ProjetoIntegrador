@@ -13,6 +13,11 @@ function login(){
 }
 
 
+function cadastro(){
+  $('#formularioCadastro').modal({backdrop:"static"})
+}
+
+
 function ajaxConection(dados){
   $.ajax({
     url: dados["url"],

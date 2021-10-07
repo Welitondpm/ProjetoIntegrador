@@ -171,40 +171,6 @@
       </div>
     </div>
   </div>
-  <div class="col p-2 m-0">
-    <h2 class="title">Informações da Carreta: </h2>
-    <div class="row p-2">
-      <div class="form-group col-lg-4 col-md-6">
-        <label for="inputPesoMaximo">Peso Máximo: </label>
-        <div class="input-group">
-          <input type="text" id="inputPesoMaximo" class="form-control" readonly maxlength="2">
-          {% include 'pencilEdit.html' %}
-        </div>
-      </div>
-      <div class="form-group col-md-6 col-lg-4">
-        <label for="inputTipoCarreta">Tipo de Carreta: </label>
-        <div class="input-group">
-          <select id="inputTipoCarreta" name="tipoCarreta" class="form-control" disabled>
-            {% for item in carretas %}
-            <option value="{{item.id}}">{{item}}</option>
-            {% endfor %}
-          </select>
-          {% include 'pencilEdit.html' %}
-        </div>
-      </div>
-      <div class="form-group col-md-6 col-lg-4">
-        <label for="inputTipoCarroceria">Tipo de Carroceria: </label>
-        <div class="input-group">
-          <select id="inputTipoCarroceria" name="tipoCarroceria" class="form-control" disabled>
-            {% for item in carrocerias %}
-            <option value="{{item.id}}">{{item}}</option>
-            {% endfor %}
-          </select>
-          {% include 'pencilEdit.html' %}
-        </div>
-      </div>
-    </div>
-  </div>
   <div class="row justify-content-end p-4 m-2">
     <button type="reset" class="btn btn-secondary mr-3">
       Cancelar
