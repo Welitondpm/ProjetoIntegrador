@@ -27,7 +27,6 @@
   height: 100vh;
   width: 100%;
   z-index: -1;
-  background-image: -webkit-gradient(linear, left top, right top, from(rgba(255, 255, 255, 0.2)), color-stop(rgba(255, 255, 255, 0.2)), to(rgba(0, 0, 0, 0.2)));
   background-image: linear-gradient(to right, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2), rgba(0, 0, 0, 0.2));
 }
 
@@ -35,4 +34,3 @@
   padding: 0 !important;
   margin: 0 !important;
 }
-/*# sourceMappingURL=base.css.map */
