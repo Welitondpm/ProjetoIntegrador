@@ -173,3 +173,11 @@
 </div>
 
 {% endblock %}
+
+{% block pageScript %}
+  <script type="text/javascript">
+
+    window.onload = pageActive("#network");
+
+  </script>
+{% endblock %}

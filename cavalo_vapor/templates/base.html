@@ -22,83 +22,84 @@
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-        <ul class="navbar-nav w-100 d-flex align-items-center {% if request.user.is_authenticated %}
-          justify-content-around{% else %} justify-content-end{% endif %}">
+        <ul class="navbar-nav w-100 d-flex justify-content-end">
           {% if request.user.is_authenticated %}
-            <li class="nav-item">
+            <li class="nav-item" id="frete">
               <a class="nav-link" href="{% url 'fretes' %}">
-                <img src="{% static 'img/svg/cube.svg'%}" alt="" width="34px" height="34px" class="d-lg-none">
+                <img src="{% static 'img/svg/cube.svg'%}" alt="" width="30px" height="30px" class="d-lg-none">
                 Fretes
               </a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item" id="network">
               <a class="nav-link" href="{% url 'network' %}">
-                <img src="{% static 'img/svg/network.svg'%}" alt="" width="34px" height="34px" class="d-lg-none">
+                <img src="{% static 'img/svg/network.svg'%}" alt="" width="30px" height="30px" class="d-lg-none">
                 Network
               </a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item" id="caminhao">
               <a class="nav-link" href="{% url 'caminhoes' %}">
-                <img src="{% static 'img/svg/truck.svg'%}" alt="" width="34px" height="34px" class="d-lg-none">
+                <img src="{% static 'img/svg/truck.svg'%}" alt="" width="30px" height="30px" class="d-lg-none">
                 Caminhões
               </a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item" id="perfis">
               <a class="nav-link" href="{% url 'perfis' %}">
-                <img src="{% static 'img/svg/people.svg'%}" alt="" width="34px" height="34px" class="d-lg-none">
+                <img src="{% static 'img/svg/people.svg'%}" alt="" width="30px" height="30px" class="d-lg-none">
                 Perfis
               </a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item" id="atividade">
               <a class="nav-link" href="{% url 'atividade' %}">
-                <img src="{% static 'img/svg/chart.svg'%}" alt="" width="34px" height="34px" class="d-lg-none">
+                <img src="{% static 'img/svg/chart.svg'%}" alt="" width="30px" height="30px" class="d-lg-none">
                 Atividade
               </a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="{% url 'usuario' %}">
-                <img src="{% static 'img/svg/person.svg'%}" alt="" width="34px" height="34px" class="d-lg-none">
+            <li class="nav-item dropdown" id="usuario">
+              <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+                <img src="{% static 'img/svg/person.svg'%}" alt="" width="30px" height="30px" class="d-lg-none">
                 {{ user }}
               </a>
+              <div class="dropdown-menu dropdown-menu-right">
+                <a class="dropdown-item" href="{% url 'usuario' %}">Usuário</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="{% url 'logout' %}">
+                  <img src="{% static 'img/svg/log-out.svg'%}" alt="" width="26px" height="26px">
+                  Sair
+                </a>
+              </div>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="{% url 'logout' %}">
-                <img src="{% static 'img/svg/log-out.svg'%}" alt="" width="26px" height="26px">
-                Sair
+            <li class="nav-item" id="suporte">
+              <a class="nav-link" href="{% url 'suporte' %}">
+                <img src="{% static 'img/svg/help.svg'%}" alt="" width="30px" height="30px" class="d-lg-none">
+                Suporte
               </a>
             </li>
           {% else %}
             <li class="nav-item">
               <a class="nav-link" href="{% url 'cadastro' %}">
               {% comment %} <a class="nav-link" onclick="cadastro();"> {% endcomment %}
-                <img src="{% static 'img/svg/clipboard.svg'%}" alt="" width="34px" height="34px" class="d-lg-none">
+                <img src="{% static 'img/svg/clipboard.svg'%}" alt="" width="30px" height="30px" class="d-lg-none">
                 Cadastro
               </a>
               {% comment %} {% include "templates-form/modalTemplate.html" with form=forms.formCadastro %} {% endcomment %}
             </li>
             <li class="nav-item">
               <a class="nav-link" onclick="login();">
-                <img src="{% static 'img/svg/log-in.svg'%}" alt="" width="34px" height="34px" class="d-lg-none">
+                <img src="{% static 'img/svg/log-in.svg'%}" alt="" width="30px" height="30px" class="d-lg-none">
                 Login
               </a>
               {% include "templates-form/modalTemplate.html" with form=forms.formLogin%}
             </li>
           {% endif %}
           {% comment %} <li class="nav-item">
-            <a class="nav-link" href="{% url 'index' %}">
-              <img src="{% static 'img/svg/home.svg'%}" alt="" width="34px" height="34px" class="d-lg-none">
-              Home
-              </a>
-          </li> {% endcomment %}
-          {% comment %} <li class="nav-item">
               <a class="nav-link" href="{% url 'chats' %}">
-                <img src="{% static 'img/svg/chatbox.svg'%}" alt="" width="34px" height="34px" class="d-lg-none">
+                <img src="{% static 'img/svg/chatbox.svg'%}" alt="" width="30px" height="30px" class="d-lg-none">
                 Chats
               </a>
             </li> {% endcomment %}
           {% comment %} <li class="nav-item">
             <a class="nav-link" href="{% url 'mapa' %}">
-              <img src="{% static 'img/svg/map.svg'%}" alt="" width="34px" height="34px" class="d-lg-none">
+              <img src="{% static 'img/svg/map.svg'%}" alt="" width="30px" height="30px" class="d-lg-none">
               Mapa
             </a>
           </li> {% endcomment %}
@@ -106,11 +107,6 @@
       </div>
     </nav>
     {% block pageConteudo %}{% endblock %}
-    <button class="btn btn-primary m-4 p-0 rounded-circle" id="btn-suporte">
-      <a href="{% url 'suporte' %}">
-        <img src="{% static 'img/svg/help.svg'%}" alt="" width="50px" height="50px">
-      </a>
-    </button>
   </div>
   
   <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>

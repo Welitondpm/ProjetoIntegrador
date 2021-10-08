@@ -8,6 +8,11 @@ function mostrarInputMotivo (elemento){
 }
 
 
+function pageActive(nome){
+  document.querySelector(`${nome} > a`).classList.toggle('active')
+}
+
+
 function login(){
   $('#formularioLogin').modal({backdrop:"static"})
 }

@@ -1,6 +1,5 @@
 from django.contrib.auth.models import User
-from django.db import models
-from cavalo_vapor.models import *
+from ..models import *
 from .vereficadores import *
 
 class SaveDataBase():

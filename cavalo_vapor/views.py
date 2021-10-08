@@ -1,108 +1,49 @@
 from django.shortcuts import render
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, logout, login
+from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseRedirect, JsonResponse
-from .templates.assets import saveDB, sendEmail
+from .functionsPy import saveDB, sendEmail, updateDB, formsDate
 from .models import *
 
 
-def index(request):
-	forms = {
-		'formLogin': {
-			"Name": 'Login',
-			"Url": "templates-form/formLogin.html",
-			"ButtonText": "Logar",
-			"ActionUrl": "/login/",
-			"modalId": "formularioLogin",
-		},
-		'formCadastro': {
-			"Name": 'Cadastro',
-			"Url": "templates-form/formCadastro.html",
-			"ButtonText": "Cadastrar",
-			"ActionUrl": "/cadastro/",
-			"modalId": "formularioCadastro",
-		},
-	}
+def formsInfo(request, nome):
+	formsObject = formsDate.FormDate
+	if nome == "formLogin":
+		forms = formsObject.defineFormsLogin(formsObject)
+	else:
+		forms = formsObject.defineForms(formsObject)
+	request.session["forms"] = forms
 	contexto = {
 		"forms": forms,
 	}
-	return render(request, "index.html", contexto)
+	request.session["contexto"] = contexto
 
 
-def select_city(request):
-	estadoUf = request.GET.get('dados', None)
-	estadoId = Estado.objects.get(uf = estadoUf)
-	municipios = Municipio.objects.all().filter(idEstado = estadoId)
-	listaMunicipios = []
-	for item in municipios:
-		listaMunicipios.append([item.id ,item.nome])
-	data = {'municipios': listaMunicipios, 'nome': 'municipios'}
-	return JsonResponse(data)
+def index(request):
+	if not request.user.is_authenticated:
+		formsInfo(request, "formLogin")
+	return render(request, "index.html", request.session["contexto"])
 
-
-def delCaminhoes(request):
-	caminhaoId = request.GET.get('dados', None)
-	caminhaoObj = Caminhao.objects.get(id = caminhaoId).delete()
-	data = {'nome': 'delCaminhoes', "id": "caminhaoId" + str(caminhaoId)}
-	return JsonResponse(data)
-
-
-def delCarreta(request):
-	carretaId = request.GET.get('dados', None)
-	carretaObj = Carreta.objects.get(id = carretaId).delete()
-	data = {'nome': 'delCarreta', "id": "carretaId" + str(carretaId)}
-	return JsonResponse(data)
-
-
-def updateCaminhoes(request):
-	print(request.POST)
-	if request.method == 'POST':
-		caminhaoObj = Caminhao.objects.get(id = request.POST['idCaminhao'])
-		caminhaoObj.nome = request.POST['nome']
-		caminhaoObj.eixos = request.POST['eixos']
-		caminhaoObj.idMarca = Marca.objects.get(id=request.POST['id_marca'])
-		caminhaoObj.save()
-	return HttpResponseRedirect('/caminhoes/')
-
-
-def updateCarreta(request):
-	print(request.POST)
-	if request.method == 'POST':
-		carretaObj = Carreta.objects.get(id = request.POST['idCarreta'])
-		carretaObj.pesoMaximo = request.POST['pesoMaximo']
-		carretaObj.idTipoReboque = TipoReboque.objects.get(id=request.POST['id_TipoReboque'])
-		carretaObj.idTipoCarreta = TipoCarreta.objects.get(id=request.POST['id_TipoCarreta'])
-		carretaObj.save()
-	return HttpResponseRedirect('/caminhoes/')
-	
 
 def cadastro(request):
+	if request.user.is_authenticated:
+		return HttpResponseRedirect('/')
+	formsInfo(request, "formLogin")
 	if request.method == 'POST':
 		if request.POST['senha'] == request.POST['confirmeSenha']:
 			saveBase = saveDB.SaveDataBase()
 			if saveBase.CreateUsuario(request=request) == "Success":
 				return HttpResponseRedirect('/')
-	forms = {
-		'formLogin': {
-			"Name": 'Login',
-			"Url": "templates-form/formLogin.html",
-			"ButtonText": "Logar",
-			"ActionUrl": "/login/",
-			"modalId": "formularioLogin",
-		},
-	}
-	contexto = {
-		"forms": forms,
-	}
-	return render(request, "cadastro.html", contexto)
+	return render(request, "cadastro.html", request.session["contexto"])
 
 
 def logar(request):
+	formsInfo(request, "")
 	if request.method == 'POST':
 		user = authenticate(username=request.POST['usuario'], password=request.POST["senha"])
 		if user is not None:
 			login(request, user)
-			formsInfo(request)
 			usuarioId = User.objects.get(username=request.POST['usuario'])
 			usuarioObeject = Usuario.objects.get(usuario_chave=usuarioId)
 			request.session['dados'] = {
@@ -110,12 +51,6 @@ def logar(request):
 				"usuarioId": usuarioObeject.id,
 			}
 			return HttpResponseRedirect('/')
-
-
-def logout_view(request):
-	if User.is_authenticated or User.is_staff:
-		logout(request)
-		return HttpResponseRedirect('/')
 
 
 def suporte(request):
@@ -133,29 +68,32 @@ def suporte(request):
 	return render(request, "suporte.html", {"emailEnviado": "false"})
 
 
+@login_required(redirect_field_name=None)
 def fretes(request):
-	contexto = {
-		"forms": request.session["forms"],
-	}
-	return render(request, "fretes.html", contexto)
+	return render(request, "fretes.html", request.session["contexto"])
 
 
+@login_required(redirect_field_name=None)
+def network(request):
+	return render(request, "network.html", request.session["contexto"])
+
+
+@login_required(redirect_field_name=None)
 def caminhoes(request):
 	caminhaoCriado = "None"
-	if request.method == "POST":
-		if request.POST["inputForm"] == "caminhao":
-			saveBase = saveDB.SaveDataBase()
-			if saveBase.CreateCaminhao(request=request) == "Success":
-				caminhaoCriado = "Success"
 	carretaCriado = "None"
 	if request.method == "POST":
-		if request.POST["inputForm"] == "carreta":
-			saveBase = saveDB.SaveDataBase()
+		saveBase = saveDB.SaveDataBase()
+		if request.POST["inputForm"] == "caminhao":
+			if saveBase.CreateCaminhao(request=request) == "Success":
+				caminhaoCriado = "Success"
+		elif request.POST["inputForm"] == "carreta":
 			if saveBase.CreateCarreta(request=request) == "Success":
 				carretaCriado = "Success"	
-	
 	caminhoesObject = Caminhao.objects.all().filter(idUsuario = request.session["dados"]["usuarioId"])
+	carretaObject = Carreta.objects.all().filter(idUsuario = request.session["dados"]["usuarioId"])
 	caminhoesList = []
+	carretasList = []
 	for item in caminhoesObject:
 		marca = Marca.objects.get(nome=item.idMarca)
 		caminhoesList.append({
@@ -165,8 +103,6 @@ def caminhoes(request):
 			"marca": marca.nome,
 			"id_marca": marca.id,
 		})
-	carretaObject = Carreta.objects.all().filter(idUsuario = request.session["dados"]["usuarioId"])
-	carretasList = []
 	for item in carretaObject:
 		tipoCarreta = TipoCarreta.objects.get(id=item.idTipoCarreta.id)
 		tipoReboque = TipoReboque.objects.get(id=item.idTipoReboque.id)
@@ -189,79 +125,77 @@ def caminhoes(request):
 	return render(request, "caminhoes.html", contexto)
 
 
+@login_required(redirect_field_name=None)
 def perfis(request):
-	contexto = {
-		"forms": request.session["forms"],
-	}
-	return render(request, "perfis.html", contexto)
+	return render(request, "perfis.html", request.session["contexto"])
 
 
-def network(request):
-	contexto = {
-		"forms": request.session["forms"],
-	}
-	return render(request, "network.html", contexto)
+@login_required(redirect_field_name=None)
+def atividade(request):
+	return render(request, "atividade.html")
 
 
+@login_required(redirect_field_name=None)
 def usuario(request):
 	contexto = {
 		'estados': Estado.objects.all(),
-		'carretas': TipoCarreta.objects.all(),
-		'carrocerias': TipoReboque.objects.all(),
 		'sesssionDados': request.session['dados'],
 	}
 	return render(request, "usuario.html", contexto)
 
 
-def atividade(request):
-	return render(request, "atividade.html")
+@login_required(redirect_field_name=None)
+def logout_view(request):
+	if User.is_authenticated or User.is_staff:
+		logout(request)
+		return HttpResponseRedirect('/')
 
 
-def formsInfo(request):
-	forms = {
-		'formUpdateCaminhao': {
-			"Name": "Atualize seu Caminhão",
-			"Url": "templates-form/formCaminhao.html",
-			"ButtonText": "Salvar Alterações",
-			"ActionUrl": "/update/updateCaminhao/",
-			"modalId": "formularioUpdateCaminhao",
-		},
-		'formCadastroCaminhao': {
-			"Name": "Cadastre um Caminhão",
-			"Url": "templates-form/formCaminhao.html",
-			"ButtonText": "Cadastrar Caminhão",
-			"ActionUrl": "",
-			"modalId": "formularioCadastroCaminhao",
-		},
-		'formUpdateCarreta': {
-			"Name": "Atualize sua Carreta",
-			"Url": "templates-form/formCarreta.html",
-			"ButtonText": "Salvar Alterações",
-			"ActionUrl": "/update/updateCarreta/",
-			"modalId": "formularioUpdateCarreta",
-		},
-		'formCadastroCarreta': {
-			"Name": "Cadastre uma Carreta",
-			"Url": "templates-form/formCarreta.html",
-			"ButtonText": "Cadastrar Carreta",
-			"ActionUrl": "",
-			"modalId": "formularioCadastroCarreta",
-		},
-		'formPesquisaFretes': {
-			"Placeholder": "Buscar Frete",
-			"FiltrosTemplate": "templates-filtros/filtrosFretes.html",
-		},
-		'formPesquisaNetwork': {
-			"Placeholder": "Buscar Filial/Funcionário",
-			"FiltrosTemplate": "templates-filtros/filtrosNetwork.html",
-		},
-		'formPesquisaCaminhao': {
-			"Placeholder": "Buscar Caminhões/Carretas",
-			"FiltrosTemplate": "templates-filtros/filtrosCaminhao.html",
-		},
-		'formPesquisaPerfis': {
-			"Placeholder": "Buscar Perfil por Nome, CPF/CNPJ",
-			"FiltrosTemplate": "templates-filtros/filtrosPerfis.html",
-		},
-	}
-	request.session["forms"] = forms
+@login_required(redirect_field_name=None)
+def select_city(request):
+	if request.GET:
+		estadoUf = request.GET.get('dados', None)
+		estadoId = Estado.objects.get(uf = estadoUf)
+		municipios = Municipio.objects.all().filter(idEstado = estadoId)
+		listaMunicipios = []
+		for item in municipios:
+			listaMunicipios.append([item.id ,item.nome])
+		data = {'municipios': listaMunicipios, 'nome': 'municipios'}
+		return JsonResponse(data)
+	return HttpResponseRedirect('/')
+
+
+@login_required(redirect_field_name=None)
+def delCaminhoes(request):
+	if request.GET:
+		caminhaoId = request.GET.get('dados', None)
+		Caminhao.objects.get(id = caminhaoId).delete()
+		data = {'nome': 'delCaminhoes', "id": "caminhaoId" + str(caminhaoId)}
+		return JsonResponse(data)
+	return HttpResponseRedirect('/')
+
+
+@login_required(redirect_field_name=None)
+def delCarreta(request):
+	if request.GET:
+		carretaId = request.GET.get('dados', None)
+		Carreta.objects.get(id = carretaId).delete()
+		data = {'nome': 'delCarreta', "id": "carretaId" + str(carretaId)}
+		return JsonResponse(data)
+	return HttpResponseRedirect('/')
+
+
+@login_required(redirect_field_name=None)
+def updateCaminhoes(request):
+	if request.method == 'POST':
+		updateBase = updateDB.UpdateDataBase
+		updateBase.updateCaminhoes(updateBase, request)
+	return HttpResponseRedirect('/caminhoes/')
+
+
+@login_required(redirect_field_name=None)
+def updateCarreta(request):
+	if request.method == 'POST':
+		updateBase = updateDB.UpdateDataBase
+		updateBase.updateCarreta(updateBase, request)
+	return HttpResponseRedirect('/caminhoes/')
