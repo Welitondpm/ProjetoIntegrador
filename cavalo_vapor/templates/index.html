@@ -1,57 +1,229 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block pageConteudo %}
+{% block tituloMenu %}
+Home
+{% endblock tituloMenu %}
 
-<div class="row justify-content-center mt-2">
-  <h1 class="text-center"><img src="{% static 'img/svg/home.svg' %}" alt="" width="34px" height="34px"><u>Home</u></h1>
-</div>
-<div id="homeBackImage"></div>
-<div id="homeBackGrad"></div>
-<div class="col">
-  <h1>Sobre:</h1>
-  <p>
-    Iniciado finalmente no dia 7 de fevereiro de 2021, por três alunos cursando
-    o terceiro ano ensino médio técnico no Institudo Federal Catarinense Campus Araquari.
-  </p>
-  <p>Este projeto pode ser encontrar em:
-    <a href="https://github.com/Welitondpm/ProjetoIntegrador" target="_blank">Github</a>
-  </p>
-  <p>
-    Site em desenvolvimento por:
-    <ul style="display: flex; flex-direction: column;">
-      <li>
-        Gustavo Vieira Ferreira:
-        <a href="https://github.com/gusferreira1203" target="_blank">Github</a>
-      </li>
-      <li>
-        Renan Andrade da Silva:
-        <a href="https://github.com/renanfelipeandrade" target="_blank">Github</a>
-      </li>
-      <li>
-        Weliton Dal Pizzol Maria:
-        <a href="https://github.com/Welitondpm" target="_blank">Github</a>
-      </li>
-    </ul>
-  </p>
-</div>
-<div class="row col p-3">
-  <div class="col">
-    <div class="card">
-      <div class="card-body text-center p-0 pt-4 pb-2">
+
+{% block pageConteudo %}
+<main class="">
+  <!-- <div class="row justify-content-center mt-2">
+    <h1 class="text-center"> <img src="{% static 'img/svg/home.svg' %}" alt="" width="34px" height="34px">
+      <u>Home</u>
+    </h1>
+  </div> -->
+
+  <article class="px-5 py-4 row">
+    <div class="shadow">
+
+      <!-- publco-alvo imagem -->
+      <div class="row p-2 p-sm-3 text-sm-center align-items-center">
+        <div class="col-lg-5 m-auto">
+          <h2 class="">Conte conosco para retirar a <i> carga </i> de suas costas!</h2>
+          <p class="text-justify m-0">Tendo público-alvo pessoas físicas ou grandes empresas, em busca de caminhoneiros
+            ou
+            transportadoras,
+            o Cavalo-Vapor é um website que combina carretas e locais para fretes, visando dinamismo e facilidade.
+            Conosco, empregados, empregadores e autônomos encontram fretes com facilidade e segurança, empresas mantêm
+            contratos organizados e diretos, e nossos chats permitem uma comunicação fácil e eficiente. Nosso sistema
+            também
+            facilita a gestão ao fornecer estatísticas de uso e rotatividade aos nossos clientes. Nossas buscas são
+            completas e específicas, com filtros certeiros e controle de frota idem. Também contamos com rastreamento de
+            frete e controle de compatibilidade.
+            Cadastre-se já, e fique por dentro do comportamento do mercado, das demandas das empresas, das tendências
+            nas
+            rodovias, e muito mais
+          </p>
+        </div>
+
+        <div class="col-lg-5 m-auto">
+          <img class="img-fluid" src="{% static 'img/like.jpg'%}" alt="">
+        </div>
+      </div>
+
+
+      <!-- separador conteudo -->
+      <hr class="hr my-2">
+
+
+      <!-- mapa conteudo -->
+      <div class="row p-2 p-sm-3 flex-row-reverse text-sm-center align-items-center">
+        <div class="col-lg-5 m-auto">
+          <h2 class="">Tempo é dinheiro!</h2>
+          <p class="text-justify m-0">Com isso em vista, a Cavalo-Vapor dispõe aos usuários um sistema para escolher a
+            melhor rota ao frete, reduzindo os custos do cliente e prestador. Todos podem usar essa ferramenta, basta
+            apenas se cadastrar e aproveitar da funcionalidade.
+
+          </p>
+          <p class="text-justify m-0">
+            O mapa permite interação do usuário, com níveis de zoom, cálculo de tempo para cada rota e sua distância.
+            Defina quais são os pontos de saída e chegada, e serão mostrados os caminhos possíveis de efetuar a viagem.
+            <br>
+          </p>
+          <small class="small">Não tem um conta? clique <a href="{% url 'cadastro' %}">aqui</a> e crie uma
+            imediatamente!</small>
+        </div>
+
+        <div class="col-lg-5 align-items-center justify-content-center m-auto">
+          <iframe class="embed-responsive"
+            src="https://www.google.com/maps/embed?pb=!1m28!1m12!1m3!1d456601.0266644042!2d-49.165371128005454!3d-26.61017893293936!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m13!3e0!4m5!1s0x94df1e408b5c3095%3A0xacfb8520bc1a7644!2sBlumenau%2C%20SC!3m2!1d-26.916579199999997!2d-49.071733099999996!4m5!1s0x94dea3f39db1ab37%3A0xbc4b989df161e9fa!2sJoinville%2C%20Santa%20Catarina!3m2!1d-26.3043758!2d-48.846374399999995!5e0!3m2!1spt-BR!2sbr!4v1633644873606!5m2!1spt-BR!2sbr"
+            width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+      </div>
+    </div>
+  </article>
+
+
+  <section class="px-5 py-4 row">
+    <div class="col-lg-12 p-2 p-sm-3 m-auto shadow">
+      <div class="d-none text-center">
+        <h2>
+          Ganhe notoriedade
+        </h2>
+        <p class="text-center col-lg-6 m-auto">
+          A Cavalo-Vapor evidencia os usuários que alcaçam grandes patamares em nossa plataforma.
+        </p>
+        <p class="text-center col-lg-6 m-auto">
+          Mensalmente, a lista de usuários que atingiram os maiores patamares dentro da plataforma é atualizada,
+          mostramos o nome, sobrenome e o valor correspondendo ao usuário.
+        </p>
+      </div>
+
+      <div class="text-center">
+        <h2>
+          Rankings
+        </h2>
+      </div>
+
+      <br>
+
+      <h4 class="m-0">
+        Maior número de fretes
+      </h4>
+
+      <div class="text-center pt-3">
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">Posição</th>
+              <th scope="col">Primeiro Nome</th>
+              <th scope="col">Último Nome</th>
+              <th scope="col">Número de Fretes</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">1º</th>
+              <td>Renan</td>
+              <td>Andrade</td>
+              <td>69</td>
+            </tr>
+            <tr>
+              <th scope="row">2º</th>
+              <td>Weliton</td>
+              <td>Maria</td>
+              <td>42</td>
+            </tr>
+            <tr>
+              <th scope="row">3º</th>
+              <td>Gustavo</td>
+              <td>Ferreira</td>
+              <td>24</td>
+            </tr>
+          </tbody>
+        </table>
+        <!-- <div class="row justify-content-end">
+          <small class="small text-danger">
+            Os valores e posições são atualizados diariamente*
+          </small>
+        </div> -->
+      </div>
+
+      <br>
+      <hr class="hr">
+      <br>
+
+      <h4 class="m-0">
+        Quantidade de quilômetros rodados
+      </h4>
+      <div class="text-center pt-3">
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">Posição</th>
+              <th scope="col">Primeiro Nome</th>
+              <th scope="col">Último Nome</th>
+              <th scope="col">Quilômetros (Km)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">1º</th>
+              <td>Weliton</td>
+              <td>Maria</td>
+              <td>690</td>
+            </tr>
+            <tr>
+              <th scope="row">1º</th>
+              <td>Gustavo</td>
+              <td>Ferreira</td>
+              <td>420</td>
+            </tr>
+            <tr>
+              <th scope="row">3º</th>
+              <td>Renan</td>
+              <td>Andrade</td>
+              <td>240</td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="row justify-content-end">
+          <small class="small text-danger">
+            Os valores e posições de todos os rankings são atualizados diariamente*
+          </small>
+        </div>
+      </div>
+    </div>
+    </div>
+  </section>
+</main>
+
+
+
+
+<!-- Gráfico e mapa -->
+<!-- <div class="row justify-content-around">
+  <div class="card shadow">
+    <div class="card-body text-center p-6">
         <h1>Gráfico</h1>
       </div>
     </div>
-  </div>
-  <div class="col">
-    <div class="card">
-      <div class="card-body text-center p-0 pt-4 pb-2">
+
+    <div class="card shadow">
+      <div class="card-body text-center p-6">
         <h1>Mapa</h1>
       </div>
+      <iframe class="embed-responsive-item"
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d235203.81500692177!2d-43.58841988251077!3d-22.9111720903467!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9bde559108a05b%3A0x50dc426c672fd24e!2sRio+de+Janeiro%2C+RJ!5e0!3m2!1spt-BR!2sbr!4v1476880758681"
+        frameborder="0" style="border:0" allowfullscreen></iframe>
+    </div>
+
+  </div>
+  <div class="card shadow">
+    <div class="card-body text-center p-6">
+      <h6 class="text-muted">
+        Distância percorrida no mês
+      </h6>
+      <h3>234 Km</h3>
     </div>
   </div>
-</div>
-<div class="row col p-3">
+  </div> -->
+
+
+
+
+<!-- <div class="row col p-3">
   <div class="col">
     <div class="card">
       <div class="card-body text-center p-0 pt-4 pb-2">
@@ -105,6 +277,11 @@
       </div>
     </div>
   </div>
+
+
+
+
+
   <div class="col">
     <div class="card">
       <div class="card-body text-center p-0 pt-4 pb-2">
@@ -165,15 +342,42 @@
     </div>
   </div>
 </div>
+<div class="col">
+  <h1>Sobre:</h1>
+  <p>
+    Iniciado finalmente no dia 7 de fevereiro de 2021, por três alunos cursando
+    o terceiro ano ensino médio técnico no Institudo Federal Catarinense Campus Araquari.
+  </p>
+  <p>Este projeto pode ser encontrar em:
+    <a href="https://github.com/Welitondpm/ProjetoIntegrador" target="_blank">Github</a>
+  </p>
+  <p>
+    Site em desenvolvimento por:
+    <ul style="display: flex; flex-direction: column;">
+      <li>
+        Gustavo Vieira Ferreira:
+        <a href="https://github.com/gusferreira1203" target="_blank">Github</a>
+      </li>
+      <li>
+        Renan Andrade da Silva:
+        <a href="https://github.com/renanfelipeandrade" target="_blank">Github</a>
+      </li>
+      <li>
+        Weliton Dal Pizzol Maria:
+        <a href="https://github.com/Welitondpm" target="_blank">Github</a>
+      </li>
+    </ul>
+  </p>
+</div> -->
 
 {% endblock %}
 
 {% block pageStyle %}
-  <style>
-    hr{
-      color: gray;
-      height: 0.7px;
-      background-color:black;
-    }
-  </style>
+<style>
+  hr {
+    color: gray;
+    height: 0.7px;
+    background-color: black;
+  }
+</style>
 {% endblock %}
