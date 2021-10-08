@@ -44,7 +44,7 @@ class Endereco(models.Model):
   idEstado = models.ForeignKey(Estado, on_delete=models.CASCADE)
   
   def __str__(self):
-    return "endereço: " + str(self.id)
+    return "Endereço: " + str(self.id)
 
 class Usuario(models.Model):
   usuario_chave = models.ForeignKey(User, on_delete=models.CASCADE)
@@ -60,17 +60,11 @@ class Email(models.Model):
   def __str__(self):
     return self.email
 
-class Telefone(models.Model):
-  telefone = models.CharField(max_length=15)
-  idUsuario = models.ForeignKey(Usuario, on_delete=models.CASCADE)
-
-  def __str__(self):
-    return self.telefone
-
 class Empresa(models.Model):
   cnpj = models.CharField(max_length=18, unique=True)
   anoFundacao = models.DateField()
   idUsuario = models.ForeignKey(Usuario, on_delete=models.CASCADE)
+  idEndereco = models.ForeignKey(Endereco, on_delete=models.CASCADE)
 
   def __str__(self):
     return self.cnpj
@@ -83,20 +77,12 @@ class Funcionario(models.Model):
   def __str__(self):
     return self.cpf
 
-class Filial(models.Model):
-  idEmpresa = models.ForeignKey(Empresa, on_delete=models.CASCADE)
-  idUsuario = models.ForeignKey(Usuario, on_delete=models.CASCADE)
-  idEndereco = models.ForeignKey(Endereco, on_delete=models.CASCADE)
-
-  def __str__(self):
-    return self.idUsuario
-
-class FuncionarioFilial(models.Model):
+class FuncionarioEmpresa(models.Model):
   idFuncionario = models.ForeignKey(Funcionario, on_delete=models.CASCADE)
-  idFilial = models.ForeignKey(Filial, on_delete=models.CASCADE)
+  idEmpresa = models.ForeignKey(Empresa, on_delete=models.CASCADE)
 
   def __str__(self):
-    return self.idFilial
+    return str(self.id)
 
 class Caminhao(models.Model):
   nome = models.CharField(max_length=200)

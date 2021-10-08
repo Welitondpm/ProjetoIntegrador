@@ -1,3 +1,13 @@
+$(".js-select-city").change(function () {
+  dados = {
+    url: "/ajax/select_city",
+    "dados": $(this).val(),
+    "nome": "municipios"
+  }
+  ajaxConection(dados)
+});
+
+
 function mostrarInputMotivo (elemento){
   inputMotivo = document.getElementById("formGroupInputMotivo")
   if (elemento == "outro"){
@@ -11,6 +21,16 @@ function mostrarInputMotivo (elemento){
 function pageActive(nome){
   document.querySelector(`${nome} > a`).classList.toggle('active')
 }
+
+
+function selecionaEstadoInicial(){
+  dados = {
+    url: "/ajax/select_city",
+    "dados": "AC",
+  }
+  ajaxConection(dados);
+}
+window.onload = selecionaEstadoInicial();
 
 
 function login(){
@@ -49,12 +69,14 @@ function conectionSuccess(data){
 
 function PreencheMunicipios(dados) {
   var municipios = dados["municipios"]
-  document.getElementById("inputCidade").innerHTML = ""
   var htmlInner = ""
   for (item of municipios) {
     htmlInner += "<option value=" + item[0] + ">" + item[1] + "</option>"
   }
-  document.getElementById("inputCidade").innerHTML = htmlInner
+  inputCity = document.getElementsByClassName("inputCidade")
+  for (item of inputCity){
+    item.innerHTML = htmlInner
+  }
 }
 
 
@@ -155,4 +177,33 @@ function cadastrarCaminhao(){
 
 function cadastrarCarreta(){
   $('#formularioCadastroCarreta').modal({backdrop:"static"})
+}
+
+
+function cadastrarFilial(){
+  $('#formularioCadastroFilial').modal({backdrop:"static"})
+}
+
+
+function cadastrarFuncionario(){
+  $('#formularioCadastroFuncionario').modal({backdrop:"static"})
+}
+
+
+function trocaTab(idTab){
+  document.getElementById("etapa1").classList.remove("active", "show")
+  document.getElementById("etapa2").classList.remove("active", "show")
+  document.getElementById("etapa3").classList.remove("active", "show")
+  document.getElementById(idTab).classList.add("active", "show")
+}
+
+
+function etapa3tipoPessoa(element){
+  document.getElementById("pessoaJuridica").classList.add("d-none")
+  document.getElementById("pessoaFisica").classList.add("d-none")
+  if (element.value == 1){
+    document.getElementById("pessoaJuridica").classList.remove("d-none")
+  } else {
+    document.getElementById("pessoaFisica").classList.remove("d-none")
+  }
 }

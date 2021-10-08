@@ -3,36 +3,29 @@ from ..models import *
 from .vereficadores import *
 
 class SaveDataBase():
-  
   def CreateUsuario(self, request):
-    descricao = "Agora isso foi automatico"
-    if verificaTamanho(descricao, 200):
-      user = User.objects.create_user(
-        username = request.POST['usuario'],
-        email = request.POST['email'],
-        password = request.POST['senha'],
-        first_name = request.POST['firstName'],
-        last_name = request.POST['lastName'],
-      )
-      usuarioExtend = Usuario(
-        descricao = descricao,
-        usuario_chave = User.objects.get(username=request.POST['usuario']),
-      )
-      user.save()
-      usuarioExtend.save()
-      return "Success"
-    return "Failed"
+    user = User.objects.create_user(
+      username = request.POST['usuario'],
+      email = request.POST['email'],
+      password = request.POST['senha'],
+      first_name = request.POST['firstName'],
+    )
+    usuarioExtend = Usuario(
+      # descricao = request.POST['descricao'],
+      usuario_chave = User.objects.get(username=request.POST['usuario']),
+    )
+    return ("Success", user, usuarioExtend)
 
 
-  def EnderecoSave(self, request):
-    rua = request.POST['rua'],
-    cep = request.POST['cep'],
-    bairro = request.POST['bairro'],
-    numero = request.POST['numero'],
+  def CreateEndereco(self, request):
+    rua = request.POST['rua']
+    cep = request.POST['cep']
+    bairro = request.POST['bairro']
+    numero = int(request.POST['numero'])
     ruaBool = verificaTamanho(rua, 200)
     cepBool, cep = verificaReorganizeCep(cep)
     bairroBool = verificaTamanho(bairro, 200)
-    if ruaBool and cepBool and bairroBool and type(numero) == int:
+    if ruaBool and cepBool and bairroBool:
       endereco = Endereco(
         rua = rua,
         cep = cep,
@@ -41,13 +34,12 @@ class SaveDataBase():
         idMunicipio = Municipio.objects.get(id=request.POST['municipio']),
         idEstado = Estado.objects.get(uf=request.POST['estado']),
       )
-      endereco.save()
-      return "Success"
-    return "Failed"
+      return ("Success", endereco)
+    return ("Failed", "")
 
 
   def CreateEmail(self, request):
-    email = request.POST['email'],
+    email = request.POST['email']
     if verificaEmail(email):
       email = Email(
         email = email,
@@ -56,62 +48,42 @@ class SaveDataBase():
       email.save()
       return "Success"
     return "Failed"
-  
-
-  def CreateTelefone(self, request):
-    telefone = request.POST['telefone']
-    if verificaTelefone(telefone):
-      telefone = Telefone(
-        telefone = telefone,
-        idUsuario = Usuario.objects.get(id=request.session["dados"]['usuarioId']),
-      )
-      telefone.save()
-      return "Success"
-    return "Failed"
 
 
-  def CreateEmpresa(self, request):
-    cnpj = request.POST['cnpj']
+  def CreateEmpresa(self, request, id_endereco):
+    cnpj = request.POST['CNPJ']
+    idUsuario = User.objects.get(username=request.POST['usuario'])
     if verificaCNPJ(cnpj):
       empresa = Empresa(
         cnpj = OrganizaCpfCnpj(cnpj),
-        anoFundacao = request.POST['anoFundacao'],
-        idUsuario = Usuario.objects.get(id=request.session["dados"]['usuarioId']),
+        anoFundacao = request.POST['dataFundacao'],
+        idUsuario = Usuario.objects.get(usuario_chave=idUsuario),
+        idEndereco = Endereco.objects.get(id=id_endereco),
       )
-      empresa.save()
-      return "Success"
-    return "Failed"
+      return ("Success", empresa)
+    return ("Failed")
 
 
   def CreateFuncionario(self, request):
     matricula = request.POST['matricula']
     cpf = request.POST['cpf']
+    idUsuario = User.objects.get(username=request.POST['usuario'])
     if verificaTamanho(matricula, 50) and verificaCPF(cpf):
       funcionario = Funcionario(
         matricula = matricula,
         cpf = OrganizaCpfCnpj(cpf),
-        idUsuario = Usuario.objects.get(id=request.session["dados"]['usuarioId']),
+        idUsuario = Usuario.objects.get(usuario_chave=idUsuario),
       )
-      funcionario.save()
-      return "Success"
+      return ("Success", funcionario)
     return "Failed"
-  
 
-  def CreateFilial(self, request):
-    filial = Filial(
-      idEmpresa = Empresa.objects.get(username=request.POST['id_empresa']),
-      idUsuario = Usuario.objects.get(id=request.session["dados"]['usuarioId']),
-      idEndereco = Endereco.objects.get(id=request.POST['id_endereco']),
+
+  def CreateFuncionarioFilial(self, values):
+    funcionarioEmpresa = FuncionarioEmpresa(
+      idFuncionario = Funcionario.objects.get(id=values['id_funcionario']),
+      idEmpresa = Empresa.objects.get(id=values['id_empresa']),
     )
-    filial.save()
-
-
-  def CreateFuncionarioFilial(self, request):
-    funcionarioFilial = FuncionarioFilial(
-      idFuncionario = Funcionario.objects.get(id=request.POST['id_funcionario']),
-      idFilial = Filial.objects.get(id=request.POST['id_filial']),
-    )
-    funcionarioFilial.save()
+    return ("Success", funcionarioEmpresa)
   
 
   def CreateCaminhao(self, request):
@@ -129,17 +101,17 @@ class SaveDataBase():
     return "Failed"
 
   
-  def CreateCaminhoneiro(self, request):
-    cpf = request.POST['cpf']
+  def CreateCaminhoneiro(self, request, id_endereco):
+    cpf = request.POST['CPF']
+    idUsuario = User.objects.get(username=request.POST['usuario'])
     if verificaCPF(cpf):
       caminhoneiro = Caminhoneiro(
         cpf = OrganizaCpfCnpj(cpf),
-        idUsuario = Usuario.objects.get(id=request.session['dados']['usuarioId']),
-        idEndereco = Endereco.objects.get(id=request.POST['id_endereco']),
+        idUsuario = Usuario.objects.get(usuario_chave=idUsuario),
+        idEndereco = Endereco.objects.get(id=id_endereco),
       )
-      caminhoneiro.save()
-      return "Success"
-    return "Failed"
+      return ("Success", caminhoneiro)
+    return ("Failed", "")
 
   
   def CreateCarreta(self, request):

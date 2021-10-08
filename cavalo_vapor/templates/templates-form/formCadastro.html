@@ -1,34 +1,31 @@
-<div class="form-group">
-  <label for="inputUsername">Digite seu Username: </label>
-  <input type="text" id="inputUsername" name="usuario" class="form-control" placeholder="Username" required>
-</div>
+{% load static %}
 
-<div class="form-group">
-  <label for="inputEmail">Digite seu Email: </label>
-  <input type="email" id="inputEmail" name="email" class="form-control" placeholder="Email" required>
-</div>
+<div class="modal fade" id="formularioCadastro" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+				<h2 class="col text-center m-0 p-0"><img src="{% static 'img/svg/clipboard.svg' %}" alt="" width="34px" height="34px"><u>Cadastro</u></h2>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
 
-<div class="row">
-  <div class="form-group col-md-6">
-    <label for="inputFirstName">Digite o primeiro Nome: </label>
-    <input type="text" id="inputFirstName" name="firstName" class="form-control" placeholder="Primeiro Nome" required>
+      <form action="/cadastro/" method="post">
+				{% csrf_token %}
+				<div class="modal-body p-2 pr-3 pl-3">
+					<div class="tab-content m-2">
+						<div class="tab-pane fade show active" id="etapa1" role="tabpanel">
+							{% include "templates-form/formCadastroEtapa1.html" %}
+						</div>
+						<div class="tab-pane fade" id="etapa2" role="tabpanel">
+							{% include "templates-form/formCadastroEtapa2.html" %}
+						</div>
+						<div class="tab-pane fade" id="etapa3" role="tabpanel">
+							{% include "templates-form/formCadastroEtapa3.html" %}
+						</div>
+					</div>
+				</div>
+      </form>
+    </div>
   </div>
-  <div class="form-group col-md-6">
-    <label for="inputLastName">Digite o Sobrenome: </label>
-    <input type="text" id="inputLastName" name="lastName" class="form-control" placeholder="Sobrenome" required>
-  </div>
 </div>
-
-<div class="form-group">
-  <label for="inputSenha">Digite sua Senha: </label>
-  <input type="password" id="inputSenha" name="senha" class="form-control" placeholder="Senha" required>
-</div>
-
-<div class="form-group">
-  <label for="inputConfirmeSenha">Confirme sua Senha: </label>
-  <input type="password" id="inputConfirmeSenha" name="confirmeSenha" class="form-control" placeholder="Confirme sua Senha" required>
-</div>
-
-<p class="text-center">
-	Já possui Cadastro? <a class="link" onclick="login();">Clique Aqui!</a>
-</p>

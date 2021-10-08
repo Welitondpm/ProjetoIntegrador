@@ -2,6 +2,10 @@
   color: black;
 }
 
+body{
+  padding-right: 0px!important;
+}
+
 /* .btn-primary{
   background-color: #184B54 !important;
 } */

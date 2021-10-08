@@ -7,12 +7,9 @@ from .functionsPy import saveDB, sendEmail, updateDB, formsDate
 from .models import *
 
 
-def formsInfo(request, nome):
+def formsInfo(request):
 	formsObject = formsDate.FormDate
-	if nome == "formLogin":
-		forms = formsObject.defineFormsLogin(formsObject)
-	else:
-		forms = formsObject.defineForms(formsObject)
+	forms = formsObject.defineForms(formsObject)
 	request.session["forms"] = forms
 	contexto = {
 		"forms": forms,
@@ -20,26 +17,49 @@ def formsInfo(request, nome):
 	request.session["contexto"] = contexto
 
 
+def select_city(request):
+	if request.GET:
+		estadoUf = request.GET.get('dados', None)
+		estadoId = Estado.objects.get(uf = estadoUf)
+		municipios = Municipio.objects.all().filter(idEstado = estadoId)
+		listaMunicipios = []
+		for item in municipios:
+			listaMunicipios.append([item.id ,item.nome])
+		data = {'municipios': listaMunicipios, 'nome': 'municipios'}
+		return JsonResponse(data)
+	return HttpResponseRedirect('/')
+
+
 def index(request):
-	if not request.user.is_authenticated:
-		formsInfo(request, "formLogin")
-	return render(request, "index.html", request.session["contexto"])
+	contextoTemp = {
+		"estados": Estado.objects.all()
+	}
+	return render(request, "index.html", contextoTemp)
 
 
 def cadastro(request):
-	if request.user.is_authenticated:
-		return HttpResponseRedirect('/')
-	formsInfo(request, "formLogin")
 	if request.method == 'POST':
+		print(request.POST)
 		if request.POST['senha'] == request.POST['confirmeSenha']:
 			saveBase = saveDB.SaveDataBase()
-			if saveBase.CreateUsuario(request=request) == "Success":
-				return HttpResponseRedirect('/')
-	return render(request, "cadastro.html", request.session["contexto"])
+			endereco = saveBase.CreateEndereco(request=request)
+			usuario = saveBase.CreateUsuario(request=request)
+			if endereco[0] == "Success" and usuario[0] == "Success":
+				endereco[1].save()
+				usuario[1].save()
+				usuario[2].save()
+				if request.POST['tipoPessoa'] == "1":
+					empresa = saveBase.CreateEmpresa(request=request, id_endereco=endereco[1].id)
+					empresa[1].save()
+				elif request.POST['tipoPessoa'] == '2':
+					caminhoneiro = saveBase.CreateCaminhoneiro(request=request, id_endereco=endereco[1].id)
+					if caminhoneiro[0] == "Success":
+						caminhoneiro[1].save()
+	return HttpResponseRedirect('/')
 
 
 def logar(request):
-	formsInfo(request, "")
+	formsInfo(request)
 	if request.method == 'POST':
 		user = authenticate(username=request.POST['usuario'], password=request.POST["senha"])
 		if user is not None:
@@ -51,6 +71,7 @@ def logar(request):
 				"usuarioId": usuarioObeject.id,
 			}
 			return HttpResponseRedirect('/')
+	return HttpResponseRedirect('/')
 
 
 def suporte(request):
@@ -75,6 +96,32 @@ def fretes(request):
 
 @login_required(redirect_field_name=None)
 def network(request):
+	filialCriada = "None"
+	funcionarioCriado = "None"
+	if request.method == "POST":
+		saveBase = saveDB.SaveDataBase()
+		if request.POST["inputForm"] == "filial":
+			if request.POST['senha'] == request.POST['confirmeSenha']:
+				if saveBase.CreateUsuario(request=request) == "Success":
+					endereco = saveBase.CreateEndereco(request=request)
+					empresa = saveBase.CreateEmpresa(request=request)
+					if endereco[0] == "Success" and empresa[0] == "Success":
+						endereco[1].save()
+						empresa[1].save()
+						values = {
+							"id_empresa": empresa[1].id,
+							"usuario": request.POST['usuario'],
+							"id_endereco": endereco[1].id,
+						}
+						filial = saveBase.CreateFilial(values=values)
+						if filial[0] == "Success":
+							filial[1].save()
+							filialCriada = "Success"
+		elif request.POST["inputForm"] == "funcionario":
+			funcionarioCriado = "Success"
+	
+	request.session["contexto"]["estados"] = Estado.objects.all()
+	request.session["contexto"]["empresas"] = Empresa.objects.all()
 	return render(request, "network.html", request.session["contexto"])
 
 
@@ -149,20 +196,6 @@ def logout_view(request):
 	if User.is_authenticated or User.is_staff:
 		logout(request)
 		return HttpResponseRedirect('/')
-
-
-@login_required(redirect_field_name=None)
-def select_city(request):
-	if request.GET:
-		estadoUf = request.GET.get('dados', None)
-		estadoId = Estado.objects.get(uf = estadoUf)
-		municipios = Municipio.objects.all().filter(idEstado = estadoId)
-		listaMunicipios = []
-		for item in municipios:
-			listaMunicipios.append([item.id ,item.nome])
-		data = {'municipios': listaMunicipios, 'nome': 'municipios'}
-		return JsonResponse(data)
-	return HttpResponseRedirect('/')
 
 
 @login_required(redirect_field_name=None)

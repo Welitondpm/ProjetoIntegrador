@@ -29,21 +29,21 @@
 </nav>
 <div class="tab-content" id="nav-tabContent">
   <div class="tab-pane fade show active" id="nav-cavaloMecanico" role="tabpanel" aria-labelledby="nav-cavaloMecanico-tab">
-    <div class="row p-2">
+    <div class="row">
       {% if caminhoes %}
         {% include "templates-listar/listarCaminhao.html" %}
       {% endif %}
-      <div class="alert alert-dark col mt-4 text-center d-none" role="alert" id="mensagemSemCaminhao">
+      <div class="alert alert-dark col m-4 text-center d-none" role="alert" id="mensagemSemCaminhao">
         Você não possui nenhum caminhão cadastrado! <a class="alert-link" onclick="cadastrarCaminhao();">Clique aqui!</a>
       </div>
     </div>
   </div>
   <div class="tab-pane fade" id="nav-carreta" role="tabpanel" aria-labelledby="nav-carreta-tab">
-    <div class="row p-2">
+    <div class="row">
       {% if carretas %}
         {% include "templates-listar/listarCarreta.html" %}
       {% endif %}
-      <div class="alert alert-dark col mt-4 text-center d-none" role="alert" id="mensagemSemCarreta">
+      <div class="alert alert-dark col m-4 text-center d-none" role="alert" id="mensagemSemCarreta">
         Você não possui nenhuma carreta cadastrada! <a class="alert-link" onclick="cadastrarCarreta();">Clique aqui!</a>
       </div>
     </div>

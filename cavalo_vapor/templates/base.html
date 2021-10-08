@@ -48,21 +48,16 @@
                 Perfis
               </a>
             </li>
-            <li class="nav-item" id="atividade">
-              <a class="nav-link" href="{% url 'atividade' %}">
-                <img src="{% static 'img/svg/chart.svg'%}" alt="" width="30px" height="30px" class="d-lg-none">
-                Atividade
-              </a>
-            </li>
             <li class="nav-item dropdown" id="usuario">
               <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
                 <img src="{% static 'img/svg/person.svg'%}" alt="" width="30px" height="30px" class="d-lg-none">
                 {{ user }}
               </a>
-              <div class="dropdown-menu dropdown-menu-right">
-                <a class="dropdown-item" href="{% url 'usuario' %}">Usuário</a>
+              <div class="dropdown-menu dropdown-menu-right bg-secondary">
+                <a class="dropdown-item bg-secondary" href="{% url 'usuario' %}">Meu Perfil</a>
+                <a class="dropdown-item bg-secondary" href="{% url 'atividade' %}">Atividade</a>
                 <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="{% url 'logout' %}">
+                <a class="dropdown-item bg-secondary" href="{% url 'logout' %}">
                   <img src="{% static 'img/svg/log-out.svg'%}" alt="" width="26px" height="26px">
                   Sair
                 </a>
@@ -76,19 +71,18 @@
             </li>
           {% else %}
             <li class="nav-item">
-              <a class="nav-link" href="{% url 'cadastro' %}">
-              {% comment %} <a class="nav-link" onclick="cadastro();"> {% endcomment %}
+              <a class="nav-link" onclick="cadastro();">
                 <img src="{% static 'img/svg/clipboard.svg'%}" alt="" width="30px" height="30px" class="d-lg-none">
                 Cadastro
               </a>
-              {% comment %} {% include "templates-form/modalTemplate.html" with form=forms.formCadastro %} {% endcomment %}
+              {% include "templates-form/formCadastro.html" %}
             </li>
             <li class="nav-item">
               <a class="nav-link" onclick="login();">
                 <img src="{% static 'img/svg/log-in.svg'%}" alt="" width="30px" height="30px" class="d-lg-none">
                 Login
               </a>
-              {% include "templates-form/modalTemplate.html" with form=forms.formLogin%}
+              {% include "templates-form/formLogin.html" %}
             </li>
           {% endif %}
           {% comment %} <li class="nav-item">

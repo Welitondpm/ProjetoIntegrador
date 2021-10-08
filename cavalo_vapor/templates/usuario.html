@@ -15,7 +15,7 @@
       <label for="inputLogo">Alterar Imagem: </label>
       <div class="input-group">
         <input type="file" id="inputLogo" class="form-control" disabled>
-        {% include 'pencilEdit.html' %}
+        
       </div>
     </div>
   </div>
@@ -25,7 +25,7 @@
       <label for="inputDescricao">Descrição: </label>
       <div class="input-group">
         <textarea id="inputDescricao" class="form-control" cols="30" rows="5" readonly>{{sesssionDados.descricao}}</textarea>
-        {% include 'pencilEdit.html' %}
+        
       </div>
     </div>
     <div class="row">
@@ -33,14 +33,14 @@
         <label for="inputNome">Nome: </label>
         <div class="input-group">
           <input type="text" id="inputNome" class="form-control" value="{{user.first_name}}" readonly>
-          {% include 'pencilEdit.html' %}
+          
         </div>
       </div>
       <div class="form-group col-md-6 col-sm-12">
         <label for="inputSobrenome">Sobrenome: </label>
         <div class="input-group">
           <input type="text" id="inputSobrenome" class="form-control" value="{{user.last_name}}" readonly>
-          {% include 'pencilEdit.html' %}
+          
         </div>
       </div>
     </div>
@@ -48,7 +48,7 @@
       <label for="inputSenha">Nova Senha: </label>
       <div class="input-group">
         <input type="password" id="inputSenha" class="form-control" readonly placeholder="Nova Senha">
-        {% include 'pencilEdit.html' %}
+        
       </div>
     </div>
     <div class="form-group d-none">
@@ -59,14 +59,14 @@
       <label for="inputEmail">Email: </label>
       <div class="input-group">
         <input type="email" id="inputEmail" class="form-control" value="{{user.email}}" readonly>
-        {% include 'pencilEdit.html' %}
+        
       </div>
     </div>
     <div class="form-group">
       <label for="inputTelefone">Telefone: </label>
       <div class="input-group">
         <input type="text" id="inputTelefone" class="form-control" readonly placeholder="">
-        {% include 'pencilEdit.html' %}
+        
       </div>
     </div>
   </div>
@@ -81,92 +81,42 @@
             <option value="{{item.uf}}">{{item}}</option>
             {% endfor %}
           </select>
-          {% include 'pencilEdit.html' %}
+          
         </div>
       </div>
       <div class="form-group col-md-6 col-lg-4">
         <label for="inputCidade">Cidade: </label>
         <div class="input-group">
           <select id="inputCidade" name="municipio" class="form-control"></select>
-          {% include 'pencilEdit.html' %}
+          
         </div>
       </div>
       <div class="form-group col-md-6 col-lg-4">
         <label for="inputBairro">Bairro: </label>
         <div class="input-group">
           <input type="text" id="inputBairro" name="bairro" class="form-control" placeholder="Bairro" readonly>
-          {% include 'pencilEdit.html' %}
+          
         </div>
       </div>
       <div class="form-group col-md-6 col-lg-4">
         <label for="inputCep">Cep: </label>
         <div class="input-group">
           <input type="text" id="inputCep" name="cep" class="form-control" placeholder="Cep" readonly>
-          {% include 'pencilEdit.html' %}
+          
         </div>
       </div>
       <div class="form-group col-md-6 col-lg-4">
         <label for="inputRua">Rua: </label>
         <div class="input-group">
           <input type="text" id="inputRua" name="rua" class="form-control" placeholder="Rua" readonly>
-          {% include 'pencilEdit.html' %}
+          
         </div>
       </div>
       <div class="form-group col-md-6 col-lg-4">
         <label for="inputNumero">Número: </label>
         <div class="input-group">
           <input type="number" id="inputNumero" name="numero" class="form-control" placeholder="Número" readonly>
-          {% include 'pencilEdit.html' %}
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="col p-2 m-0">
-    <h2 class="title">Informações da Empresa: </h2>
-    <div class="row p-2">
-      <div class="form-group col-lg-4 col-md-6 p-1">
-        <label for="inputDataFundacao">Data de Fundação: </label>
-        <div class="input-group">
-          <input type="date" id="inputDataFundacao" class="form-control" readonly>
-          {% include 'pencilEdit.html' %}
-        </div>
-      </div>
-      <div class="form-group col-lg-4 col-md-6 p-1">
-        <label for="inputCNPJ">CNPJ: </label>
-        <div class="input-group">
-          <input type="text" id="inputCNPJ" class="form-control" readonly maxlength="18">
-          {% include 'pencilEdit.html' %}
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="col p-2 m-0">
-    <h2 class="title">Informações de Funcionário: </h2>
-    <div class="row p-2">
-      <div class="form-group col-lg-4 col-md-6 p-1">
-        <label for="inputMatricula">Matricula: </label>
-        <div class="input-group">
-          <input type="text" id="inputMatricula" class="form-control" readonly maxlength="50">
-          {% include 'pencilEdit.html' %}
-        </div>
-      </div>
-      <div class="form-group col-lg-4 col-md-6 p-1">
-        <label for="inputCPF">CPF: </label>
-        <div class="input-group">
-          <input type="text" id="inputCPF" class="form-control" readonly maxlength="14">
-          {% include 'pencilEdit.html' %}
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="col p-2 m-0">
-    <h2 class="title">Informações do Caminhoneiro: </h2>
-    <div class="row p-2">
-      <div class="form-group col-lg-4 col-md-6 p-1">
-        <label for="inputCaminhoneiroCPF">CPF: </label>
-        <div class="input-group">
-          <input type="text" id="inputCaminhoneiroCPF" class="form-control" readonly maxlength="14">
-          {% include 'pencilEdit.html' %}
+          
         </div>
       </div>
     </div>

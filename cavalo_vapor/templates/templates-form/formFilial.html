@@ -1,0 +1,62 @@
+<input type="hidden" value="filial" name="inputForm">
+
+<label for="{{form.inputId}}inputUsername" class="m-0">Username: </label>
+<input type="text" name="usuario" id="{{form.inputId}}inputUsername" class="form-control" maxlength="200" placeholder="Digite o username" required>
+
+<label for="{{form.inputId}}inputEmail" class="m-0 mt-2">Email: </label>
+<input type="email" id="{{form.inputId}}inputEmail" name="email" class="form-control" placeholder="Email" required>
+
+<label for="{{form.inputId}}inputSenha" class="m-0 mt-2">Senha: </label>
+<input type="password" id="{{form.inputId}}inputSenha" name="senha" class="form-control" placeholder="Senha" required>
+
+<label for="{{form.inputId}}inputConfirmeSenha" class="m-0 mt-2">Confirme a Senha: </label>
+<input type="password" id="{{form.inputId}}inputConfirmeSenha" name="confirmeSenha" class="form-control" placeholder="Confirme sua Senha" required>
+
+<label for="{{form.inputId}}inputNome" class="m-0 mt-2">Nome: </label>
+<input type="text" name="firstName" id="{{form.inputId}}inputNome" class="form-control" placeholder="Nome" required>
+
+<label for="{{form.inputId}}inputDescricao" class="m-0 mt-2">Descrição: </label>
+<textarea id="{{form.inputId}}inputDescricao" class="form-control" name="descricao" cols="30" rows="2" required maxlength="200"></textarea>
+
+<div class="form-row">
+  <div class="col">
+    <label for="{{form.inputId}}inputCNPJ" class="m-0 mt-2">CNPJ: </label>
+    <input type="text" name="CNPJ" id="{{form.inputId}}inputCNPJ" class="form-control" maxlength="18" placeholder="CNPJ" required>
+  </div>
+  <div class="col-auto">
+    <label for="{{form.inputId}}inputDataFundacao" class="m-0 mt-2">Data de Fundação: </label>
+    <input type="date" name="dataFundacao" id="{{form.inputId}}inputDataFundacao" class="form-control" required>
+  </div>
+</div>
+
+<div class="form-row">
+  <div class="col">
+    <label for="{{form.inputId}}inputEstado" class="m-0 mt-2">Estado: </label>
+    <select id="{{form.inputId}}inputEstado" name="estado" class="form-control js-select-city" required>
+      {% for item in estados %}
+      <option value="{{item.uf}}">{{item}}</option>
+      {% endfor %}
+    </select>
+  </div>
+  <div class="col">
+    <label for="{{form.inputId}}inputCidade" class="m-0 mt-2">Cidade: </label>
+    <select id="{{form.inputId}}inputCidade" name="municipio" class="form-control inputCidade" required></select>
+  </div>
+</div>
+
+<label for="{{form.inputId}}inputBairro" class="m-0 mt-2">Bairro: </label>
+<input type="text" id="{{form.inputId}}inputBairro" name="bairro" class="form-control" placeholder="Bairro" required>
+
+<label for="{{form.inputId}}inputRua" class="m-0 mt-2">Rua: </label>
+<input type="text" id="{{form.inputId}}inputRua" name="rua" class="form-control" placeholder="Rua" required>
+
+<div class="form-row">
+  <div class="col">
+    <label for="{{form.inputId}}inputCep" class="m-0 mt-2">Cep: </label>
+    <input type="text" id="{{form.inputId}}inputCep" name="cep" class="form-control" placeholder="Cep" required>
+  </div>
+  <div class="col">
+    <label for="{{form.inputId}}inputNumero" class="m-0 mt-2">Número: </label>
+    <input type="number" id="{{form.inputId}}inputNumero" name="numero" class="form-control" placeholder="Número" required>
+  </div>
+</div>

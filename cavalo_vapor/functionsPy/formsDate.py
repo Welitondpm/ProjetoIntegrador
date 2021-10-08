@@ -29,6 +29,38 @@ class FormDate():
         "ActionUrl": "",
         "modalId": "formularioCadastroCarreta",
       },
+      'formUpdateFilial': {
+        "Name": "Atualize sua Filial",
+        "Url": "templates-form/formFilial.html",
+        "ButtonText": "Salvar Alterações",
+        "ActionUrl": "/update/updateFilial/",
+        "modalId": "formularioUpdateFilial",
+        "inputId": "UpdateFilial",
+      },
+      'formCadastroFilial': {
+        "Name": "Cadastre uma Filial",
+        "Url": "templates-form/formFilial.html",
+        "ButtonText": "Cadastrar Filial",
+        "ActionUrl": "",
+        "modalId": "formularioCadastroFilial",
+        "inputId": "CadastroFilial",
+      },
+      'formUpdateFuncionario': {
+        "Name": "Atualize sue Funcionário",
+        "Url": "templates-form/formFuncionario.html",
+        "ButtonText": "Salvar Alterações",
+        "ActionUrl": "/update/updateFuncionario/",
+        "modalId": "formularioUpdateFuncionario",
+        "inputId": "UpdateFilial",
+      },
+      'formCadastroFuncionario': {
+        "Name": "Cadastre um Funcionário",
+        "Url": "templates-form/formFuncionario.html",
+        "ButtonText": "Cadastrar Funcionário",
+        "ActionUrl": "",
+        "modalId": "formularioCadastroFuncionario",
+        "inputId": "CadastroFilial",
+      },
       'formPesquisaFretes': {
         "Placeholder": "Buscar Frete",
         "FiltrosTemplate": "templates-filtros/filtrosFretes.html",
@@ -44,26 +76,6 @@ class FormDate():
       'formPesquisaPerfis': {
         "Placeholder": "Buscar Perfil por Nome, CPF/CNPJ",
         "FiltrosTemplate": "templates-filtros/filtrosPerfis.html",
-      },
-    }
-    return forms
-
-
-  def defineFormsLogin(self):
-    forms = {
-      'formLogin': {
-        "Name": 'Login',
-        "Url": "templates-form/formLogin.html",
-        "ButtonText": "Logar",
-        "ActionUrl": "/login/",
-        "modalId": "formularioLogin",
-      },
-      'formCadastro': {
-        "Name": 'Cadastro',
-        "Url": "templates-form/formCadastro.html",
-        "ButtonText": "Cadastrar",
-        "ActionUrl": "/cadastro/",
-        "modalId": "formularioCadastro",
       },
     }
     return forms

@@ -4,11 +4,7 @@
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        {% if form.Name == "Login" %}
-          <h2 class="col text-center m-0 p-0"><img src="{% static "img/svg/log-in.svg" %}" alt="" width="34px" height="34px"><u>Login</u></h2>
-        {% else %}
-          <h5 class="modal-title">{{form.Name}}</h5>
-        {% endif %}
+        <h5 class="modal-title">{{form.Name}}</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
           <span aria-hidden="true">&times;</span>
         </button>

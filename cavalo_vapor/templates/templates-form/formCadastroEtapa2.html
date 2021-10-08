@@ -1,0 +1,43 @@
+<h4>Endereço:</h4>
+
+<div class="form-row">
+  <div class="col">
+    <label for="inputEstado" class="m-0">Estado: </label>
+    <select id="inputEstado" name="estado" class="form-control js-select-city" required>
+      {% for item in estados %}
+      <option value="{{item.uf}}">{{item}}</option>
+      {% endfor %}
+    </select>
+  </div>
+  <div class="col">
+    <label for="inputCidade" class="m-0">Cidade: </label>
+    <select id="inputCidade" name="municipio" class="form-control inputCidade" required></select>
+  </div>
+</div>
+
+<label for="inputBairro" class="m-0 mt-2">Bairro: </label>
+<input type="text" id="inputBairro" name="bairro" class="form-control" placeholder="Bairro" required>
+
+<label for="inputRua" class="m-0 mt-2">Rua: </label>
+<input type="text" id="inputRua" name="rua" class="form-control" placeholder="Rua" required>
+
+<div class="form-row">
+  <div class="col">
+    <label for="inputCep" class="m-0 mt-2">Cep: </label>
+    <input type="text" id="inputCep" name="cep" class="form-control" placeholder="Cep" required>
+  </div>
+  <div class="col">
+    <label for="inputNumero" class="m-0 mt-2">Número: </label>
+    <input type="number" id="inputNumero" name="numero" class="form-control" placeholder="Número" required>
+  </div>
+</div>
+
+<span class="d-flex justify-content-end mt-2 mb-1">Etapa 2 de 3</span>
+<div class="row justify-content-end">
+  <div class="btn btn-secondary mr-1" onclick="trocaTab('etapa1')">
+    Voltar
+  </div>
+  <div class="btn btn-primary ml-1" onclick="trocaTab('etapa3')">
+    Próxima Etapa
+  </div>
+</div>
