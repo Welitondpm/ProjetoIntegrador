@@ -1,7 +1,8 @@
-{% extends 'base.html' %}
-{% load static %}
-
-{% block pageTitle %}Cavalo-Vapor Fretes | Perfis{% endblock %}
+{% extends 'base.html' %} {% load static %} {% block pageTitle %}Cavalo-Vapor
+Fretes | Perfis{% endblock %}
+{% block tituloMenu %}
+Perfis
+{% endblock tituloMenu %}
 
 {% block pageConteudo %}
 
@@ -10,15 +11,15 @@
 <div class="row">
   <div class="col-lg-3 col-md-4 col-sm-6">
     <div class="card col m-2">
-      <img class="card-img-top img-thumbnail" src="https://i.insider.com/61135525ad63f30019501966?width=700" alt="">
+      <img class="card-img-top img-thumbnail" src="https://i.insider.com/61135525ad63f30019501966?width=700" alt="" />
       <div class="card-body">
         <h5 class="card-title">TrioVirato</h5>
         <p class="card-text">
-          Descrição: bla bla <br>
-          Email: TriuVirato@gmail.com <br>
-          Telefone: (47) 8422-8922 <br>
-          Estado: Santa Catarina <br>
-          Cidade: Araquari <br>
+          Descrição: bla bla <br />
+          Email: TriuVirato@gmail.com <br />
+          Telefone: (47) 8422-8922 <br />
+          Estado: Santa Catarina <br />
+          Cidade: Araquari <br />
         </p>
         <a href="" class="btn btn-primary">Ver Mais</a>
       </div>
@@ -29,9 +30,7 @@
 {% endblock %}
 
 {% block pageScript %}
-  <script type="text/javascript">
-
-    window.onload = pageActive("#perfis");
-
-  </script>
+<script type="text/javascript">
+  window.onload = pageActive("#perfis");
+</script>
 {% endblock %}

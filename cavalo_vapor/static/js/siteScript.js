@@ -59,7 +59,6 @@ function ajaxConection(dados) {
   })
 }
 
-
 function conectionSuccess(data) {
   if (data["nome"] == "municipios") {
     PreencheMunicipios(data)

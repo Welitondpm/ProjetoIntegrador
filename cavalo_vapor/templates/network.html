@@ -2,26 +2,30 @@
 {% load static %}
 
 {% block pageTitle %}Cavalo-Vapor Fretes | Network{% endblock %}
-
+{% block tituloMenu %}
+Network
+{% endblock tituloMenu %}
 {% block pageConteudo %}
 
 {% include "templates-form/formPesquisa.html" with pesquisa=forms.formPesquisaNetwork %}
 
 <nav class="m-2">
   <div class="nav nav-tabs" id="nav-tab" role="tablist">
-    <a class="nav-item nav-link active col p-2 pl-3 d-flex justify-content-between" id="nav-filial-tab" data-toggle="tab" href="#nav-filial" role="tab" aria-controls="nav-filial" aria-selected="true">
+    <a class="nav-item nav-link active col p-2 pl-3 d-flex justify-content-between" id="nav-filial-tab"
+      data-toggle="tab" href="#nav-filial" role="tab" aria-controls="nav-filial" aria-selected="true">
       <span class="mt-2">
         Filial
       </span>
-      <div class="btn btn-secondary m-0 rounded" onclick="cadastrarFilial();"> 
+      <div class="btn btn-secondary m-0 rounded" onclick="cadastrarFilial();">
         Adicionar
       </div>
     </a>
-    <a class="nav-item nav-link col p-2 pl-3 d-flex justify-content-between" id="nav-funcionarios-tab" data-toggle="tab" href="#nav-funcionarios" role="tab" aria-controls="nav-funcionarios" aria-selected="false">
+    <a class="nav-item nav-link col p-2 pl-3 d-flex justify-content-between" id="nav-funcionarios-tab" data-toggle="tab"
+      href="#nav-funcionarios" role="tab" aria-controls="nav-funcionarios" aria-selected="false">
       <span class="mt-2">
         Funcionários
       </span>
-      <div class="btn btn-secondary m-0 rounded" onclick="cadastrarFuncionario();"> 
+      <div class="btn btn-secondary m-0 rounded" onclick="cadastrarFuncionario();">
         Adicionar
       </div>
     </a>
@@ -30,13 +34,13 @@
 <div class="tab-content m-2" id="nav-tabContent">
   <div class="tab-pane fade show active" id="nav-filial" role="tabpanel" aria-labelledby="nav-filial-tab">
     {% comment %} {% if caminhoes %} {% endcomment %}
-      {% include "templates-listar/listarFilial.html" %}
+    {% include "templates-listar/listarFilial.html" %}
     {% comment %} {% endif %} {% endcomment %}
   </div>
   <div class="tab-pane fade" id="nav-funcionarios" role="tabpanel" aria-labelledby="nav-funcionarios-tab">
     <div class="accordion mt-2" id="accordionFuncionarios">
       {% comment %} {% if caminhoes %} {% endcomment %}
-        {% include "templates-listar/listarFuncionarios.html" %}
+      {% include "templates-listar/listarFuncionarios.html" %}
       {% comment %} {% endif %} {% endcomment %}
     </div>
   </div>
@@ -50,9 +54,7 @@
 {% endblock %}
 
 {% block pageScript %}
-  <script type="text/javascript">
-
-    window.onload = pageActive("#network");
-
-  </script>
+<script type="text/javascript">
+  window.onload = pageActive("#network");
+</script>
 {% endblock %}

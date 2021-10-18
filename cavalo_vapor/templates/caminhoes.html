@@ -2,14 +2,17 @@
 {% load static %}
 
 {% block pageTitle %}Cavalo-Vapor Fretes | Caminhões{% endblock %}
-
+{% block tituloMenu %}
+Caminhões
+{% endblock tituloMenu %}
 {% block pageConteudo %}
 
 {% include "templates-form/formPesquisa.html" with pesquisa=forms.formPesquisaCaminhao %}
 
 <nav class="m-2">
   <div class="nav nav-tabs" id="nav-tab" role="tablist">
-    <a class="nav-item nav-link active col p-2 pl-3 d-flex justify-content-between" id="nav-cavaloMecanico-tab" data-toggle="tab" href="#nav-cavaloMecanico" role="tab" aria-controls="nav-cavaloMecanico" aria-selected="true">
+    <a class="nav-item nav-link active col p-2 pl-3 d-flex justify-content-between" id="nav-cavaloMecanico-tab"
+      data-toggle="tab" href="#nav-cavaloMecanico" role="tab" aria-controls="nav-cavaloMecanico" aria-selected="true">
       <span class="mt-2">
         Cavalo Mecânico
       </span>
@@ -17,7 +20,8 @@
         Adicionar
       </div>
     </a>
-    <a class="nav-item nav-link col p-2 pl-3 d-flex justify-content-between" id="nav-carreta-tab" data-toggle="tab" href="#nav-carreta" role="tab" aria-controls="nav-carreta" aria-selected="false">
+    <a class="nav-item nav-link col p-2 pl-3 d-flex justify-content-between" id="nav-carreta-tab" data-toggle="tab"
+      href="#nav-carreta" role="tab" aria-controls="nav-carreta" aria-selected="false">
       <span class="mt-2">
         Carretas
       </span>
@@ -28,20 +32,22 @@
   </div>
 </nav>
 <div class="tab-content" id="nav-tabContent">
-  <div class="tab-pane fade show active" id="nav-cavaloMecanico" role="tabpanel" aria-labelledby="nav-cavaloMecanico-tab">
+  <div class="tab-pane fade show active" id="nav-cavaloMecanico" role="tabpanel"
+    aria-labelledby="nav-cavaloMecanico-tab">
     <div class="row">
       {% if caminhoes %}
-        {% include "templates-listar/listarCaminhao.html" %}
+      {% include "templates-listar/listarCaminhao.html" %}
       {% endif %}
       <div class="alert alert-dark col m-4 text-center d-none" role="alert" id="mensagemSemCaminhao">
-        Você não possui nenhum caminhão cadastrado! <a class="alert-link" onclick="cadastrarCaminhao();">Clique aqui!</a>
+        Você não possui nenhum caminhão cadastrado! <a class="alert-link" onclick="cadastrarCaminhao();">Clique
+          aqui!</a>
       </div>
     </div>
   </div>
   <div class="tab-pane fade" id="nav-carreta" role="tabpanel" aria-labelledby="nav-carreta-tab">
     <div class="row">
       {% if carretas %}
-        {% include "templates-listar/listarCarreta.html" %}
+      {% include "templates-listar/listarCarreta.html" %}
       {% endif %}
       <div class="alert alert-dark col m-4 text-center d-none" role="alert" id="mensagemSemCarreta">
         Você não possui nenhuma carreta cadastrada! <a class="alert-link" onclick="cadastrarCarreta();">Clique aqui!</a>
@@ -59,30 +65,51 @@
 
 {% block pageScript %}
 
-  <script type="text/javascript">
+<script type="text/javascript">
+  window.onload = verificaCaminhoesExistente();
+  window.onload = verificaCarretasExistente();
+  window.onload = pageActive("#caminhao");
 
-    window.onload = verificaCaminhoesExistente();
-    window.onload = verificaCarretasExistente();
-    window.onload = pageActive("#caminhao");
+  {
+    %
+    if caminhaoCriado == "Success" %
+  }
+  Swal.fire({
+    icon: 'success',
+    title: 'Seu caminhão foi criado com Sucesso!',
+    showConfirmButton: false,
+    timer: 3000
+  }) {
+    % endif %
+  }
 
-    {% if caminhaoCriado == "Success" %}
-      Swal.fire({
-        icon: 'success',
-        title: 'Seu caminhão foi criado com Sucesso!',
-        showConfirmButton: false,
-        timer: 3000
-      })
-    {% endif %}
+  {
+    %
+    if caminhaoCriado == "Success" %
+  }
+  Swal.fire({
+    icon: 'success',
+    title: 'Seu caminhão foi criado com Sucesso!',
+    showConfirmButton: false,
+    timer: 3000
+  }) {
+    %
+    endif %
+  }
 
-    {% if carretaCriado == "Success" %}
-      Swal.fire({
-        icon: 'success',
-        title: 'Sua carreta foi criada com Sucesso!',
-        showConfirmButton: false,
-        timer: 3000
-      })
-    {% endif %}
-
-  </script>
+  {
+    %
+    if carretaCriado == "Success" %
+  }
+  Swal.fire({
+    icon: 'success',
+    title: 'Sua carreta foi criada com Sucesso!',
+    showConfirmButton: false,
+    timer: 3000
+  }) {
+    %
+    endif %
+  }
+</script>
 
 {% endblock %}

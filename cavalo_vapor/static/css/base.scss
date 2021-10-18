@@ -1,5 +1,9 @@
-$bg-dark:#DEE2E6;
+// variáveis
+$separator-light:#DEE2E6;
 
+
+
+// aplicações
 * {
   color: black;
 }
@@ -38,6 +42,6 @@ $bg-dark:#DEE2E6;
 }
 
 .hr {
-  background-color: $bg-dark !important;
-  color: $bg-dark !important;
+  background-color: $separator-light !important;
+  color: $separator-light !important;
 }
