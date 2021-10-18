@@ -1,5 +1,5 @@
 from django.test import TestCase
-from .templates.assets.vereficadores import *
+from .functionsPy.vereficadores import *
 
 
 class CpfTestCase(TestCase):
@@ -37,3 +37,11 @@ class CnpjTestCase(TestCase):
     self.assertEqual(verificaCNPJ("11.111.111/1111-11"), False)
     self.assertEqual(verificaCNPJ("32.657.234/0001-18"), False)
     self.assertEqual(verificaCNPJ("83.648.335/0201-48"), False)
+
+class CepTestCase(TestCase):
+  def test_cep(self):
+    self.assertEqual(verificaReorganizeCep("89245-000"), (True, "89245-000"))
+    self.assertEqual(verificaReorganizeCep("8924--000"), (False, "8924--000"))
+    self.assertEqual(verificaReorganizeCep("8924-5-000"), (False, "8924-5-000"))
+    self.assertEqual(verificaReorganizeCep("8924-5000"), (True, "89245-000"))
+    self.assertEqual(verificaReorganizeCep("8924-50002"), (False, "8924-50002"))

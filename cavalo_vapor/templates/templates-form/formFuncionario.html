@@ -1,0 +1,34 @@
+<input type="hidden" value="funcionario" name="inputForm">
+
+<label for="{{form.inputId}}inputUsername" class="m-0">Username: </label>
+<input type="text" name="username" id="{{form.inputId}}inputUsername" class="form-control" maxlength="200" placeholder="Digite o username" required>
+
+<label for="{{form.inputId}}inputEmail" class="m-0 mt-2">Email: </label>
+<input type="email" id="{{form.inputId}}inputEmail" name="email" class="form-control" placeholder="Email" required>
+
+<label for="{{form.inputId}}inputSenha" class="m-0 mt-2">Senha: </label>
+<input type="password" id="{{form.inputId}}inputSenha" name="senha" class="form-control" placeholder="Senha" required>
+
+<label for="{{form.inputId}}inputConfirmeSenha" class="m-0 mt-2">Confirme a Senha: </label>
+<input type="password" id="{{form.inputId}}inputConfirmeSenha" name="confirmeSenha" class="form-control" placeholder="Confirme sua Senha" required>
+
+<label for="{{form.inputId}}inputNome" class="m-0 mt-2">Nome: </label>
+<input type="text" name="firstName" id="{{form.inputId}}inputNome" class="form-control" placeholder="Nome" required>
+
+<label for="{{form.inputId}}inputFilial" class="m-0 mt-2">Filial Associada: </label>
+<select id="{{form.inputId}}inputFilial" name="filial" class="form-control" required>
+  {% for item in filiais %}
+  <option value="{{item.id}}">{{item}}</option>
+  {% endfor %}
+</select>
+
+<div class="form-row">
+  <div class="col">
+    <label for="{{form.inputId}}inputCPF" class="m-0 mt-2">CPF: </label>
+    <input type="text" name="CPF" id="{{form.inputId}}inputCPF" class="form-control" maxlength="14" placeholder="CPF" required>
+  </div>
+  <div class="col">
+    <label for="{{form.inputId}}inputMatricula" class="m-0 mt-2">Matrícula: </label>
+    <input type="text" name="Matricula" id="{{form.inputId}}inputMatricula" class="form-control" maxlength="50" placeholder="Matrícula" required>
+  </div>
+</div>

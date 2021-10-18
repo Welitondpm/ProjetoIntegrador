@@ -13,15 +13,16 @@ def verificaTelefone(telefone):
 
 
 def verificaReorganizeCep(cep):
-  if len(cep) > 9 or len(cep) <= 7 or len(cep) == 9 and cep.isdigit():
+  if len(cep) > 9 or len(cep) <= 7:
     return False, cep
   cepClean = ""
-  for indice, item in enumerate(cep):
-    if indice == 5:
-      cepClean += item + "-"
-    elif item.isdigit():
+  for item in cep:
+    if item in ("1", "2", "3", "4", "5", "6", "7", "8", "9", "0"):
       cepClean += item
-  return len(cep) == 9, cepClean
+  if len(cepClean) != 8:
+    return False, cep
+  cepClean = cepClean[:5] + "-" + cepClean[5:]
+  return len(cepClean) == 9, cepClean
     
 
 def CleanStrings(cpf):

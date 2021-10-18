@@ -1,12 +1,32 @@
-<label for="inputUsername" class="col text-left">Username: </label>
-<input type="text" id="inputUsername" class="form-control" name='usuario' placeholder="Digite seu Username" required>
+{% load static %}
 
-<label for="inputSenha" class="col text-left mt-4">Senha: </label>
-<input type="password" name='senha' id="inputSenha" class="form-control" placeholder="Digite sua Senha" required>
+<div class="modal fade" id="formularioLogin" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="col text-center m-0 p-0"><img src="{% static "img/svg/log-in.svg" %}" alt="" width="34px" height="34px"><u>Login</u></h2>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <form action="/login/" method="post">
+        {% csrf_token %}
+        <div class="modal-body">
+          <label for="inputUsuario" class="col text-left m-0 p-0 mb-1">Usuário: </label>
+          <input type="text" id="inputUsuario" class="form-control" name='usuario' placeholder="Usuário" required>
 
-<p class="text-right">
-  <a href="">Esqueceu a senha?</a>
-</p>
-<p class="mt-2 text-center">
-  Ainda não possui Cadastro? <a href="{% url 'cadastro' %}">Clique Aqui!</a>
-</p>
+          <label for="inputSenha" class="col text-left m-0 p-0 mb-1 mt-4">Senha: </label>
+          <input type="password" name='senha' id="inputSenha" class="form-control" placeholder="Senha" required>
+
+          <p class="text-right">
+            <a href="">Esqueceu a senha?</a>
+          </p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+          <button type="submit" class="btn btn-primary">Logar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

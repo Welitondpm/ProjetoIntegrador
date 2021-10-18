@@ -2,10 +2,8 @@
   color: black;
 }
 
-#btn-suporte {
-  position: fixed;
-  bottom: 0;
-  right: 0;
+body{
+  padding-right: 0px!important;
 }
 
 .row {
@@ -17,4 +15,8 @@
   background-color: #DEE2E6 !important;
   color: #DEE2E6 !important;
 }
-/*# sourceMappingURL=base.css.map */
+
+.row{
+  padding: 0 !important;
+  margin: 0 !important;
+}
