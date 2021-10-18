@@ -8,31 +8,13 @@
   right: 0;
 }
 
-#homeBackImage {
-  position: fixed;
-  top: 0;
-  left: 0;
-  height: 100vh;
-  width: 100%;
-  z-index: -2;
-  background-image: url("https://cargox.com.br/wp-content/uploads/2020/08/negociar-frete-carga-cargo-x.jpg");
-  background-repeat: no-repeat;
-  background-size: 100% auto;
-}
-
-#homeBackGrad {
-  position: fixed;
-  top: 0;
-  left: 0;
-  height: 100vh;
-  width: 100%;
-  z-index: -1;
-  background-image: -webkit-gradient(linear, left top, right top, from(rgba(255, 255, 255, 0.2)), color-stop(rgba(255, 255, 255, 0.2)), to(rgba(0, 0, 0, 0.2)));
-  background-image: linear-gradient(to right, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2), rgba(0, 0, 0, 0.2));
-}
-
 .row {
   padding: 0 !important;
   margin: 0 !important;
+}
+
+.hr {
+  background-color: #DEE2E6 !important;
+  color: #DEE2E6 !important;
 }
 /*# sourceMappingURL=base.css.map */
