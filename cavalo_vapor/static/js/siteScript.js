@@ -8,9 +8,9 @@ $(".js-select-city").change(function () {
 });
 
 
-function mostrarInputMotivo (elemento){
+function mostrarInputMotivo(elemento) {
   inputMotivo = document.getElementById("formGroupInputMotivo")
-  if (elemento == "outro"){
+  if (elemento == "outro") {
     inputMotivo.classList.remove("d-none")
   } else {
     inputMotivo.classList.add("d-none")
@@ -18,50 +18,54 @@ function mostrarInputMotivo (elemento){
 }
 
 
-function pageActive(nome){
+function pageActive(nome) {
   document.querySelector(`${nome} > a`).classList.toggle('active')
 }
 
 
-function selecionaEstadoInicial(){
+function selecionaEstadoInicial() {
   dados = {
     url: "/ajax/select_city",
-    "dados": "AC",
+    "dados": "sc",
   }
   ajaxConection(dados);
 }
 window.onload = selecionaEstadoInicial();
 
 
-function login(){
-  $('#formularioLogin').modal({backdrop:"static"})
+function login() {
+  $('#formularioLogin').modal({
+    backdrop: "static"
+  })
 }
 
 
-function cadastro(){
-  $('#formularioCadastro').modal({backdrop:"static"})
+function cadastro() {
+  $('#formularioCadastro').modal({
+    backdrop: "static"
+  })
 }
 
 
-function ajaxConection(dados){
+function ajaxConection(dados) {
   $.ajax({
     url: dados["url"],
     data: {
       'dados': dados["dados"],
     },
-    success: function(data) {
+    success: function (data) {
       conectionSuccess(data)
     }
   })
 }
 
 
-function conectionSuccess(data){
-  if (data["nome"] == "municipios"){
+function conectionSuccess(data) {
+  if (data["nome"] == "municipios") {
     PreencheMunicipios(data)
-  } else if (data["nome"] == "delCaminhoes"){
+  } else if (data["nome"] == "delCaminhoes") {
     removeCaminhaoDeletado(data["id"])
-  } else if (data["nome"] == "delCarreta"){
+  } else if (data["nome"] == "delCarreta") {
     removeCarretaDeletada(data["id"])
   }
 }
@@ -74,39 +78,39 @@ function PreencheMunicipios(dados) {
     htmlInner += "<option value=" + item[0] + ">" + item[1] + "</option>"
   }
   inputCity = document.getElementsByClassName("inputCidade")
-  for (item of inputCity){
+  for (item of inputCity) {
     item.innerHTML = htmlInner
   }
 }
 
 
-function removeCaminhaoDeletado(id){
+function removeCaminhaoDeletado(id) {
   document.getElementById(id).remove();
   verificaCaminhoesExistente()
 }
 
 
-function removeCarretaDeletada(id){
+function removeCarretaDeletada(id) {
   document.getElementById(id).remove();
   verificaCarretasExistente()
 }
 
 
-function verificaCaminhoesExistente(){
-  if (document.getElementsByClassName("caminhoes").length == 0){
+function verificaCaminhoesExistente() {
+  if (document.getElementsByClassName("caminhoes").length == 0) {
     document.getElementById("mensagemSemCaminhao").classList.remove("d-none")
   }
 }
 
 
-function verificaCarretasExistente(){
-  if (document.getElementsByClassName("carretas").length == 0){
+function verificaCarretasExistente() {
+  if (document.getElementsByClassName("carretas").length == 0) {
     document.getElementById("mensagemSemCarreta").classList.remove("d-none")
   }
 }
 
 
-function alertDel(id, elementoNome){
+function alertDel(id, elementoNome) {
   Swal.fire({
     title: 'Tem certeza?',
     text: "Você não poderá reverter isso!",
@@ -123,8 +127,8 @@ function alertDel(id, elementoNome){
 }
 
 
-function ajaxDeleteDados(id, elementoNome){
-  if (elementoNome == "caminhao"){
+function ajaxDeleteDados(id, elementoNome) {
+  if (elementoNome == "caminhao") {
     dados = {
       url: "/ajax/delCaminhoes",
       "dados": id,
@@ -152,8 +156,10 @@ function ajaxDeleteDados(id, elementoNome){
 }
 
 
-function updateCaminhao(dados){
-  $('#formularioUpdateCaminhao').modal({backdrop:"static"})
+function updateCaminhao(dados) {
+  $('#formularioUpdateCaminhao').modal({
+    backdrop: "static"
+  })
   document.getElementById("idCaminhao").value = dados["id"]
   document.getElementById("inputNomeCaminhao").value = dados["nome"]
   document.getElementById("inputEixosCaminhao").value = dados["eixos"]
@@ -161,8 +167,10 @@ function updateCaminhao(dados){
 }
 
 
-function updateCarreta(dados){
-  $('#formularioUpdateCarreta').modal({backdrop:"static"})
+function updateCarreta(dados) {
+  $('#formularioUpdateCarreta').modal({
+    backdrop: "static"
+  })
   document.getElementById("idCarreta").value = dados["id"]
   document.getElementById("inputPesoMaximo").value = dados["peso_maximo"]
   document.getElementById("selectTipoCarreta").value = dados["tipoCarreta"]
@@ -170,27 +178,35 @@ function updateCarreta(dados){
 }
 
 
-function cadastrarCaminhao(){
-  $('#formularioCadastroCaminhao').modal({backdrop:"static"})
+function cadastrarCaminhao() {
+  $('#formularioCadastroCaminhao').modal({
+    backdrop: "static"
+  })
 }
 
 
-function cadastrarCarreta(){
-  $('#formularioCadastroCarreta').modal({backdrop:"static"})
+function cadastrarCarreta() {
+  $('#formularioCadastroCarreta').modal({
+    backdrop: "static"
+  })
 }
 
 
-function cadastrarFilial(){
-  $('#formularioCadastroFilial').modal({backdrop:"static"})
+function cadastrarFilial() {
+  $('#formularioCadastroFilial').modal({
+    backdrop: "static"
+  })
 }
 
 
-function cadastrarFuncionario(){
-  $('#formularioCadastroFuncionario').modal({backdrop:"static"})
+function cadastrarFuncionario() {
+  $('#formularioCadastroFuncionario').modal({
+    backdrop: "static"
+  })
 }
 
 
-function trocaTab(idTab){
+function trocaTab(idTab) {
   document.getElementById("etapa1").classList.remove("active", "show")
   document.getElementById("etapa2").classList.remove("active", "show")
   document.getElementById("etapa3").classList.remove("active", "show")
@@ -198,10 +214,10 @@ function trocaTab(idTab){
 }
 
 
-function etapa3tipoPessoa(element){
+function etapa3tipoPessoa(element) {
   document.getElementById("pessoaJuridica").classList.add("d-none")
   document.getElementById("pessoaFisica").classList.add("d-none")
-  if (element.value == 1){
+  if (element.value == 1) {
     document.getElementById("pessoaJuridica").classList.remove("d-none")
   } else {
     document.getElementById("pessoaFisica").classList.remove("d-none")

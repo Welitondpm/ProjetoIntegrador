@@ -1,11 +1,13 @@
 <h4>Pessoa Jurídica ou Física?</h4>
 
 <div class="custom-control custom-radio custom-control-inline">
-  <input type="radio" id="tipoPessoaRadio1" name="tipoPessoa" class="custom-control-input" value="1" onclick="etapa3tipoPessoa(this)" checked="checked">
+  <input type="radio" id="tipoPessoaRadio1" name="tipoPessoa" class="custom-control-input" value="1"
+    onclick="etapa3tipoPessoa(this)" checked="checked">
   <label class="custom-control-label" for="tipoPessoaRadio1">Pessoa Jurídica</label>
 </div>
 <div class="custom-control custom-radio custom-control-inline">
-  <input type="radio" id="tipoPessoaRadio2" name="tipoPessoa" class="custom-control-input" value="2" onclick="etapa3tipoPessoa(this)">
+  <input type="radio" id="tipoPessoaRadio2" name="tipoPessoa" class="custom-control-input" value="2"
+    onclick="etapa3tipoPessoa(this)">
   <label class="custom-control-label" for="tipoPessoaRadio2">Pessoa Física</label>
 </div>
 
@@ -40,9 +42,9 @@
 
 <span class="d-flex justify-content-end mt-2 mb-1">Etapa 3 de 3</span>
 <div class="row justify-content-end">
-  <div class="btn btn-secondary mr-1" onclick="trocaTab('etapa2')">
+  <button type="button" class="btn btn-secondary mr-1" onclick="trocaTab('etapa2')">
     Voltar
-  </div>
+  </button>
   <button type="submit" class="btn btn-primary ml-1">
     Cadastrar
   </button>
