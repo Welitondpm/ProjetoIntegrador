@@ -1,4 +1,3 @@
-
 cavalo_vapor/migrations/__pycache__
 ProjetoIntegrador/__pycache__
 cavalo_vapor/__pycache__
@@ -10,3 +9,4 @@ cavalo_vapor/migrations/0002_rename_qtd_usuario_descricao.py
 cavalo_vapor/migrations/0003_remove_tipocarreta_eixos.py
 cavalo_vapor/migrations/0004_auto_20211008_1822.py
 cavalo_vapor/migrations/0005_delete_telefone.py
+*.css.map
