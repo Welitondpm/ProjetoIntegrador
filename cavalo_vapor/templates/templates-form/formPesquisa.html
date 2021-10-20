@@ -1,15 +1,21 @@
 <form action="">
   <div class="card">
     <div class="card-header" id="headingFiltros">
-      <div class="row">
-        <div class="input-group p-1 col">
-          <input type="search" id="inputSearch" class="form-control m-0" placeholder="{{pesquisa.Placeholder}}">
-          <div class="input-group-append m-0">
-            <button type="submit" class="btn btn-outline-success">Pesquisar</button>
+      <div class="form-row">
+        <div class="input-group col">
+          <input type="search" id="inputSearch" class="form-control" placeholder="{{pesquisa.Placeholder}}" />
+          <div class="input-group-append">
+            <button type="submit" class="btn btn-primary">Pesquisar</button>
           </div>
         </div>
-        <div class="btn btn-outline-primary m-1" data-toggle="collapse" data-target="#Filtros" aria-expanded="true" aria-controls="Filtros">
-          Filtros
+
+        <div class="col">
+          <div class="form-row">
+            <button type="button" class="btn btn-outline-primary ml-auto" data-toggle="collapse" data-target="#Filtros"
+              aria-expanded="true" aria-controls="Filtros">
+              Filtros
+            </button>
+          </div>
         </div>
       </div>
     </div>

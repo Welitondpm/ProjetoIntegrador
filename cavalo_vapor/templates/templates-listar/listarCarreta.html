@@ -1,37 +1,38 @@
 {% load static %}
 
 {% for carreta in carretas %}
-  <div class="col-lg-6 col-md-12 carretas" id="carretaId{{carreta.id}}">
-    <div class="card mb-2">
-      <div class="card-header p-2">
-        <div class="col row">
-          <span class="col m-2">
-            {{carreta.nome}}
-          </span>
-          <span class="m-1">
-            <button class="btn btn-outline-info" onclick="updateCarreta({{carreta}})">
-              <img src="{% static 'img/svg/pencil.svg'%}" alt="Edit" widht="20px" height="20px">
-            </button>
-          </span>
-          <span class="m-1">
-            <button class="btn btn-outline-danger" onclick="alertDel({{carreta.id}}, 'carreta')">
-              <img src="{% static 'img/svg/del.svg'%}" alt="Del" widht="20px" height="20px">
-            </button>
-          </span>
-        </div>
+<div class="col-lg-6 col-md-12 px-0" id="carretaId{{carreta.id}}">
+  <div class="card m-3">
+    <div class="card-header">
+      <div class="row">
+        <span class="col d-flex align-items-center">
+          {{carreta.nome}}
+        </span>
+        <span class="m-1">
+          <button class="btn btn-info btn-edit" onclick="updateCarreta({{carreta}})">
+            <img src="{% static 'img/svg/pencil.svg'%}" alt="Edit" widht="20px" height="20px">
+          </button>
+        </span>
+        <span class="m-1">
+          <button class="btn btn-danger btn-delete" onclick="alertDel({{carreta.id}}, 'carreta')">
+            <img src="{% static 'img/svg/del.svg'%}" alt="Del" widht="20px" height="20px">
+          </button>
+        </span>
       </div>
-      <div class="card-body">
-        <div class="row">
-          <div class="col-md-5 text-center">
-            <img class="img-thumbnail" src="{{carreta.logo}}" alt="Tenho Quase Certeza que isso é completamente desnecessário">
-          </div>
-          <div class="col-md-7">
-            <p class="card-text m-0">
-              {{carreta}}
-            </p>
-          </div>
+    </div>
+    <div class="card-body">
+      <div class="row">
+        <div class="col-md-5 text-center">
+          <img class="img-thumbnail" src="{{carreta.logo}}"
+            alt="Tenho Quase Certeza que isso é completamente desnecessário">
+        </div>
+        <div class="col-md-7">
+          <p class="card-text m-0">
+            {{carreta}}
+          </p>
         </div>
       </div>
     </div>
   </div>
+</div>
 {% endfor %}

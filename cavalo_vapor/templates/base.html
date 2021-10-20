@@ -16,7 +16,7 @@
 
 <body>
   <div class="container-fluid p-0">
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <nav class="navbar navbar-dark navbar-expand-lg">
       <div class="flex-grow-1 row">
         <a class="navbar-brand" href="{% url 'index' %}">
           <div>
@@ -39,43 +39,42 @@
           </a>
         </div>
 
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02"
-          aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
       </div>
 
 
       <!-- lista paginas -->
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02"
+        aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
       <div class="collapse navbar-collapse flex-grow-0" id="navbarTogglerDemo02">
-        <ul class="navbar-nav d-flex align-items-center {% if request.user.is_authenticated %}
-      justify-content-around{% else %} justify-content-end{% endif %}">
+        <ul class="navbar-nav d-flex align-items-center">
           {% if request.user.is_authenticated %}
-          <li class="nav-item">
+          <li id="frete" class="nav-item">
             <a class="nav-link" href="{% url 'fretes' %}">
               <img src="{% static 'img/svg/cube.svg'%}" alt="" width="34px" height="34px" class="d-lg-none">
               Fretes
             </a>
           </li>
-          <li class="nav-item">
+          <li id="network" class="nav-item">
             <a class="nav-link" href="{% url 'network' %}">
               <img src="{% static 'img/svg/network.svg'%}" alt="" width="34px" height="34px" class="d-lg-none">
               Network
             </a>
           </li>
-          <li class="nav-item">
+          <li id="caminhao" class="nav-item">
             <a class="nav-link" href="{% url 'caminhoes' %}">
               <img src="{% static 'img/svg/truck.svg'%}" alt="" width="34px" height="34px" class="d-lg-none">
               Caminhões
             </a>
           </li>
-          <li class="nav-item">
+          <li id="perfis" class="nav-item">
             <a class="nav-link" href="{% url 'perfis' %}">
               <img src="{% static 'img/svg/people.svg'%}" alt="" width="34px" height="34px" class="d-lg-none">
               Perfis
             </a>
           </li>
-          <li class="nav-item">
+          <li id="atividade" class="nav-item">
             <a class="nav-link" href="{% url 'atividade' %}">
               <img src="{% static 'img/svg/chart.svg'%}" alt="" width="34px" height="34px" class="d-lg-none">
               Atividade
@@ -128,7 +127,7 @@
               Mapa
             </a>
           </li> {% endcomment %}
-          <li class="nav-item">
+          <li class="nav-item" id="suporte">
             <a class="nav-link" href="{% url 'suporte' %}">Suporte</a>
           </li>
         </ul>

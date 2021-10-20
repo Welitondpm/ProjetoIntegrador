@@ -1,9 +1,32 @@
+.grow-tab {
+  flex-grow: 1 !important;
+}
+
 * {
   color: black;
 }
 
-body{
-  padding-right: 0px!important;
+body {
+  background-color: #e2e8ff !important;
+}
+
+.navbar {
+  background: #040f3f !important;
+}
+
+.dropdown-menu {
+  background-color: #040f3f !important;
+}
+
+.form-control {
+  background-color: #e2e8ff !important;
+}
+
+.card {
+  background-color: #e2e8ff !important;
+}
+.card img {
+  background-color: #e2e8ff !important;
 }
 
 .row {
@@ -16,7 +39,78 @@ body{
   color: #DEE2E6 !important;
 }
 
-.row{
-  padding: 0 !important;
-  margin: 0 !important;
+.btn-edit img {
+  background-color: #17a2b8 !important;
+  transition-duration: 0.15s, 0.15s, 0.15s, 0.15s !important;
 }
+.btn-edit:hover img {
+  background-color: #138496 !important;
+  transition-duration: 0.15s, 0.15s, 0.15s, 0.15s !important;
+}
+
+.btn-delete img {
+  background-color: #dc3545 !important;
+  transition-duration: 0.15s, 0.15s, 0.15s, 0.15s !important;
+}
+.btn-delete:hover img {
+  background-color: #C82333 !important;
+  transition-duration: 0.15s, 0.15s, 0.15s, 0.15s !important;
+}
+
+.btn-primary {
+  background-color: #264779 !important;
+  border: solid #265279 1px !important;
+}
+.btn-primary:hover {
+  background-color: #040f3f !important;
+  border: solid #264779 1px !important;
+}
+.btn-primary:focus {
+  background-color: #040f3f !important;
+  border: solid #264779 1px !important;
+}
+
+.btn-outline-primary {
+  background-color: #e2e8ff !important;
+  color: #264779 !important;
+  border: solid #265279 1px !important;
+}
+.btn-outline-primary:hover {
+  background-color: #040f3f !important;
+  border: solid #264779 1px !important;
+  color: #FFFFFF !important;
+}
+.btn-outline-primary:focus {
+  background-color: #040f3f !important;
+  border: solid #264779 1px !important;
+  color: #FFFFFF !important;
+}
+
+.card-header {
+  background-color: #e2e8ff !important;
+}
+
+.modal-content {
+  background-color: #e2e8ff !important;
+}
+
+.alert-dark {
+  background-color: #040f3f !important;
+  color: #FFFFFF !important;
+}
+.alert-dark .alert-link {
+  color: #a1d2ff !important;
+}
+
+.nav.nav-tabs a.nav-link.nav-item {
+  border-bottom: #e2e8ff !important;
+}
+.nav.nav-tabs a.nav-link.nav-item.active {
+  background-color: #e2e8ff !important;
+  border-top: 0 !important;
+  border-left: 0 !important;
+  border-right: 0 !important;
+  border-bottom: #264779 2px solid !important;
+}
+
+/*# sourceMappingURL=base.css.map */

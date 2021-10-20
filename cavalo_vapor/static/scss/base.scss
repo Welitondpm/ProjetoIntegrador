@@ -61,12 +61,29 @@ body {
 .btn-edit {
   img {
     background-color: #17a2b8 !important;
+    transition-duration: 0.15s, 0.15s, 0.15s, 0.15s !important;
+  }
+
+  &:hover {
+    img {
+      background-color: #138496 !important;
+      transition-duration: 0.15s, 0.15s, 0.15s, 0.15s !important;
+    }
   }
 }
 
 .btn-delete {
   img {
     background-color: #dc3545 !important;
+    transition-duration: 0.15s, 0.15s, 0.15s, 0.15s !important;
+  }
+
+  &:hover {
+    img {
+      background-color: #C82333 !important;
+      transition-duration: 0.15s, 0.15s, 0.15s, 0.15s !important;
+
+    }
   }
 }
 
