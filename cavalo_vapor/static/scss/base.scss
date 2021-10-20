@@ -1,0 +1,136 @@
+// variáveis
+// backgrounds
+$bg-dark: #040f3f;
+$bg-default:#e2e8ff;
+$bg-default-active:#eaf0fe;
+$bg-active:#264779;
+$bg-active-borders:#265279;
+// detalhamento
+$separator-light:#DEE2E6;
+
+// texto
+$link: #a1d2ff;
+
+// crescer tabs
+.grow-tab {
+  flex-grow: 1 !important;
+}
+
+
+// aplicações
+
+* {
+  color: black;
+}
+
+body {
+  background-color: $bg-default !important;
+}
+
+// background-color: rgb(0, 13, 65) !important;
+.navbar {
+  background: $bg-dark !important;
+}
+
+.dropdown-menu {
+  background-color: $bg-dark !important;
+}
+
+.form-control {
+  background-color: $bg-default !important;
+}
+
+.card {
+  background-color: $bg-default !important;
+
+  img {
+    background-color: $bg-default !important;
+  }
+}
+
+.row {
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+.hr {
+  background-color: $separator-light !important;
+  color: $separator-light !important;
+}
+
+.btn-edit {
+  img {
+    background-color: #17a2b8 !important;
+  }
+}
+
+.btn-delete {
+  img {
+    background-color: #dc3545 !important;
+  }
+}
+
+
+.btn-primary {
+  background-color: $bg-active !important;
+  border: solid $bg-active-borders 1px !important;
+
+  &:hover {
+    background-color: $bg-dark !important;
+    border: solid $bg-active 1px !important;
+  }
+
+  &:focus {
+    background-color: $bg-dark !important;
+    border: solid $bg-active 1px !important;
+  }
+}
+
+.btn-outline-primary {
+  background-color: $bg-default !important;
+  color: $bg-active !important;
+  border: solid $bg-active-borders 1px !important;
+
+  &:hover {
+    background-color: $bg-dark !important;
+    border: solid $bg-active 1px !important;
+    color: #FFFFFF !important;
+  }
+
+  &:focus {
+    background-color: $bg-dark !important;
+    border: solid $bg-active 1px !important;
+    color: #FFFFFF !important;
+  }
+}
+
+.card-header {
+  background-color: $bg-default !important;
+}
+
+.modal-content {
+  background-color: $bg-default !important;
+}
+
+.alert-dark {
+  background-color: $bg-dark !important;
+  color: #FFFFFF !important;
+
+  .alert-link {
+    color: $link !important;
+  }
+}
+
+.nav.nav-tabs {
+  a.nav-link.nav-item {
+    border-bottom: $bg-default !important;
+
+    &.active {
+      background-color: $bg-default !important;
+      border-top: 0 !important;
+      border-left: 0 !important;
+      border-right: 0 !important;
+      border-bottom: $bg-active 2px solid !important;
+    }
+  }
+}
