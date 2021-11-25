@@ -1,0 +1,11 @@
+@import "./variaveis.scss";
+
+.dropdown-item {
+  &:hover {
+    background-color: $bg-dark !important;
+  }
+
+  &:focus {
+    background-color: $bg-dark !important;
+  }
+}

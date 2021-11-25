@@ -1,24 +1,12 @@
-// variáveis
-// backgrounds
-$bg-dark: #040f3f;
-$bg-default:#e2e8ff;
-$bg-default-active:#eaf0fe;
-$bg-active:#264779;
-$bg-active-borders:#265279;
-// detalhamento
-$separator-light:#DEE2E6;
+@import './variaveis.scss';
 
-// texto
-$link: #a1d2ff;
-
-// crescer tabs
-.grow-tab {
-  flex-grow: 1 !important;
-}
+@import "./card.scss";
+@import "./btn.scss";
+@import './tabs.scss';
+@import './dropdown.scss';
 
 
 // aplicações
-
 * {
   color: black;
 }
@@ -40,14 +28,6 @@ body {
   background-color: $bg-default !important;
 }
 
-.card {
-  background-color: $bg-default !important;
-
-  img {
-    background-color: $bg-default !important;
-  }
-}
-
 .row {
   padding: 0 !important;
   margin: 0 !important;
@@ -56,73 +36,6 @@ body {
 .hr {
   background-color: $separator-light !important;
   color: $separator-light !important;
-}
-
-.btn-edit {
-  img {
-    background-color: #17a2b8 !important;
-    transition-duration: 0.15s, 0.15s, 0.15s, 0.15s !important;
-  }
-
-  &:hover {
-    img {
-      background-color: #138496 !important;
-      transition-duration: 0.15s, 0.15s, 0.15s, 0.15s !important;
-    }
-  }
-}
-
-.btn-delete {
-  img {
-    background-color: #dc3545 !important;
-    transition-duration: 0.15s, 0.15s, 0.15s, 0.15s !important;
-  }
-
-  &:hover {
-    img {
-      background-color: #C82333 !important;
-      transition-duration: 0.15s, 0.15s, 0.15s, 0.15s !important;
-
-    }
-  }
-}
-
-
-.btn-primary {
-  background-color: $bg-active !important;
-  border: solid $bg-active-borders 1px !important;
-
-  &:hover {
-    background-color: $bg-dark !important;
-    border: solid $bg-active 1px !important;
-  }
-
-  &:focus {
-    background-color: $bg-dark !important;
-    border: solid $bg-active 1px !important;
-  }
-}
-
-.btn-outline-primary {
-  background-color: $bg-default !important;
-  color: $bg-active !important;
-  border: solid $bg-active-borders 1px !important;
-
-  &:hover {
-    background-color: $bg-dark !important;
-    border: solid $bg-active 1px !important;
-    color: #FFFFFF !important;
-  }
-
-  &:focus {
-    background-color: $bg-dark !important;
-    border: solid $bg-active 1px !important;
-    color: #FFFFFF !important;
-  }
-}
-
-.card-header {
-  background-color: $bg-default !important;
 }
 
 .modal-content {
@@ -135,19 +48,5 @@ body {
 
   .alert-link {
     color: $link !important;
-  }
-}
-
-.nav.nav-tabs {
-  a.nav-link.nav-item {
-    border-bottom: $bg-default !important;
-
-    &.active {
-      background-color: $bg-default !important;
-      border-top: 0 !important;
-      border-left: 0 !important;
-      border-right: 0 !important;
-      border-bottom: $bg-active 2px solid !important;
-    }
   }
 }

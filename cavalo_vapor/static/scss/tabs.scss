@@ -1,0 +1,26 @@
+@import "./variaveis.scss";
+
+.nav.nav-tabs {
+  a.nav-link.nav-item {
+    border-top: 0 !important;
+    border-left: 0 !important;
+    border-right: 0 !important;
+    border-bottom: $bg-default 2px solid !important;
+    transition: .15s;
+
+    &:hover {
+      border-top: 0 !important;
+      border-left: 0 !important;
+      border-right: 0 !important;
+      border-bottom: $separator-light 2px solid !important;
+    }
+
+    &.active {
+      background-color: $bg-default !important;
+      border-top: 0 !important;
+      border-left: 0 !important;
+      border-right: 0 !important;
+      border-bottom: $bg-active 2px solid !important;
+    }
+  }
+}
