@@ -1,5 +1,9 @@
 @import "./variaveis.scss";
 
+.dropdown-menu {
+  background-color: $bg-dark !important;
+}
+
 .dropdown-item {
   &:hover {
     background-color: $bg-dark !important;
