@@ -1,165 +1,131 @@
 {% extends 'base.html' %} {% load static %} {% block pageTitle %}Cavalo-Vapor
-Fretes | Usuário{% endblock %}
-
-{% block tituloMenu %}
-Usuário
-{% endblock tituloMenu %}
-
-{% block pageConteudo %}
+Fretes | Usuário{% endblock %} {% block tituloMenu %} Usuário {% endblock tituloMenu %} {% block pageConteudo %}
 
 <div class="row justify-content-center mt-2">
-  <h1 class="text-center"><img src="{% static 'img/svg/person.svg' %}" alt="" width="34px" height="34px"><u>{{user}}</u>
+  <h1 class="text-center">
+    <img src="{% static 'img/svg/person.svg' %}" alt="" width="34px" height="34px" />
+    <u>{{user}}</u>
   </h1>
 </div>
-<form action="">
-  <div class="col-lg-4 col-md-6 offset-lg-4 offset-md-3">
-    <img class="img-thumbnail" src="https://i.insider.com/61135525ad63f30019501966?width=700" alt="">
+<form action="" class="">
+  <div class="col-6 offset-3">
+    <img class="img-fluid" src="https://i.insider.com/61135525ad63f30019501966?width=700" alt="" />
     <div class="form-group">
-      <label for="inputLogo">Alterar Imagem: </label>
-      <div class="input-group">
-        <input type="file" id="inputLogo" class="form-control" disabled>
-
+      <label for="inputLogo" class="mt-2">Alterar Imagem:</label>
+      <div class="">
+        <input type="file" id="inputLogo" class="form-control-file" />
       </div>
     </div>
   </div>
 
   <!-- informações usuario -->
-  <div class="p-2 m-0">
-    <h2 class="title">Informações do usuário: </h2>
+  <div class="col-10 mx-auto">
+    <h2 class="title">Informações do usuário:</h2>
     <div class="form-group">
-      <label for="inputDescricao">Descrição: </label>
+      <label for="inputDescricao">Descrição:</label>
       <div class="input-group">
-        <textarea id="inputDescricao" class="form-control" cols="30" rows="5"
-          readonly>{{sesssionDados.descricao}}</textarea>
-
+        <textarea id="inputDescricao" class="form-control" cols="30" rows="5" readonly>
+{{sesssionDados.descricao}}</textarea>
       </div>
     </div>
+
     <div class="form-row">
       <div class="form-group col-md-6 col-sm-12">
-        <label for="inputNome">Nome: </label>
+        <label for="inputNome">Nome:</label>
         <div class="input-group">
-          <input type="text" id="inputNome" class="form-control" value="{{user.first_name}}" readonly>
-
-        </div>
-      </div>
-
-      <div>
-        <label for="inputLogo">Alterar Imagem: </label>
-        <div class="input-group">
-          <input type="text" id="inputSobrenome" class="form-control" value="{{user.last_name}}" readonly>
-
+          <input type="text" id="inputNome" class="form-control" value="{{user.first_name}}" readonly />
         </div>
       </div>
     </div>
+
     <div class="form-group">
-      <label for="inputSenha">Nova Senha: </label>
+      <label for="inputSenha">Nova Senha:</label>
       <div class="input-group">
-        <input type="password" id="inputSenha" class="form-control" readonly placeholder="Nova Senha">
-
+        <input type="password" id="inputSenha" class="form-control" readonly placeholder="Nova Senha" />
       </div>
     </div>
+
     <div class="form-group d-none">
-      <label for="inputConfirmeSenha">Confirme a Nova Senha: </label>
-      <input type="password" id="inputConfirmeSenha" class="form-control" placeholder="Confirme a Nova Senha">
+      <label for="inputConfirmeSenha">Confirme a Nova Senha:</label>
+      <input type="password" id="inputConfirmeSenha" class="form-control" placeholder="Confirme a Nova Senha" />
     </div>
-    <div class="form-group">
-      <label for="inputEmail">Email: </label>
-      <div class="input-group">
-        <input type="email" id="inputEmail" class="form-control" value="{{user.email}}" readonly>
 
-      </div>
+    <div class="form-group">
+      <label for="inputEmail">Email:</label>
+      <input type="email" id="inputEmail" class="form-control" value="{{user.email}}" readonly />
     </div>
-    <div class="form-group">
-      <label for="inputTelefone">Telefone: </label>
-      <div class="input-group">
-        <input type="text" id="inputTelefone" class="form-control" readonly placeholder="">
 
+    <div class="form-group">
+      <label for="inputTelefone">Telefone:</label>
+      <div class="input-group">
+        <input type="text" id="inputTelefone" class="form-control" readonly placeholder="" />
       </div>
     </div>
   </div>
 
-
   <!-- Endereço -->
-  <div class="col p-2 m-0">
-    <h2 class="title">Endereço: </h2>
+  <div class="col-10 mx-auto">
+    <h2 class="title">Endereço:</h2>
     <div class="form-row">
-      <div class="form-group col-md-6 col-lg-4">
-        <label for="inputEstado">Estado: </label>
+      <div class="col-12">
+        <label for="inputEstado">Estado:</label>
         <div class="input-group">
           <select id="inputEstado" name="estado" class="form-control js-select-city">
             {% for item in estados %}
             <option value="{{item.uf}}">{{item}}</option>
             {% endfor %}
           </select>
-
         </div>
       </div>
-      <div class="form-group col-md-6 col-lg-4">
-        <label for="inputCidade">Cidade: </label>
-        <div class="input-group">
-          <select id="inputCidade" name="municipio" class="form-control"></select>
-
-        </div>
+      <div class="col">
+        <label for="inputCidade">Cidade:</label>
+        <select id="inputCidade" name="municipio" class="form-control"></select>
+      </div>
+      <div class="col">
+        <label for="inputBairro">Bairro:</label>
+        <input type="text" id="inputBairro" name="bairro" class="form-control" placeholder="Bairro" readonly />
+      </div>
+      <div class="col">
+        <label for="inputSenha">Cep</label>
+        <input type="text" id="inputCep" name="cep" class="form-control" placeholder="Cep" readonly />
       </div>
       <div class="form-group col-md-6 col-lg-4">
-        <label for="inputBairro">Bairro: </label>
+        <label for="inputRua">Rua:</label>
         <div class="input-group">
-          <input type="text" id="inputBairro" name="bairro" class="form-control" placeholder="Bairro" readonly>
-
+          <input type="text" id="inputRua" name="rua" class="form-control" placeholder="Rua" readonly />
         </div>
       </div>
       <div class="form-group">
-        <label for="inputSenha">Nova Senha: </label>
+        <label for="inputEmail">Email:</label>
         <div class="input-group">
-          <input type="text" id="inputCep" name="cep" class="form-control" placeholder="Cep" readonly>
-
-        </div>
-      </div>
-      <div class="form-group col-md-6 col-lg-4">
-        <label for="inputRua">Rua: </label>
-        <div class="input-group">
-          <input type="text" id="inputRua" name="rua" class="form-control" placeholder="Rua" readonly>
-
-        </div>
-      </div>
-      <div class="form-group">
-        <label for="inputEmail">Email: </label>
-        <div class="input-group">
-          <input type="number" id="inputNumero" name="numero" class="form-control" placeholder="Número" readonly>
-
+          <input type="number" id="inputNumero" name="numero" class="form-control" placeholder="Número" readonly />
         </div>
       </div>
     </div>
   </div>
   <div class="row justify-content-end p-4 m-2">
-    <button type="reset" class="btn btn-secondary mr-3">
-      Cancelar
-    </button>
-    <button type="submit" class="btn btn-primary ">
-      Salvar Alterações
-    </button>
+    <button type="reset" class="btn btn-secondary mr-3">Cancelar</button>
+    <button type="submit" class="btn btn-primary">Salvar Alterações</button>
   </div>
 </form>
 
-{% endblock %}
-
-{% block pageScript %}
-<script>
+{% endblock %} {% block pageScript %}
+<script type="text/javascript">
   window.onload = pageActive("#usuario");
 
   dados = {
     url: "/ajax/select_city",
-    "dados": "AC",
-  }
+    dados: "AC",
+  };
   window.onload = ajaxConection(dados);
 
   $(".js-select-city").change(function () {
     dados = {
       url: "/ajax/select_city",
-      "dados": $(this).val(),
-      "nome": "municipios"
-    }
-    ajaxConection(dados)
+      dados: $(this).val(),
+      nome: "municipios",
+    };
+    ajaxConection(dados);
   });
 </script>
 {% endblock %}

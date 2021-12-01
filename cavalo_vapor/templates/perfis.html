@@ -9,7 +9,41 @@ Perfis
 {% include "templates-form/formPesquisa.html" with pesquisa=forms.formPesquisaPerfis %}
 
 <div class="row">
-  <div class="col-lg-3 col-md-4 col-sm-6">
+  <div class="col-lg-6 col-md-12">
+    <div class="card m-2">
+      <div class="card-header">
+        <div class="row">
+          <span class="col d-flex align-items-center">
+            Flemis
+          </span>
+          <span class="m-1">
+            <button type="button" class="btn btn-primary btn-edit" onclick="">
+              <img src="{% static 'img/svg/pencil.svg' %}" alt="edit" width="20px" height="20px">
+            </button>
+          </span>
+        </div>
+      </div>
+
+      <div class="card-body">
+        <div class="row">
+          <div class="col-md-5 text-center">
+            <img class="img-thumbnail" style="max-width: 100px; max-height: 100px;"
+              src="https://i.insider.com/61135525ad63f30019501966?width=700" alt="" />
+          </div>
+          <p class="card-text m-0">
+            Descrição: bla bla <br />
+            Email: TriuVirato@gmail.com <br />
+            Telefone: (47) 8422-8922 <br />
+            Estado: Santa Catarina <br />
+            Cidade: Araquari <br />
+          </p>
+
+        </div>
+        <a href="" class="btn btn-primary">Ver Mais</a>
+      </div>
+    </div>
+  </div>
+  <!-- <div class="col-lg-3 col-md-4 col-sm-6">
     <div class="card col m-2">
       <img class="card-img-top img-fluid" src="https://i.insider.com/61135525ad63f30019501966?width=700" alt="" />
       <div class="card-body">
@@ -23,8 +57,8 @@ Perfis
         </p>
         <a href="" class="btn btn-primary">Ver Mais</a>
       </div>
-    </div>
-  </div>
+    </div> -->
+</div>
 </div>
 
 {% endblock %}

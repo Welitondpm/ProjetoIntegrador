@@ -1,16 +1,17 @@
 {% load static %}
 
 <div class="modal fade" id="formularioCadastro" tabindex="-1" role="dialog" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-				<h2 class="col text-center m-0 p-0"><img src="{% static 'img/svg/clipboard.svg' %}" alt="" width="34px" height="34px"><u>Cadastro</u></h2>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
+	<div class="modal-dialog modal-dialog-centered" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h2 class="col text-center m-0 p-0"><img src="{% static 'img/svg/clipboard.svg' %}" alt="" width="34px"
+						height="34px"><u> Cadastro </u></h2>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
 
-      <form action="/cadastro/" method="post">
+			<form action="/cadastro/" method="post">
 				{% csrf_token %}
 				<div class="modal-body p-2 pr-3 pl-3">
 					<div class="tab-content m-2">
@@ -25,7 +26,7 @@
 						</div>
 					</div>
 				</div>
-      </form>
-    </div>
-  </div>
+			</form>
+		</div>
+	</div>
 </div>

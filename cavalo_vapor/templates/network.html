@@ -30,31 +30,31 @@ Network
       </div>
     </a>
   </div>
-</nav>
-<div class="tab-content m-2" id="nav-tabContent">
-  <div class="tab-pane fade show active" id="nav-filial" role="tabpanel" aria-labelledby="nav-filial-tab">
-    {% comment %} {% if caminhoes %} {% endcomment %}
-    {% include "templates-listar/listarFilial.html" %}
-    {% comment %} {% endif %} {% endcomment %}
-  </div>
-  <div class="tab-pane fade" id="nav-funcionarios" role="tabpanel" aria-labelledby="nav-funcionarios-tab">
-    <div class="accordion mt-2" id="accordionFuncionarios">
+
+  <div class="tab-content" id="nav-tabContent">
+    <div class="tab-pane fade show active" id="nav-filial" role="tabpanel" aria-labelledby="nav-filial-tab">
       {% comment %} {% if caminhoes %} {% endcomment %}
-      {% include "templates-listar/listarFuncionarios.html" %}
+      {% include "templates-listar/listarFilial.html" %}
       {% comment %} {% endif %} {% endcomment %}
     </div>
+    <div class="tab-pane fade" id="nav-funcionarios" role="tabpanel" aria-labelledby="nav-funcionarios-tab">
+      <div class="accordion mt-2" id="accordionFuncionarios">
+        {% comment %} {% if caminhoes %} {% endcomment %}
+        {% include "templates-listar/listarFuncionarios.html" %}
+        {% comment %} {% endif %} {% endcomment %}
+      </div>
+    </div>
   </div>
-</div>
 
-{% include "templates-form/modalTemplate.html" with form=forms.formUpdateFilial %}
-{% include "templates-form/modalTemplate.html" with form=forms.formCadastroFilial %}
-{% include "templates-form/modalTemplate.html" with form=forms.formUpdateFuncionario %}
-{% include "templates-form/modalTemplate.html" with form=forms.formCadastroFuncionario %}
+  {% include "templates-form/modalTemplate.html" with form=forms.formUpdateFilial %}
+  {% include "templates-form/modalTemplate.html" with form=forms.formCadastroFilial %}
+  {% include "templates-form/modalTemplate.html" with form=forms.formUpdateFuncionario %}
+  {% include "templates-form/modalTemplate.html" with form=forms.formCadastroFuncionario %}
 
-{% endblock %}
+  {% endblock %}
 
-{% block pageScript %}
-<script type="text/javascript">
-  window.onload = pageActive("#network");
-</script>
-{% endblock %}
+  {% block pageScript %}
+  <script type="text/javascript">
+    window.onload = pageActive("#network");
+  </script>
+  {% endblock %}

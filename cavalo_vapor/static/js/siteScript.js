@@ -22,7 +22,6 @@ function pageActive(nome) {
   document.querySelector(`${nome} > a`).classList.toggle('active')
 }
 
-
 function selecionaEstadoInicial() {
   dados = {
     url: "/ajax/select_city",

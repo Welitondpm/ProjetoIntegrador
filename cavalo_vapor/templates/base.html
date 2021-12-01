@@ -83,18 +83,23 @@
 
 
           <!-- usuario logout -->
-          <li class="nav-item dropdown">
+          <li class="nav-item dropdown justify-content-center text-center" id="usuario">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
               aria-haspopup="true">
               {{ user }}
             </a>
-            <div class="dropdown-menu">
-              <a class="dropdown-item" href="{% url 'usuario' %}">
-                Seu perfil
-              </a>
-              <a class="dropdown-item" href="{% url 'logout' %}">
-                Sair
-              </a>
+            <div class="dropdown-menu text-center">
+              <div class="nav-item">
+                <a class="dropdown-item nav-link" href="{% url 'usuario' %}">
+                  Seu perfil
+                </a>
+              </div>
+
+              <div class="nav-item">
+                <a class="dropdown-item nav-link" href="{% url 'logout' %}">
+                  Sair
+                </a>
+              </div>
             </div>
           </li>
           {% else %}

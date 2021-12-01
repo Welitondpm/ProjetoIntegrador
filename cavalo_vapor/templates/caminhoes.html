@@ -9,66 +9,55 @@ Caminhões
 
 {% include "templates-form/formPesquisa.html" with pesquisa=forms.formPesquisaCaminhao %}
 
-<main class="">
-  <nav class="nav nav-tabs border-0" id="nav-tab" role="tablist">
-    <a class="nav-item nav-link col mx-3 py-3 align-items-center text-decoration-none active d-flex justify-content-between"
-      id="nav-cavaloMecanico-tab" data-toggle="tab" href="#nav-cavaloMecanico" role="tab"
-      aria-controls="nav-cavaloMecanico" aria-selected="true">
-      <span class="">
-        Cavalo Mecânico
-      </span>
-      <button type="button" class="btn btn-primary m-0 rounded" onclick="cadastrarCaminhao();">
-        Adicionar
-      </button>
-      <span class="position-absolute"></span>
-    </a>
+<nav class="nav nav-tabs border-0" id="nav-tab" role="tablist">
+  <a class="nav-item nav-link col mx-3 py-3 align-items-center text-decoration-none active d-flex justify-content-between"
+    id="nav-cavaloMecanico-tab" data-toggle="tab" href="#nav-cavaloMecanico" role="tab"
+    aria-controls="nav-cavaloMecanico" aria-selected="true">
+    <span>
+      Cavalo Mecânico
+    </span>
+    <button type="button" class="btn btn-primary m-0 rounded" onclick="cadastrarCaminhao();">
+      Adicionar
+    </button>
+  </a>
 
-    <a class="nav-item nav-link col mx-3 py-3 align-items-center text-decoration-none d-flex justify-content-between"
-      id="nav-carreta-tab" data-toggle="tab" href="#nav-carreta" role="tab" aria-controls="nav-carreta"
-      aria-selected="false">
-      <span class="">
-        Carretas
-      </span>
-      <button type="button" class="btn btn-primary m-0 rounded" onclick="cadastrarCarreta();">
-        Adicionar
-      </button>
-    </a>
-  </nav>
+  <a class="nav-item nav-link col mx-3 py-3 align-items-center text-decoration-none d-flex justify-content-between"
+    id="nav-carreta-tab" data-toggle="tab" href="#nav-carreta" role="tab" aria-controls="nav-carreta"
+    aria-selected="false">
+    <span>
+      Carretas
+    </span>
+    <button type="button" class="btn btn-primary m-0 rounded" onclick="cadastrarCarreta();">
+      Adicionar
+    </button>
+  </a>
+</nav>
 
-  <div class="tab-content" id="nav-tabContent">
-    <div class="tab-pane fade show active" id="nav-cavaloMecanico" role="tabpanel"
-      aria-labelledby="nav-cavaloMecanico-tab">
-      <div class="row">
-        {% if caminhoes %}
-        {% include "templates-listar/listarCaminhao.html" %}
-        {% endif %}
-        <div class="d-none alert alert-dark flex-grow-0 mx-auto text-center" role="alert" id="mensagemSemCaminhao">
-          Você não possui nenhum caminhão cadastrado! <a class="alert-link" onclick="cadastrarCaminhao();">Clique
-            aqui!</a>
-        </div>
-      </div>
-    </div>
-    <div class="tab-pane fade" id="nav-carreta" role="tabpanel" aria-labelledby="nav-carreta-tab">
-      <div class="row">
-        {% if carretas %}
-        {% include "templates-listar/listarCarreta.html" %}
-        {% endif %}
-        <div class="alert alert-dark flex-grow-0 m-4 text-center d-none" role="alert" id="mensagemSemCarreta">
-          Você não possui nenhuma carreta cadastrada! <a class="alert-link" onclick="cadastrarCarreta()">
-            aqui!</a>
-        </div>
+<div class="tab-content" id="nav-tabContent">
+  <div class="tab-pane fade show active" id="nav-cavaloMecanico" role="tabpanel"
+    aria-labelledby="nav-cavaloMecanico-tab">
+    <div class="row">
+      {% if caminhoes %}
+      {% include "templates-listar/listarCaminhao.html" %}
+      {% endif %}
+      <div class="d-none alert alert-dark flex-grow-0 mx-auto text-center" role="alert" id="mensagemSemCaminhao">
+        Você não possui nenhum caminhão cadastrado! <a class="alert-link" onclick="cadastrarCaminhao();">Clique
+          aqui!</a>
       </div>
     </div>
   </div>
-</main>
-{% if caminhaoCriado == "Success" %}
-<script>
-  caminhaoCriado()
-</script>
-{% endif %}
-{%if carretaCriado == "Success" %}
-
-{%endif %}
+  <div class="tab-pane fade" id="nav-carreta" role="tabpanel" aria-labelledby="nav-carreta-tab">
+    <div class="row">
+      {% if carretas %}
+      {% include "templates-listar/listarCarreta.html" %}
+      {% endif %}
+      <div class="alert alert-dark flex-grow-0 m-4 text-center d-none" role="alert" id="mensagemSemCarreta">
+        Você não possui nenhuma carreta cadastrada! <a class="alert-link" onclick="cadastrarCarreta()">
+          aqui!</a>
+      </div>
+    </div>
+  </div>
+</div>
 
 {% include "templates-form/modalTemplate.html" with form=forms.formUpdateCaminhao %}
 {% include "templates-form/modalTemplate.html" with form=forms.formCadastroCaminhao %}
@@ -95,20 +84,24 @@ Caminhões
 
   }
 
-  // {
-  //   %
-  //   if caminhaoCriado == "Success" %
-  // }
+  // {% if caminhaoCriado == "Success" %}
   // Swal.fire({
   //   icon: 'success',
   //   title: 'Seu caminhão foi criado com Sucesso!',
   //   showConfirmButton: false,
   //   timer: 3000
   // })
-  // {
-  //   %
-  //   endif %
-  // }
+  // {% endif %}
+
+  // {% if carretaCriado == "Success" %}
+  // Swal.fire({
+  //   icon: 'success',
+  //   title: 'Sua carreta foi criada com Sucesso!',
+  //   showConfirmButton: false,
+  //   timer: 3000,
+  //   background: "#F3F5FF"
+  // })
+  // {% endif %}
 
   function carretaCriada(params) {
     Swal.fire({
