@@ -1,39 +1,41 @@
 {% load static %}
 
-<div class="card text-white">
-  <div class="card-header p-2" id="headingfuncionario1">
-    <div class="row">
-      <span class="col p-0">
-        <h5 class="card-title h-100 m-0 d-flex align-items-center">
-          <span class="col">
-            Nome: Funcionario 1
-          </span>
-          <span class="col">
-            Matrícula: 2019324099
-          </span>
-          <span class="col">
-            CPF: 000.000.000-02
-          </span>
-        </h5>
-      </span>
-      <span class="col-auto d-flex justify-content-end">
-          <button class="btn btn-primary m-0 mr-2" data-toggle="collapse" data-target="#funcionario1" aria-expanded="true" aria-controls="funcionario1">
-            Ver Mais
-          </button>
-          <button class="btn btn-info m-0 mr-2">
-            <img src="{% static 'img/svg/pencil.svg'%}" alt="Edit" widht="20px" height="20px">
-          </button>
-          <button class="btn btn-danger m-0">
-            <img src="{% static 'img/svg/del.svg'%}" alt="" width="20px" height="20px">
-          </button>
+<div class="text-white ">
+  <div class="card-header" id="headingfuncionario1">
+    <div class="row " data-toggle="collapse" data-target="#funcionario1" aria-expanded="true"
+      aria-controls="funcionario1">
+      <h5 class="card-title m-0 col row align-items-center">
+        <div class="mr-md-auto mr-sm-0">
+          Nome: Funcionario 1
+        </div>
+        <div class="mx-md-auto mx-sm-0">
+          Matrícula: 2019324099
+        </div>
+        <div class="mx-md-auto mx-sm-0">
+          CPF: 000.000.000-02
+        </div>
+      </h5>
+
+      <span class="col-auto pr-0">
+        <button class="btn btn-primary m-0 mr-2" data-toggle="collapse" data-target="#funcionario1" aria-expanded="true"
+          aria-controls="funcionario1">
+          Ver Mais
+        </button>
+        <button class="btn btn-primary m-0 mr-2">
+          <img src="{% static 'img/svg/pencil-white.svg'%}" alt="Edit" widht="20px" height="20px">
+        </button>
+        <button class="btn btn-danger m-0">
+          <img src="{% static 'img/svg/del.svg'%}" alt="" width="20px" height="20px">
+        </button>
       </span>
     </div>
   </div>
-  <div id="funcionario1" class="collapse" aria-labelledby="headingfuncionario1" data-parent="#accordionFuncionarios">
-    <div class="card-body">
-      <p class="card-text">
-        Sei la fi
-      </p>
-    </div>
+</div>
+<div id="funcionario1" class="collapse" aria-labelledby="headingfuncionario1" data-parent="#accordionFuncionarios">
+  <div class="card-body">
+    <p class="card-text">
+      Sei la fi
+    </p>
   </div>
+</div>
 </div>

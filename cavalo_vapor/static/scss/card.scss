@@ -1,10 +1,9 @@
+@import "./variaveis.scss";
+
 .card {
   background-color: $bg-default !important;
-
-  img {
-    background-color: $bg-default !important;
-  }
 }
+
 .card-header {
   background-color: $bg-default !important;
 }

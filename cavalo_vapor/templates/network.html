@@ -9,35 +9,37 @@ Network
 
 {% include "templates-form/formPesquisa.html" with pesquisa=forms.formPesquisaNetwork %}
 
-<nav class="m-2">
-  <div class="nav nav-tabs" id="nav-tab" role="tablist">
-    <a class="nav-item nav-link active col p-2 pl-3 d-flex justify-content-between" id="nav-filial-tab"
-      data-toggle="tab" href="#nav-filial" role="tab" aria-controls="nav-filial" aria-selected="true">
-      <span class="mt-2">
-        Filial
-      </span>
-      <div class="btn btn-primary m-0 rounded" onclick="cadastrarFilial();">
-        Adicionar
-      </div>
-    </a>
-    <a class="nav-item nav-link col p-2 pl-3 d-flex justify-content-between" id="nav-funcionarios-tab" data-toggle="tab"
-      href="#nav-funcionarios" role="tab" aria-controls="nav-funcionarios" aria-selected="false">
-      <span class="mt-2">
-        Funcionários
-      </span>
-      <div class="btn btn-primary m-0 rounded" onclick="cadastrarFuncionario();">
-        Adicionar
-      </div>
-    </a>
+<nav class="nav nav-tabs border-0" id="nav-tab" role="tablist">
+
+  <a class="nav-item nav-link col mx-3 py-3 align-items-center text-decoration-none active d-flex justify-content-between"
+    data-toggle="tab" href="#nav-filial" role="tab" aria-controls="nav-filial" aria-selected="true">
+    <span>
+      Filial
+    </span>
+    <button type="button" class="btn btn-primary m-0 rounded" onclick="cadastrarFilial()">
+      Adicionar
+    </button>
+  </a>
+
+  <a class="nav-item nav-link col mx-3 py-3 align-items-center text-decoration-none d-flex justify-content-between"
+    id="nav-funcionarios-tab" data-toggle="tab" href="#nav-funcionarios" role="tab" aria-controls="nav-funcionarios"
+    aria-selected="false">
+    <span>
+      Funcionários
+    </span>
+    <div class="btn btn-primary m-0 rounded" onclick="cadastrarFuncionario();">
+      Adicionar
+    </div>
+  </a>
   </div>
 
-  <div class="tab-content" id="nav-tabContent">
+  <div class="tab-content m-2" id="nav-tabContent">
     <div class="tab-pane fade show active" id="nav-filial" role="tabpanel" aria-labelledby="nav-filial-tab">
       {% comment %} {% if caminhoes %} {% endcomment %}
       {% include "templates-listar/listarFilial.html" %}
       {% comment %} {% endif %} {% endcomment %}
     </div>
-    <div class="tab-pane fade" id="nav-funcionarios" role="tabpanel" aria-labelledby="nav-funcionarios-tab">
+    <div class="tab-pane fade m-2" id="nav-funcionarios" role="tabpanel" aria-labelledby="nav-funcionarios-tab">
       <div class="accordion mt-2" id="accordionFuncionarios">
         {% comment %} {% if caminhoes %} {% endcomment %}
         {% include "templates-listar/listarFuncionarios.html" %}

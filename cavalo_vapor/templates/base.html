@@ -12,6 +12,46 @@
     integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
   {% block pageStyle %}{% endblock %}
   <title>{% block pageTitle %}Cavalo-Vapor Fretes{% endblock %}</title>
+
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+  <script type="text/javascript">
+    google.charts.load('current', {
+      'packages': ['corechart']
+    });
+    google.charts.setOnLoadCallback(drawChart);
+
+    function drawChart() {
+
+      var data = google.visualization.arrayToDataTable([
+        ['Task', 'Hours per Day'],
+        ['Work', 11],
+        ['Eat', 2],
+        ['Commute', 2],
+        ['Watch TV', 2],
+        ['Sleep', 7]
+      ]);
+
+      var options = {
+        title: 'My Daily Activities'
+      };
+
+      var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+      var chart2 = new google.visualization.PieChart(document.getElementById('piechart2'));
+      var chart3 = new google.visualization.PieChart(document.getElementById('piechart3'));
+      var chart4 = new google.visualization.PieChart(document.getElementById('piechart4'));
+      var chart5 = new google.visualization.PieChart(document.getElementById('piechart5'));
+      var chart6 = new google.visualization.PieChart(document.getElementById('piechart6'));
+
+      chart.draw(data, options);
+      chart2.draw(data, options);
+      chart3.draw(data, options);
+      chart4.draw(data, options);
+      chart5.draw(data, options)
+      chart6.draw(data, options)
+
+    }
+  </script>
+
 </head>
 
 <body>

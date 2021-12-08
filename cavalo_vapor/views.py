@@ -3,6 +3,7 @@ from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, logout, login
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseRedirect, JsonResponse
+from django.urls import reverse
 from .functionsPy import saveDB, sendEmail, updateDB, formsDate
 from .models import *
 
@@ -139,9 +140,11 @@ def caminhoes(request):
         if request.POST["inputForm"] == "caminhao":
             if saveBase.CreateCaminhao(request=request) == "Success":
                 caminhaoCriado = "Success"
+                return HttpResponseRedirect(reverse("caminhoes"))
         elif request.POST["inputForm"] == "carreta":
             if saveBase.CreateCarreta(request=request) == "Success":
                 carretaCriado = "Success"
+                return HttpResponseRedirect(reverse("caminhoes"))
     caminhoesObject = Caminhao.objects.all().filter(
         idUsuario=request.session["dados"]["usuarioId"]
     )

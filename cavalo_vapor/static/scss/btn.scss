@@ -15,17 +15,8 @@
 }
 
 .btn-delete {
-  img {
-    background-color: #dc3545 !important;
-    transition-duration: 0.15s, 0.15s, 0.15s, 0.15s !important;
-  }
+  background-color: #ed263a !important;
 
-  &:hover {
-    img {
-      background-color: #C82333 !important;
-      transition-duration: 0.15s, 0.15s, 0.15s, 0.15s !important;
-    }
-  }
 }
 
 

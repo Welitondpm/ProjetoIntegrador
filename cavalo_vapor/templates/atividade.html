@@ -7,80 +7,138 @@ Atividade
 {% endblock tituloMenu %}
 {% block pageConteudo %}
 
-<div class="row justify-content-between p-2 m-0">
-	<h1 class="col">Suas Estatísticas</h1>
-	<select id="" class="form-control col-lg-3 col-md-4" disabled="disabled">
-		<option value="">Semanal</option>
-	</select>
-</div>
-<div class="row justify-content-around">
-	<div class="card col-3 m-3">
-		<div class="card-body text-center p-0 pt-4 pb-2">
-			<h6 class="card-subtitle mb-2 text-muted">
-				Distância Percorrida
-			</h6>
-			<h1>234 Km</h1>
-		</div>
-	</div>
-	<div class="card col-3 m-3">
-		<div class="card-body text-center p-0 pt-4 pb-2">
-			<h6 class="card-subtitle mb-2 text-muted">
-				Carga em Andamento
-			</h6>
-			<h1>Biodisel</h1>
-		</div>
-	</div>
-	<div class="card col-3 m-3">
-		<div class="card-body text-center p-0 pt-4 pb-2">
-			<h6 class="card-subtitle mb-2 text-muted">
-				Empresa de Destino do Frete
-			</h6>
-			<h1>Posped</h1>
-		</div>
-	</div>
-</div>
-<hr>
-<div class="row justify-content-between p-0">
-	<div class="row justify-content-around m-1">
-		<h1 class="col-12">Sua Empresa</h1>
-		<div class="card col-3 m-1">
-			<div class="card-body text-center p-0 pt-4 pb-2">
-				<h6 class="card-subtitle mb-2 text-muted">
-					Total ganho na conclusão de fretes
-				</h6>
-				<h3>$ 104.890,00</h3>
-			</div>
-		</div>
-		<div class="card col-3 m-1">
-			<div class="card-body text-center p-0 pt-4 pb-2">
-				<h6 class="card-subtitle mb-2 text-muted">
-					Total Percorrido
-				</h6>
-				<h3>64.982 Km</h3>
-			</div>
-		</div>
-		<div class="card col-3 m-1">
-			<div class="card-body text-center p-0 pt-4 pb-2">
-				<h6 class="card-subtitle mb-2 text-muted">
-					Qtd de carga transportada
-				</h6>
-				<h3>1560 T</h3>
-			</div>
-		</div>
-	</div>
-	<div class="m-1">
-		<h1 class="col-12">Fretes Concluidos Hoje</h1>
-		<div class="card m-4">
-			<div class="card-body text-center p-0 pt-4 pb-2">
-				<h6 class="card-subtitle mb-2 text-muted">
-					Fretes concluidos pela sua Empresa
-				</h6>
-				<h3>234 Fretes</h3>
-			</div>
-		</div>
-	</div>
-</div>
+<div class="row py-3 px-5">
+	<aside class="col-3 py-3">
+		<ul class="list-group ">
+			<li class="list-group-item">
+				<h5>
+					Lucros
+				</h5>
+				<p>
+					1.4 Btc
+				</p>
+			</li>
 
+			<li class="list-group-item">
+				<h5>
+					Distância Percorrida
+				</h5>
+				<p class="">
+					800 km
+				</p>
+			</li>
+
+			<li class="list-group-item">
+				<h5 class="">
+					Carga transportada
+				</h5>
+				<p>
+					12571,86 toneladas
+				</p>
+			</li>
+			<li class="list-group-item">
+				<h5 class="">
+					Entregas realizadas
+				</h5>
+				<p>
+					69 entregas
+				</p>
+			</li>
+		</ul>
+	</aside>
+
+	<main class="col">
+		<div class="">
+			<section class="row ">
+				<div class="row py-3 mx-auto">
+
+					<div class="col">
+						<div class="card">
+							<div class="card-header">
+								<span class="col d-flex align-items-center">
+									Filial 1
+								</span>
+							</div>
+							<div class="card-body">
+								<div id="piechart" style="width: 200px;"></div>
+							</div>
+						</div>
+					</div>
+					<div class="col">
+						<div class="card">
+							<div class="card-header">
+								<span class="col d-flex align-items-center">
+									Filial 1
+								</span>
+							</div>
+							<div class="card-body">
+								<div id="piechart5" style="width: 200px;"></div>
+							</div>
+						</div>
+					</div>
+
+					<div class="col">
+						<div class="card">
+							<div class="card-header">
+								<span class="col d-flex align-items-center">
+									Filial 1
+								</span>
+							</div>
+							<div class="card-body">
+								<div id="piechart2" style="width: 200px;"></div>
+							</div>
+						</div>
+					</div>
+
+				</div>
+
+				<div class="row py-3 mx-auto">
+
+					<div class="col">
+						<div class="card">
+							<div class="card-header">
+								<span class="col d-flex align-items-center">
+									Filial 1
+								</span>
+							</div>
+							<div class="card-body">
+								<div id="piechart3" style="width: 200px;"></div>
+							</div>
+						</div>
+					</div>
+
+					<div class="col">
+						<div class="card">
+							<div class="card-header">
+								<span class="col d-flex align-items-center">
+									Filial 1
+								</span>
+							</div>
+							<div class="card-body">
+								<div id="piechart6" style="width: 200px;"></div>
+							</div>
+						</div>
+					</div>
+
+					<div class="col">
+						<div class="card">
+							<div class="card-header">
+								<span class="col d-flex align-items-center">
+									Filial 1
+								</span>
+							</div>
+							<div class="card-body">
+								<div id="piechart4" style="width: 200px;"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+			</section>
+		</div>
+	</main>
+
+</div>
 {% endblock %}
 
 {% block pageScript %}

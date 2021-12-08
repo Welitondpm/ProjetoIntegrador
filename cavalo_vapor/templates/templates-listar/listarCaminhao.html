@@ -1,12 +1,12 @@
 {% load static %} {% for caminhao in caminhoes %}
-<div class="col-lg-6 col-md-12 px-0 caminhoes" id="caminhaoId{{caminhao.id}}">
+<div class="col-sm-6 px-0 caminhoes" id="caminhaoId{{caminhao.id}}">
   <div class="card m-3">
     <div class="card-header">
       <div class="row">
         <span class="col d-flex align-items-center"> {{caminhao.nome}} </span>
         <span class="m-1">
-          <button class="btn btn-info btn-edit" onclick="updateCaminhao({{caminhao}});">
-            <img src="{% static 'img/svg/pencil.svg'%}" alt="Edit" widht="20px" height="20px" />
+          <button class="btn btn-primary" onclick="updateCaminhao({{caminhao}});">
+            <img src="{% static 'img/svg/pencil-white.svg'%}" alt="Edit" widht="20px" height="20px" />
           </button>
         </span>
         <span class="m-1">
@@ -18,15 +18,14 @@
     </div>
     <div class="card-body">
       <div class="row">
-
-        <div class="col-md-5 text-center">
-          <img class="img-thumbnail" src="https://i.ibb.co/zG6NMcN/cavalo-de-troia.gif"
+        <div class="col-md-4 text-center">
+          <img class="img-fluid" src="https://i.ibb.co/zG6NMcN/cavalo-de-troia.gif"
             alt="Tenho Quase Certeza que isso é completamente desnecessário" />
           <!-- <img class="img-thumbnail" src="{{caminhao.logo}}"
             alt="Tenho Quase Certeza que isso é completamente desnecessário"> -->
         </div>
-        <div class="col-md-7">
-          <p class="card-text m-0" id="caminhaoAtributos">{{caminhao}}</p>
+        <div class="col-md-8 ">
+          <p class=" card-text m-0" id="caminhaoAtributos">{{caminhao}}</p>
         </div>
       </div>
     </div>

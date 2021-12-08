@@ -8,8 +8,9 @@ Fretes | Usuário{% endblock %} {% block tituloMenu %} Usuário {% endblock titu
   </h1>
 </div>
 <form action="" class="">
-  <div class="col-6 offset-3">
-    <img class="img-fluid" src="https://i.insider.com/61135525ad63f30019501966?width=700" alt="" />
+  <div class="col-6 offset-3 d-flex flex-column justify-content-center align-items-center">
+    <img class="img-fluid mx-auto" width="200px" src="https://i.insider.com/61135525ad63f30019501966?width=700"
+      alt="" />
     <div class="form-group">
       <label for="inputLogo" class="mt-2">Alterar Imagem:</label>
       <div class="">
@@ -25,7 +26,7 @@ Fretes | Usuário{% endblock %} {% block tituloMenu %} Usuário {% endblock titu
       <label for="inputDescricao">Descrição:</label>
       <div class="input-group">
         <textarea id="inputDescricao" class="form-control" cols="30" rows="5" readonly>
-{{sesssionDados.descricao}}</textarea>
+{{sesssionDados.descricao}} </textarea>
       </div>
     </div>
 
@@ -102,10 +103,10 @@ Fretes | Usuário{% endblock %} {% block tituloMenu %} Usuário {% endblock titu
         </div>
       </div>
     </div>
-  </div>
-  <div class="row justify-content-end p-4 m-2">
-    <button type="reset" class="btn btn-secondary mr-3">Cancelar</button>
-    <button type="submit" class="btn btn-primary">Salvar Alterações</button>
+    <div class="">
+      <button type="reset" class="btn btn-secondary mr-3">Cancelar</button>
+      <button type="submit" class="btn btn-primary">Salvar Alterações</button>
+    </div>
   </div>
 </form>
 
