@@ -103,6 +103,12 @@ body {
   background: #040f3f !important;
 }
 
+.atividade-grid {
+  display: -ms-grid;
+  display: grid;
+  grid-gap: 1rem;
+}
+
 .form-control {
   background-color: #fff !important;
 }

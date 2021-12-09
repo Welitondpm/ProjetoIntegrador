@@ -16,8 +16,8 @@
         </span>
       </div>
     </div>
-    <div class="card-body">
-      <div class="row">
+    <div class="card-body ">
+      <div class="row align-items-center d-flex">
         <div class="col-md-4 text-center">
           <img class="img-fluid" src="https://i.ibb.co/zG6NMcN/cavalo-de-troia.gif"
             alt="Tenho Quase Certeza que isso é completamente desnecessário" />
@@ -25,7 +25,20 @@
             alt="Tenho Quase Certeza que isso é completamente desnecessário"> -->
         </div>
         <div class="col-md-8 ">
-          <p class=" card-text m-0" id="caminhaoAtributos">{{caminhao}}</p>
+          <ul class="card-text list-group-flush m-0" id="caminhaoAtributos">
+            <li class="list-group-item p-0">
+              Número: {{caminhao.id}}
+            </li>
+            <li class="list-group-item p-0">
+              Nome: {{caminhao.nome}}
+            </li>
+            <li class="list-group-item p-0">
+              Eixos: {{caminhao.eixos}}
+            </li>
+            <li class="list-group-item p-0">
+              Marca: {{caminhao.marca}}
+            </li>
+          </ul>
         </div>
       </div>
     </div>

@@ -9,27 +9,39 @@
           {{carreta.nome}}
         </span>
         <span class="m-1">
-          <button class="btn btn-primary btn-edit" onclick="updateCarreta({{carreta}})">
+          <button class="btn btn-primary" onclick="updateCarreta({{carreta}})">
             <img src="{% static 'img/svg/pencil-white.svg'%}" alt="Edit" widht="20px" height="20px">
           </button>
         </span>
         <span class="m-1">
-          <button class="btn btn-danger btn-delete" onclick="alertDel({{carreta.id}}, 'carreta')">
+          <button class="btn btn-danger " onclick="alertDel({{carreta.id}}, 'carreta')">
             <img src="{% static 'img/svg/del.svg'%}" alt="Del" widht="20px" height="20px">
           </button>
         </span>
       </div>
     </div>
     <div class="card-body">
-      <div class="row">
-        <div class="col-md-5 text-center">
-          <img class="img-thumbnail" src="{{carreta.logo}}"
-            alt="Tenho Quase Certeza que isso é completamente desnecessário">
+      <div class="row align-items-center">
+        <div class="col-md-4 text-center">
+          <img class="img-fluid" src="https://i.ibb.co/zG6NMcN/cavalo-de-troia.gif"
+            alt="Tenho Quase Certeza que isso é completamente desnecessário" />
         </div>
-        <div class="col-md-7">
-          <p class="card-text m-0">
-            {{carreta}}
-          </p>
+        <div class="col-md-8">
+          <ul class="card-text m-0 list-group-flush">
+            <li class="list-group-item p-0">
+              <span> Número: {{carreta.id}} </span>
+            </li>
+
+            <li class="list-group-item p-0">
+              <span>
+                Peso máximo: {{carreta.peso_maximo}}
+              </span>
+            </li>
+            <li class="list-group-item p-0">
+              <span> Reboque: {{carreta.reboque}}
+              </span>
+            </li>
+          </ul>
         </div>
       </div>
     </div>
